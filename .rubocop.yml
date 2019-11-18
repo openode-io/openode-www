@@ -5,6 +5,10 @@ AllCops:
     - vendor/**/*
     # package testing gems
     - test/vendor/**/*
+    - 'node_modules/**/*'
+    - bin/*
+    - config/**/*
+    - db/**/*
 
 Rails/Output:
   Exclude:
@@ -59,6 +63,9 @@ Style/IfUnlessModifier:
 Naming/MemoizedInstanceVariableName:
   Enabled: false
 
+Metrics/LineLength:
+  Max: 90
+
 Metrics/BlockLength:
   Exclude:
     - 'test/**/*.rb'
@@ -71,6 +78,9 @@ Metrics/ClassLength:
 Lint/HandleExceptions:
   Exclude:
     - 'test/**/*.rb'
+
+Style/Documentation:
+  Enabled: false
 
 Style/ClassVars:
   Enabled: false

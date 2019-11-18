@@ -1,0 +1,14 @@
+language: ruby
+
+before_script:
+#- sudo apt-get install -qq sshpass
+
+script:
+  - bundle exec rubocop
+  - bundle exec bin/rails test
+
+deploy:
+  provider: script
+  script: env bash scripts/deploy.sh
+  on:
+    branch: master
