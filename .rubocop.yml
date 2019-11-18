@@ -1,0 +1,88 @@
+require: rubocop-rails
+
+AllCops:
+  Exclude:
+    - vendor/**/*
+    # package testing gems
+    - test/vendor/**/*
+
+Rails/Output:
+  Exclude:
+    - 'config/*.rb'
+
+Rails/InverseOf:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/*'
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Rails/BulkChangeTable:
+  Enabled: false
+
+Rails/ReversibleMigration:
+  Enabled: false
+
+Lint/ImplicitStringConcatenation:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'test/**/*.rb'
+
+Metrics/ClassLength:
+  Max: 500
+  Exclude:
+    - 'test/**/*.rb'
+
+Lint/HandleExceptions:
+  Exclude:
+    - 'test/**/*.rb'
+
+Style/ClassVars:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Layout/LeadingBlankLines:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/EndAlignment:
+  Enabled: false
