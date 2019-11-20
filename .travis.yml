@@ -1,7 +1,7 @@
 language: ruby
 
 before_script:
-#- sudo apt-get install -qq sshpass
+  - sudo apt-get install -qq sshpass
 
 script:
   - bundle exec rubocop
