@@ -8,7 +8,7 @@ before_script:
 
 script:
   - bundle exec rubocop
-  - ./bin/webpack
+  - bundle exec bin/webpack
   - bundle exec bin/rails test
 
 deploy:
