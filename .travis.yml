@@ -8,7 +8,7 @@ before_script:
 
 script:
   - bundle exec rubocop
-  - NODE_ENV=test bundle exec rails webpacker:compile
+  - ./bin/webpack
   - bundle exec bin/rails test
 
 deploy:
