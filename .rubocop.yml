@@ -75,7 +75,7 @@ Metrics/ClassLength:
   Exclude:
     - 'test/**/*.rb'
 
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Exclude:
     - 'test/**/*.rb'
 
@@ -88,7 +88,7 @@ Style/ClassVars:
 Style/MutableConstant:
   Enabled: false
 
-Layout/LeadingBlankLines:
+Layout/LeadingEmptyLines:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
