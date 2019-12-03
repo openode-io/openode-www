@@ -70,6 +70,9 @@ Metrics/BlockLength:
   Exclude:
     - 'test/**/*.rb'
 
+Metrics/MethodLength:
+  Max: 30
+
 Metrics/ClassLength:
   Max: 500
   Exclude:
