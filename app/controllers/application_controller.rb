@@ -1,6 +1,9 @@
 require 'rest-client'
 
 class ApplicationController < ActionController::Base
+  include Response
+  include ExceptionHandler
+
   helper_method :current_user
 
   def current_user
@@ -24,10 +27,10 @@ class ApplicationController < ActionController::Base
 
     url = "#{api_url}#{path}"
 
-    RestClient::Request.execute(method: method,
-                                url: url,
-                                timeout: 10,
-                                payload: args[:payload],
-                                headers: headers)
+    JSON.parse(RestClient::Request.execute(method: method,
+                                           url: url,
+                                           timeout: 10,
+                                           payload: args[:payload],
+                                           headers: headers))
   end
 end
