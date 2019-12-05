@@ -18,14 +18,12 @@ class ApplicationController < ActionController::Base
   end
 
   def api(method, path = "/", args = {})
-    api_url = 'http://localhost:3000'
-
     headers = {
       "x-auth-token": current_user ? current_user[:token] : nil,
       "params": args[:params] || {}
     }
 
-    url = "#{api_url}#{path}"
+    url = "#{Rails.configuration.API_URL}#{path}"
 
     JSON.parse(RestClient::Request.execute(method: method,
                                            url: url,

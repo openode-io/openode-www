@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.configure do
+  
+  config.API_URL = 'http://localhost:3000'
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

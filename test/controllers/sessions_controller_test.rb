@@ -1,20 +1,22 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
-  # TODO
+  test "POST /sessions - happy path" do
+    post "/sessions",
+         params: { email: "mymail@openode.io", password: "1234561!" }
 
-  # test "should get new" do
-  #  get sessions_new_url
-  #  assert_response :success
-  # end
+    assert_response :found
 
-  # test "should get create" do
-  #  get sessions_create_url
-  #  assert_response :success
-  # end
+    # TODO: add proper redirection check to admin
 
-  # test "should get destroy" do
-  #  get sessions_destroy_url
-  #  assert_response :success
-  # end
+    assert_equal session["token"], "123456789123"
+  end
+
+  test "POST /sessions - with invalid user" do
+    post "/sessions",
+         params: { email: "invalid@openode.io", password: "123456" }
+
+    assert_response :found
+    assert_equal session["token"], nil
+  end
 end

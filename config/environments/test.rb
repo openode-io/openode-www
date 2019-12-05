@@ -6,6 +6,9 @@
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+
+  config.API_URL = 'https://api.openode.io'
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.cache_classes = false
@@ -47,4 +50,11 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
+
+  logger           = ActiveSupport::Logger.new(STDOUT)
+  logger.formatter = config.log_formatter
+  config.logger    = ActiveSupport::TaggedLogging.new(logger)
+
+  config.log_level = :debug
+
 end

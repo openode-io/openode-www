@@ -3,13 +3,47 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+require 'webmock/minitest'
 
 class ActiveSupport::TestCase
+  http_stubs = [
+    {
+      url: 'https://api.openode.io/account/getToken',
+      method: :post,
+      with: {
+        body: { 'email' => 'mymail@openode.io', 'password' => '1234561!' }
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path: 'test/fixtures/http/openode_api/front/get_token_exists.json'
+    },
+    {
+      url: 'https://api.openode.io/account/getToken',
+      method: :post,
+      with: {
+        body: { 'email' => 'invalid@openode.io', 'password' => '123456' }
+      },
+      content_type: 'application/json',
+      response_status: 404,
+      response_path: 'test/fixtures/http/openode_api/front/get_token_not_exists.json'
+    }
+  ]
+
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
+
+  setup do
+    http_stubs.each do |http_stub|
+      stub_request(http_stub[:method], http_stub[:url])
+        .with(body: http_stub[:with][:body])
+        .to_return(status: http_stub[:response_status],
+                   body: IO.read(http_stub[:response_path]),
+                   headers: { content_type: http_stub[:content_type] })
+    end
+  end
 
   # Add more helper methods to be used by all tests here...
 end
