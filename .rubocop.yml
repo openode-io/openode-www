@@ -33,6 +33,9 @@ Style/MixinUsage:
 Style/StringLiterals:
   Enabled: false
 
+Style/EmptyMethod:
+  Enabled: false
+
 Style/MultilineBlockChain:
   Enabled: false
 

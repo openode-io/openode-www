@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
   def current_user
     if session[:token]
       @current_user ||= {
-        name: 'what',
         token: session[:token]
       }
     else
@@ -19,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def api(method, path = "/", args = {})
     headers = {
-      "x-auth-token": current_user ? current_user[:token] : nil,
+      "x-auth-token": session[:token],
       "params": args[:params] || {}
     }
 
