@@ -2,12 +2,16 @@ module ExceptionHandler
   # provides the more graceful `included` method
   extend ActiveSupport::Concern
 
-  def self.stringify_rest_exception(exception)
-    case exception.http_code
+  def self.stringify_rest_exception(exception, http_code)
+    case http_code
     when 401
       "Invalid credentials"
     else
-      JSON.parse(exception.http_body)["error"] || exception.message
+      response = exception.try(:response)
+
+      return exception.message unless response
+
+      JSON.parse(response)['error']
     end
   end
 
@@ -23,32 +27,22 @@ module ExceptionHandler
   end
 
   def standard_error_handle(exception, http_code = 400)
+    # msg = exception.try(:response).try(:message)
+    msg = ExceptionHandler.stringify_rest_exception(exception, http_code)
+
     case request.format
     when "text/html"
-      handle_error_html(exception.message)
+      handle_error_html(msg)
     when "text/json"
-      handle_error_json(exception.message, http_code)
+      handle_error_json(msg, http_code)
     else
-      handle_error_json(exception.message, http_code)
+      handle_error_json(msg, http_code)
     end
   end
 
   included do
-    # errors from the API
-    rescue_from RestClient::Exception do |e|
-      case request.format
-      when "text/html"
-        handle_error_html(ExceptionHandler.stringify_rest_exception(e))
-      when "text/json"
-        handle_error_json(ExceptionHandler.stringify_rest_exception(e), e.http_code)
-      else
-        handle_error_json(ExceptionHandler.stringify_rest_exception(e), e.http_code)
-      end
-    end
-
-    # otherwise:
     rescue_from StandardError do |e|
-      standard_error_handle(e)
+      standard_error_handle(e, e.try(:http_code) || 400)
     end
   end
 end

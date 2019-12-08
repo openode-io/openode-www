@@ -26,6 +26,36 @@ class ActiveSupport::TestCase
       content_type: 'application/json',
       response_status: 404,
       response_path: 'test/fixtures/http/openode_api/front/get_token_not_exists.json'
+    },
+    {
+      url: 'https://api.openode.io/account/register',
+      method: :post,
+      with: {
+        body: {
+          'email' => 'myadminvalidregister@thisisit.com',
+          'password' => 'Helloworld234',
+          'password_confirmation' => 'Helloworld234',
+          'newsletter' => '0'
+        }
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path: 'test/fixtures/http/openode_api/front/users_create.json'
+    },
+    {
+      url: 'https://api.openode.io/account/register',
+      method: :post,
+      with: {
+        body: {
+          'email' => 'myadminvalidregister@thisisit.com',
+          'password' => 'Helloworld234',
+          'password_confirmation' => 'Helloworld234567'
+        }
+      },
+      content_type: 'application/json',
+      response_status: 422,
+      response_path:
+        'test/fixtures/http/openode_api/front/users_create_validation_issue.json'
     }
   ]
 

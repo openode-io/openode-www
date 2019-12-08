@@ -24,10 +24,12 @@ class ApplicationController < ActionController::Base
 
     url = "#{Rails.configuration.API_URL}#{path}"
 
+    payload = args[:payload] ? JSON.parse(args[:payload].to_json) : nil
+
     JSON.parse(RestClient::Request.execute(method: method,
                                            url: url,
                                            timeout: 10,
-                                           payload: args[:payload],
+                                           payload: payload,
                                            headers: headers))
   end
 end

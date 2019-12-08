@@ -6,10 +6,35 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "should get create" do
-  #  get users_create_url
-  #  assert_response :success
-  # end
+  test "should get create  - happy path" do
+    post '/users',
+         params: {
+           account: {
+             email: "myadminvalidregister@thisisit.com",
+             password: "Helloworld234",
+             password_confirmation: "Helloworld234",
+             newsletter: 0
+           }
+         }
+
+    assert_response :success
+  end
+
+  test "should get create  - validation issue" do
+    post '/users',
+         params: {
+           account: {
+             email: "myadminvalidregister@thisisit.com",
+             password: "Helloworld234",
+             password_confirmation: "Helloworld234567"
+           }
+         },
+         as: :json
+
+    assert_response :unprocessable_entity
+
+    assert_includes response.parsed_body['error'], 'does not match'
+  end
 
   test "should get forgot_password" do
     get users_forgot_password_url

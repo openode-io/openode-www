@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
   get 'users/register'
-  post 'users/create'
+  post '/users', to: 'users#create'
   get 'users/forgot_password'
   post 'users/process_forgot_password'
   get 'users/activate'
