@@ -1,0 +1,24 @@
+[
+  {
+    "name":"Introduction",
+    "path":"introduction/index.md"
+  },
+  {
+    "name":"Installation",
+    "path":"installation/index.md"
+  },
+  {
+    "name":"Cloud Hosting",
+    "path":"cloud_hosting/index.md",
+    "children": [
+      {
+        "name":"Logs",
+        "path":"cloud_hosting/logs.md",
+      },
+      {
+        "name":"Scheduler / Cron Jobs",
+        "path":"cloud_hosting/scheduler.md",
+      },
+    ]
+  },
+]

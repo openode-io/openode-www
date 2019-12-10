@@ -29,9 +29,6 @@ Rails.application.routes.draw do
 
   get 'blog', to: 'blog#index'
   get 'blog/post/:id', to: 'blog#post'
-
-  get 'docs', to: 'docs#index'
-  get 'doc/:id', to: 'docs#view'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
