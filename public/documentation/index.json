@@ -13,12 +13,12 @@
     "children": [
       {
         "name":"Logs",
-        "path":"cloud_hosting/logs.md",
+        "path":"cloud_hosting/logs.md"
       },
       {
         "name":"Scheduler / Cron Jobs",
-        "path":"cloud_hosting/scheduler.md",
-      },
+        "path":"cloud_hosting/scheduler.md"
+      }
     ]
-  },
+  }
 ]
