@@ -27,8 +27,8 @@ Rails.application.routes.draw do
   post 'users/process_forgot_password'
   get 'users/activate'
 
-  get 'blog', to: 'blog#index'
-  get 'blog/post/:id', to: 'blog#post'
+  get 'docs/:section/', to: 'docs#view'
+  get 'docs/:section/:document', to: 'docs#view'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

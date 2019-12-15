@@ -1,3 +1,3 @@
 # Introduction
 
-## Hello world!
+## Hello world! :-)

@@ -66,6 +66,9 @@ Style/IfUnlessModifier:
 Naming/MemoizedInstanceVariableName:
   Enabled: false
 
+Metrics/AbcSize:
+  Max: 20
+
 Metrics/LineLength:
   Max: 90
 
