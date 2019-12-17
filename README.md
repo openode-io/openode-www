@@ -1,4 +1,4 @@
-# READMEh
+# README
 
 
 [![Build status](https://travis-ci.org/openode-io/openode-www.svg?branch=master)](https://travis-ci.org/openode-io/openode-www)
