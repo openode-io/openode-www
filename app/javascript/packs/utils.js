@@ -6,7 +6,7 @@ document.addEventListener("turbolinks:load", function() {
   if (el){
     new Typed('.typed', {
       strings: ["Fast","^1500 Open","^1500 Advanced", "^1500 Frictionless"],
-      typeSpeed: 60
+      typeSpeed: 80
     });
   }
 })

@@ -5,7 +5,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     get '/'
 
     assert_response :success
-    assert_includes response.parsed_body, "Home#index"
+    assert_includes response.parsed_body, "| opeNode</title>"
   end
 
   test "should get pricing" do
