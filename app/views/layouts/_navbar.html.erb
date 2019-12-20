@@ -1,0 +1,58 @@
+<nav class="site-header sticky-top navbar-dark bg-dark navbar navbar-expand-lg">
+  <a class="navbar-brand" href="#" aria-label="Product">
+    <img src="https://www.openode.io/images/logo/dark_v2.svg" height="36" alt="Openode"/>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link  dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          Services <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <a class="dropdown-item" href="/pricing">Cloud Hosting</a>
+          <a class="dropdown-item" href="/pricing-private-cloud">Private Cloud Hosting</a>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          Resources <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <a class="dropdown-item" href="/news">News</a>
+          <a class="dropdown-item" href="https://blog.openode.io/">Blog</a>
+          <a class="dropdown-item" href="https://www.reddit.com/r/openode" target="_blank">Community Forum</a>
+          <a class="dropdown-item" href="/locations">Locations</a>
+          <a class="dropdown-item" href="https://status.openode.io/">Status</a>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          Doc <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <a class="dropdown-item" href="/openode-cli">CLI</a>
+          <a class="dropdown-item" href="/faq">FAQ</a>
+          <a class="dropdown-item" href="/docs">Docs</a>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/support">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/admin">Dashboard</a>
+      </li>      
+    <% if current_user %>
+      <li class="nav-item">
+        <%= link_to "Log Out", logout_path, class:'nav-link' %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "Log In", login_path, class:'nav-link' %>
+      </li>
+    <% end %>        
+    </ul>
+  </div>
+</nav>
