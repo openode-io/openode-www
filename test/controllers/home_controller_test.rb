@@ -12,7 +12,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     get '/pricing'
 
     assert_response :success
-    assert_includes response.parsed_body, "Home#pricing"
+    assert_includes response.parsed_body, "We accept both Paypal and Cryptocurrency"
   end
 
   test "should get private_cloud_pricing" do
