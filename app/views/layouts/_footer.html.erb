@@ -1,8 +1,8 @@
 <footer class="container py-5">
   <div class="row">
     <div class="col-12 col-md text-center">
-      <%= render 'layouts/logo', color:{lines: "#979C99",n:"#1a1a1a"}, size:{height:"70px"} %>
-      <br/><small class="d-block mb-3 text-muted">© <%= Time.now.strftime('%Y') %></small>
+      <%= render 'layouts/logo', color:{lines: "#979C99",n:"#2ecc71"}, size:{height:"70px"} %>
+      <small class="text-center text-muted">© <%= Time.now.strftime('%Y') %></small>
     </div>
     <div class="col-6 col-md">
       <h5>Services</h5>
@@ -36,6 +36,21 @@
         <li><a class="text-muted" href="https://blog.openode.io/"><i class="fa fa-rss"></i> Blog</a></li>
         <li><a class="text-muted" href="https://facebook.com/openodeio"><i class="fab fa-facebook"></i> Facebook</a></li>
       </ul>
+    </div>
+  </div>
+</footer>
+<footer class="border-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md text-center pl-0 pr-0">
+        <div class="d-flex">
+          <ul class="nav list-inline mx-auto justify-content-center">
+              <li class="nav-item"><a class="nav-link text-muted" href="/support">Contact us</a></li>
+              <li class="nav-item"><a class="nav-link text-muted" href="/terms">Terms of use</a></li>
+              <li class="nav-item"><a class="nav-link text-muted" href="/privacy">Privacy policy</a></li>
+          </ul>  
+        </div>
+      </div>
     </div>
   </div>
 </footer>
