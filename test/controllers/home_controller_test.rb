@@ -77,4 +77,11 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_includes response.parsed_body, "| Privacy</title>"
   end
+
+  test "should get openode-cli" do
+    get '/openode-cli'
+
+    assert_response :success
+    assert_includes response.parsed_body, "| CLI</title>"
+  end
 end

@@ -36,21 +36,21 @@ en:
       title: 'opeNode | Home'
     pricing:
       title: 'opeNode | Pricing'
-    pricing-private-cloud:
+    private_cloud_pricing:
       title: 'opeNode | Pricing'
     faq:
       title: 'opeNode | FAQ'
     terms:
       title: 'opeNode | Terms'
     privacy:
-      title: 'opeNode | Provacy'
+      title: 'opeNode | Privacy'
     about: 
       title: 'opeNode | About Us'
     news:
       title: 'opeNode | News'
     community:
       title: 'opeNode | Community'
-    openode-cli:
+    openode_cli:
       title: 'opeNode | CLI'
     docs:
       title: 'opeNode | Docs'
