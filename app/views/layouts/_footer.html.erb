@@ -1,40 +1,40 @@
 <footer class="container py-5">
   <div class="row">
     <div class="col-12 col-md text-center">
-      <img src="https://www.openode.io/images/logo/dark_v2.svg" height="70" alt="Openode"/>
-      <br/><small class="d-block mb-3 text-muted">© 2019</small>
+      <%= render 'layouts/logo', color:{lines: "#979C99",n:"#1a1a1a"}, size:{height:"70px"} %>
+      <br/><small class="d-block mb-3 text-muted">© <%= Time.now.strftime('%Y') %></small>
     </div>
     <div class="col-6 col-md">
       <h5>Services</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Cloud Hosting</a></li>
+        <li><a class="text-muted" href="/pricing">Cloud Hosting</a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
       <h5>Product</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">About</a></li>
-        <li><a class="text-muted" href="#">News</a></li>
-        <li><a class="text-muted" href="#">Commnunity</a></li>
-        <li><a class="text-muted" href="#">Status</a></li>
+        <li><a class="text-muted" href="/about">About</a></li>
+        <li><a class="text-muted" href="/news">News</a></li>
+        <li><a class="text-muted" href="/community">Commnunity</a></li>
+        <li><a class="text-muted" href="https://status.openode.io/">Status</a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
       <h5>Resources</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">API</a></li>
-        <li><a class="text-muted" href="#">CLI</a></li>
-        <li><a class="text-muted" href="#">Docs</a></li>
-        <li><a class="text-muted" href="#">FAQ</a></li>
+        <li><a class="text-muted" href="https://api.openode.io/">API</a></li>
+        <li><a class="text-muted" href="/openode-cli">CLI</a></li>
+        <li><a class="text-muted" href="/docs">Docs</a></li>
+        <li><a class="text-muted" href="/faq">FAQ</a></li>
       </ul>
     </div>
     <div class="col-6 col-md">
       <h5>Social</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#"><i class="fab fa-github"></i> Github</a></li>
-        <li><a class="text-muted" href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-        <li><a class="text-muted" href="#"><i class="fa fa-rss"></i> Blog</a></li>
-        <li><a class="text-muted" href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a class="text-muted" href="https://github.com/openode-io"><i class="fab fa-github"></i> Github</a></li>
+        <li><a class="text-muted" href="https://twitter.com/openodeio"><i class="fab fa-twitter"></i> Twitter</a></li>
+        <li><a class="text-muted" href="https://blog.openode.io/"><i class="fa fa-rss"></i> Blog</a></li>
+        <li><a class="text-muted" href="https://facebook.com/openodeio"><i class="fab fa-facebook"></i> Facebook</a></li>
       </ul>
     </div>
   </div>

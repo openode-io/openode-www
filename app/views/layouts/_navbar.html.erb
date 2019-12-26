@@ -41,18 +41,20 @@
       <li class="nav-item">
         <a class="nav-link" href="/admin/support">Contact</a>
       </li>
+      <% if current_user %>
       <li class="nav-item">
         <a class="nav-link " href="/admin">Dashboard</a>
       </li>      
-    <% if current_user %>
-      <li class="nav-item">
-        <%= link_to "Log Out", logout_path, class:'nav-link' %>
-      </li>
-    <% else %>
-      <li class="nav-item">
-        <%= link_to "Log In", login_path, class:'nav-link' %>
-      </li>
-    <% end %>        
+      <% end %>
+      <% if current_user %>
+        <li class="nav-item">
+          <%= link_to "Log Out", logout_path, class:'nav-link' %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Log In", login_path, class:'nav-link' %>
+        </li>
+      <% end %>        
     </ul>
   </div>
 </nav>
