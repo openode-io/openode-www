@@ -1,9 +1,11 @@
 <footer class="container py-5">
   <div class="row">
     <div class="col-12 col-md text-center">
-      <%= render 'layouts/logo', color:{lines: "#979C99",n:"#2ecc71"}, size:{height:"70px"} %>
+      <a href="/">
+        <%= render 'layouts/logo', color:{lines: "#979C99",n:"#2ecc71"}, size:{height:"70px"} %>    
+      </a>
       <br/>
-      <small class="text-center text-muted">© <%= Time.now.strftime('%Y') %></small>
+      <small class="text-center text-muted text-center">© <%= Time.now.strftime('%Y') %></small>      
     </div>
     <div class="col-6 col-md">
       <h5>Services</h5>
