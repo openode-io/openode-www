@@ -1,0 +1,102 @@
+- name: Sandbox
+  title: FREE
+  subtitle: 30-day Free Trial
+  features:
+    - Unlimited deploys
+    - 10GB Bandwidth / Month
+    - 100MB Memory
+    - 1000MB HDD Storage
+    - your-subdomain.openode.io
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: 50MB Memory
+  title: $0.40
+  subtitle: per month
+  features:
+    - Unlimited deploys
+    - 10GB Bandwidth / Month
+    - 50MB Memory
+    - 1000MB HDD Storage
+    - your-subdomain.openode.io
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: 100MB Memory
+  title: $0.80
+  subtitle: per month
+  features:
+    - Unlimited deploys
+    - 200GB Bandwidth / Month
+    - 100MB Memory
+    - 1000MB HDD Storage
+    - Custom domain or your-subdomain.openode.io
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: 200MB Memory
+  title: $1.61
+  subtitle: per month
+  features:
+    - Unlimited deploys
+    - 400GB Bandwidth / Month
+    - 200MB Memory
+    - 1000MB HDD Storage
+    - Custom domain or your-subdomain.openode.io
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: 500MB Memory
+  title: $4.02
+  subtitle: per month
+  features:
+    - Unlimited deploys
+    - 1000GB Bandwidth / Month
+    - 500MB Memory
+    - 1000MB HDD Storage
+    - Custom domain or your-subdomain.openode.io
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: 1GB Memory
+  title: $8.26
+  subtitle: per month
+  features:
+    - Unlimited deploys
+    - 2000GB Bandwidth / Month
+    - 1024MB Memory
+    - 1000MB HDD Storage
+    - Custom domain or your-subdomain.openode.io
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: 2GB Memory
+  title: $16.52
+  subtitle: per month
+  features:
+    - Unlimited deploys
+    - 4000GB Bandwidth / Month
+    - 2048MB Memory
+    - 1000MB HDD Storage
+    - Custom domain or your-subdomain.openode.io
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: On Demand
+  features:
+    - 'Extra CPUs: $5 / CPU / Month'
+    - 'Extra Storage: $0.13 / 1 GB / Month'
+    - 'Extra Bandwidth: $0.008 / GB'
+    - 'Snapshot: $0.05 / GB'
+  button: 
+    url: /admin/billing
+    text: Order
+
+                        
