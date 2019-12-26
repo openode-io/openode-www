@@ -30,4 +30,33 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  site_name: 'opeNode | Advanced Cloud Platform'
+  home:    
+    index: 
+      title: 'opeNode | Home'
+    pricing:
+      title: 'opeNode | Pricing'
+    pricing-private-cloud:
+      title: 'opeNode | Pricing'
+    faq:
+      title: 'opeNode | FAQ'
+    terms:
+      title: 'opeNode | Terms'
+    privacy:
+      title: 'opeNode | Provacy'
+    about: 
+      title: 'opeNode | About Us'
+    news:
+      title: 'opeNode | News'
+    community:
+      title: 'opeNode | Community'
+    openode-cli:
+      title: 'opeNode | CLI'
+    docs:
+      title: 'opeNode | Docs'
+    locations:
+      title: 'opeNode | Locations'
+    support:
+      title: 'opeNode | Support'
+    login:
+      title: 'opeNode | Login'
