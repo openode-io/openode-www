@@ -58,6 +58,15 @@
 
 /* Custom Styles */
 
+a.dropdown-item:hover {
+  color: #fff;
+  background-color: #363A42;
+}
+
+a.dropdown-item:active {
+  background-color: $success;
+}
+
 .btn-success {
   color: #fff;
   background-color: #42ba96;
