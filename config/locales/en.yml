@@ -33,30 +33,32 @@ en:
   site_name: 'opeNode | Advanced Cloud Platform'
   home:    
     index: 
-      title: 'opeNode | Home'
+      title: 'Home | opeNode'
     pricing:
-      title: 'opeNode | Pricing'
+      title: 'Pricing | opeNode'
     private_cloud_pricing:
-      title: 'opeNode | Pricing'
+      title: 'Pricing | opeNode'
     faq:
-      title: 'opeNode | FAQ'
+      title: 'FAQ | opeNode'
     terms:
-      title: 'opeNode | Terms'
+      title: 'Terms | opeNode'
     privacy:
-      title: 'opeNode | Privacy'
+      title: 'Privacy | opeNode'
     about: 
-      title: 'opeNode | About Us'
+      title: 'About Us | opeNode'
     news:
-      title: 'opeNode | News'
+      title: 'News | opeNode'
     community:
-      title: 'opeNode | Community'
+      title: 'Community | opeNode'
     openode_cli:
-      title: 'opeNode | CLI'
+      title: 'CLI | opeNode'
     docs:
-      title: 'opeNode | Docs'
+      title: 'Docs | opeNode'
     locations:
-      title: 'opeNode | Locations'
+      title: 'Locations | opeNode'
     support:
-      title: 'opeNode | Support'
+      title: 'Support | opeNode'
     login:
-      title: 'opeNode | Login'
+      title: 'Login | opeNode'
+    opensource:
+      title: 'Open Source | opeNode'
