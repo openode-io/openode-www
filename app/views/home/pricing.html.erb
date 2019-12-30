@@ -10,24 +10,24 @@
     <div class="card-deck mb-3 text-center">
       <div class="row">
       <% YAML.load_file("#{Rails.root}/config/pricing.yml").map { |o|o.deep_symbolize_keys }.each do |pricing| %>
-        <div class="col-3 mb-5">
-        <div class="card border-success shadow-sm ml-0 mr-0 h-100 hvr-grow">
-          <div class="card-header bg-success text-white">
-            <h4 class="my-0 font-weight-normal"><%= pricing[:name] %></h4>
+        <div class="col-sm-12 col-12 col-md-3 col-lg-3 mb-5">
+          <div class="card border-success shadow-sm ml-0 mr-0 h-100 hvr-grow">
+            <div class="card-header bg-success text-white">
+              <h4 class="my-0 font-weight-normal"><%= pricing[:name] %></h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><%= pricing[:title] %></h1>
+              <h3><small class="text-muted"><%= pricing[:subtitle] %></small></h3>
+              <ul class="list-unstyled mt-3 mb-4">
+                <% pricing[:features].each do |feature|  %>
+                  <li class="text-center mb-2 mt-2 pt-2 pb-3 border-bottom"><%= feature %></li>
+                <% end %>
+              </ul>            
+            </div>
+            <div class="card-footer">
+              <a href="<%= pricing[:button][:url] %>" class="btn btn-lg btn-block btn-outline-success"><%= pricing[:button][:text] %></a>
+            </div>
           </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title"><%= pricing[:title] %></h1>
-            <h3><small class="text-muted"><%= pricing[:subtitle] %></small></h3>
-            <ul class="list-unstyled mt-3 mb-4">
-              <% pricing[:features].each do |feature|  %>
-                <li class="text-center"><%= feature %></li>
-              <% end %>
-            </ul>            
-          </div>
-          <div class="card-footer">
-            <a href="<%= pricing[:button][:url] %>" class="btn btn-lg btn-block btn-outline-success"><%= pricing[:button][:text] %></a>
-          </div>
-        </div>
         </div>
       <% end %> 
       </div>
