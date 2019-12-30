@@ -31,69 +31,7 @@
     </div> <!-- / .row -->
   </div> <!-- / .container -->
 </section>
-<section class="pt-8 pt-md-11 p-3 p-md-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">        
-        <!-- Card -->
-        <div class="card-group card-border card-border-lg border-success shadow-light-lg">
-          <div class="card">
-            <div class="card-body">
-              <!-- Heading -->
-              <h2 class="font-weight-bold text-center mb-0">
-                <span data-toggle="countup" data-from="0" data-to="15" data-aos="" data-aos-id="countup:in" class="aos-init aos-animate counted">15</span>K+
-              </h2>
-              <!-- Text -->
-              <p class="text-center text-success mb-0">
-                Users
-              </p>              
-            </div>
-          </div>
-          
-          <div class="card border-left-md">
-            <div class="card-body">
-              <!-- Heading -->
-              <h2 class="font-weight-bold text-center mb-0">
-                <span data-toggle="countup" data-from="0" data-to="95" data-aos="" data-aos-id="countup:in" class="aos-init aos-animate counted">85</span>K+
-              </h2>
-              <!-- Text -->
-              <p class="text-center text-success mb-0">
-                Deployments
-              </p>            
-            </div>
-          </div>
-
-          <div class="card border-left-md" >
-            <div class="card-body">
-              <!-- Heading -->
-              <h2 class="font-weight-bold text-center mb-0">
-                <span data-toggle="countup" data-from="0.00" data-to="99.99" data-decimals="2" data-aos="" data-aos-id="countup:in" class="aos-init aos-animate counted">99.99</span>%
-              </h2>
-              <!-- Text -->
-              <p class="text-center text-success mb-0">
-                Global uptime
-              </p>              
-            </div>
-          </div>
-
-          <div class="card border-left-md">
-            <div class="card-body">
-              <!-- Heading -->
-              <h2 class="font-weight-bold text-center mb-0">
-                &infin;
-              </h2>
-              <!-- Text -->
-              <p class="text-center text-success mb-0">
-                Fun &amp; Creativity
-              </p>              
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div> <!-- / .row -->
-  </div> <!-- / .container -->
-</section>
+<%= render 'home/sections/stats' %>
 <section class="py-8 py-md-11 bg-dark p-3 p-md-5 text-white">
   <div class="container">
     <div class="row justify-content-center">
@@ -194,103 +132,76 @@
       <!-- / .row -->
   </div> <!-- / .container -->
 </section>
-<section class="py-8 pt-md-11 pb-md-12 bg-light p-3 p-md-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-10 col-lg-8 text-center">      
-        <!-- Preheading -->
-        <h6 class="text-uppercase text-success font-weight-bold">
-          All in one solution
-        </h6>
-        <!-- Heading -->
-        <h1 class="font-weight-bold">For Side/Fun Projects<br/>or <span class="text-secondary">Growing Companies</span></h1>
-        <!-- Text -->
-        <div class="row text-gray-500 mt-5 mb-7 mb-md-9">
-          <div class="col-lg-4">
-            <img src="/images/web-hosting/svg/008-setting.svg" width="140"/>
-            <h2>Hands Free.</h2>
-            <p>No need to manage servers manually. Just keep on building your projects.</p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img src="/images/web-hosting/svg/032-diagram.svg" width="140"/>
-            <h2>Fair Pricing.</h2>
-            <p>No subscription billing. You are billed only when your instances are up.</p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img src="/images/web-hosting/svg/037-website.svg" width="140"/>
-            <h2>Low Cost.</h2>
-            <p>Tiny instances (as low as as 50 MB RAM) availables. Ideal to get started at an extremely low cost.</p>
-          </div><!-- /.col-lg-4 -->
-        </div>        
-      </div>     
-    </div> <!-- / .row -->
-    <div class="row">
-      <div class="col-12 col-auto text-center mt-4 mb-2">   
-        <a href="/users/register" class="btn btn-success btn-lg lift">
-          Get started
-        </a>
-      </div> 
-    </div>
-</section>
 
+<%= render 'home/sections/all_in_one' %>
 <%= render 'home/sections/features_header' %>
 <%= render 'home/sections/features_list' %>
 
-<section class="py-8 pt-md-11 pb-md-12 bg-light p-3 p-md-5 border-top">
+<section class="py-8 pt-md-11 pb-md-12 bg-light p-3 p-md-5 border-top bg-light-grey text-white">
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-2">
       <div class="col-12 col-md-10 col-lg-8 text-center">      
         <!-- Preheading -->
-        <h6 class="text-uppercase text-success font-weight-bold">
+        <h6 class="text-uppercase text-dark font-weight-bold">
           we support opensource
         </h6>
         <!-- Heading -->
-        <h1 class="font-weight-bold">Free Hosting For<br/><span class="text-secondary">Selected Projects</span></h1>
+        <h1 class="font-weight-bold">Free Hosting For <span class="text-success">Selected Projects</span></h1>
         <div class="device-combo device-combo-macbook-iphonex mb-6 mb-md-0">
           <div class="device device-macbook text-center">              
             <img src="/images/undraw_open_source.svg" class="img-fluid" alt="...">
           </div>                          
         </div>
-        <!-- Text -->
+        <h4 class="font-weight-light text-gray-500 mt-5 mb-7 mb-md-9">           
+          We offer free hosting to selected open source projects.
+        </h4>        
+        <!-- Text -->      
+      </div>          
+    </div> <!-- / .row -->
+    <div class="row">
+      <div class="col-12 col-auto text-center mt-5 mb-2">                
+        <a href="/opensource" class="btn btn-success btn-lg lift">
+          Learn more
+        </a>
+      </div>     
+    </div>
+</section>
+<section class="pt-6 pt-md-8 bg-light p-3 p-md-5 text-dark">
+  <div class="container pb-6 pb-md-8">
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-12 text-center">      
+        <!-- Preheading -->
+        <h6 class="text-uppercase text-dark font-weight-bold">
+          New OpenSource Projects
+        </h6>
+        <!-- Heading -->
+        <h1 class="font-weight-bold text-success">Some Projects We support</h1> 
+      </div>         
+    </div>  
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-12 text-center">      
         <div class="row text-gray-500 mt-5 mb-7 mb-md-9">
           <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#CCC"></rect></svg>
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#333"></rect></svg>
             <h4 class="text-gray-200 mb-3 mt-3">Project 1</h4>
             <p class="text-muted">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
             <p><a class="btn btn-dark" href="#" role="button">Visit Project »</a></p>
           </div>
           <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#CCC"></rect></svg>
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#333"></rect></svg>
             <h4 class="text-gray-200 mb-3 mt-3">Project 2</h4>
             <p class="text-muted">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
             <p><a class="btn btn-dark" href="#" role="button">Visit Project »</a></p>
           </div>
           <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#CCC"></rect></svg>
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#333"></rect></svg>
             <h4 class="text-gray-200 mb-3 mt-3">Project 3</h4>
             <p class="text-muted">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
             <p><a class="btn btn-dark" href="#" role="button">Visit Project »</a></p>
           </div>                    
-        </div>        
-      </div>     
-    </div> <!-- / .row -->
+        </div>  
+      </div>         
+    </div>
+  </div>
 </section>
-<section class="pt-6 pt-md-8 bg-dark p-3 p-md-5">
-  <div class="container pb-6 pb-md-8">
-    <div class="row align-items-center">
-      <div class="col-12 col-md">        
-        <!-- Heading -->
-        <h3 class="font-weight-light text-white mb-1">
-          Get started in minutes.
-        </h3>
-        <!-- Text -->
-        <p class="font-size-lg text-muted mb-6 mb-md-0">Push your code and get it deployed instantly.</p>
-      </div>
-      <div class="col-12 col-md-auto">                
-        <a href="/login" class="btn btn-success btn-lg lift">
-          Get started
-        </a>
-      </div>
-    </div> <!-- / .row -->
-  </div> <!-- / .container -->
-</section>
+<%= render 'home/sections/get_started' %>

@@ -89,3 +89,18 @@ a.dropdown-item:active {
 .turbolinks-progress-bar {
   background: #42ba96;
 }
+
+.container {
+  &.container-shrinked {
+    max-width: 850px;
+  }
+}
+
+a {
+  color: $success;
+}
+
+a:hover {
+  color: $success;
+  text-decoration: underline;
+}

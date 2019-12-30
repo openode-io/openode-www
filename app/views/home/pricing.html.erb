@@ -1,7 +1,9 @@
-<section class="pricing-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  <h1 class="display-4">Plans</h1>
-  <h2 class="text-muted">Get started now on opeNode!</h2>
-  <p class="lead">We provide a free sandbox to get started and you will not have to enter your credit card information.<br/>We accept both Paypal and Cryptocurrency (Bitcoin, Bitcoin Cash, etc.) payments.</p>
+<section class="pricing-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+  <div class="container cointaier-shrinked">
+    <h1 class="display-4 text-left text-success">Plans</h1>
+    <h2 class="text-muted text-left">Get started now on opeNode!</h2>
+    <p class="lead text-left">We provide a free sandbox to get started and you will not have to enter your credit card information.<br/>We accept both Paypal and Cryptocurrency (Bitcoin, Bitcoin Cash, etc.) payments.</p>
+  </div>
 </section>
 <section class="pt-8 pt-md-11 bg-dark p-3 p-md-5">
   <div class="container">    
@@ -18,7 +20,7 @@
             <h3><small class="text-muted"><%= pricing[:subtitle] %></small></h3>
             <ul class="list-unstyled mt-3 mb-4">
               <% pricing[:features].each do |feature|  %>
-                <li><%= feature %></li>
+                <li class="text-center"><%= feature %></li>
               <% end %>
             </ul>            
           </div>
