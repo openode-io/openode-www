@@ -1,85 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OpenodeWww</title>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-    <div>
-      Routes: 
-
-      <a href="/">Home</a>
-      <a href="/pricing">
-        Cloud Hosting
-      </a>
-
-      <a href="/pricing-private-cloud">
-        Private Cloud Hosting
-      </a>
-
-      <a href="/about">
-        About
-      </a>
-
-      <a href="/news">
-        News
-      </a>
-
-      <a href="/blog">
-        Blog home
-      </a>
-
-      <a href="/blog/post/what1234">
-        Blog post
-      </a>
-
-      <a href="/locations">
-        Locations
-      </a>
-
-      <a href="/login">
-        Login
-      </a>
-
-      <a href="/openode-cli">
-        openode cli
-      </a>
-
-      <a href="/faq">
-        faq
-      </a>
-
-      <a href="/docs">
-        docs
-      </a>
-
-      <a href="/doc/hello">
-        doc
-      </a>
-
-      <a href="/support">
-        support
-      </a>
-
-      <a href="/terms">
-        terms
-      </a>
-
-      <a href="/privacy">
-        privacy
-      </a>
-
-    </div>
-
+    <%= render 'layouts/navbar' %>
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

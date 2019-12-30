@@ -42,4 +42,8 @@ class HomeController < ApplicationController
   def privacy
     # -
   end
+
+  def opensource
+    # -
+  end
 end

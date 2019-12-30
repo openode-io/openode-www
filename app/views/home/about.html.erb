@@ -1,2 +1,51 @@
-<h1>Home#about</h1>
-<p>Find me in app/views/home/about.html.erb</p>
+<section class="about-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+  <div class="container cointaier-shrinked">
+    <h1 class="display-4 text-left text-success">About Us</h1>
+  </div>
+</section>
+<section class="pt-8 pt-md-11 bg-dark p-3 p-md-5">
+  <div class="container text-white">
+    <h3>By developers. For developers.</h3>
+
+    <p id="content">
+      Founded in 2017, ope<strong>N</strong>ode was built to allow to deploy any website seamleslly at low cost from tiny to large-scale websites.
+    </p>
+
+    <p id="content">
+      We had this idea that even if you just need few MBs, you should be able to deploy with less than $1 per month.<br>
+      Typical Platform-as-a-Services (PaaS) have a starting plan at 500+ MBs and we wanted to disrupt this idea. We did it.
+    </p>
+
+    <p id="content">
+      ope<strong>N</strong>ode is mainly developed and maintained by <a href="https://github.com/martinlevesque/">Martin Lévesque</a>, based in Montréal, Canada.
+    </p>
+  </div>
+</section>
+
+<%= render 'home/sections/stats' %>
+
+<section class="pt-8 pt-md-11 p-3 p-md-5 bg-success">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">  
+        <h6 class="text-uppercase text-white font-weight-bold text-center">
+          guaranteed satisfaction
+        </h6>      
+        <!-- Heading -->
+        <h1 class="font-weight-bold text-center">For Developer Productivity</h1>          
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 order-md-2">          
+        <div class="device-combo device-combo-macbook-iphonex mb-6 mb-md-0">
+          <div class="device device-macbook text-center">              
+            <img src="/images/undraw_dev_productivity_umsq_light.svg" class="img-fluid" alt="...">
+          </div>                          
+        </div>
+      </div>
+    </div> <!-- / .row -->    
+  </div>
+</section>
+
+<%= render 'home/sections/all_in_one'%>
+<%= render 'home/sections/get_started'%>

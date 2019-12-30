@@ -1,10 +1,208 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<section class="position-relative overflow-hidden p-3 p-md-5 text-center bg-dark">
+  <div class="col-md-6 p-lg-6 mx-auto my-5">
+    <h1 class="display-4 font-weight-normal text-white"><span class="typed"></span> Cloud</h1>
+    <h1 class="display-4 font-weight-normal text-white"><span class="text-success">Application</span> <span>Platform</span></h1>
+    <p class="lead font-weight-lighter text-white">Get Online Now. Without the Crazy Cost. Efficiently.</p>
+    <a class="btn btn-outline-success" href="/users/register">Get Started Now</a>
+  </div>
+</section>
+<section class="pt-8 pt-md-11 bg-light p-3 p-md-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8 text-center">
+        <!-- Preheading -->
+        <h6 class="text-uppercase text-success font-weight-bold">
+          Complete control
+        </h6>
+        <!-- Heading -->
+        <h1 class="font-weight-bold">Code. Deploy. Iterate.</h1>
+        <!-- Text -->
+        <p class="font-size-lg text-muted mb-7">Deploy your website using our simple command line interface (CLI). Avoid headaches to get your Web app up and running. We maintain a robust and secure cloud so that you can focus on writing your web app without wasting time on configuring and managing servers. Deploying worldwide has never been so easy and fast. Deploy to multiple locations with a single command.</p>
+      </div>
+    </div> <!-- / .row -->
+    <div class="row">
+      <div class="col-12 order-md-2">          
+        <div class="device-combo device-combo-macbook-iphonex mb-6 mb-md-0">
+          <div class="device device-macbook text-center">              
+            <img src="/images/person-device.svg" class="img-fluid" alt="...">
+          </div>                          
+        </div>
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</section>
+<%= render 'home/sections/stats' %>
+<section class="py-8 py-md-11 bg-dark p-3 p-md-5 text-white">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8 text-center">
+        
+        <!-- Preheading -->
+        <h6 class="text-uppercase text-gray-500 font-weight-bold">
+          Seamless integration
+        </h6>
 
-<% if current_user %>
-  Logged in as <%= current_user.inspect %>.
-  <%= link_to "Log Out", logout_path %>
-<% else %>
-  <%# link_to "Sign Up", signup_path %> or 
-  <%= link_to "Log In", login_path %>
-<% end %>
+        <!-- Heading -->
+        <h1 class="font-weight-bold">Get started in 2 steps. Easy.</h1>
+
+        <!-- Text -->
+        <p class="font-size-lg text-muted mb-7 mb-md-9">Simply install the command line tool. Then deploy your app, just like that!</p>
+        <div class="terminal">
+          <div class=menu>
+            <div class="buttons close"></div>
+            <div class="buttons minimize"></div>
+            <div class="buttons zoom"></div>
+          </div>
+          <div class="screen">
+            <img src="https://www.openode.io/images/openode-cli.gif" style="width: 100%;">    
+          </div>                  
+        </div>
+      </div>
+    </div> <!-- / .row -->
+    <div class="row no-gutters mb-7 mb-md-9">
+      <div class="col-12 col-md-4 text-center">
+        
+        <div class="row mb-5">
+          <div class="col">                
+            <!-- Placeholder -->
+          </div>
+          <div class="col-auto">                
+            <!-- Icon -->
+            <div class="icon text-success mb-3">
+              <i class="fa fa-user-check fa-2x"></i>
+            </div>
+          </div>
+          <div class="col">                
+            <!-- Divider -->
+            <hr class="d-none d-md-block">
+          </div>
+        </div> <!-- / .row -->
+        <!-- Heading-->
+        <h3 class="font-weight-light">
+          Create your account
+        </h3>
+        <!-- Text -->
+        <p class="text-muted mb-6 mb-md-0">Create your account, grab your credentials<br/>and you are ready to go.</p>
+      </div>
+      <div class="col-12 col-md-4 text-center">            
+        <div class="row mb-5">
+          <div class="col">                
+            <!-- Divider -->
+            <hr class="d-none d-md-block">
+          </div>
+          <div class="col-auto">                
+            <!-- Icon -->
+            <div class="icon text-success mb-3">
+              <i class="fa fa-upload fa-2x"></i>
+            </div>
+          </div>
+          <div class="col">                
+            <!-- Divider -->
+            <hr class="d-none d-md-block">
+          </div>
+        </div> <!-- / .row -->
+        <!-- Heading -->
+        <h3 class="font-weight-light">Push</h3>
+        <!-- Text -->
+        <p class="text-muted mb-6 mb-md-0">Push your source code and get it deployed instantly<br/>using our opeNode command line interface (CLI)</p>
+      </div>
+      <div class="col-12 col-md-4 text-center">          
+        <div class="row mb-5">
+          <div class="col">                
+            <!-- Divider -->
+            <hr class="d-none d-md-block">
+          </div>
+          <div class="col-auto">                
+            <!-- Icon -->
+            <div class="icon text-success mb-3">
+              <i class="fa fa-sync fa-2x"></i>
+            </div>
+
+          </div>
+          <div class="col">                
+            <!-- Placeholder -->
+          </div>
+        </div> <!-- / .row -->
+        <!-- Heading -->
+        <h3 class="font-weight-light">Deploy</h3>
+        <!-- Text -->
+        <p class="text-muted mb-0">Deploy to multiple locations<br/>with a single command.</p>
+      </div>
+    </div> <!-- / .row -->
+      <!-- / .row -->
+  </div> <!-- / .container -->
+</section>
+
+<%= render 'home/sections/all_in_one' %>
+<%= render 'home/sections/features_header' %>
+<%= render 'home/sections/features_list' %>
+
+<section class="py-8 pt-md-11 pb-md-12 bg-light p-3 p-md-5 border-top bg-light-grey text-white">
+  <div class="container">
+    <div class="row justify-content-center mb-2">
+      <div class="col-12 col-md-10 col-lg-8 text-center">      
+        <!-- Preheading -->
+        <h6 class="text-uppercase text-dark font-weight-bold">
+          we support open source
+        </h6>
+        <!-- Heading -->
+        <h1 class="font-weight-bold">Free Hosting For<br/><span class="text-success">Selected Open Source Projects</span></h1>
+        <div class="device-combo device-combo-macbook-iphonex mb-6 mb-md-0">
+          <div class="device device-macbook text-center">              
+            <img src="/images/undraw_open_source.svg" class="img-fluid" alt="...">
+          </div>                          
+        </div>
+        <h4 class="font-weight-light text-gray-500 mt-5 mb-7 mb-md-9">           
+          We offer free hosting to selected open source projects.
+        </h4>        
+        <!-- Text -->      
+      </div>          
+    </div> <!-- / .row -->
+    <div class="row">
+      <div class="col-12 col-auto text-center mt-5 mb-2">                
+        <a href="/opensource" class="btn btn-success btn-lg lift">
+          Learn more
+        </a>
+      </div>     
+    </div>
+</section>
+<section class="pt-6 pt-md-8 bg-light p-3 p-md-5 text-dark">
+  <div class="container pb-6 pb-md-8">
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-12 text-center">      
+        <!-- Preheading -->
+        <h6 class="text-uppercase text-dark font-weight-bold">
+          New OpenSource Projects
+        </h6>
+        <!-- Heading -->
+        <h1 class="font-weight-bold text-success">Some Projects We support</h1> 
+      </div>         
+    </div>  
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-12 text-center">      
+        <div class="row text-gray-500 mt-5 mb-7 mb-md-9">
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#CCC"></rect></svg>
+
+            <h4 class="text-gray-200 mb-3 mt-3">Project 1</h4>
+            <p class="text-muted">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+            <p><a class="btn btn-dark" href="#" role="button">Visit Project »</a></p>
+          </div>
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#CCC"></rect></svg>
+            <h4 class="text-gray-200 mb-3 mt-3">Project 2</h4>
+            <p class="text-muted">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+            <p><a class="btn btn-dark" href="#" role="button">Visit Project »</a></p>
+          </div>
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#CCC"></rect></svg>
+            <h4 class="text-gray-200 mb-3 mt-3">Project 3</h4>
+            <p class="text-muted">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+            <p><a class="btn btn-dark" href="#" role="button">Visit Project »</a></p>
+          </div>                    
+        </div>  
+      </div>         
+    </div>
+  </div>
+</section>
+<%= render 'home/sections/get_started' %>
