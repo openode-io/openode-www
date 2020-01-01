@@ -69,7 +69,7 @@ Naming/MemoizedInstanceVariableName:
 Metrics/AbcSize:
   Max: 20
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 90
 
 Metrics/BlockLength:
