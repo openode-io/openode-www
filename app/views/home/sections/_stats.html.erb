@@ -13,7 +13,7 @@
                   data-to="<%= @global_stats['nb_users'] %>" data-aos=""
                   data-aos-id="countup:in"
                   class="aos-init aos-animate counted">
-                  <%= @global_stats['nb_users'] %>
+                  <%= number_to_human @global_stats['nb_users'] %>
                 </span>
               </h2>
               <!-- Text -->
@@ -30,7 +30,7 @@
                 <span data-toggle="countup" data-from="0"
                 data-to="95" data-aos="" data-aos-id="countup:in"
                 class="aos-init aos-animate counted">
-                  <%= @global_stats['nb_deployments'] %>
+                  <%= number_to_human @global_stats['nb_deployments'] %>
                 </span>
               </h2>
               <!-- Text -->
