@@ -56,6 +56,17 @@ class ActiveSupport::TestCase
       response_status: 422,
       response_path:
         'test/fixtures/http/openode_api/front/users_create_validation_issue.json'
+    },
+    {
+      url: 'https://api.openode.io/global/stats',
+      method: :get,
+      with: {
+        body: {}
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path:
+        'test/fixtures/http/openode_api/front/global_stats.json'
     }
   ]
 
