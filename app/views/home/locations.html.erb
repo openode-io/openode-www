@@ -1,2 +1,23 @@
-<h1>Home#locations</h1>
-<p>Find me in app/views/home/locations.html.erb</p>
+<section class="locations-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+  <div class="container cointaier-shrinked">
+    <h1 class="display-4 text-left">Locations</h1>
+    <h2 class="text-muted text-left">opeNode is available in the following locations!</h2>
+  </div>
+</section>
+<section class="pt-8 pt-md-11 bg-dark p-3 p-md-5">
+  <div class="container">    
+    <%= react_component("public/locations/Map", markers:YAML.load_file("#{Rails.root}/config/locations.yml").map { |o|o.deep_symbolize_keys }.as_json) %>  
+  </div>
+</section>
+<section class="pt-8 pt-md-11 bg-light border-bottom p-3 p-md-5">
+  <div class="container">    
+    <div class="row">
+      <% YAML.load_file("#{Rails.root}/config/locations.yml").map { |o|o.deep_symbolize_keys }.each do |location| %>
+        <div class="col-sm-12 col-12 col-md-3 col-lg-3 mb-5"> 
+          <span class="border-bottom-dotted"><%= location[:name] %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<%= render 'home/sections/get_started' %>
