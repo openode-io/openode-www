@@ -6,6 +6,8 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_includes response.parsed_body, "<title>Home"
+    assert_includes response.parsed_body, "667" # users
+    assert_includes response.parsed_body, "79K" # deployments
   end
 
   test "should get pricing" do
@@ -27,6 +29,8 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_includes response.parsed_body, "<title>About Us"
+    assert_includes response.parsed_body, "667" # users
+    assert_includes response.parsed_body, "79K" # deployments
   end
 
   test "should get news" do
