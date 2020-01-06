@@ -35,5 +35,5 @@ module ApplicationHelper
         when 'error' then "alert alert-danger"
         when 'alert' then "alert alert-danger"
     end
-end  
+  end  
 end
