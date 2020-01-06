@@ -1,19 +1,20 @@
 <footer class="container py-5">
   <div class="row">
-    <div class="col-12 col-md text-center">
+    <div class="col-12 col-md text-center d-none d-md-block">
       <a href="/">
         <%= render 'layouts/logo', color:{lines: "#979C99",n:"#2ecc71"}, size:{height:"70px"} %>    
       </a>
       <br/>
       <small class="text-center text-muted text-center">© <%= Time.now.strftime('%Y') %></small>      
     </div>
-    <div class="col-6 col-md">
+    <div class="col-12 col-md">
       <h5>Services</h5>
       <ul class="list-unstyled text-small">
         <li><a class="text-muted" href="/pricing">Cloud Hosting</a></li>
       </ul>
     </div>
-    <div class="col-6 col-md">
+    <div class="mt-1 mb-3 d-lg-none d-md-none border-bottom border-secondary w-100"></div>
+    <div class="col-12 col-md">
       <h5>Product</h5>
       <ul class="list-unstyled text-small">
         <li><a class="text-muted" href="/about">About</a></li>
@@ -22,7 +23,8 @@
         <li><a class="text-muted" href="https://status.openode.io/">Status</a></li>
       </ul>
     </div>
-    <div class="col-6 col-md">
+    <div class="mt-1 mb-3 d-lg-none d-md-none border-bottom border-secondary w-100"></div>
+    <div class="col-12 col-md">
       <h5>Resources</h5>
       <ul class="list-unstyled text-small">
         <li><a class="text-muted" href="https://api.openode.io/">API</a></li>
@@ -31,7 +33,8 @@
         <li><a class="text-muted" href="/faq">FAQ</a></li>
       </ul>
     </div>
-    <div class="col-6 col-md">
+    <div class="mt-1 mb-3 d-lg-none d-md-none border-bottom border-secondary w-100"></div>
+    <div class="col-12 col-md">
       <h5>Social</h5>
       <ul class="list-unstyled text-small">
         <li><a class="text-muted" href="https://github.com/openode-io"><i class="fab fa-github"></i> Github</a></li>
@@ -40,6 +43,14 @@
         <li><a class="text-muted" href="https://facebook.com/openodeio"><i class="fab fa-facebook"></i> Facebook</a></li>
       </ul>
     </div>
+    <div class="mt-1 mb-5 d-lg-none d-md-none border-bottom border-secondary w-100"></div>
+    <div class="col-12 text-center d-lg-none d-md-none">
+      <a href="/">
+        <%= render 'layouts/logo', color:{lines: "#979C99",n:"#2ecc71"}, size:{height:"70px"} %>    
+      </a>
+      <br/>
+      <small class="text-center text-muted text-center">© <%= Time.now.strftime('%Y') %></small>      
+    </div>    
   </div>
 </footer>
 <footer class="border-top">
