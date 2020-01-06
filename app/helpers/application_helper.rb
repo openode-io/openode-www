@@ -37,4 +37,15 @@ module ApplicationHelper
     when 'alert' then "alert alert-danger"
     end
   end
+
+  def twitter_feed
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = "65rwKCkknOSPp8ytmEuq05wNQ"
+      config.consumer_secret     = "sahig3CAVD1cioYgKx4sQZxZSZfBSvUtQpCYu8UnqatReibiwT"
+      config.access_token        = "43381646-LrsqajfKsyWmckVhHThAgjmhxsbb5xGL1vLQ8rNS3"
+      config.access_token_secret = "j571PHYPCQ42N5rnUgLMuB2IK2bXTJ17szvESrcDm2mwi"
+    end
+
+    client.user_timeline("opeNodeio")
+  end
 end
