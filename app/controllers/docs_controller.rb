@@ -14,6 +14,8 @@ class DocsController < ApplicationController
 
     content = File.read(file_path)
 
+    @title = document.titleize
+    @section = section.titleize
     @result = @markdown.render(content)
   end
 end

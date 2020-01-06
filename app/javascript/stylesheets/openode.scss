@@ -60,6 +60,14 @@
   border-bottom: 1px dotted;
 }
 
+#docs-sidebar {
+  .nav-link {
+    &.active {
+      font-weight: bold;
+    }
+  }
+}
+
 /* Custom Styles */
 
 a.dropdown-item:hover {
