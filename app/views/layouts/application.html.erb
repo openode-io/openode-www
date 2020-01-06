@@ -20,7 +20,9 @@
   <body>
     <%= render 'layouts/navbar' %>
     <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
+      <div class="<%= flash_bootstrap(key) %> m-3">
+        <%= value %>
+      </div>
     <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
