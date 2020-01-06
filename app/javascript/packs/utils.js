@@ -10,9 +10,9 @@ document.addEventListener("turbolinks:load", function() {
     });
   }
 
-  if ($("#twitter-widget-0")) {
+  if ($(".twitter-timeline")) {
     // Twitter Overrides -----------------------------------------------------------------------------
-    $('.twitter-feed').delegate('#twitter-widget-0', 'DOMSubtreeModified propertychange', function () {
+    $('.twitter-feed').delegate('iframe[data-widget-id="profile:opeNodeio"]', 'DOMSubtreeModified propertychange', function () {
       $('.twitter-feed').find('.twitter-timeline').contents().find('.timeline-Tweet-media').css('display', 'none');
       $('.twitter-feed').find('.twitter-timeline').contents().find('span.TweetAuthor-screenName').css('font-size', '16px');
       $('.twitter-feed').find('.twitter-timeline').contents().find('p.timeline-tweet-text').css('font-size', '20px');
