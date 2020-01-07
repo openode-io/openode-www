@@ -26,7 +26,8 @@ class HomeController < ApplicationController
   end
 
   def locations
-    # -
+    @locations = YAML.load_file(Rails.root.join("config/locations.yml"))
+                     .map(&:deep_symbolize_keys)
   end
 
   def openode_cli

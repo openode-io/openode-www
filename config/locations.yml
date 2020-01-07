@@ -2,75 +2,83 @@
   description: France  
   coordinates: [50.6927,3.1778]
   markerOffset: -15
-- name: Paris
-  description: FR, Europe
-  coordinates: [48.8566,2.3522]
-  markerOffset: 25
   markerColor: "#2ecc71"
   textColor: "#5D5A6D"
-- name: Frankfurt
-  description: DE, Europe
-  coordinates: [50.1109,8.6821]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
-- name: Tokyo
-  description: JP, Asia  
-  coordinates: [35.6804,139.7690]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
-- name: Amsterdam
-  description: NL, Europe
-  coordinates: [52.3667,4.8945]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
-- name: Singapore
-  description: SG, Asia
-  coordinates: [1.3521,103.8198]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
-- name: London
-  description: GB, Europe
-  coordinates: [51.5074,0.1278]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
-- name: New Jersey
-  description: US, North America
-  coordinates: [40.0583,-74.4057]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
-- name: Los Angeles
-  description: US, North America
-  coordinates: [34.0522,-118.2437]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
-- name: Atlanta
-  description: US, North America
-  coordinates: [33.7490,-84.3880]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
-- name: Silicon Valley
-  description: US, North America
-  coordinates: [37.38756,-122.0575]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
-- name: Dallas
-  description: US, North America
-  coordinates: [32.7767,-96.7970]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
-- name: Miami
-  description: US, North America
-  coordinates: [25.7617,-80.1918]
+#- name: Paris
+#  description: FR, Europe
+#  coordinates: [48.8566,2.3522]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"
+#- name: Frankfurt
+#  description: DE, Europe
+#  coordinates: [50.1109,8.6821]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"  
+#- name: Tokyo
+#  description: JP, Asia  
+#  coordinates: [35.6804,139.7690]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"  
+#- name: Amsterdam
+#  description: NL, Europe
+#  coordinates: [52.3667,4.8945]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"  
+#- name: Singapore
+#  description: SG, Asia
+#  coordinates: [1.3521,103.8198]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"  
+#- name: London
+#  description: GB, Europe
+#  coordinates: [51.5074,0.1278]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"  
+#- name: New Jersey
+#  description: US, North America
+#  coordinates: [40.0583,-74.4057]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"  
+#- name: Los Angeles
+#  description: US, North America
+#  coordinates: [34.0522,-118.2437]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"  
+#- name: Atlanta
+#  description: US, North America
+#  coordinates: [33.7490,-84.3880]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"  
+#- name: Silicon Valley
+#  description: US, North America
+#  coordinates: [37.38756,-122.0575]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"  
+#- name: Dallas
+#  description: US, North America
+#  coordinates: [32.7767,-96.7970]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"  
+#- name: Miami
+#  description: US, North America
+#  coordinates: [25.7617,-80.1918]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"
+- name: Montréal
+  description: Canada
+  coordinates: [45.508888, -73.561668]
   markerOffset: 25
   markerColor: "#2ecc71"
   textColor: "#5D5A6D"  
@@ -80,15 +88,15 @@
   markerOffset: 25
   markerColor: "#2ecc71"
   textColor: "#5D5A6D"  
-- name: Chicago
-  description: US, North America
-  coordinates: [41.8781,-87.6298]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
-- name: Seattle
-  description: US, North America
-  coordinates: [47.6062,-122.3321]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
+#- name: Chicago
+#  description: US, North America
+#  coordinates: [41.8781,-87.6298]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"  
+#- name: Seattle
+#  description: US, North America
+#  coordinates: [47.6062,-122.3321]
+#  markerOffset: 25
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"  
