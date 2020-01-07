@@ -1,4 +1,4 @@
-<section class="cli-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto border-bottom">
+<section class="docs-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto border-bottom">
   <div class="container cointaier-shrinked">
     <h1 class="display-4 text-left text-success">
       Docs
@@ -8,31 +8,31 @@
     </h1>
   </div>
 </section>
-<section class="pt-8 pt-md-11 bg-dark p-3 p-md-5 border-top">
+<section class="docs-body pt-8 pt-md-11 bg-dark p-3 p-md-5 border-top">
   <div class="container text-white">
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex bg-light pt-2 pl-0 collapse d-md-show navbar-collapse" id="docs-sidebar">
-          <div class="card bg-secondary">
+        <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex bg-dark pt-2 pl-0 collapse d-md-show" id="docs-sidebar">
+          <div class="card bg-dark-grey">
             <div class="card-body text-white">
               <ul class="nav flex-column flex-nowrap overflow-hidden">                
-                <% directory_hash("#{Rails.root}/public/documentation")[:children].reverse_each do |item| %>
+                <% JSON.parse(File.open("#{Rails.root}/public/documentation/index.json").read).map {|o| o.deep_symbolize_keys}.each do |item| %>
                   <li class="nav-item">
                     <% if item[:children].present? %>
-                      <a class="nav-link collapsed text-truncate text-white" href="#doc-<%= item[:text].downcase %>" data-toggle="collapse" data-target="#doc-<%= item[:text].downcase %>">
-                        <span>&#8226; <%= item[:text].titleize  %></span>
+                      <a class="hvr-forward nav-link collapsed text-truncate text-white" href="#doc-<%= item[:name].titleize.gsub(' ','').underscore %>" data-toggle="collapse" data-target="#doc-<%= item[:name].titleize.gsub(' ','').underscore %>">
+                        <span><%= item[:name]  %></span>
                       </a>
-                      <div class="collapse <%= @section.downcase == item[:text].downcase ? 'show' : '' %>" id="doc-<%= item[:text].downcase  %>" aria-expanded="false">
+                      <div class="collapse <%= @section.downcase == item[:name].downcase ? 'show' : '' %>" id="doc-<%= item[:name].titleize.gsub(' ','').underscore  %>" aria-expanded="false">
                         <ul class="flex-column pl-2 nav">                      
-                          <% item[:children].reverse_each do |subitem| %>                        
+                          <% item[:children].each do |subitem| %>                        
                             <li class="nav-item">
-                              <a class="nav-link py-0 text-white <%= (@title.downcase == subitem[:text].downcase && @section.downcase == item[:text].downcase) ? 'active' : '' %>" href="<%= "/docs/#{item[:text].downcase}/#{subitem[:text].downcase}" %>">&#8226; <span><%= subitem[:text].titleize %></span></a>
+                              <a class="nav-link py-0 text-white <%= (@title.downcase == subitem[:name].downcase && @section.downcase == item[:name].downcase) ? 'text-success' : '' %>" href="<%= "/docs/#{subitem[:path]}" %>">&#8226; <span><%= subitem[:name] %></span></a>
                             </li>
                           <% end %>
                         </ul>
                       </div>                      
                     <% else %>
-                      <a class="nav-link text-truncate" href="/docs/<%= item[:text].downcase %>">
-                        <span><%= item[:text].titleize %></span>
+                      <a class="hvr-forward nav-link text-truncate text-white <%= (@section.downcase == item[:name].downcase) ? 'text-success' : '' %>" href="/docs/<%= item[:path] %>">
+                        <span><%= item[:name] %></span>
                       </a>
                     <% end %>
                   </li>                

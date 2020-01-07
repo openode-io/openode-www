@@ -20,4 +20,13 @@ document.addEventListener("turbolinks:load", function() {
       $('.twitter-feed').find('.twitter-timeline').contents().find('.timeline-Tweet').css({'border-bottom':'1px solid #252829','padding-bottom':'20px','margin-bottom':'20px'});
     }); 
   } 
+
+  const alert = $('div.alert.auto-close');
+
+  alert.each(function() {
+    var that = $(this);
+    setTimeout(function() {
+      that.alert('close');
+    }, 2500);
+  });  
 })

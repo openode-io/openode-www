@@ -30,11 +30,13 @@ module ApplicationHelper
   end
 
   def flash_bootstrap(level)
+    level = 'notice' if level.blank?
+
     case level
-    when 'notice' then "alert alert-info"
-    when 'success' then "alert alert-success"
-    when 'error' then "alert alert-danger"
-    when 'alert' then "alert alert-danger"
+    when 'warning' then "alert alert-warning"  
+    when 'notice' then "alert alert-info auto-close"
+    when /success|ok/ then "alert alert-success auto-close"
+    when /error|alert/ then "alert alert-danger"
     end
   end
 end

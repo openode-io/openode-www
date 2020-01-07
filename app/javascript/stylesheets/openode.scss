@@ -75,6 +75,50 @@
   margin: auto;
 }
 
+.docs-body {
+  hr {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      border: 0;
+      border-top: 1px solid rgba(175, 169, 169, 0.1);
+  }
+
+  pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background: #343a40;
+    border-radius: 3px;    
+    
+    code {  
+      padding: 0;
+      border-radius: 6px;
+      display: inline;
+      max-width: auto;
+      overflow: visible;
+      line-height: inherit;
+      word-wrap: normal;
+      border: 0;   
+      color: #e83e8c; 
+    }    
+  }
+
+  blockquote {
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: .25em solid #dfe2e5;
+  }  
+}
+
+img[alt=opeNode-img] { height: 25px; }
+img[alt=opeNodeNpm-img] { max-width: 380px; }
+img[alt=markdownExampleImage] { max-width: 100%; }
+
+#docs-sidebar {
+  height: fit-content;
+}
+
 /* Custom Styles */
 
 a.dropdown-item:hover {
@@ -99,6 +143,10 @@ a.dropdown-item:active {
 
 .bg-light-grey {
   background-color: #6c757d;
+}
+
+.bg-dark-grey {
+  background-color: #232425 !important;
 }
 
 .text-gray-dark {

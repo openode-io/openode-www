@@ -67,16 +67,14 @@ for i in range(10):
 
 Now a nested list:
 
- 1. First, get these ingredients:
-
-      * carrots
-      * celery
-      * lentils
+1. First, get these ingredients:
+  * carrots
+  * celery
+  * lentils
 
  2. Boil some water.
 
- 3. Dump everything in the pot and follow
-    this algorithm:
+ 3. Dump everything in the pot and follow this algorithm:
 
         find wooden spoon
         uncover pot
@@ -146,7 +144,7 @@ Here's a "line block":
 
 and images can be specified like so:
 
-![example image](example-image.jpg "An exemplary image")
+![markdownExampleImage](https://www.therovingschool.com.au/wp-content/uploads/2018/10/abstract-art-artistic-935785.jpg "An exemplary image")
 
 Inline math equations go in like so: $\omega = d\phi / dt$. Display
 math should get its own line and be put in in double-dollarsigns:

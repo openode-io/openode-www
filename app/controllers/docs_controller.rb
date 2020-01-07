@@ -1,9 +1,11 @@
 require 'redcarpet'
+require 'rouge'
 
 class DocsController < ApplicationController
   def view
-    @doc_renderer ||= Redcarpet::Render::HTML.new(no_links: true, hard_wrap: true)
-    @markdown ||= Redcarpet::Markdown.new(@doc_renderer)
+    @doc_renderer ||= Redcarpet::Render::HTML.new(no_links: true, hard_wrap: true)    
+    #@markdown ||= Redcarpet::Markdown.new(@doc_renderer, :fenced_code_blocks)
+    @markdown ||= Redcarpet::Markdown.new(CustomRedcarpetRendererService, fenced_code_blocks: true)    
 
     section = params[:section]
     document = params[:document] || 'index'
@@ -17,5 +19,6 @@ class DocsController < ApplicationController
     @title = document.titleize
     @section = section.titleize
     @result = @markdown.render(content)
+    Rouge::Themes::Base16.mode(:light).render(scope: '.highlight')
   end
 end
