@@ -34,7 +34,7 @@ module ApplicationHelper
 
     case level
     when 'warning' then "alert alert-warning"
-    when 'notice' then "alert alert-info auto-close"
+    when 'notice' then "alert alert-primary auto-close"
     when /success|ok/ then "alert alert-success auto-close"
     when /error|alert/ then "alert alert-danger"
     end
