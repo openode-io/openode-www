@@ -27,6 +27,6 @@ document.addEventListener("turbolinks:load", function() {
     var that = $(this);
     setTimeout(function() {
       that.alert('close');
-    }, 2500);
+    }, 3000);
   });  
 })

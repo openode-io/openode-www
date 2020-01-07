@@ -10,12 +10,12 @@ class SessionsController < ApplicationController
 
     session[:token] = token
 
-    redirect_to root_url, success: "Logged in!"
+    redirect_to root_url, notice: "Logged in!"
   end
 
   def destroy
     session[:token] = nil
 
-    redirect_to root_url, success: "Logged out!"
+    redirect_to root_url, notice: "Logged out!"
   end
 end
