@@ -9,6 +9,32 @@ module ApplicationHelper
     end
   end
 
+  def doc_title(section, document)
+    if document.downcase != 'index'
+
+      doc_path = "#{section}/#{document}.md"
+
+      document_records = doc_section_item(section).select do |o|
+        o['path'] == doc_path
+      end
+
+      "Docs | #{section.titleize} | #{document_records.first['name']} | opeNode"
+    else
+      "Docs | #{section.titleize} | opeNode"
+    end
+  end
+
+  def doc_section_item(section)
+    docs_path = Rails.root.join("public/documentation/index.json").to_s
+    docs_menu = JSON.parse(File.open(docs_path).read)
+
+    section_items = docs_menu.select do |o|
+      o['name'].downcase == section.titleize.downcase
+    end
+
+    section_items.first['children']
+  end
+
   def directory_hash(path, name = nil, exclude = [])
     exclude.concat(['..', '.', '.git', '__MACOSX', '.DS_Store'])
 

@@ -1,3 +1,4 @@
+<% content_for(:title) { doc_title(@section,@document) } %>
 <section class="docs-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto border-bottom">
   <div class="container cointaier-shrinked">
     <h1 class="display-4 text-left text-success">
@@ -18,14 +19,14 @@
                 <% JSON.parse(File.open("#{Rails.root}/public/documentation/index.json").read).map {|o| o.deep_symbolize_keys}.each do |item| %>
                   <li class="nav-item">
                     <% if item[:children].present? %>
-                      <a class="hvr-forward nav-link collapsed text-truncate text-white" href="#doc-<%= item[:name].titleize.gsub(' ','').underscore %>" data-toggle="collapse" data-target="#doc-<%= item[:name].titleize.gsub(' ','').underscore %>">
+                      <a class="hvr-forward nav-link collapsed text-truncate text-white" href="/docs/<%=item[:path]%>#doc-<%= item[:name].titleize.gsub(' ','').underscore %>" data-target="#doc-<%= item[:name].titleize.gsub(' ','').underscore %>">
                         <span><%= item[:name]  %></span>
                       </a>
                       <div class="collapse <%= @section.titleize.downcase == item[:name].downcase ? 'show' : '' %>" id="doc-<%= item[:name].titleize.gsub(' ','').underscore  %>" aria-expanded="false">
                         <ul class="flex-column pl-2 nav">                      
                           <% item[:children].each do |subitem| %>                        
                             <li class="nav-item">
-                              <a class="nav-link py-0 text-white <%= (@document.gsub('.md','').downcase == subitem[:name].downcase && @section.titleize.downcase == item[:name].downcase) ? 'text-success' : '' %>" href="<%= "/docs/#{subitem[:path]}" %>">&#8226; <span><%= subitem[:name] %></span></a>
+                              <a class="nav-link py-0 text-white <%= ("#{@section.downcase}/#{@document.downcase}.md" == subitem[:path] && @section.titleize.downcase == item[:name].downcase) ? 'text-success' : '' %>" href="<%= "/docs/#{subitem[:path]}" %>">&#8226; <span><%= subitem[:name] %></span></a>
                             </li>
                           <% end %>
                         </ul>
