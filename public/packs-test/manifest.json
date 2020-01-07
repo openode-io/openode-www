@@ -1,15 +1,15 @@
 {
-  "application.js": "/packs-test/js/application-60081628b15f9222a13d.js",
-  "application.js.map": "/packs-test/js/application-60081628b15f9222a13d.js.map",
+  "application.js": "/packs-test/js/application-8d351e33b96c8c5ca62e.js",
+  "application.js.map": "/packs-test/js/application-8d351e33b96c8c5ca62e.js.map",
   "bootstrap_custom.js": "/packs-test/js/bootstrap_custom-be51dc40dd9781eb7aa5.js",
   "bootstrap_custom.js.map": "/packs-test/js/bootstrap_custom-be51dc40dd9781eb7aa5.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs-test/js/application-60081628b15f9222a13d.js"
+        "/packs-test/js/application-8d351e33b96c8c5ca62e.js"
       ],
       "js.map": [
-        "/packs-test/js/application-60081628b15f9222a13d.js.map"
+        "/packs-test/js/application-8d351e33b96c8c5ca62e.js.map"
       ]
     },
     "bootstrap_custom": {
@@ -22,10 +22,10 @@
     },
     "utils": {
       "js": [
-        "/packs-test/js/utils-9d80f7d5afce0bf1d503.js"
+        "/packs-test/js/utils-f65ed985d9f7add8eebe.js"
       ],
       "js.map": [
-        "/packs-test/js/utils-9d80f7d5afce0bf1d503.js.map"
+        "/packs-test/js/utils-f65ed985d9f7add8eebe.js.map"
       ]
     }
   },
@@ -44,6 +44,6 @@
   "media/webfonts/fa-solid-900.ttf": "/packs-test/media/webfonts/fa-solid-900-2aa6edf8.ttf",
   "media/webfonts/fa-solid-900.woff": "/packs-test/media/webfonts/fa-solid-900-93f28454.woff",
   "media/webfonts/fa-solid-900.woff2": "/packs-test/media/webfonts/fa-solid-900-f6121be5.woff2",
-  "utils.js": "/packs-test/js/utils-9d80f7d5afce0bf1d503.js",
-  "utils.js.map": "/packs-test/js/utils-9d80f7d5afce0bf1d503.js.map"
+  "utils.js": "/packs-test/js/utils-f65ed985d9f7add8eebe.js",
+  "utils.js.map": "/packs-test/js/utils-f65ed985d9f7add8eebe.js.map"
 }

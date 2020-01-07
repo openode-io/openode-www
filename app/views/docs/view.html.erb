@@ -21,11 +21,11 @@
                       <a class="hvr-forward nav-link collapsed text-truncate text-white" href="#doc-<%= item[:name].titleize.gsub(' ','').underscore %>" data-toggle="collapse" data-target="#doc-<%= item[:name].titleize.gsub(' ','').underscore %>">
                         <span><%= item[:name]  %></span>
                       </a>
-                      <div class="collapse <%= @section.downcase == item[:name].downcase ? 'show' : '' %>" id="doc-<%= item[:name].titleize.gsub(' ','').underscore  %>" aria-expanded="false">
+                      <div class="collapse <%= @section.titleize.downcase == item[:name].downcase ? 'show' : '' %>" id="doc-<%= item[:name].titleize.gsub(' ','').underscore  %>" aria-expanded="false">
                         <ul class="flex-column pl-2 nav">                      
                           <% item[:children].each do |subitem| %>                        
                             <li class="nav-item">
-                              <a class="nav-link py-0 text-white <%= (@title.downcase == subitem[:name].downcase && @section.downcase == item[:name].downcase) ? 'text-success' : '' %>" href="<%= "/docs/#{subitem[:path]}" %>">&#8226; <span><%= subitem[:name] %></span></a>
+                              <a class="nav-link py-0 text-white <%= (@document.gsub('.md','').downcase == subitem[:name].downcase && @section.titleize.downcase == item[:name].downcase) ? 'text-success' : '' %>" href="<%= "/docs/#{subitem[:path]}" %>">&#8226; <span><%= subitem[:name] %></span></a>
                             </li>
                           <% end %>
                         </ul>
