@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-
   def title
     if content_for?(:title)
       content_for :title
