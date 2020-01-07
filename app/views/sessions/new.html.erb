@@ -18,7 +18,10 @@
             <%= password_field_tag :password, '', class:'form-control' %>
           </div>
 
-          <%= submit_tag "Login", class:'btn btn-lg btn-success w-100' %>
+          <%= submit_tag "Login", class:'btn btn-lg btn-success w-100 mb-3' %>
+
+          <a href="/users/register">Don't have an account? Register here.</a><br/>
+          <a href="/users/forgot_password">Forgot your password? Click here.</a>       
         </div>
       </div>
     <% end %>  
