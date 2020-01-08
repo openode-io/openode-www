@@ -25,7 +25,11 @@
           <div class="card-body text-white">
             <ul class="nav flex-column flex-nowrap overflow-hidden">                
               <% @docs_menu.each do |item| %>
-                <%= render 'docs/menu/item', section:@section,document:@document,item:item%>
+                <%= render 'docs/menu/item',
+                      section: @section,
+                      document: @document,
+                      item:item
+                %>
               <% end %>
             </ul>
           </div>
