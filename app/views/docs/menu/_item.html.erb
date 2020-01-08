@@ -1,0 +1,32 @@
+<li class="nav-item">
+  <% if item[:children].present? %>
+    <a 
+      class="hvr-forward nav-link collapsed text-truncate <%= active_item_class(section,item) %>" 
+      href="/docs/<%=item[:path]%>#doc-<%= item_underscore(item) %>" 
+      data-target="#doc-<%= item_underscore(item) %>">
+      <span><%= item[:name]  %></span>
+    </a>
+    <div
+      class="collapse <%= collapsed_item_class(section,item) %>"
+      id="doc-<%= item_underscore(item) %>"
+      aria-expanded="false">
+      <ul class="flex-column pl-2 nav">                      
+        <% item[:children].each do |subitem| %>                        
+          <li class="nav-item">
+            <a 
+              class="nav-link py-0 text-white <%= active_item_class(section,item,document,subitem) %>"
+              href="<%= "/docs/#{subitem[:path]}" %>">
+              &#8226; <span><%= subitem[:name] %></span>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>                      
+  <% else %>
+    <a 
+      class="hvr-forward nav-link text-truncate text-white <%= active_item_class(section,item) %>"
+      href="/docs/<%= item[:path] %>">
+      <span><%= item[:name] %></span>
+    </a>
+  <% end %>
+</li> 

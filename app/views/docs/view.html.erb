@@ -4,7 +4,14 @@
   <div class="container cointaier-shrinked">
     <h1 class="display-4 text-left text-success">
       Docs
-      <button class="navbar-toggler float-right mt-4 d-md-none" type="button" data-toggle="collapse" data-target="#docs-sidebar" aria-controls="docs-sidebar" aria-expanded="false" aria-label="Toggle Docs Navigation">
+      <button 
+        class="navbar-toggler float-right mt-4 d-md-none" 
+        type="button" 
+        data-toggle="collapse"
+        data-target="#docs-sidebar"
+        aria-controls="docs-sidebar"
+        aria-expanded="false"
+        aria-label="Toggle Docs Navigation">
         <span><i class="fa fa-bars"></i></span>
       </button>      
     </h1>
@@ -13,36 +20,17 @@
 <section class="docs-body pt-8 pt-md-11 bg-dark p-3 p-md-5 border-top">
   <div class="container text-white">
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex bg-dark pt-2 pl-0 collapse d-md-show" id="docs-sidebar">
-          <div class="card bg-dark-grey">
-            <div class="card-body text-white">
-              <ul class="nav flex-column flex-nowrap overflow-hidden">                
-                <% JSON.parse(File.open("#{Rails.root}/public/documentation/index.json").read).map {|o| o.deep_symbolize_keys}.each do |item| %>
-                  <li class="nav-item">
-                    <% if item[:children].present? %>
-                      <a class="hvr-forward nav-link collapsed text-truncate text-white" href="/docs/<%=item[:path]%>#doc-<%= item[:name].titleize.gsub(' ','').underscore %>" data-target="#doc-<%= item[:name].titleize.gsub(' ','').underscore %>">
-                        <span><%= item[:name]  %></span>
-                      </a>
-                      <div class="collapse <%= @section.titleize.downcase == item[:name].downcase ? 'show' : '' %>" id="doc-<%= item[:name].titleize.gsub(' ','').underscore  %>" aria-expanded="false">
-                        <ul class="flex-column pl-2 nav">                      
-                          <% item[:children].each do |subitem| %>                        
-                            <li class="nav-item">
-                              <a class="nav-link py-0 text-white <%= ("#{@section.downcase}/#{@document.downcase}.md" == subitem[:path] && @section.titleize.downcase == item[:name].downcase) ? 'text-success' : '' %>" href="<%= "/docs/#{subitem[:path]}" %>">&#8226; <span><%= subitem[:name] %></span></a>
-                            </li>
-                          <% end %>
-                        </ul>
-                      </div>                      
-                    <% else %>
-                      <a class="hvr-forward nav-link text-truncate text-white <%= (@section.downcase == item[:name].downcase) ? 'text-success' : '' %>" href="/docs/<%= item[:path] %>">
-                        <span><%= item[:name] %></span>
-                      </a>
-                    <% end %>
-                  </li>                
-                <% end %>
-              </ul>
-            </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex bg-dark pt-2 pl-0 collapse d-md-show" id="docs-sidebar">
+        <div class="card bg-dark-grey">
+          <div class="card-body text-white">
+            <ul class="nav flex-column flex-nowrap overflow-hidden">                
+              <% @docs_menu.each do |item| %>
+                <%= render 'docs/menu/item', section:@section,document:@document,item:item%>
+              <% end %>
+            </ul>
           </div>
         </div>
+      </div>
       <div class="col-lg-9 col-md-9 col-sm-12">
         <%= raw @result %>
       </div>

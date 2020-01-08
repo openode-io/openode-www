@@ -25,6 +25,26 @@ module DocsHelper
     section_items.first['children']
   end
 
+  def item_underscore(item)
+    item[:name].titleize.gsub(' ', '').underscore
+  end
+
+  def collapsed_item_class(section, item)
+    section.titleize.downcase == item[:name].downcase ? 'show' : ''
+  end
+
+  def active_item_class(section, item, document = '', subitem = '')
+    if document.present? && subitem.present?
+      subitem_path_match = subitem[:path] == "#{section.downcase}/#{document.downcase}.md"
+      section_item_match = section.titleize.downcase == item[:name].downcase
+      result = subitem_path_match && section_item_match ? 'text-success' : ''
+    else
+      result = section.titleize.downcase == item[:name].downcase ? 'text-success' : ' '
+    end
+
+    result
+  end
+
   def directory_hash(path, name = nil, exclude = [])
     exclude.concat(['..', '.', '.git', '__MACOSX', '.DS_Store'])
 
