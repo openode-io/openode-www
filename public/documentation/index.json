@@ -17,7 +17,11 @@
       },
       {
         "name":"Scheduler / Cron Jobs",
-        "path":"cloud_hosting/scheduler.md"
+        "path":"cloud_hosting/scheduler_cron_jobs.md"
+      },
+      {
+        "name":"CLI",
+        "path":"cloud_hosting/cli.md"
       }
     ]
   }

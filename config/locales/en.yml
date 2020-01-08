@@ -45,6 +45,8 @@ en:
   home:    
     index: 
       title: 'Home | opeNode'
+    docs: 
+      title: 'Docs | opeNode'      
     pricing:
       title: 'Pricing | opeNode'
     private_cloud_pricing:
@@ -71,5 +73,7 @@ en:
       title: 'Support | opeNode'
     login:
       title: 'Login | opeNode'
+    register:
+      title: 'Register | opeNode'      
     opensource:
       title: 'Open Source | opeNode'

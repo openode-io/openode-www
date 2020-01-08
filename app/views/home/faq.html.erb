@@ -1,2 +1,70 @@
-<h1>Home#faq</h1>
-<p>Find me in app/views/home/about.html.erb</p>
+<section class="terms-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+  <div class="container cointaier-shrinked">
+    <h1 class="display-4 text-left text-success">FAQ</h1>
+    <h2 class="text-muted text-left">Get started now on opeNode!</h2>
+    <p class="lead text-left">We provide a free sandbox to get started and you will not have to enter your credit card information.</p>
+  </div>
+</section>
+<section class="pt-8 pt-md-11 bg-dark p-3 p-md-5">
+  <div class="container text-white">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item list-group-item-action flex-column bg-dark text-white border-secondary p-0 pt-3">
+          <h5>Why am I getting a 502 error status page?</h5>
+          <p>
+            Either your instance crashed or it is lacking memory (RAM).
+            You should at least add logs in order to debug.
+            You can also increase your plan to avoid lacking memory.
+          </p>
+      </li>
+      <li class="list-group-item list-group-item-action flex-column bg-dark text-white border-secondary p-0 pt-3">
+          <h5>How do I expose port 80?</h5>
+          <p>
+            Your application just needs to listen to port 80. You do not have anything to configure.
+            If you need HTTPS, we will reverse-proxy to your port 80, so in any case all you need is to listen port 80.
+          </p>
+      </li>
+      <li class="list-group-item list-group-item-action flex-column bg-dark text-white border-secondary p-0 pt-3">
+          <h5>How does the free tier plan (sandbox) work?</h5>
+          <p>
+            The free sandbox provides a completely free instance for 30 days in order to test our services and see what's inside.
+          </p>
+          <p>
+            If you would like to upgrade your account, payments can be done via the <a href="/admin">administration panel</a>.
+          </p>
+      </li>
+      <li class="list-group-item list-group-item-action flex-column bg-dark text-white border-secondary p-0 pt-3">
+          <h5>Do you offer database hosting?</h5>
+          <p>
+            You do can add a local database to your instance, please see this
+            <a href="https://www.openode.io/doc/adding-a-local-database-(mongodb-mysql)-77">link</a>.
+            For a production site, however it is recommended to use an external service database.
+          </p>
+      </li>
+      <li class="list-group-item list-group-item-action flex-column bg-dark text-white border-secondary p-0 pt-3">
+          <h5>Do you offer free hosting?</h5>
+          <p>Yes! We have a free 30-day trial plan in order to test your websites. See the conditions in the <a href="/pricing" target="_blank">pricing page</a>.</p>
+      </li>
+      <li class="list-group-item list-group-item-action flex-column bg-dark text-white border-secondary p-0 pt-3">
+          <h5>How can I get an SSL certificate?</h5>
+          <p>
+            Please see this <a href="https://www.openode.io/doc/https-64">doc</a>.
+          </p>
+      </li>
+      <li class="list-group-item list-group-item-action flex-column bg-dark text-white border-secondary p-0 pt-3">
+          <h5>My country or currency is not allowed to use Paypal, what are the other payment solutions?</h5>
+          <p>We also accept several cryptocurrencies:
+            Bitcoin, bitcoin cash, Ethereum, EOS, Litecoin, Binance Coin, Bitcoin SV, Ripple, Stellar, and more!</p>
+      </li>
+      <li class="list-group-item list-group-item-action flex-column bg-dark text-white border-secondary p-0 pt-3">
+          <h5>Can I host my online game?</h5>
+          <p>Sure. Many online games are currently hosted on opeNode.</p>
+      </li>
+      <li class="list-group-item list-group-item-action flex-column bg-dark text-white border-secondary p-0 pt-3">
+          <h5>Is there any tutorials/basic samples to get started?</h5>
+          <p>Sure. Please have a look at these <a href="/doc/20" target="_blank">samples</a></p>
+      </li>
+    </ul>  
+  </div>
+</section>
+<%= render 'home/sections/all_in_one' %>
+<%= render 'home/sections/get_started' %>
