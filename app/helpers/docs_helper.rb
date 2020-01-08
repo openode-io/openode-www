@@ -39,7 +39,8 @@ module DocsHelper
       section_item_match = section.titleize.downcase == item[:name].downcase
       result = subitem_path_match && section_item_match ? 'text-success' : ''
     else
-      result = section.titleize.downcase == item[:name].downcase ? 'text-success' : ' '
+      section_item_match = section.titleize.downcase == item[:name].downcase
+      result = section_item_match ? 'text-success' : 'text-white'
     end
 
     result
