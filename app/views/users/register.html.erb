@@ -23,11 +23,14 @@
             <%= text_field_tag :password_confirmation, '', class:'form-control' %>
           </div>  
 
-          <div class="form-label-group mb-3">
-            <%= label_tag :newsletter %>
+          <div class="form-label-group mb-3">            
             <%= check_box_tag :newsletter, '', class:'form-control' %>
+            <%= label_tag :newsletter, 'Do you want to receive our newsletter?' %>
           </div>    
-                         
+
+          <div class="form-label-group mb-3">
+            <%= render_recaptcha('register') %>
+          </div>
 
           <%= submit_tag "Register", class:'btn btn-lg btn-success w-100 mb-3' %>
 

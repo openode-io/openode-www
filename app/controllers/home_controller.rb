@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  include Recaptchable
+  
   before_action only: [:index, :about] do
     @global_stats = Rails.cache.fetch('/api/global/stats', expires_in: 12.hours) do
       api(:get, '/global/stats') rescue {}
@@ -39,7 +41,7 @@ class HomeController < ApplicationController
     # -
   end
 
-  def support
+  def support    
     # -
   end
 

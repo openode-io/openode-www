@@ -1,10 +1,16 @@
 class UsersController < ApplicationController
+  include Recaptchable
+
   def register; end
 
   def create
-    response = api(:post, '/account/register', payload: user_params)
+    if verify_recaptchas
+      response = api(:post, '/account/register', payload: user_params)
 
-    json(response)
+      json(response)
+    else
+      render :register, alert: "We need to verify that you are a human :)"
+    end
   end
 
   def forgot_password; end

@@ -1,15 +1,26 @@
 <nav class="site-header sticky-top navbar-dark bg-dark navbar navbar-expand-lg">
   <a class="navbar-brand" href="/" aria-label="Product">
-    <img src="https://www.openode.io/images/logo/dark_v2.svg" height="36" alt="Openode"/>
+    <img src="/images/logo/dark_v2.svg" height="36" alt="opeNode"/>
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
-        <a href="#" class="nav-link  dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          Services <b class="caret"></b>
+        <a href="#"
+           class="nav-link  dropdown-toggle"
+           data-toggle="dropdown"
+           role="button"
+           aria-haspopup="true"
+           aria-expanded="false">
+           Services <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
           <a class="dropdown-item" href="/pricing">Cloud Hosting</a>
@@ -17,8 +28,12 @@
         </ul>
       </li>
       <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          Resources <b class="caret"></b>
+        <a href="#" class="nav-link dropdown-toggle" 
+           data-toggle="dropdown"
+           role="button"
+           aria-haspopup="true"
+           aria-expanded="false">
+           Resources <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
           <a class="dropdown-item" href="/news" data-turbolinks="false">News</a>
@@ -29,8 +44,12 @@
         </ul>
       </li>
       <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          Doc <b class="caret"></b>
+        <a href="#" class="nav-link dropdown-toggle"
+           data-toggle="dropdown" 
+           role="button" 
+           aria-haspopup="true" 
+           aria-expanded="false">
+           Doc <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
           <a class="dropdown-item" href="/docs/cloud_hosting/cli">CLI</a>
@@ -38,9 +57,15 @@
           <a class="dropdown-item" href="/docs/introduction/index">Docs</a>
         </ul>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/admin/support">Contact</a>
-      </li>
+      <% if current_user %>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/support">Contact</a>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="/support">Contact</a>
+        </li>      
+      <% end %>
       <% if current_user %>
       <li class="nav-item">
         <a class="nav-link " href="/admin">Dashboard</a>
@@ -55,7 +80,7 @@
           <%= link_to "Log In", login_path, class:'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign Up", users_register_path, class:'btn btn-sn btn-outline-secondary' %>
+          <%= link_to "Sign Up", users_register_path, class:'btn btn-sn btn-outline-secondary hvr-fade' %>
         </li>        
       <% end %>        
     </ul>

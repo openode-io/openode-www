@@ -2,7 +2,7 @@ require 'rest-client'
 
 class ApplicationController < ActionController::Base
   include Response
-  include ExceptionHandler
+  include ExceptionHandler  
 
   helper_method :current_user
 
@@ -31,5 +31,5 @@ class ApplicationController < ActionController::Base
                                            timeout: 10,
                                            payload: payload,
                                            headers: headers))
-  end
+  end 
 end

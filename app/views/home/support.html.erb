@@ -1,5 +1,47 @@
-<section class="support-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+<section class="public-support-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto">
   <div class="container cointaier-shrinked">
-    <h1 class="display-4 text-left">Support</h1>
+    <h1 class="display-4 text-center text-success">Contact Us</h1>
+  </div>
+</section>
+<section class="pt-8 pt-md-11 bg-dark p-3 p-md-5">
+  <div class="container">
+    <%= form_tag support_path, {class:'form-signin'} do |form| %>
+      <div class="card">
+        <div class="card-body">      
+          <div class="form-label-group mb-2">
+            Thanks for your interest in opeNode!
+            You can read our <a href="/docs/introduction/index">docs</a> or send us a message.
+          </div>
+          
+          <hr/>
+
+          <div class="form-label-group mb-2">
+            <%= label_tag :email, 'Your email' %>
+            <%= text_field_tag :email, '', class:'form-control' %>
+          </div>
+          
+          <div class="form-label-group mb-2">
+            <%= label_tag :email_confirmation, 'Confirm your email' %>
+            <%= text_field_tag :email_confirmation, '', class:'form-control' %>
+          </div>
+
+          <div class="form-label-group mb-2">
+            <%= label_tag :message, 'How can we help you?' %>
+            <%= text_area_tag :message, '', class:'form-control' %>
+          </div>
+
+          <div class="form-label-group mb-3">            
+            <%= check_box_tag :newsletter, '', class:'form-control' %>
+            <%= label_tag :newsletter, 'Do you want to receive our newsletter?' %>
+          </div>    
+
+          <div class="form-label-group mb-3">
+            <%= render_recaptcha('support') %>
+          </div>
+
+          <%= submit_tag "Send!", class:'btn btn-lg btn-success w-100 mb-3' %>
+        </div>
+      </div>
+    <% end %>  
   </div>
 </section>
