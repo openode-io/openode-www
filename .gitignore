@@ -37,3 +37,5 @@ yarn-debug.log*
 .yarn-integrity
 
 .DS_Store
+
+/config/credentials/development.key
