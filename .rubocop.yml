@@ -26,6 +26,9 @@ Style/FormatString:
 Style/FormatStringToken:
   Enabled: false
 
+Style/RescueModifier:
+  Enabled: false
+
 Style/MixinUsage:
   Exclude:
     - 'bin/*'

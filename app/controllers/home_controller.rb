@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   before_action only: [:index, :about] do
     @global_stats = Rails.cache.fetch('/api/global/stats', expires_in: 12.hours) do
-      api(:get, '/global/stats')
+      api(:get, '/global/stats') rescue {}
     end
   end
 
