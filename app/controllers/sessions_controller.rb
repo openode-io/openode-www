@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   include Recaptchable
-  
+
   def new
     # -
   end
