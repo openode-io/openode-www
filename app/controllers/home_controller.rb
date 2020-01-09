@@ -10,7 +10,8 @@ class HomeController < ApplicationController
   end
 
   def pricing
-    # -
+    @pricing_plans =
+      YAML.load_file(Rails.root.join("config/pricing.yml")).map(&:deep_symbolize_keys)
   end
 
   def private_cloud_pricing

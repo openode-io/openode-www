@@ -86,5 +86,9 @@ class ActiveSupport::TestCase
     end
   end
 
+  def perform_successful_login
+    post "/sessions",
+         params: { email: "mymail@openode.io", password: "1234561!" }
+  end
   # Add more helper methods to be used by all tests here...
 end

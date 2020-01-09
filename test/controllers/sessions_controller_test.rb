@@ -2,8 +2,7 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "POST /sessions - happy path" do
-    post "/sessions",
-         params: { email: "mymail@openode.io", password: "1234561!" }
+    perform_successful_login
 
     assert_response :found
 

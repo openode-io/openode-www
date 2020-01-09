@@ -1,4 +1,5 @@
 - name: Sandbox
+  id: sandbox
   internal_id: free
   title: FREE
   subtitle: 30-day Free Trial
@@ -13,6 +14,7 @@
     text: Order
 
 - name: Open Source
+  id: open-source
   internal_id: open_source
   title: FREE
   subtitle: 
@@ -27,6 +29,7 @@
     text: Order
 
 - name: 50MB Memory
+  id: 50-MB
   internal_id: first
   title: $0.40
   subtitle: per month
@@ -41,6 +44,7 @@
     text: Order
 
 - name: 100MB Memory
+  id: 100-MB
   internal_id: second
   title: $0.80
   subtitle: per month
@@ -55,6 +59,7 @@
     text: Order
 
 - name: 200MB Memory
+  id: 200-MB
   internal_id: third
   title: $1.61
   subtitle: per month
@@ -69,6 +74,7 @@
     text: Order
 
 - name: 500MB Memory
+  id: 500-MB
   internal_id: fourth
   title: $4.02
   subtitle: per month
@@ -83,6 +89,7 @@
     text: Order
 
 - name: 1GB Memory
+  id: 1-GB
   internal_id: fifth
   title: $8.26
   subtitle: per month
@@ -97,6 +104,7 @@
     text: Order
 
 - name: 2GB Memory
+  id: 2-GB
   internal_id: sixth
   title: $16.52
   subtitle: per month

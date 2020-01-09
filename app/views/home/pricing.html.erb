@@ -9,7 +9,7 @@
   <div class="container">    
     <div class="card-deck mb-3 text-center">
       <div class="row">
-      <% YAML.load_file("#{Rails.root}/config/pricing.yml").map { |o|o.deep_symbolize_keys }.each do |pricing| %>
+      <% @pricing_plans.each do |pricing| %>
         <div class="col-sm-12 col-12 col-md-3 col-lg-3 mb-5">
           <div class="card border-success shadow-sm ml-0 mr-0 h-100 hvr-grow">
             <div class="card-header bg-success text-white">
@@ -25,7 +25,18 @@
               </ul>            
             </div>
             <div class="card-footer">
-              <a href="<%= pricing[:button][:url] %>" class="btn btn-lg btn-block btn-outline-success"><%= pricing[:button][:text] %></a>
+              <% if current_user %>
+                <a href="/admin/order/<%= pricing[:id] %>"
+                    class="btn btn-lg btn-block btn-outline-success">
+                  Order
+                </a>
+              <% else %>
+                <a href="/users/register"
+                    class="btn btn-lg btn-block btn-outline-success">
+                  Sign Up
+                </a>
+              <% end %>
+              
             </div>
           </div>
         </div>

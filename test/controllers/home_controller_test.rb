@@ -15,13 +15,16 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_includes response.parsed_body, "<title>Pricing"
+    assert_includes response.parsed_body, "/users/register"
   end
 
-  test "should get private_cloud_pricing" do
-    get '/pricing-private-cloud'
+  test "should get pricing if logged in" do
+    perform_successful_login
+    get '/pricing'
 
     assert_response :success
     assert_includes response.parsed_body, "<title>Pricing"
+    assert_includes response.parsed_body, "/admin/order/sandbox"
   end
 
   test "should get about" do
