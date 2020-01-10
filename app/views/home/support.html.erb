@@ -16,24 +16,19 @@
           <hr/>
 
           <div class="form-label-group mb-2">
-            <%= label_tag :email, 'Your email' %>
-            <%= text_field_tag :email, '', class:'form-control' %>
+            <%= label_tag :email, 'Your email', class: 'required' %>
+            <%= text_field_tag :email, '', class:'form-control', required:true %>
           </div>
           
           <div class="form-label-group mb-2">
-            <%= label_tag :email_confirmation, 'Confirm your email' %>
-            <%= text_field_tag :email_confirmation, '', class:'form-control' %>
+            <%= label_tag :email_confirmation, 'Confirm your email', class: 'required' %>
+            <%= text_field_tag :email_confirmation, '', class:'form-control', required:true %>
           </div>
 
           <div class="form-label-group mb-2">
-            <%= label_tag :message, 'How can we help you?' %>
-            <%= text_area_tag :message, '', class:'form-control' %>
+            <%= label_tag :message, 'How can we help you?', class: 'required' %>
+            <%= text_area_tag :message, '', class:'form-control', rows:5, required:true %>
           </div>
-
-          <div class="form-label-group mb-3">            
-            <%= check_box_tag :newsletter, '', class:'form-control' %>
-            <%= label_tag :newsletter, 'Do you want to receive our newsletter?' %>
-          </div>    
 
           <div class="form-label-group mb-3">
             <%= render_recaptcha('support', @show_recaptcha_v2) %>

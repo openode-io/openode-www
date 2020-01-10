@@ -119,6 +119,20 @@ img[alt=markdownExampleImage] { max-width: 100%; }
   height: fit-content;
 }
 
+form {
+  label {
+    &.required:after{
+      color: red;
+      content: " *";
+    }
+  }
+}
+
+a.input-group-text,
+a.input-group-text:hover {
+  text-decoration: none;
+}
+
 /* Custom Styles */
 
 a.dropdown-item:hover {

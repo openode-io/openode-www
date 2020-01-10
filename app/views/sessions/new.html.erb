@@ -9,13 +9,12 @@
       <div class="card">
         <div class="card-body">
           <div class="form-label-group mb-2">
-            <%= label_tag :email %>
-            <%= text_field_tag :email, '', class:'form-control' %>
+            <%= label_tag :email, 'Email', class:'required' %>
+            <%= text_field_tag :email, '', class:'form-control', required:true %>
           </div>
 
           <div class="form-label-group mb-3">
-            <%= label_tag :password %>
-            <%= password_field_tag :password, '', class:'form-control' %>
+            <%= render 'layouts/password_field', name: 'password', label: 'Password' %>
           </div>
 
           <div class="form-label-group mb-3">

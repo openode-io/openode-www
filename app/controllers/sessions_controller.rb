@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     token = api(:post, '/account/getToken', payload: payload)
 
-    if verify_recaptcha && token.present?
+    if verify_recaptchas && token.present?
       session[:token] = token
       redirect_to root_url, notice: "Logged in!"
     else
