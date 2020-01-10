@@ -15,8 +15,9 @@ module ExceptionHandler
     end
   end
 
-  def handle_error_html(msg)
+  def handle_error_html(msg, exception = nil)
     logger.error("Hook (HTML) error handling, msg = #{msg}")
+    logger.error(exception.backtrace.join("\n")) if exception&.backtrace
     flash[:error] = msg
     redirect_back fallback_location: root_path
   end
@@ -32,7 +33,7 @@ module ExceptionHandler
 
     case request.format
     when "text/html"
-      handle_error_html(msg)
+      handle_error_html(msg, exception)
     when "text/json"
       handle_error_json(msg, http_code)
     else

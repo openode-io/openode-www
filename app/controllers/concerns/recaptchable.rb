@@ -5,8 +5,8 @@ module Recaptchable
     def verify_recaptchas
       return true if Rails.env.test?
 
-      v2_secret_key = Rails.application.credentials.recaptcha_v2[:secret_key]
-      v3_secret_key = Rails.application.credentials.recaptcha_v3[:secret_key]
+      v2_secret_key = ENV['RECAPTCHA_V2_SECRET_KEY']
+      v3_secret_key = ENV['RECAPTCHA_V3_SECRET_KEY']
 
       success = verify_recaptcha(
         action: params[:action],

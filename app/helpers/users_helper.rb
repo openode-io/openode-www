@@ -4,12 +4,12 @@ module UsersHelper
 
     if show_recaptcha_v2
       recaptcha_tags(
-        site_key: Rails.application.credentials.recaptcha_v2[:site_key]
+        site_key: ENV['RECAPTCHA_V2_SITE_KEY']
       )
     else
       recaptcha_v3(
         action: action,
-        site_key: Rails.application.credentials.recaptcha_v3[:site_key]
+        site_key: ENV['RECAPTCHA_V3_SITE_KEY']
       )
     end
   end
