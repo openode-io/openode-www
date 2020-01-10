@@ -2,7 +2,7 @@ module Recaptchable
   extend ActiveSupport::Concern
 
   included do
-    def verify_recaptchas(action, score = nil)
+    def verify_recaptchas(action, score = 0.5)
       raise 'Action needed to process recaptcha' if action.blank?
       return true if Rails.env.test?
 

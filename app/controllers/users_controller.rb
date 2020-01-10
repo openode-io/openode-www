@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def create
     if verify_recaptchas('register')
-      response = api(:post, '/account/register', payload: user_params)
+      response = api(:post, '/account/register', payload: { account: user_params })
 
       json(response)
     else
