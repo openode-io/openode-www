@@ -17,7 +17,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
            }
          }
 
-    assert_response :success
+    assert_equal session["token"], "15487ca02fa4f928be9f8c2dfb1115d5"
   end
 
   test "should get create  - validation issue" do

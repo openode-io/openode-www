@@ -32,10 +32,12 @@ class ActiveSupport::TestCase
       method: :post,
       with: {
         body: {
-          'email' => 'myadminvalidregister@thisisit.com',
-          'password' => 'Helloworld234',
-          'password_confirmation' => 'Helloworld234',
-          'newsletter' => '0'
+          account: {
+            'email' => 'myadminvalidregister@thisisit.com',
+            'password' => 'Helloworld234',
+            'password_confirmation' => 'Helloworld234',
+            'newsletter' => '0'
+          }
         }
       },
       content_type: 'application/json',
@@ -47,9 +49,11 @@ class ActiveSupport::TestCase
       method: :post,
       with: {
         body: {
-          'email' => 'myadminvalidregister@thisisit.com',
-          'password' => 'Helloworld234',
-          'password_confirmation' => 'Helloworld234567'
+          account: {
+            'email' => 'myadminvalidregister@thisisit.com',
+            'password' => 'Helloworld234',
+            'password_confirmation' => 'Helloworld234567'
+          }
         }
       },
       content_type: 'application/json',

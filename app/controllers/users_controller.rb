@@ -7,7 +7,10 @@ class UsersController < ApplicationController
     if verify_recaptchas('register')
       response = api(:post, '/account/register', payload: { account: user_params })
 
-      json(response)
+      session[:token] = response['token']
+
+      # TODO: - redirect to dashboard
+      redirect_to root_url, notice: "Registered successfully!"
     else
       render :register, alert: "We need to verify that you are a human :)"
     end
