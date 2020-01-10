@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_token(token)
+    session[:token] = token
+  end
+
   def api(method, path = "/", args = {})
     headers = {
       "x-auth-token": session[:token],

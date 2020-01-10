@@ -71,6 +71,30 @@ class ActiveSupport::TestCase
       response_status: 200,
       response_path:
         'test/fixtures/http/openode_api/front/global_stats.json'
+    },
+    {
+      url: 'https://api.openode.io/account/forgot-password',
+      method: :post,
+      with: {
+        body: {}
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path:
+        'test/fixtures/http/openode_api/front/forgot-password.json'
+    },
+    {
+      url: 'https://api.openode.io/account/verify-reset-token',
+      method: :post,
+      with: {
+        body: {
+          "reset_token" => "theresettoken"
+        }
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path:
+        'test/fixtures/http/openode_api/front/forgot-password.json'
     }
   ]
 
