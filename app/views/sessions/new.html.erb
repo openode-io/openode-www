@@ -5,12 +5,12 @@
 </section>
 <section class="pt-8 pt-md-11 bg-dark p-3 p-md-5">
   <div class="container">
-    <%= form_tag sessions_path, {class:'form-signin'} do |form| %>
+    <%= form_tag sessions_path, {class: 'form-signin'} do |form| %>
       <div class="card">
         <div class="card-body">
           <div class="form-label-group mb-2">
-            <%= label_tag :email, 'Email', class:'required' %>
-            <%= text_field_tag :email, '', class:'form-control', required:true %>
+            <%= label_tag :email, 'Email', class: 'required' %>
+            <%= text_field_tag :email, '', class: 'form-control', required:true %>
           </div>
 
           <div class="form-label-group mb-3">
@@ -21,7 +21,7 @@
             <%= render_recaptcha('login', @show_recaptcha_v2) %>
           </div>
 
-          <%= submit_tag "Login", class:'btn btn-lg btn-success w-100 mb-3' %>
+          <%= submit_tag "Login", class: 'btn btn-lg btn-success w-100 mb-3' %>
 
           <a href="/users/register">Don't have an account?</a><br/>
           <a href="/users/forgot_password">Forgot your password?</a>       
