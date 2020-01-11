@@ -9,7 +9,7 @@
       <div class="card">
         <div class="card-body">
           <div class="form-label-group mb-2">
-            <%= form.label 'Email', class: 'required' %>
+            <%= form.label :email, class: 'required' %>
             <%= form.text_field :email, {class: 'form-control', required:true} %>
           </div>
 
@@ -23,7 +23,7 @@
 
           <div class="form-label-group mb-3">            
             <%= form.check_box :newsletter, { checked: true }, 1, 0 %>
-            <%= form.label 'Do you want to receive our newsletter?' %>
+            <%= form.label :newsletter, 'Do you want to receive our newsletter?' %>
           </div>    
 
           <div class="form-label-group mb-3">
