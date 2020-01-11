@@ -19,3 +19,15 @@ module OpenodeWww
     # the framework and any gems in your application.
   end
 end
+
+require 'dotenv'
+Dotenv.load(".#{ENV['RAILS_ENV']}.env")
+
+%w[
+  RECAPTCHA_V3_SITE_KEY
+  RECAPTCHA_V3_SECRET_KEY
+  RECAPTCHA_V2_SITE_KEY
+  RECAPTCHA_V2_SECRET_KEY
+].each do |var|
+  raise "missing env var #{var}" unless ENV[var]
+end

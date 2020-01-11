@@ -24,9 +24,12 @@ Rails.application.routes.draw do
 
   get 'users/register'
   post '/users', to: 'users#create'
-  get 'users/forgot_password'
-  post 'users/process_forgot_password'
+  get '/users/forgot_password', to: 'users#forgot_password'
+  post '/users/forgot_password', to: 'users#process_forgot_password'
+  # post 'users/process_forgot_password'
   get 'users/activate'
+
+  get '/reset/:reset_token', to: 'users#verify_reset_token'
 
   get 'docs/:section/', to: 'docs#view'
   get 'docs/:section/:document', to: 'docs#view'

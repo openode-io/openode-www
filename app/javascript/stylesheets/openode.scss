@@ -70,7 +70,7 @@
 
 .form-signin {
   width: 100%;
-  max-width: 420px;
+  max-width: 374px;
   padding: 15px;
   margin: auto;
 }
@@ -117,6 +117,20 @@ img[alt=markdownExampleImage] { max-width: 100%; }
 
 #docs-sidebar {
   height: fit-content;
+}
+
+form {
+  label {
+    &.required:after{
+      color: red;
+      content: " *";
+    }
+  }
+}
+
+a.input-group-text,
+a.input-group-text:hover {
+  text-decoration: none;
 }
 
 /* Custom Styles */

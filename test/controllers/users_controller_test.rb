@@ -17,7 +17,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
            }
          }
 
-    assert_response :success
+    assert_equal session["token"], "15487ca02fa4f928be9f8c2dfb1115d5"
   end
 
   test "should get create  - validation issue" do
@@ -41,13 +41,25 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "should get process_forgot_password" do
-  #  get users_process_forgot_password_url
-  #  assert_response :success
-  # end
+  test "forgot password page" do
+    get '/users/forgot_password'
 
-  # test "should get activate" do
-  #  get users_activate_url
-  #  assert_response :success
-  # end
+    assert_response :success
+    assert_includes response.parsed_body, 'Password Recovery'
+  end
+
+  test "forgot password - process" do
+    post '/users/forgot_password',
+         params: {
+           email: 'titi@toto.com'
+         }
+
+    assert_response :redirect
+  end
+
+  test "reset token" do
+    get '/reset/theresettoken'
+
+    assert_response :redirect
+  end
 end

@@ -50,8 +50,23 @@ document.addEventListener("turbolinks:load", function() {
                     'margin-bottom':'20px'
                   }
                 );
-      }); 
-  } 
+      });
+
+  }
+
+  $(".show_hide_password a").on('click', function(event) {
+    event.preventDefault();
+
+    if($(this).parents('.input-group').find('input').attr("type") == "text"){
+      $(this).parents('.input-group').find('input').attr('type', 'password');
+      $(this).parents('.input-group').find('i').addClass( "fa-eye-slash" );
+      $(this).parents('.input-group').find('i').removeClass( "fa-eye" );
+    }else if($(this).parents('.input-group').find('input').attr("type") == "password"){
+      $(this).parents('.input-group').find('input').attr('type', 'text');
+      $(this).parents('.input-group').find('i').removeClass( "fa-eye-slash" );
+      $(this).parents('.input-group').find('i').addClass( "fa-eye" );
+    }
+  });      
 
   const alert = $('div.alert.auto-close');
 
@@ -61,4 +76,4 @@ document.addEventListener("turbolinks:load", function() {
       that.alert('close');
     }, 3000);
   });  
-})
+});

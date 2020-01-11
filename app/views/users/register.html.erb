@@ -5,31 +5,32 @@
 </section>
 <section class="pt-8 pt-md-11 bg-dark p-3 p-md-5">
   <div class="container">
-    <%= form_tag users_path, {class:'form-signin'} do |form| %>
+    <%= form_for :account, {url:users_path, html: {class: 'form-signin'}} do |form| %>
       <div class="card">
         <div class="card-body">
           <div class="form-label-group mb-2">
-            <%= label_tag :email %>
-            <%= text_field_tag :email, '', class:'form-control' %>
+            <%= form.label :email, class: 'required' %>
+            <%= form.text_field :email, {class: 'form-control', required:true} %>
           </div>
 
           <div class="form-label-group mb-3">
-            <%= label_tag :password %>
-            <%= password_field_tag :password, '', class:'form-control' %>
+            <%= render 'layouts/password_field', name: 'account[password]', label: 'Password' %>
           </div>
 
           <div class="form-label-group mb-3">
-            <%= label_tag :password_confirmation %>
-            <%= text_field_tag :password_confirmation, '', class:'form-control' %>
+            <%= render 'layouts/password_field', name: 'account[password_confirmation]', label: 'Confirm your password' %>
           </div>  
 
-          <div class="form-label-group mb-3">
-            <%= label_tag :newsletter %>
-            <%= check_box_tag :newsletter, '', class:'form-control' %>
+          <div class="form-label-group mb-3">            
+            <%= form.check_box :newsletter, { checked: true }, 1, 0 %>
+            <%= form.label :newsletter, 'Do you want to receive our newsletter?' %>
           </div>    
-                         
 
-          <%= submit_tag "Register", class:'btn btn-lg btn-success w-100 mb-3' %>
+          <div class="form-label-group mb-3">
+            <%= render_recaptcha('register', @show_recaptcha_v2) %>
+          </div>
+
+          <%= form.submit "Register", class: 'btn btn-lg btn-success w-100 mb-3' %>
 
           <a href="/login">Have an account? Login here.</a><br/>             
         </div>

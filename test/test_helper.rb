@@ -32,10 +32,12 @@ class ActiveSupport::TestCase
       method: :post,
       with: {
         body: {
-          'email' => 'myadminvalidregister@thisisit.com',
-          'password' => 'Helloworld234',
-          'password_confirmation' => 'Helloworld234',
-          'newsletter' => '0'
+          account: {
+            'email' => 'myadminvalidregister@thisisit.com',
+            'password' => 'Helloworld234',
+            'password_confirmation' => 'Helloworld234',
+            'newsletter' => '0'
+          }
         }
       },
       content_type: 'application/json',
@@ -47,9 +49,11 @@ class ActiveSupport::TestCase
       method: :post,
       with: {
         body: {
-          'email' => 'myadminvalidregister@thisisit.com',
-          'password' => 'Helloworld234',
-          'password_confirmation' => 'Helloworld234567'
+          account: {
+            'email' => 'myadminvalidregister@thisisit.com',
+            'password' => 'Helloworld234',
+            'password_confirmation' => 'Helloworld234567'
+          }
         }
       },
       content_type: 'application/json',
@@ -67,6 +71,30 @@ class ActiveSupport::TestCase
       response_status: 200,
       response_path:
         'test/fixtures/http/openode_api/front/global_stats.json'
+    },
+    {
+      url: 'https://api.openode.io/account/forgot-password',
+      method: :post,
+      with: {
+        body: {}
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path:
+        'test/fixtures/http/openode_api/front/forgot-password.json'
+    },
+    {
+      url: 'https://api.openode.io/account/verify-reset-token',
+      method: :post,
+      with: {
+        body: {
+          "reset_token" => "theresettoken"
+        }
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path:
+        'test/fixtures/http/openode_api/front/forgot-password.json'
     }
   ]
 
