@@ -2,7 +2,7 @@
   description: All dev tools in one.
   source_code_url: https://github.com/
   slug: "slack"
-  image:
+  logo:
     background: "#4a154b"
     src: "/images/Slack_Rgb_White.png"
     width: "230px"
@@ -14,7 +14,7 @@
   description: We control everything.
   source_code_url: https://google.com/
   slug: "google"
-  image:
+  logo:
     background: "#EEEEEE"
     src: "/images/googlelogo_color_272x92dp.png"
     width: "230px"
@@ -26,9 +26,9 @@
   description: Git control better than GitHub, or not?
   source_code_url: https://gitlab.com/
   slug: "gitlab"
-  image:
+  logo:
     background: "#FFFFFF"
-    src: "/images/gitlab.png"
+    src: ""
     width: "230px"
   textClass: "dark"
   featured: false

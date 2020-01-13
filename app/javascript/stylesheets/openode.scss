@@ -152,7 +152,13 @@ a.input-group-text:hover {
     .card-header {
       height:150px;
     }
+
+    .no-logo-link,
+    .no-logo-link:hover {
+      text-decoration:none
+    }    
   }
+  
 }
 
 /* Custom Styles */

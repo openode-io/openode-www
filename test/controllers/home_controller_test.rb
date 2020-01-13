@@ -85,8 +85,8 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.parsed_body, "<title>CLI"
   end
 
-  test "should get opensource" do
-    get '/opensource'
+  test "should get open-source" do
+    get '/open-source'
 
     assert_response :success
     assert_includes response.parsed_body, "<title>Open"

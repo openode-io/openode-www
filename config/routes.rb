@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   get '/support', to: 'home#support'
   get '/terms', to: 'home#terms'
   get '/privacy', to: 'home#privacy'
-  get '/opensource', to: 'home#opensource'
-  get '/opensource/:slug', to: 'home#opensource_item'
+  get '/open-source', to: 'home#opensource'
+  get '/open-source/:slug', to: 'home#opensource_item'
 
   resources :sessions, only: [:new, :create, :destroy]
 
