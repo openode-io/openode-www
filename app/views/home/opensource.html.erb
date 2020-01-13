@@ -1,10 +1,11 @@
 <section class="opensource-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto border-bottom">
   <div class="container cointaier-shrinked">
     <h1 class="display-4 text-left text-success">OpenSource Projects</h1>
+    <h2 class="text-muted text-left">We offer free hosting to selected open source projects.</h2>
   </div>
 </section>
-<section class="pt-8 pt-md-11 bg-light p-3 p-md-5">
-  <div class="container carousel-opensource"> 
+<section class="pt-8 pt-md-11 bg-light p-0 p-md-5">
+  <div class="container carousel-opensource d-none d-md-block"> 
     <div id="carouselIndicators" class="carousel slide d-flex h-100" data-ride="carousel">
       <ol class="carousel-indicators">
         <% @featured_projects.each_with_index do |project,index| %>   
@@ -51,7 +52,7 @@
     </div>
   </div>
 </section>
-<section class="opensource-list pt-8 pt-md-11 bg-dark p-3 p-md-5">
+<section class="opensource-list pt-8 pt-md-11 bg-secondary p-3 p-md-5">
   <div class="container">
     <div class="row">
     <% @opensource_projects.each do |project| %>
@@ -87,3 +88,4 @@
     </div>
   </div>
 </section>
+<%= render 'home/sections/get_started' %>
