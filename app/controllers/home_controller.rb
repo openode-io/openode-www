@@ -54,6 +54,12 @@ class HomeController < ApplicationController
   end
 
   def opensource
-    # -
+    @opensource_projects = YAML.load_file(Rails.root.join("config/opensource.yml"))
+                     .map(&:deep_symbolize_keys)
+    @featured_projects = @opensource_projects.select{ |o| o[:featured] }           
   end
+  def opensource_item
+    @opensource_project = YAML.load_file(Rails.root.join("config/opensource.yml"))
+                     .map(&:deep_symbolize_keys).select{ |o| o[:slug] == params[:slug] }.first
+  end  
 end
