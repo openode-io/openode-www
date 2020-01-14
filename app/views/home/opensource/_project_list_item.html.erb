@@ -27,9 +27,11 @@
               class="btn btn-sm btn-outline-secondary">
           <i class="fab fa-github"></i> View Code</a>
         </div>
-        <small class="text-muted">
-          <i class="fa fa-star"></i> <%= project[:stars] %>
-        </small>
+        <% if project[:stars].present? %>
+          <small class="text-muted">
+            <i class="fa fa-star"></i> <%= project[:stars] %>
+          </small>
+        <% end %>
       </div>
     </div>
   </div>

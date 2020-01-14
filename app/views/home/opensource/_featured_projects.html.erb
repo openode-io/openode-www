@@ -16,10 +16,18 @@
                style="background:<%= project[:logo][:background] %>">
             <div class="d-flex h-100">
               <div class="text-center item-img align-self-center m-auto">
-                <img class="d-block m-auto align-middle"
-                    width="<%= project[:logo][:width] %>"
-                    src="<%= project[:logo][:src] %>" 
-                    alt="<%= project[:name] %>"/>
+                <a href="/open-source/<%= project[:slug] %>" class="d-flex h-100 no-logo-link">
+                  <% if project[:logo][:src].present? %>
+                    <img class="d-block m-auto align-middle"
+                      width="<%= project[:logo][:width] %>"
+                      src="<%= project[:logo][:src] %>" 
+                      alt="<%= project[:name] %>"/>
+                  <% else %>
+                    <h3 class="text-<%= project[:textClass] %> w-50 m-auto align-self-center text-center text-decoration-none">
+                      <%= project[:name].upcase %>
+                    </h3>
+                  <% end %>
+                </a>
               </div>
               <div class="carousel-caption d-none d-md-block">
                 <p class="text-<%= project[:textClass] %>"><%= project[:description] %></p>

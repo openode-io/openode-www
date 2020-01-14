@@ -31,7 +31,7 @@
     src: ""
     width: "230px"
   textClass: "dark"
-  featured: false
+  featured: true
   stars: 1324  
 
 - name: Froodle doodle boodle
@@ -44,4 +44,4 @@
     width: "230px"
   textClass: "dark"
   featured: false
-  stars: 1324    
+  stars:     
