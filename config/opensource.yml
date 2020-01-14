@@ -1,0 +1,47 @@
+- name: Slack 
+  description: All dev tools in one.
+  source_code_url: https://github.com/
+  slug: "slack"
+  logo:
+    background: "#4a154b"
+    src: "/images/Slack_RGB_White.png"
+    width: "230px"
+  textClass: "light" 
+  featured: true
+  stars: 1234
+
+- name: Google 
+  description: We control everything.
+  source_code_url: https://google.com/
+  slug: "google"
+  logo:
+    background: "#EEEEEE"
+    src: "/images/googlelogo_color_272x92dp.png"
+    width: "230px"
+  textClass: "dark"
+  featured: true
+  stars: 9734  
+
+- name: Gitlab
+  description: Git control better than GitHub, or not?
+  source_code_url: https://gitlab.com/
+  slug: "gitlab"
+  logo:
+    background: "#FFFFFF"
+    src: ""
+    width: "230px"
+  textClass: "dark"
+  featured: true
+  stars: 1324  
+
+- name: Froodle doodle boodle
+  description: Hello world or not, we copy google without the bad part lol, we copy google without the bad part lol, we copy google without the bad part lol, we copy google without the bad part lol, we copy google without the bad part lol, we copy google without the bad part lol.
+  source_code_url: https://gitlab.com/
+  slug: "froodle"
+  logo:
+    background: "#FFFFFF"
+    src: ""
+    width: "230px"
+  textClass: "dark"
+  featured: false
+  stars:     

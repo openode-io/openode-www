@@ -1,5 +1,13 @@
-<section class="opensource-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto">
-  <div class="container cointaier-shrinked">
-    <h1 class="display-4 text-left">OpenSource</h1>
-  </div>
-</section>
+<% if @opensource_projects.present? %>
+  <section class="opensource-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto border-bottom">
+    <div class="container cointaier-shrinked">
+      <h1 class="display-4 text-left text-success">Open Source Projects</h1>
+      <h2 class="text-muted text-left">We offer free hosting to selected open source projects.</h2>
+    </div>
+  </section>
+  <%= render 'home/opensource/featured_projects', featured_projects: @featured_projects %>
+  <%= render 'home/opensource/opensource_projects', projects: @opensource_projects %>
+<% else %>
+  <%= render 'home/opensource/blank' %>
+<% end %>
+<%= render 'home/sections/get_started' %>

@@ -1,0 +1,58 @@
+<% if featured_projects.present? %>
+<section class="pt-8 pt-md-11 bg-light p-0 p-md-5">  
+  <div class="container carousel-opensource d-none d-md-block">
+    <div id="carouselIndicators" class="carousel slide d-flex h-100" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <% @featured_projects.each_with_index do |project,index| %>   
+          <li data-target="#carouselIndicators"
+              data-slide-to="<%= index %>"
+              class="<%= index == 0 ? 'active' : '' %>">
+          </li>
+        <% end %>
+      </ol>
+      <div class="carousel-inner">
+        <% @featured_projects.each_with_index do |project,index| %>
+          <div class="carousel-item p-5 <%= index == 0 ? 'active' : '' %>"
+               style="background:<%= project[:logo][:background] %>">
+            <div class="d-flex h-100">
+              <div class="text-center item-img align-self-center m-auto">
+                <a href="/open-source/<%= project[:slug] %>" class="d-flex h-100 no-logo-link">
+                  <% if project[:logo][:src].present? %>
+                    <img class="d-block m-auto align-middle"
+                      width="<%= project[:logo][:width] %>"
+                      src="<%= project[:logo][:src] %>" 
+                      alt="<%= project[:name] %>"/>
+                  <% else %>
+                    <h3 class="text-<%= project[:textClass] %> w-50 m-auto align-self-center text-center text-decoration-none">
+                      <%= project[:name].upcase %>
+                    </h3>
+                  <% end %>
+                </a>
+              </div>
+              <div class="carousel-caption d-none d-md-block">
+                <p class="text-<%= project[:textClass] %>"><%= project[:description] %></p>
+              </div>                
+            </div>          
+          </div>
+        <% end %>
+      </div>
+      <a class="carousel-control-prev"
+         href="#carouselIndicators"
+         role="button"
+         data-slide="prev">
+        <i class="fa fa-2x fa-chevron-left text-secondary"
+              aria-hidden="true">
+        </i>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next"
+         href="#carouselIndicators"
+         role="button"
+         data-slide="next">
+        <i class="fa fa-2x fa-chevron-right text-secondary" aria-hidden="true"></i>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</section>
+<% end %>

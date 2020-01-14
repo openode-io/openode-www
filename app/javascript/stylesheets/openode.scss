@@ -133,6 +133,34 @@ a.input-group-text:hover {
   text-decoration: none;
 }
 
+.carousel-opensource {
+  padding: 1.5rem;
+  border-width: .2rem;
+  
+  .carousel-item{
+    height: 400px;
+    border-radius: 0.25rem;
+  }
+
+  .carousel-indicators li {
+    background-color: $secondary;
+  }  
+}
+
+.opensource-list {
+  .card {
+    .card-header {
+      height:150px;
+    }
+
+    .no-logo-link,
+    .no-logo-link:hover {
+      text-decoration:none
+    }    
+  }
+  
+}
+
 /* Custom Styles */
 
 a.dropdown-item:hover {

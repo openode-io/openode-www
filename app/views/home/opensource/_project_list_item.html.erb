@@ -1,0 +1,38 @@
+<div class="col-md-4">
+  <div class="card mb-4 shadow-sm hvr-grow">
+    <div class="card-header"
+          style="background:<%= project[:logo][:background] %>">
+        <% if project[:logo][:src].present? %>
+          <a href="/open-source/<%= project[:slug] %>" class="d-flex h-100">
+            <img class="d-block w-50 m-auto align-self-center"
+                src="<%= project[:logo][:src] %>" 
+                alt="<%= project[:logo] %>">
+          </a>       
+        <% else %>
+          <a href="/open-source/<%= project[:slug] %>" class="d-flex h-100 no-logo-link">
+            <h3 class="text-<%= project[:textClass] %> w-50 m-auto align-self-center text-center text-decoration-none">
+              <%= project[:name].upcase %>
+            </h3>
+          </a>          
+        <% end %>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <%= project[:description] %>
+      </p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <a href="<%= project[:source_code_url] %>"
+              target="_blank"
+              class="btn btn-sm btn-outline-secondary">
+          <i class="fab fa-github"></i> View Code</a>
+        </div>
+        <% if project[:stars].present? %>
+          <small class="text-muted">
+            <i class="fa fa-star"></i> <%= project[:stars] %>
+          </small>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
