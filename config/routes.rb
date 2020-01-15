@@ -35,5 +35,8 @@ Rails.application.routes.draw do
   get 'docs/:section/', to: 'docs#view'
   get 'docs/:section/:document', to: 'docs#view'
   
+  get 'admin', to: 'admin#index'
+  get 'admin/billing', to: 'admin#billing'
+  get 'admin/billing/orders', to: 'admin#orders'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

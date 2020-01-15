@@ -1,0 +1,8 @@
+<ul class="nav flex-column flex-nowrap overflow-hidden">                
+  <% menu.each do |item| %>
+    <%= render 'admin/sidebar/menu_item',
+      section: @section,
+      item: item
+    %>
+  <% end %>
+</ul>

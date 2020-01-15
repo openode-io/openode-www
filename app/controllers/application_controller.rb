@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def authenticate_user
+    if current_user.blank?
+      redirect_to '/', notice: "Not authorized!"
+    end
+  end
+
   def current_user
     if session[:token]
       @current_user ||= {
