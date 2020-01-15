@@ -8,7 +8,10 @@ class HomeController < ApplicationController
   end
 
   def index
-    # -
+    @recent_projects =
+      Rails.cache.fetch("/api/open_source_projects/latest/3", expires_in: 1.hour) do
+        (api(:get, '/open_source_projects/latest') rescue []).take(3)
+      end
   end
 
   def pricing
@@ -54,14 +57,15 @@ class HomeController < ApplicationController
   end
 
   def opensource
-    @opensource_projects = YAML.load_file(Rails.root.join("config/opensource.yml"))
-                               .map(&:deep_symbolize_keys) rescue []
-    @featured_projects = @opensource_projects.select { |o| o[:featured] } rescue []
+    @opensource_projects = api(:get, '/open_source_projects/latest') rescue []
+
+    # @featured_projects = @opensource_projects.select { |o| o[:featured] } rescue []
+    @featured_projects = []
   end
 
   def opensource_item
-    @opensource_project = YAML.load_file(Rails.root.join("config/opensource.yml"))
-                              .map(&:deep_symbolize_keys)
-                              .select { |o| o[:slug] == params[:slug] }.first rescue {}
+    site_name = params["slug"]
+
+    @opensource_project = api(:get, "/open_source_project/#{site_name}") rescue {}
   end
 end

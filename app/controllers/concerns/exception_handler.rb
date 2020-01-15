@@ -22,8 +22,10 @@ module ExceptionHandler
     redirect_back fallback_location: root_path
   end
 
-  def handle_error_json(msg, http_code)
+  def handle_error_json(msg, http_code, exception = nil)
     logger.error("Hook (JSON) error handling, msg = #{msg}, HTTP code = #{http_code}")
+    logger.error(exception.backtrace.join("\n")) if exception&.backtrace
+
     json({ error: msg }, http_code)
   end
 
@@ -35,9 +37,9 @@ module ExceptionHandler
     when "text/html"
       handle_error_html(msg, exception)
     when "text/json"
-      handle_error_json(msg, http_code)
+      handle_error_json(msg, http_code, exception)
     else
-      handle_error_json(msg, http_code)
+      handle_error_json(msg, http_code, exception)
     end
   end
 

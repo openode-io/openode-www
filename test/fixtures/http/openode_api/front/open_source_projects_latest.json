@@ -1,0 +1,21 @@
+[
+  {
+    "id": 12345,
+    "status": "online",
+    "site_name": "test1234567",
+    "open_source": {
+      "name": "project 1 few",
+      "description": "description project 1",
+      "logo_src": "http://google.com/asdf.png"
+    }
+  },
+  {
+    "id": 123456,
+    "status": "N/A",
+    "site_name": "test1234568",
+    "open_source": {
+      "name": "project 2 few",
+      "description": "description project 2"
+    }
+  }
+]

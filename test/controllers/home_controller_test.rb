@@ -8,6 +8,10 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.parsed_body, "<title>Home"
     assert_includes response.parsed_body, "667" # users
     assert_includes response.parsed_body, "79K" # deployments
+
+    assert_includes response.parsed_body, "Some Projects We support"
+    assert_includes response.parsed_body, "test1234567"
+    assert_includes response.parsed_body, "test1234568"
   end
 
   test "should get pricing" do
@@ -90,5 +94,23 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_includes response.parsed_body, "<title>Open"
+    assert_includes response.parsed_body, "test1234567"
+    assert_includes response.parsed_body, "test1234568"
+
+    assert_includes response.parsed_body, "http://google.com/asdf.png"
+    assert_not_includes response.parsed_body, "PROJECT 1 FEW"
+
+    assert_includes response.parsed_body, "PROJECT 2 FEW"
+  end
+
+  test "should get open-source project" do
+    get '/open-source/test1234568'
+
+    assert_response :success
+    assert_includes response.parsed_body, "<title>Open"
+    assert_includes response.parsed_body, "Test1234568"
+
+    assert_includes response.parsed_body, "project 2 few"
+    assert_includes response.parsed_body, "description project 2"
   end
 end
