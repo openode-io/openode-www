@@ -95,6 +95,28 @@ class ActiveSupport::TestCase
       response_status: 200,
       response_path:
         'test/fixtures/http/openode_api/front/forgot-password.json'
+    },
+    {
+      url: 'https://api.openode.io/open_source_projects/latest',
+      method: :get,
+      with: {
+        body: {}
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path:
+        'test/fixtures/http/openode_api/front/open_source_projects_latest.json'
+    },
+    {
+      url: 'https://api.openode.io/open_source_project/test1234568',
+      method: :get,
+      with: {
+        body: {}
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path:
+        'test/fixtures/http/openode_api/front/open_source_project_test1234568.json'
     }
   ]
 

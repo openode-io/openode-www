@@ -1,23 +1,26 @@
-<% content_for(:title) { project_title(@opensource_project[:slug]) } %>
+<% content_for(:title) { project_title(@opensource_project["site_name"]) } %>
 
 <section class="opensource-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto border-bottom">
   <div class="container cointaier-shrinked">
-    <h1 class="display-4 text-left text-success"><%= @opensource_project[:name] %></h1>
-    <a class="text-muted" href="/open-source">← OpenSource Projects</a>
+    <h1 class="display-4 text-left text-success">
+      <%= @opensource_project["open_source"]["name"] %>
+    </h1>
+    <a class="text-muted" href="/open-source">← Open Source Projects</a>
   </div>
 </section>
 <section class="pt-8 pt-md-11 bg-light p-3 p-md-5">
   <div class="container">
     <h3 class="text-secondary">Project Details</h3>  
     <p class="pt-4 pb-4">
-      <%= @opensource_project[:description] %>
+      <%= @opensource_project["open_source"]["description"] %>
     </p>
     <div class="btn-group">
-      <a href="<%= @opensource_project[:source_code_url] %>"
+      <a href="<%= @opensource_project["open_source"]["source_code_url"] %>"
           target="_blank"
           class="btn btn-sm btn-outline-secondary">
       <i class="fab fa-github"></i> View Code</a>
     </div>
   </div>
 </section>
+
 <%= render 'home/sections/get_started' %>
