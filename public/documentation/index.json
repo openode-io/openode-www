@@ -16,6 +16,10 @@
         "path":"cloud_hosting/logs.md"
       },
       {
+        "name":"Open Source",
+        "path":"cloud_hosting/open_source.md"
+      },
+      {
         "name":"Scheduler / Cron Jobs",
         "path":"cloud_hosting/scheduler_cron_jobs.md"
       },

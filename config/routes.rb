@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   get '/terms', to: 'home#terms'
   get '/privacy', to: 'home#privacy'
   get '/open-source', to: 'home#opensource'
-  get '/open-source/:slug', to: 'home#opensource_item'
+
+  get '/open-source/:slug', constraints: { slug: %r{[^/]+} }, to: 'home#opensource_item'
 
   resources :sessions, only: [:new, :create, :destroy]
 
