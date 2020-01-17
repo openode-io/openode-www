@@ -2,6 +2,8 @@ class AdminController < ApplicationController
   before_action :authenticate_user
   before_action :set_menu
 
+  layout 'admin'
+
   def index
     # -
   end
@@ -14,23 +16,52 @@ class AdminController < ApplicationController
     # -
   end
 
+  def instances
+    # -
+  end  
+
+  def api
+    # -
+  end  
+
+  def newsletter
+    # -
+  end
+
+  def notifications
+    # -
+  end  
+
+  def profile
+    # -
+  end
+
   private
 
   def set_menu
     @section = 'admin'
     @menu = [
       {
-        "name":"Instances",
-        "path":"/admin/instances"
+          header: true,
+          title: 'Main Navigation',
+          hiddenOnCollapse: true
       },
       {
-        "name":"Credits",
-        "path":"/admin/credits"
+          href: '/',
+          title: 'Dashboard',
+          icon: 'fa fa-user'
       },
       {
-        "name":"Account",
-        "path":"/admin/account"
-      }      
+          href: '/charts',
+          title: 'Charts',
+          icon: 'fa fa-chart-area',
+          child: [
+              {
+                  href: '/charts/sublink',
+                  title: 'Sub Link'
+              }
+          ]
+      }
     ]
   end  
 end

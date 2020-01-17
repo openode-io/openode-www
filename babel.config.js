@@ -43,7 +43,8 @@ module.exports = function(api) {
           development: isDevelopmentEnv || isTestEnv,
           useBuiltIns: true
         }
-      ]
+      ],
+      '@vue/babel-preset-jsx'
     ].filter(Boolean),
     plugins: [
       'babel-plugin-macros',
