@@ -16,7 +16,7 @@ class DocsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "cli" do
-    get '/docs/cloud_hosting/cli'
+    get '/docs/platform/cli'
 
     assert_response :success
     assert_includes response.parsed_body.to_s, '<h1>openode-cli</h1>'

@@ -8,24 +8,32 @@
     "path":"installation/index.md"
   },
   {
-    "name":"Cloud Hosting",
-    "path":"cloud_hosting/index.md",
+    "name":"Platform",
+    "path":"platform/index.md",
     "children": [
       {
+        "name":"Overview",
+        "path":"platform/index.md"
+      },
+      {
         "name":"Logs",
-        "path":"cloud_hosting/logs.md"
+        "path":"platform/logs.md"
       },
       {
         "name":"Open Source",
-        "path":"cloud_hosting/open_source.md"
+        "path":"platform/open_source.md"
+      },
+      {
+        "name":"Persistence (storage)",
+        "path":"platform/persistence.md"
       },
       {
         "name":"Scheduler / Cron Jobs",
-        "path":"cloud_hosting/scheduler_cron_jobs.md"
+        "path":"platform/scheduler_cron_jobs.md"
       },
       {
         "name":"CLI",
-        "path":"cloud_hosting/cli.md"
+        "path":"platform/cli.md"
       }
     ]
   }
