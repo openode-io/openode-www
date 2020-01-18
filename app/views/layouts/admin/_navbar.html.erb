@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand navbar-light bg-dark topbar mb-4 static-top shadow">
+<nav class="navbar navbar-expand navbar-light bg-success-darker topbar mb-4 static-top shadow">
   <button id="sidebarToggleTop" 
-          class="btn btn-link d-md-none rounded-circle mr-3 text-success">
+          class="btn btn-link d-md-none rounded-circle mr-3 text-dark">
     <i class="fa fa-bars"></i>
   </button>
   <div class="d-none d-sm-inline-block">
@@ -15,7 +15,7 @@
          data-toggle="dropdown"
          aria-haspopup="true"
          aria-expanded="false">
-        <i class="fas fa-search fa-fw"></i>
+        <i class="fas fa-search fa-fw text-light"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
            aria-labelledby="searchDropdown">
@@ -27,29 +27,7 @@
     </li>
     <div class="topbar-divider d-none d-sm-block"></div>
     <li class="nav-item dropdown no-arrow">
-      <a id="userDropdown"
-         class="nav-link dropdown-toggle"
-         href="#" role="button"
-         data-toggle="dropdown"
-         aria-haspopup="true"
-         aria-expanded="false">
-        <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-          <%= current_user[:email] %>
-        </span>
-        <i class="fa fa-user-circle fa-2x"></i>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-           aria-labelledby="userDropdown">
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-          Profile Settings
-        </a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="/logout">
-          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-          Logout
-        </a>
-      </div>
+      <%= render 'layouts/admin/profile' %>
     </li>
   </ul>
 </nav>

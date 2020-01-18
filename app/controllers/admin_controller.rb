@@ -18,11 +18,11 @@ class AdminController < ApplicationController
 
   def instances
     # -
-  end  
+  end
 
   def api
     # -
-  end  
+  end
 
   def newsletter
     # -
@@ -30,7 +30,7 @@ class AdminController < ApplicationController
 
   def notifications
     # -
-  end  
+  end
 
   def profile
     # -
@@ -42,26 +42,26 @@ class AdminController < ApplicationController
     @section = 'admin'
     @menu = [
       {
-          header: true,
-          title: 'Main Navigation',
-          hiddenOnCollapse: true
+        header: true,
+        title: 'Main Navigation',
+        hiddenOnCollapse: true
       },
       {
-          href: '/',
-          title: 'Dashboard',
-          icon: 'fa fa-user'
+        href: '/',
+        title: 'Dashboard',
+        icon: 'fa fa-user'
       },
       {
-          href: '/charts',
-          title: 'Charts',
-          icon: 'fa fa-chart-area',
-          child: [
-              {
-                  href: '/charts/sublink',
-                  title: 'Sub Link'
-              }
-          ]
+        href: '/charts',
+        title: 'Charts',
+        icon: 'fa fa-chart-area',
+        child: [
+          {
+            href: '/charts/sublink',
+            title: 'Sub Link'
+          }
+        ]
       }
     ]
-  end  
+  end
 end
