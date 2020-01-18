@@ -24,6 +24,10 @@
         "path":"platform/open_source.md"
       },
       {
+        "name":"Environment Variables",
+        "path":"platform/env_vars.md"
+      },
+      {
         "name":"Persistence (storage)",
         "path":"platform/persistence.md"
       },
