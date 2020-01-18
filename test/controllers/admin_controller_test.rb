@@ -66,7 +66,7 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
 
   test "get admin account newsletter settings" do
     perform_successful_login
-    
+
     get '/admin/api'
 
     assert_response :success
