@@ -5,7 +5,17 @@
   },
   {
     "name":"Installation",
-    "path":"installation/index.md"
+    "path":"installation/index.md",
+    "children": [
+      {
+        "name":"Getting Started",
+        "path":"installation/index.md"
+      },
+      {
+        "name":"Upgrade",
+        "path":"installation/upgrade.md"
+      }
+    ]
   },
   {
     "name":"Platform",
