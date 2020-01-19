@@ -30,8 +30,8 @@
         "path":"platform/open_source.md"
       },
       {
-        "name":"Logs",
-        "path":"platform/logs.md"
+        "name":"Running a Remote Command",
+        "path":"platform/exec.md"
       },
       {
         "name":"Environment Variables",
@@ -40,6 +40,10 @@
       {
         "name":"Persistence (storage)",
         "path":"platform/persistence.md"
+      },
+      {
+        "name":"Logs",
+        "path":"platform/logs.md"
       },
       {
         "name":"Scheduler / Cron Jobs",
