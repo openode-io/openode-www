@@ -16,12 +16,12 @@
         "path":"platform/index.md"
       },
       {
-        "name":"Logs",
-        "path":"platform/logs.md"
-      },
-      {
         "name":"Open Source",
         "path":"platform/open_source.md"
+      },
+      {
+        "name":"Logs",
+        "path":"platform/logs.md"
       },
       {
         "name":"Environment Variables",
