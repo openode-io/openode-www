@@ -54,5 +54,15 @@
         "path":"platform/cli.md"
       }
     ]
+  },
+  {
+    "name":"Misc",
+    "path":"misc/index.md",
+    "children": [
+      {
+        "name":"Skipping Port Listening Verification",
+        "path":"misc/skip_port_verification.md"
+      }
+    ]
   }
 ]
