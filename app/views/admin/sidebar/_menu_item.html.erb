@@ -1,4 +1,4 @@
-<li class="nav-item">
+<li class="nav-item <%= active_item_class(item[:name].downcase) %>">
   <a 
     class="hvr-forward nav-link text-truncate text-white"
     href="<%= item[:path] %>">

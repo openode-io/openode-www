@@ -3,25 +3,7 @@
           class="btn btn-link d-md-none rounded-circle mr-3 text-dark">
     <i class="fa fa-bars"></i>
   </button>
-  <div class="d-none d-sm-inline-block">
-    <%= render 'layouts/admin/search' %>
-  </div>  
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item dropdown no-arrow d-sm-none">
-      <a id="searchDropdown"
-         class="nav-link dropdown-toggle"
-         href="#"
-         role="button"
-         data-toggle="dropdown"
-         aria-haspopup="true"
-         aria-expanded="false">
-        <i class="fas fa-search fa-fw text-light"></i>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-           aria-labelledby="searchDropdown">
-        <%= render 'layouts/admin/search' %>
-      </div>
-    </li>
     <li class="nav-item dropdown no-arrow mx-1">
       <%= render 'layouts/admin/notifications' %>
     </li>

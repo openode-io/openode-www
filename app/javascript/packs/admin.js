@@ -5,7 +5,7 @@
 
 import '../stylesheets/admin'
 import './bootstrap_custom.js'
-import './utils.js'
+import '../utils/utils.js'
 
 import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue'

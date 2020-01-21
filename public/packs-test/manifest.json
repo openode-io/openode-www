@@ -1,25 +1,25 @@
 {
-  "admin.js": "/packs-test/js/admin-7c91b62ec9ad9666686c.js",
-  "admin.js.map": "/packs-test/js/admin-7c91b62ec9ad9666686c.js.map",
-  "application.js": "/packs-test/js/application-1659be2188c6900d3f94.js",
-  "application.js.map": "/packs-test/js/application-1659be2188c6900d3f94.js.map",
+  "admin.js": "/packs-test/js/admin-64ca40ac52975b346493.js",
+  "admin.js.map": "/packs-test/js/admin-64ca40ac52975b346493.js.map",
+  "application.js": "/packs-test/js/application-63307654dfd24dc55258.js",
+  "application.js.map": "/packs-test/js/application-63307654dfd24dc55258.js.map",
   "bootstrap_custom.js": "/packs-test/js/bootstrap_custom-be51dc40dd9781eb7aa5.js",
   "bootstrap_custom.js.map": "/packs-test/js/bootstrap_custom-be51dc40dd9781eb7aa5.js.map",
   "entrypoints": {
     "admin": {
       "js": [
-        "/packs-test/js/admin-7c91b62ec9ad9666686c.js"
+        "/packs-test/js/admin-64ca40ac52975b346493.js"
       ],
       "js.map": [
-        "/packs-test/js/admin-7c91b62ec9ad9666686c.js.map"
+        "/packs-test/js/admin-64ca40ac52975b346493.js.map"
       ]
     },
     "application": {
       "js": [
-        "/packs-test/js/application-1659be2188c6900d3f94.js"
+        "/packs-test/js/application-63307654dfd24dc55258.js"
       ],
       "js.map": [
-        "/packs-test/js/application-1659be2188c6900d3f94.js.map"
+        "/packs-test/js/application-63307654dfd24dc55258.js.map"
       ]
     },
     "bootstrap_custom": {
@@ -28,14 +28,6 @@
       ],
       "js.map": [
         "/packs-test/js/bootstrap_custom-be51dc40dd9781eb7aa5.js.map"
-      ]
-    },
-    "utils": {
-      "js": [
-        "/packs-test/js/utils-12fe665d4bdcb4123a08.js"
-      ],
-      "js.map": [
-        "/packs-test/js/utils-12fe665d4bdcb4123a08.js.map"
       ]
     }
   },
@@ -53,7 +45,5 @@
   "media/webfonts/fa-solid-900.svg": "/packs-test/media/webfonts/fa-solid-900-7a5de9b0.svg",
   "media/webfonts/fa-solid-900.ttf": "/packs-test/media/webfonts/fa-solid-900-2aa6edf8.ttf",
   "media/webfonts/fa-solid-900.woff": "/packs-test/media/webfonts/fa-solid-900-93f28454.woff",
-  "media/webfonts/fa-solid-900.woff2": "/packs-test/media/webfonts/fa-solid-900-f6121be5.woff2",
-  "utils.js": "/packs-test/js/utils-12fe665d4bdcb4123a08.js",
-  "utils.js.map": "/packs-test/js/utils-12fe665d4bdcb4123a08.js.map"
+  "media/webfonts/fa-solid-900.woff2": "/packs-test/media/webfonts/fa-solid-900-f6121be5.woff2"
 }

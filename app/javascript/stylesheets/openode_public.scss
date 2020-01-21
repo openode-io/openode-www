@@ -61,6 +61,18 @@
 }
 
 #docs-sidebar {
+  ul {
+    li {
+      ul {
+        li {
+          list-style-position: outside;
+          list-style-type: disc;
+          margin-left: 34px;      
+        }
+      }
+    }
+  }
+
   .nav-link {
     &.active {
       font-weight: bold;

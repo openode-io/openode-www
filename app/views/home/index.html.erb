@@ -35,6 +35,7 @@
 <%= render 'home/sections/stats' %>
 
 <section class="py-8 py-md-11 bg-dark p-3 p-md-5 text-white">
+  <div id="termynal-breakpoint"></div>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-10 col-lg-8 text-center">
@@ -49,16 +50,7 @@
 
         <!-- Text -->
         <p class="font-size-lg text-muted mb-7 mb-md-9">Simply install the command line tool. Then deploy your app, just like that!</p>
-        <div class="terminal">
-          <div class=menu>
-            <div class="buttons close"></div>
-            <div class="buttons minimize"></div>
-            <div class="buttons zoom"></div>
-          </div>
-          <div class="screen">
-            <img src="/images/openode-cli2.gif" style="width: 100%;">    
-          </div>                  
-        </div>
+        <%= render 'home/sections/terminal' %>
       </div>
     </div> <!-- / .row -->
     <div class="row no-gutters mb-7 mb-md-9">

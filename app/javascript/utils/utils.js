@@ -1,8 +1,24 @@
 import Typed from 'typed.js'
+import Termynal from './termynal.js';
 
 document.addEventListener("turbolinks:load", function() {
 
   const el = document.querySelector('.typed');  
+
+  if ($("#termynal").length > 0){
+    let termynalActive = false;
+    const termynal = new Termynal('#termynal', { startDelay: 1000, lineDelay: 1500, noInit: true });
+    const termynalOffsetTop = $("#termynal-breakpoint").offset().top;
+
+    $(window).scroll(function(){
+      const termynalScrollTop = ($(window).scrollTop() + 300);
+
+      if(termynalScrollTop > termynalOffsetTop && !termynalActive){
+        termynal.init();
+        termynalActive = true;
+      }
+    });    
+  }
 
   if (el){
     new Typed('.typed', {
@@ -98,6 +114,7 @@ document.addEventListener("turbolinks:load", function() {
       $("body").addClass("sidebar-toggled");
       $(".sidebar").addClass("toggled");
       $('.sidebar .collapse').collapse('hide');
+      $('.nav-link .fas').addClass('fa-2x');
     };
   });
 

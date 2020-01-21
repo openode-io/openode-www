@@ -32,7 +32,7 @@ class AdminController < ApplicationController
     # -
   end
 
-  def profile
+  def account
     # -
   end
 

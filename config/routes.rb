@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get 'docs/:section/:document', to: 'docs#view'
   
   get 'admin', to: 'admin#index'
-  get 'admin/profile', to: 'admin#profile'
+  get 'admin/account', to: 'admin#account'
   get 'admin/billing', to: 'admin#billing'
   get 'admin/billing/orders', to: 'admin#orders'
   get 'admin/instances', to: 'admin#instances'
