@@ -1,6 +1,7 @@
 class AdminController < ApplicationController
   before_action :authenticate_user
   before_action :set_menu
+  before_action :set_latest_notification
 
   layout 'admin'
 
@@ -37,6 +38,14 @@ class AdminController < ApplicationController
   end
 
   private
+
+  def set_latest_notification
+    @notification = {
+      status: 'unread',
+      color: 'warning',
+      body: 'Maintenance scheduled for Montreal location.'
+    }
+  end
 
   def set_menu
     @section = 'admin'
