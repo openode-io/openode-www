@@ -42,7 +42,7 @@ class AdminController < ApplicationController
   def set_latest_notification
     @notification = {
       status: 'unread',
-      color: 'warning',
+      level: 'warning',
       body: 'Maintenance scheduled for Montreal location.'
     }
   end
