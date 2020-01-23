@@ -19,6 +19,14 @@
 }
 
 .notification-item {
+  a {
+    color: $light;
+
+    &:hover {
+      color: $light;
+    }
+  }
+  
   .btn {
     display: none !important;
     

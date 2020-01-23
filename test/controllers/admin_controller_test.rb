@@ -7,7 +7,7 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
     get '/admin'
 
     assert_response :success
-    assert_includes response.parsed_body.to_s, 'Dashboard'
+    assert_includes response.parsed_body.to_s, 'Instances'
   end
 
   test "get admin instances" do
@@ -49,7 +49,7 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
   test "get admin account notification settings" do
     perform_successful_login
 
-    get '/admin/notifications'
+    get '/admin/account/notifications'
 
     assert_response :success
     assert_includes response.parsed_body.to_s, 'Notification'

@@ -1,39 +1,12 @@
 class AdminController < ApplicationController
   before_action :authenticate_user
   before_action :set_menu
+  before_action :set_notifications
   before_action :set_latest_notification
 
   layout 'admin'
 
   def index
-    # -
-  end
-
-  def billing
-    # -
-  end
-
-  def orders
-    # -
-  end
-
-  def instances
-    # -
-  end
-
-  def api
-    # -
-  end
-
-  def newsletter
-    # -
-  end
-
-  def notifications
-    # -
-  end
-
-  def account
     # -
   end
 
@@ -45,6 +18,23 @@ class AdminController < ApplicationController
       level: 'warning',
       body: 'Maintenance scheduled for Montreal location.'
     }
+  end
+
+  def set_notifications
+    @notifications = [
+      {
+        status: 'read',
+        level: 'warning',
+        icon: 'hammer',
+        body: 'Maintenance scheduled for Montreal location.'
+      },
+      {
+        status: 'unread',
+        level: 'critical',
+        icon: 'exclamation-triangle',
+        body: 'Instance down!'
+      }
+    ]
   end
 
   def set_menu
