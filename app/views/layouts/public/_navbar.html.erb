@@ -1,4 +1,9 @@
 <nav class="site-header sticky-top navbar-dark bg-dark navbar navbar-expand-lg">
+  <% if current_user.present? %>
+    <a class="sidebar-trigger d-lg-none" href="#">
+      <i class="fa fa-chevron-right fa-2x"></i>
+    </a>  
+  <% end %>
   <a class="navbar-brand" href="/" aria-label="Product">
     <img src="/images/logo/dark_v2.svg" height="36" alt="opeNode"/>
   </a>

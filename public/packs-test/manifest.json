@@ -1,15 +1,25 @@
 {
-  "application.js": "/packs-test/js/application-35b4b9f94eb8a110b23c.js",
-  "application.js.map": "/packs-test/js/application-35b4b9f94eb8a110b23c.js.map",
+  "admin.js": "/packs-test/js/admin-708ef2dd206f3786bfa7.js",
+  "admin.js.map": "/packs-test/js/admin-708ef2dd206f3786bfa7.js.map",
+  "application.js": "/packs-test/js/application-6ca3b7ac7638d7909227.js",
+  "application.js.map": "/packs-test/js/application-6ca3b7ac7638d7909227.js.map",
   "bootstrap_custom.js": "/packs-test/js/bootstrap_custom-be51dc40dd9781eb7aa5.js",
   "bootstrap_custom.js.map": "/packs-test/js/bootstrap_custom-be51dc40dd9781eb7aa5.js.map",
   "entrypoints": {
-    "application": {
+    "admin": {
       "js": [
-        "/packs-test/js/application-35b4b9f94eb8a110b23c.js"
+        "/packs-test/js/admin-708ef2dd206f3786bfa7.js"
       ],
       "js.map": [
-        "/packs-test/js/application-35b4b9f94eb8a110b23c.js.map"
+        "/packs-test/js/admin-708ef2dd206f3786bfa7.js.map"
+      ]
+    },
+    "application": {
+      "js": [
+        "/packs-test/js/application-6ca3b7ac7638d7909227.js"
+      ],
+      "js.map": [
+        "/packs-test/js/application-6ca3b7ac7638d7909227.js.map"
       ]
     },
     "bootstrap_custom": {
@@ -18,14 +28,6 @@
       ],
       "js.map": [
         "/packs-test/js/bootstrap_custom-be51dc40dd9781eb7aa5.js.map"
-      ]
-    },
-    "utils": {
-      "js": [
-        "/packs-test/js/utils-c16a16a508b8a4d1c052.js"
-      ],
-      "js.map": [
-        "/packs-test/js/utils-c16a16a508b8a4d1c052.js.map"
       ]
     }
   },
@@ -43,7 +45,5 @@
   "media/webfonts/fa-solid-900.svg": "/packs-test/media/webfonts/fa-solid-900-7a5de9b0.svg",
   "media/webfonts/fa-solid-900.ttf": "/packs-test/media/webfonts/fa-solid-900-2aa6edf8.ttf",
   "media/webfonts/fa-solid-900.woff": "/packs-test/media/webfonts/fa-solid-900-93f28454.woff",
-  "media/webfonts/fa-solid-900.woff2": "/packs-test/media/webfonts/fa-solid-900-f6121be5.woff2",
-  "utils.js": "/packs-test/js/utils-c16a16a508b8a4d1c052.js",
-  "utils.js.map": "/packs-test/js/utils-c16a16a508b8a4d1c052.js.map"
+  "media/webfonts/fa-solid-900.woff2": "/packs-test/media/webfonts/fa-solid-900-f6121be5.woff2"
 }

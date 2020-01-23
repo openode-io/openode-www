@@ -77,3 +77,20 @@ en:
       title: 'Register | opeNode'      
     opensource:
       title: 'Open Source | opeNode'
+  admin:
+    index: 
+      title: 'Admin | Dashboard | opeNode'
+    instances:
+      title: 'Admin | Instances | opeNode'
+    billing:
+      title: 'Admin | Billing | opeNode'
+    orders:
+      title: 'Admin | Order History | opeNode'
+    profile:
+      title: 'Admin | Profile Settings | opeNode'
+    notifications:
+      title: 'Admin | Notification Settings | opeNode'
+    api:
+      title: 'Admin | API Access | opeNode'
+    newsletter:
+      title: 'Admin | Newsletter Settings | opeNode'

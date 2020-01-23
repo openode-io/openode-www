@@ -14,9 +14,9 @@
         <% item[:children].each do |subitem| %>                        
           <li class="nav-item">
             <a 
-              class="nav-link py-0 text-white <%= active_item_class(section,item,document,subitem) %>"
+              class="nav-link py-1 p-0 text-white <%= active_item_class(section,item,document,subitem) %>"
               href="<%= "/docs/#{subitem[:path]}" %>">
-              &#8226; <span><%= subitem[:name] %></span>
+              <span><%= subitem[:name] %></span>
             </a>
           </li>
         <% end %>

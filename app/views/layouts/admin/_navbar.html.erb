@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand navbar-light bg-success-darker topbar mb-4 static-top shadow">
+  <button id="sidebarToggleTop" 
+          class="btn btn-link d-md-none rounded-circle mr-3 text-dark">
+    <i class="fa fa-bars"></i>
+  </button>
+  <div class="d-none d-sm-inline-block">
+    <%= render 'admin/notifications/notification', notification: @notification %>
+  </div>    
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item dropdown no-arrow mx-1">
+      <%= render 'layouts/admin/notifications', notifications: @notifications %>
+    </li>
+    <div class="topbar-divider d-none d-sm-block"></div>
+    <li class="nav-item dropdown no-arrow">
+      <%= render 'layouts/admin/profile' %>
+    </li>
+  </ul>
+</nav>

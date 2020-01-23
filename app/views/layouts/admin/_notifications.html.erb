@@ -1,0 +1,33 @@
+<a class="nav-link dropdown-toggle" 
+   href="#" id="alertsDropdown"
+   role="button"
+   data-toggle="dropdown"
+   aria-haspopup="true"
+   aria-expanded="false">
+  <i class="fas fa-bell fa-fw text-light"></i>
+  <span class="badge badge-danger badge-counter">3+</span>
+</a>
+<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+     aria-labelledby="alertsDropdown">
+  <h6 class="dropdown-header bg-dark border-dark">
+    Alerts Center
+  </h6>
+  <% notifications.each do |notification| %>
+    <a class="dropdown-item d-flex align-items-center" href="#">
+      <div class="mr-3">
+        <div class="icon-circle bg-<%= notification[:level] %>">
+          <i class="fas fa-<%= notification[:icon] %> text-white"></i>
+        </div>
+      </div>
+      <div>
+        <div class="small text-gray-500"><%= notification[:date] %></div>
+        <span class="font-weight-<%= notification[:status] == 'read' ? 'bold' : 'light' %>">
+          <%= notification[:body] %>
+        </span>
+      </div>
+    </a>
+  <% end %>
+  <a class="dropdown-item text-center small text-gray-500" href="/admin/notifications">
+    Show All Alerts
+  </a>
+</div>
