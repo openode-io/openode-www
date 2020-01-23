@@ -5,7 +5,7 @@
 </section>
 <section class="pt-8 pt-md-11 bg-dark p-3 p-md-5">
   <div class="container">
-    <%= form_tag support_path, {class: 'form-signin'} do |form| %>
+    <%= form_for :support, {url: support_path, class: 'form-signin'} do |form| %>
       <div class="card">
         <div class="card-body">      
           <div class="form-label-group mb-2">
@@ -16,25 +16,20 @@
           <hr/>
 
           <div class="form-label-group mb-2">
-            <%= label_tag :email, 'Your email', class: 'required' %>
-            <%= text_field_tag :email, '', class: 'form-control', required:true %>
-          </div>
-          
-          <div class="form-label-group mb-2">
-            <%= label_tag :email_confirmation, 'Confirm your email', class: 'required' %>
-            <%= text_field_tag :email_confirmation, '', class: 'form-control', required:true %>
+            <%= form.label :email, 'Your email', class: 'required' %>
+            <%= form.text_field :email, { class: 'form-control', required:true} %>
           </div>
 
           <div class="form-label-group mb-2">
-            <%= label_tag :message, 'How can we help you?', class: 'required' %>
-            <%= text_area_tag :message, '', class: 'form-control', rows:5, required:true %>
+            <%= form.label :message, 'How can we help you?', class: 'required' %>
+            <%= form.text_area :message, { class: 'form-control', rows:5, required:true } %>
           </div>
 
           <div class="form-label-group mb-3">
             <%= render_recaptcha('support', @show_recaptcha_v2) %>
           </div>
 
-          <%= submit_tag "Send!", class: 'btn btn-lg btn-success w-100 mb-3' %>
+          <%= form.submit "Send!", class: 'btn btn-lg btn-success w-100 mb-3' %>
         </div>
       </div>
     <% end %>  

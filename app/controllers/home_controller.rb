@@ -48,6 +48,13 @@ class HomeController < ApplicationController
     # -
   end
 
+  def send_support
+    # puts "params #{support_params.inspect}"
+    
+    redirect_back fallback_location: { action: "support" },
+                  notice: "Support request sent successfully!"
+  end
+
   def terms
     # -
   end
@@ -67,5 +74,11 @@ class HomeController < ApplicationController
     site_name = params["slug"]
 
     @opensource_project = api(:get, "/open_source_project/#{site_name}") rescue {}
+  end
+
+  private
+  
+  def support_params
+    params.require(:support).permit(:email, :message)
   end
 end

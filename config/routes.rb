@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/openode-cli', to: 'home#openode_cli'
   get '/faq', to: 'home#faq'
   get '/support', to: 'home#support'
+  post '/support', to: 'home#send_support'
   get '/terms', to: 'home#terms'
   get '/privacy', to: 'home#privacy'
   get '/open-source', to: 'home#opensource'
