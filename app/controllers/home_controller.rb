@@ -50,7 +50,7 @@ class HomeController < ApplicationController
 
   def send_support
     # puts "params #{support_params.inspect}"
-    
+
     redirect_back fallback_location: { action: "support" },
                   notice: "Support request sent successfully!"
   end
@@ -77,7 +77,7 @@ class HomeController < ApplicationController
   end
 
   private
-  
+
   def support_params
     params.require(:support).permit(:email, :message)
   end
