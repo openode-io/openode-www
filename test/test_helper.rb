@@ -117,6 +117,23 @@ class ActiveSupport::TestCase
       response_status: 200,
       response_path:
         'test/fixtures/http/openode_api/front/open_source_project_test1234568.json'
+    },
+    {
+      url: 'https://api.openode.io/super_admin/support/contact',
+      method: :post,
+      with: {
+        body: {
+          "email" => "hello@world.com",
+          "message" => "im interested"
+        }
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path:
+        'test/fixtures/http/openode_api/front/support-contact.json',
+      headers: {
+        'X-Auth-Token' => '123456789123456'
+      }
     }
   ]
 
@@ -128,11 +145,15 @@ class ActiveSupport::TestCase
 
   setup do
     http_stubs.each do |http_stub|
+      http_stub[:headers] ||= {}
+
       stub_request(http_stub[:method], http_stub[:url])
         .with(body: http_stub[:with][:body])
         .to_return(status: http_stub[:response_status],
                    body: IO.read(http_stub[:response_path]),
-                   headers: { content_type: http_stub[:content_type] })
+                   headers: {
+                     content_type: http_stub[:content_type]
+                   }.merge(http_stub[:headers]))
     end
   end
 

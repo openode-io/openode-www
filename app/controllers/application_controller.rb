@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
 
   def api(method, path = "/", args = {})
     headers = {
-      "x-auth-token": session[:token],
+      "x-auth-token": args[:token] || session[:token],
       "params": args[:params] || {}
     }
 

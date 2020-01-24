@@ -68,6 +68,18 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.parsed_body, "<title>Support"
   end
 
+  test "should post support" do
+    post '/support',
+         params: {
+           support: {
+             email: 'hello@world.com',
+             message: 'im interested'
+           }
+         }
+
+    assert_response :found
+  end
+
   test "should get terms" do
     get '/terms'
 

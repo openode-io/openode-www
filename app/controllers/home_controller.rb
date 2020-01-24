@@ -49,7 +49,8 @@ class HomeController < ApplicationController
   end
 
   def send_support
-    # puts "params #{support_params.inspect}"
+    api(:post, '/super_admin/support/contact',
+        payload: support_params, token: ENV['SUPER_ADMIN_API_TOKEN'])
 
     redirect_back fallback_location: { action: "support" },
                   notice: "Support request sent successfully!"
