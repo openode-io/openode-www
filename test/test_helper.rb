@@ -6,6 +6,8 @@ require 'rails/test_help'
 require 'webmock/minitest'
 
 class ActiveSupport::TestCase
+  logged_in_user_token = '123456789123456'
+
   http_stubs = [
     {
       url: 'https://api.openode.io/account/getToken',
@@ -132,7 +134,35 @@ class ActiveSupport::TestCase
       response_path:
         'test/fixtures/http/openode_api/front/support-contact.json',
       headers: {
-        'X-Auth-Token' => '123456789123456'
+        'X-Auth-Token' => logged_in_user_token
+      }
+    },
+    {
+      url: 'https://api.openode.io/notifications/?limit=5',
+      method: :get,
+      with: {
+        body: {}
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path:
+        'test/fixtures/http/openode_api/admin/dropdown-notifications.json',
+      headers: {
+        'X-Auth-Token' => logged_in_user_token
+      }
+    },
+    {
+      url: 'https://api.openode.io/notifications/?limit=1&types=GlobalNotification',
+      method: :get,
+      with: {
+        body: {}
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path:
+        'test/fixtures/http/openode_api/admin/latest-global-notifications.json',
+      headers: {
+        'X-Auth-Token' => logged_in_user_token
       }
     }
   ]

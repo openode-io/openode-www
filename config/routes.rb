@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     get 'support', to: 'support#index'
     get 'account/notifications', to: 'account#notifications'
     get 'account/newsletter', to: 'account#newsletter'
+    get 'account/api', to: 'account#account_api'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

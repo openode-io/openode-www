@@ -3,7 +3,7 @@ class Admin::AccountController < AdminController
     # -
   end
 
-  def api
+  def account_api
     # -
   end
 
