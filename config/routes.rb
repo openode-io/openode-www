@@ -48,6 +48,8 @@ Rails.application.routes.draw do
     get 'account/notifications', to: 'account#notifications'
     get 'account/newsletter', to: 'account#newsletter'
     get 'account/api', to: 'account#account_api'
+
+    post 'notifications/mark_viewed', to: 'notifications#mark_viewed'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
