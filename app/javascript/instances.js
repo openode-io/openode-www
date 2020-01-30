@@ -1,7 +1,6 @@
-import { SidebarMenu } from 'vue-sidebar-menu'
-import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
+import InstanceList from './components/admin/instances/list'
 
-export const AdminSidebar = {
-    el: '.vue-admin-sidebar',
-    component: SidebarMenu
+export const InstanceListInstance = {
+    el: '.vue-instances',
+    component: InstanceList
 }

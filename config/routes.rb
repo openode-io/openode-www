@@ -47,6 +47,18 @@ Rails.application.routes.draw do
     get 'support', to: 'support#index'
     get 'account/notifications', to: 'account#notifications'
     get 'account/newsletter', to: 'account#newsletter'
+
+    # Instance Actions
+    post 'instances/:id/deploy', to: 'instances#deploy'
+    post 'instances/:id/restart', to: 'instances#restart'
+    post 'instances/:id/stop', to: 'instances#stop'
+    post 'instances/:id/delete', to: 'instances#delete'
+
+    get 'instances/:id/edit', to: 'instances#edit'
+    get 'instances/:id/access', to: 'instances#access'
+    get 'instances/:id/stats', to: 'instances#stats'
+    get 'instances/:id/collaborators', to: 'instances#collaborators'
+    get 'instances/:id/logs', to: 'instances#logs'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

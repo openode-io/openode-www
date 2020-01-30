@@ -44,3 +44,19 @@
     }
   }
 }
+
+.card {
+  &.card-instance-details {
+    .badge-counter {
+      position: absolute;
+      -webkit-transform: scale(0.7);
+      transform: scale(0.7);
+      -webkit-transform-origin: top right;
+      transform-origin: top right;
+      right: .25rem;
+      margin-top: -.25rem;
+      margin-top: -0.3rem;
+      font-size: 0.8rem;      
+    }
+  }
+}
