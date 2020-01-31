@@ -1,4 +1,8 @@
+set -e
+
 echo $SERVER_PK_KEY | base64 --decode > id_rsa_tmp
+chmod 400 id_rsa_tmp
+
 ssh -i id_rsa_tmp -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST \
   "PATH=\"$PATH:$RUBY_BIN_PATH\" && \
   cd $PROJECT_PATH && \
