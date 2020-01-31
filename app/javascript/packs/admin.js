@@ -9,18 +9,21 @@ import '../utils/utils.js'
 
 import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 // Import all the macro components of the application
 import * as instances from '../instances'
 
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
+require('@rails/ujs').start()
+require('turbolinks').start()
+require('@rails/activestorage').start()
+require('channels')
 
 Vue.use(TurbolinksAdapter)
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener('turbolinks:load', function () {
   /* Vue Settings */
   Object.keys(instances).forEach((instanceName) => {
     const instance = instances[instanceName]
