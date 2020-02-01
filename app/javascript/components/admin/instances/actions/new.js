@@ -81,7 +81,7 @@ export default {
     return (
       <div>
         <b-btn on-click={this.showModal} variant='outline-dark' size='sm'>
-          <i class='fa fa-plus' /> Add New
+          <i class='fa fa-plus'></i> Add New
         </b-btn>
         <b-modal ref='newInstanceModal' hide-footer title='Add New Instance'>
           <div>
