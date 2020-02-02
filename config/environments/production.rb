@@ -119,6 +119,11 @@ end
 # for datadog logs
 class Logger
   def format_message(severity, timestamp, _progname, msg)
-    "[#{timestamp}] level=#{severity} -- :   #{msg}\n"
+    #"[#{timestamp}] level=#{severity} -- :   #{msg}\n"
+    {
+      timestamp: timestamp,
+      level: severity,
+      message: msg,
+    }.to_json + "\n"
   end
 end
