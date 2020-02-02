@@ -22,7 +22,7 @@ export default {
         disabled: true
       }
 
-      this.$emit('updateStatus', { status: this.status, processing: this.processing })
+      this.$emit('updateStatus', { status: this.status, processing: this.processing, poll: false })
 
       axios.post(`/admin/instances/${this.instance.id}/deploy.json`)
         .then(response => {
@@ -34,10 +34,15 @@ export default {
             disabled: false
           }
 
-          this.$emit('updateStatus', { status: this.status, processing: this.processing })
+          this.$emit('updateStatus', { status: this.status, processing: this.processing, poll: true })
         })
-        .catch(err => {
-          alert(err)
+        .catch(err => {          
+          this.button = {
+            text: 'Deploy',
+            disabled: false
+          }
+
+          this.$emit('displayAlert', { error: err,level:critical })
         })
     }
   },
@@ -49,7 +54,8 @@ export default {
         disabled: false
       },
       status: this.instance.status,
-      processing: false
+      processing: false,
+      error: null
     }
   },
 

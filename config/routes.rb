@@ -49,6 +49,7 @@ Rails.application.routes.draw do
     get 'account/newsletter', to: 'account#newsletter'
 
     # Instance Actions
+    post 'instances/create', to: 'instances#create'
     post 'instances/:id/deploy', to: 'instances#deploy'
     post 'instances/:id/restart', to: 'instances#restart'
     post 'instances/:id/stop', to: 'instances#stop'
@@ -59,6 +60,8 @@ Rails.application.routes.draw do
     get 'instances/:id/stats', to: 'instances#stats'
     get 'instances/:id/collaborators', to: 'instances#collaborators'
     get 'instances/:id/logs', to: 'instances#logs'
+
+    post 'notifications/:id/mark_read', to: 'notifications#mark_read'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -30,13 +30,25 @@ class Admin::InstancesController < AdminController
     # -
   end
 
-  def deploy
+  def create
     sleep(5)
 
     @status = {
       level: 'success',
-      message: 'online',
-      icon: 'fa fa-world'
+      message: 'queued'
+    }
+
+    respond_to do |format|
+      format.json { render json: { status: @status } }
+    end
+  end
+
+  def deploy
+    sleep(5)
+
+    @status = {
+      level: 'deploying',
+      message: 'queued'
     }
 
     respond_to do |format|
@@ -48,9 +60,8 @@ class Admin::InstancesController < AdminController
     sleep(5)
 
     @status = {
-      level: 'success',
-      message: 'online',
-      icon: 'fa fa-world'
+      level: 'warning',
+      message: 'queued'
     }
 
     respond_to do |format|
@@ -62,9 +73,8 @@ class Admin::InstancesController < AdminController
     sleep(5)
 
     @status = {
-      level: 'critical',
-      message: 'stopped',
-      icon: 'fa fa-stop'
+      level: 'warning',
+      message: 'queued'
     }
 
     respond_to do |format|
@@ -76,9 +86,8 @@ class Admin::InstancesController < AdminController
     sleep(5)
 
     @status = {
-      level: 'critical',
-      message: 'deleted',
-      icon: 'fa fa-exclamation-triangle'
+      level: 'warning',
+      message: 'queued'
     }
 
     respond_to do |format|

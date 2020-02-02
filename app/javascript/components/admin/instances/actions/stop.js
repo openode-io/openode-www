@@ -22,7 +22,7 @@ export default {
         disabled: true
       }
 
-      this.$emit('updateStatus', { status: this.status, processing: this.processing })
+      this.$emit('updateStatus', { status: this.status, processing: this.processing, poll: false })
 
       axios.post(`/admin/instances/${this.instance.id}/stop.json`)
         .then(response => {
@@ -34,10 +34,15 @@ export default {
             disabled: false
           }
 
-          this.$emit('updateStatus', { status: this.status, processing: this.processing })
+          this.$emit('updateStatus', { status: this.status, processing: this.processing, poll: true })
         })
         .catch(err => {
-          alert(err)
+          this.button = {
+            text: 'Stop',
+            disabled: false
+          }
+                    
+          this.$emit('displayError', { error: err })          
         })
     }
   },

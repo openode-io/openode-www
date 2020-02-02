@@ -15,6 +15,14 @@ export default {
     updateStatus (data) {
       this.status = data.status
       this.processing = data.processing
+
+      if (data.poll) {
+        this.$emit('pollInstancesStatus')
+      }        
+    },
+    
+    displayAlert (error) {
+      this.$emit('displayAlert',error)
     }
   },
 
@@ -39,7 +47,6 @@ export default {
               <div class='dropdown'>
                 <a
                   class='dropdown-toggle'
-                  type='button'
                   id={`openode-instance-${this.instance.id}`}
                   data-toggle='dropdown'
                   aria-haspopup='true'
@@ -51,14 +58,10 @@ export default {
                   class='dropdown-menu dropdown-menu-right'
                   aria-labelledby={`openode-instance-${this.instance.id}`}
                 >
-                  <Deploy instance={this.instance} onUpdateStatus={this.updateStatus} />
-                  <Restart instance={this.instance} onUpdateStatus={this.updateStatus} />
-                  <Stop instance={this.instance} onUpdateStatus={this.updateStatus} />
+                  <Deploy instance={this.instance} onUpdateStatus={this.updateStatus} onDisplayAlert={this.displayAlert} />
+                  <Stop instance={this.instance} onUpdateStatus={this.updateStatus} onDisplayAlert={this.displayAlert} />
                   <div class='dropdown-divider' />
-                  <a class='dropdown-item' href={`/admin/instances/${this.instance.id}/scheduler`}>Scheduler</a>
-                  <a class='dropdown-item' href='/docs'>Docs</a>
-                  <div class='dropdown-divider' />
-                  <Delete instance={this.instance} onUpdateStatus={this.updateStatus} />
+                  <Delete instance={this.instance} onUpdateStatus={this.updateStatus} onDisplayAlert={this.displayAlert} />
                 </div>
               </div>
             </div>
@@ -70,7 +73,7 @@ export default {
             <p>
                 Status:
               <span class={`badge badge-${this.status.level}`}>
-                <i class={`${this.status.icon}`} /> {`${this.status.message}`}
+                <i class={`${this.status.icon ? this.status.icon : ''}`} /> {`${this.status.message}`}
               </span>
             </p>
             <p>Disk Usage: {this.instance.disk.usage} (From {this.instance.disk.total})</p>

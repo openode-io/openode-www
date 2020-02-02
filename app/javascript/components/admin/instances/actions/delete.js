@@ -23,7 +23,7 @@ export default {
         icon: 'fa fa-spin fa-spinner'
       }
 
-      this.$emit('updateStatus', { status: this.status, processing: this.processing })
+      this.$emit('updateStatus', { status: this.status, processing: this.processing, poll: false })
 
       axios.post(`/admin/instances/${this.instance.id}/delete.json`)
         .then(response => {
@@ -35,10 +35,15 @@ export default {
             disabled: false
           }
 
-          this.$emit('updateStatus', { status: this.status, processing: this.processing })
+          this.$emit('updateStatus', { status: this.status, processing: this.processing, poll: true })
         })
         .catch(err => {
-          alert(err)
+          this.button = {
+            text: 'Delete',
+            disabled: false
+          }
+                    
+          this.$emit('dosplayError', { error: err })          
         })
     }
   },

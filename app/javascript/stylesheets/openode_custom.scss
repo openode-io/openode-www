@@ -5,7 +5,9 @@ a.dropdown-item:hover {
   background-color: #363A42;
 }
 
-a.dropdown-item:active {
+a.dropdown-item:active,
+button.dropdown-item:active
+ {
   background-color: $success;
 }
 
