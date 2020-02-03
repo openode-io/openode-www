@@ -47,7 +47,7 @@ class Admin::InstancesController < AdminController
     sleep(5)
 
     @status = {
-      level: 'deploying',
+      level: 'warning',
       message: 'queued'
     }
 
