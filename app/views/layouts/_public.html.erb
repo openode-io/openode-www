@@ -1,4 +1,6 @@
+<%= render 'layouts/global/gtracking' %>
 <%= render 'layouts/public/navbar' %>
+
 <% flash.each do |key, value| %>
   <div class="<%= flash_bootstrap(key) %> m-0 border-0 rounded-0" role="alert">
     <%= value %>

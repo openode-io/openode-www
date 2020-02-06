@@ -1,4 +1,4 @@
-module.exports = function(api) {
+module.exports = function (api) {
   var validEnv = ['development', 'test', 'production']
   var currentEnv = api.env()
   var isDevelopmentEnv = api.env('development')
@@ -47,6 +47,8 @@ module.exports = function(api) {
       '@vue/babel-preset-jsx'
     ].filter(Boolean),
     plugins: [
+      'jsx-v-model',
+      'jsx-event-modifiers',
       'babel-plugin-macros',
       '@babel/plugin-syntax-dynamic-import',
       isTestEnv && 'babel-plugin-dynamic-import-node',

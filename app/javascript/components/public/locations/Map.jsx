@@ -1,26 +1,25 @@
-import React from "react";
+import React from 'react'
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker
-} from "react-simple-maps";
+} from 'react-simple-maps'
 
-const geoUrl = "/maps/world.json";
+const geoUrl = '/maps/world.json'
 
-const markers = [];
+const markers = []
 
 class Map extends React.Component {
-
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
     this.state = {
       markers: this.props.markers || markers
-    };
+    }
   };
 
-  render() {
+  render () {
     return (
       <ComposableMap>
         <Geographies geography={geoUrl}>
@@ -30,20 +29,19 @@ class Map extends React.Component {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill="transparent"
-                  stroke="#5D5A6D"
+                  fill='transparent'
+                  stroke='#5D5A6D'
                 />
-              ))
-          }
+              ))}
         </Geographies>
-        {this.state.markers.map(({ name, coordinates, markerOffset, markerColor,textColor }) => (
+        {this.state.markers.map(({ name, coordinates, markerOffset, markerColor, textColor }) => (
           <Marker key={name} coordinates={coordinates.reverse()}>
-            <circle r={5} fill={markerColor} stroke="transparent" strokeWidth={1} />
+            <circle r={5} fill={markerColor} stroke='transparent' strokeWidth={1} />
           </Marker>
         ))}
       </ComposableMap>
-    );
+    )
   }
 };
 
-export default Map;
+export default Map

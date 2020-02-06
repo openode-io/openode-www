@@ -1,7 +1,12 @@
-import { SidebarMenu } from 'vue-sidebar-menu'
-import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
+import InstanceList from './components/admin/instances/list'
+import NotificationButton from './components/admin/notifications/button'
 
-export const AdminSidebar = {
-    el: '.vue-admin-sidebar',
-    component: SidebarMenu
+export const InstanceListInstance = {
+  el: '.vue-instances',
+  component: InstanceList
+}
+
+export const NotificationButtonInstance = {
+  el: '.vue-notifications',
+  component: NotificationButton
 }

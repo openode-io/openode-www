@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "webs1te-abc-1",
+    "url": "/admin/instances/1",
+    "status": {
+      "level": "success",
+      "message": "online"
+    },
+    "credits": "100/150",
+    "memory": {
+      "usage": "25%",
+      "total": "512MB"
+    },
+    "disk": {
+      "usage": "45%",
+      "total": "200MB"
+    },
+    "collaborators": 10,
+    "plan": "Sandbox"
+  },
+  {
+    "id": 2,
+    "name": "webs1te-fsf-3",
+    "url": "/admin/instances/2",
+    "status": {
+      "level": "critical",
+      "message": "offline"
+    },
+    "credits": "23/150",
+    "memory": {
+      "usage": "30%",
+      "total": "256MB"
+    },
+    "disk": {
+      "usage": "45%",
+      "total": "150MB"
+    },
+    "collaborators": 2,
+    "plan": "Sandbox"
+  },
+  {
+    "id": 3,
+    "name": "webs1te-fgk-4",
+    "url": "/admin/instances/3",
+    "status": {
+      "level": "warning",
+      "message": "launching"
+    },
+    "credits": "12/150",
+    "memory": {
+      "usage": "30%",
+      "total": "128MB"
+    },
+    "disk": {
+      "usage": "30%",
+      "total": "150MB"
+    },
+    "collaborators": 0,
+    "plan": "Sandbox"
+  }
+]

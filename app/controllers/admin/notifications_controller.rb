@@ -1,14 +1,11 @@
 class Admin::NotificationsController < AdminController
+  skip_before_action :verify_authenticity_token
+
   def index
     # -
-
-    # will call api to mark all viewed
   end
 
-  # params: { notifications: [notification ids] }
-  def mark_viewed
-    # will call the api to mark the notifications
-
-    json({})
+  def mark_read
+    render json: { status: 'OK' }
   end
 end

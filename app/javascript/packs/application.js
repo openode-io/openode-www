@@ -7,11 +7,11 @@ import '../stylesheets/application'
 import './bootstrap_custom.js'
 import '../utils/utils.js'
 
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
+require('@rails/ujs').start()
+require('turbolinks').start()
+require('@rails/activestorage').start()
+require('channels')
 
-var componentRequireContext = require.context("components", true);
-var ReactRailsUJS = require("react_ujs");
-ReactRailsUJS.useContext(componentRequireContext);
+var componentRequireContext = require.context('components', true)
+var ReactRailsUJS = require('react_ujs')
+ReactRailsUJS.useContext(componentRequireContext)
