@@ -9,8 +9,7 @@ class UsersController < ApplicationController
 
       set_token(response['token'])
 
-      # TODO: - redirect to dashboard
-      redirect_to root_url, notice: "Registered successfully!"
+      redirect_to({ controller: 'admin/instances' }, notice: "Registered successfully!")
     else
       render :register, alert: "We need to verify that you are a human :)"
     end
@@ -39,8 +38,6 @@ class UsersController < ApplicationController
     flash[:notice] = 'Done! If the email exists you will receive a reset token via email.'
     redirect_to action: :forgot_password
   end
-
-  def activate; end
 
   private
 

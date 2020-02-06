@@ -1,6 +1,6 @@
 {
-  "admin.js": "/packs-test/js/admin-aef70ab2584dee9961d9.js",
-  "admin.js.map": "/packs-test/js/admin-aef70ab2584dee9961d9.js.map",
+  "admin.js": "/packs-test/js/admin-c41ad15abf945fc1151a.js",
+  "admin.js.map": "/packs-test/js/admin-c41ad15abf945fc1151a.js.map",
   "application.js": "/packs-test/js/application-6ccb076178365506e120.js",
   "application.js.map": "/packs-test/js/application-6ccb076178365506e120.js.map",
   "bootstrap_custom.js": "/packs-test/js/bootstrap_custom-be51dc40dd9781eb7aa5.js",
@@ -8,10 +8,10 @@
   "entrypoints": {
     "admin": {
       "js": [
-        "/packs-test/js/admin-aef70ab2584dee9961d9.js"
+        "/packs-test/js/admin-c41ad15abf945fc1151a.js"
       ],
       "js.map": [
-        "/packs-test/js/admin-aef70ab2584dee9961d9.js.map"
+        "/packs-test/js/admin-c41ad15abf945fc1151a.js.map"
       ]
     },
     "application": {

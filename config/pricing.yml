@@ -122,7 +122,7 @@
   features:
     #- 'Extra CPUs: $5 / CPU / Month'
     - 'Extra Storage: $0.13 / 1 GB / Month'
-    - 'Extra Bandwidth: $0.008 / GB'
+    #- 'Extra Bandwidth: $0.008 / GB'
     #- 'Snapshot: $0.05 / GB'
   button: 
     url: /admin/billing
