@@ -43,7 +43,7 @@ export default {
             disabled: false
           }
                     
-          this.$emit('dosplayError', { error: err })          
+          this.$emit('displayError', { error: err })          
         })
     }
   },
