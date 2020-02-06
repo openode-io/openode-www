@@ -61,6 +61,9 @@ Rails.application.routes.draw do
     get 'instances/:id/logs', to: 'instances#logs'
 
     post 'notifications/:id/mark_read', to: 'notifications#mark_read'
+    post 'notifications/mark_viewed', to: 'notifications#mark_viewed'
+
+    get 'account/api', to: 'account#account_api'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

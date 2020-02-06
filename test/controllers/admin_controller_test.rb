@@ -8,6 +8,15 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_includes response.parsed_body.to_s, 'Instances'
+
+    # dropdown notifications
+    assert_includes response.parsed_body.to_s, 'hello world whelasdf web1'
+    assert_includes response.parsed_body.to_s, 'hello world whelasdf web2'
+    assert_includes response.parsed_body.to_s, 'hello world whelasdf web3'
+
+    # latest notification
+    assert_includes response.parsed_body.to_s,
+                    'hello world whelasdf asdf asdf asd fasd fasd fasdfasdf'
   end
 
   test "get admin instances" do

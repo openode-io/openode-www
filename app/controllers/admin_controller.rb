@@ -12,29 +12,19 @@ class AdminController < ApplicationController
 
   private
 
-  def set_latest_notification
-    @notification = {
-      status: 'unread',
-      level: 'warning',
-      body: 'Maintenance scheduled for Montreal location.'
-    }
+  def set_notifications
+    @notifications = api(:get, '/notifications/?limit=5')
+    # status: read/unread
+    # icon: hammer, exclamation-triangle
   end
 
-  def set_notifications
-    @notifications = [
-      {
-        status: 'read',
-        level: 'warning',
-        icon: 'hammer',
-        body: 'Maintenance scheduled for Montreal location.'
-      },
-      {
-        status: 'unread',
-        level: 'critical',
-        icon: 'exclamation-triangle',
-        body: 'Instance down!'
-      }
-    ]
+  def set_latest_notification
+    @notification = nil
+    notifications = api(:get, '/notifications/?limit=1&types=GlobalNotification')
+
+    if notifications['notifications'].present?
+      @notification = notifications['notifications'].first
+    end
   end
 
   def set_menu

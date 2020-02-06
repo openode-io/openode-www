@@ -1,5 +1,5 @@
 <% if notification.present? %>
   <span class="pl-2 d-none d-md-block notification-item">
-    <i class="fa fa-circle text-<%= notification[:level] %>"></i> <span class="text-light"><%= notification[:body] %></span>
+    <i class="fa fa-circle text-<%= notification['level'] %>"></i> <span class="text-light"><%= notification['content'] %></span>
   </span>
 <% end %>

@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     if verify_recaptchas('login') && token.present?
       set_token(token)
-      redirect_to root_url, notice: "Logged in!"
+      redirect_to({ controller: 'admin/instances' }, notice: "Logged in!")
     else
       render :new, error: "reCaptcha or Token are invalid. Please try again."
     end

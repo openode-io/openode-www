@@ -2,7 +2,7 @@
 
 Rails.application.configure do
 
-  config.API_URL = 'https://api.openode.io'
+  config.API_URL = 'https://apitest.openode.io'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -60,6 +60,7 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
+  config.cache_store = :redis_cache_store, { url: 'redis://localhost:6379/cache' }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
@@ -85,11 +86,9 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV['RAILS_LOG_TO_STDOUT'].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
-  end
+  logger           = ActiveSupport::Logger.new(STDOUT)
+  logger.formatter = config.log_formatter
+  config.logger    = ActiveSupport::TaggedLogging.new(logger)
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
@@ -115,4 +114,16 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
+end
+
+# for datadog logs
+class Logger
+  def format_message(severity, timestamp, _progname, msg)
+    #"[#{timestamp}] level=#{severity} -- :   #{msg}\n"
+    {
+      timestamp: timestamp,
+      level: severity,
+      message: msg,
+    }.to_json + "\n"
+  end
 end
