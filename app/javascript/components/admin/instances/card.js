@@ -1,8 +1,6 @@
 import Deploy from './actions/deploy'
-import Restart from './actions/restart'
 import Stop from './actions/stop'
 import Delete from './actions/delete'
-import axios from 'axios'
 
 export default {
   name: 'InstanceCard',
@@ -46,7 +44,7 @@ export default {
               </h5>
               <div class='dropdown'>
                 <a
-                  class='dropdown-toggle'
+                  class='dropdown-toggle toggle-instance-actions'
                   id={`openode-instance-${this.instance.id}`}
                   data-toggle='dropdown'
                   aria-haspopup='true'

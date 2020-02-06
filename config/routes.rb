@@ -51,7 +51,6 @@ Rails.application.routes.draw do
     # Instance Actions
     post 'instances/create', to: 'instances#create'
     post 'instances/:id/deploy', to: 'instances#deploy'
-    post 'instances/:id/restart', to: 'instances#restart'
     post 'instances/:id/stop', to: 'instances#stop'
     post 'instances/:id/delete', to: 'instances#delete'
 
