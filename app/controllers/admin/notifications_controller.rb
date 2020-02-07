@@ -3,6 +3,9 @@ class Admin::NotificationsController < AdminController
 
   def index
     # -
+    notifications = api(:get, '/notifications/?limit=5')
+
+    render json: notifications
   end
 
   def mark_read

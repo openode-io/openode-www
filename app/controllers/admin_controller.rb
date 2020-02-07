@@ -1,7 +1,6 @@
 class AdminController < ApplicationController
   before_action :authenticate_user
   before_action :set_menu
-  before_action :set_notifications
   before_action :set_latest_notification
 
   layout 'admin'
@@ -11,12 +10,6 @@ class AdminController < ApplicationController
   end
 
   private
-
-  def set_notifications
-    @notifications = api(:get, '/notifications/?limit=5')
-    # status: read/unread
-    # icon: hammer, exclamation-triangle
-  end
 
   def set_latest_notification
     @notification = nil

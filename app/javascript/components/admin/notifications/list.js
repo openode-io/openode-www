@@ -9,11 +9,12 @@ export default {
     getNotifications () {
       this.loading = true
 
-      axios.get('/data/notifications.json')
+      axios.get('/admin/notifications')
         .then(response => {
-          this.notifications = response.data
+          this.notifications = response.data.notifications
+          console.log(`this.notifications = `, this.notifications)
           this.loading = false
-          this.$emit('updateCount',response.data.length)
+          this.$emit('updateCount', this.notifications.length)
         })
         .catch(err => {
           this.error = err
@@ -26,7 +27,7 @@ export default {
     },
     updateNotifications (id) {      
       this.notifications = this.notifications.filter(item => item.id !== id)
-      this.$emit('updateCount',this.notifications.length)
+      this.$emit('updateCount', this.notifications.length)
     }
   },
 
@@ -66,7 +67,7 @@ export default {
     } else {
       return ( 
         <h5 class="bg-light pt-3 pb-3 text-dark text-center">
-          <i class="fa fa-2x fa-check mb-2 text-success"></i><br />No Notifications!
+          <i class="fa fa-2x fa-check mb-2 text-success"></i><br />No notification
         </h5>
        )
     }

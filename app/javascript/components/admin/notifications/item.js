@@ -47,7 +47,7 @@ export default {
         <div>
           <div class="small text-gray-500">{this.notification.date}</div>
           <span class={`font-weight-${(this.notification.status == 'read' ? 'bold' : 'light')}`}>
-            {this.notification.body}
+            {this.notification.content}
           </span>
         </div>
       </a>      
