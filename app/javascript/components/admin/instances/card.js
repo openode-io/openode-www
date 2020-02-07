@@ -20,7 +20,7 @@ export default {
     },
     
     displayAlert (error) {
-      this.$emit('displayAlert',error)
+      this.$emit('displayAlert', error)
     }
   },
 
@@ -39,16 +39,16 @@ export default {
             <div class='d-flex'>
               <h5 class='card-title flex-grow-1 m-0'>
                 <a href={this.instance.url} class={`text-${this.status.level}`}>
-                  {this.instance.name}
+                  {this.instance.site_name}
                 </a>
               </h5>
               <div class='dropdown'>
                 <a
                   class='dropdown-toggle toggle-instance-actions'
-                  id={`openode-instance-${this.instance.id}`}
-                  data-toggle='dropdown'
-                  aria-haspopup='true'
-                  aria-expanded='false'
+                    id={`openode-instance-${this.instance.id}`}
+                    data-toggle='dropdown'
+                    aria-haspopup='true'
+                    aria-expanded='false'
                 >
                   <i class='fa fa-cog' />
                 </a>
@@ -66,16 +66,16 @@ export default {
           </div>
           <div class='card-body'>
             <p>
-                Plan: <b>{this.instance.plan}</b>
+                Plan: <b>{this.instance.plan.name}</b>
             </p>
             <p>
-                Status:
+                Status:&nbsp;
               <span class={`badge badge-${this.status.level}`}>
                 <i class={`${this.status.icon ? this.status.icon : ''}`} /> {`${this.status.message}`}
               </span>
             </p>
-            <p>Disk Usage: {this.instance.disk.usage} (From {this.instance.disk.total})</p>
-            <p>Memory Usage: {this.instance.memory.total} (From {this.instance.memory.total})</p>
+            <p>Disk Space: {this.instance.plan.storage} MB</p>
+            <p>Memory: {this.instance.plan.ram} MB</p>
           </div>
           <div class='card-footer text-muted'>
             <div class='btn-group w-100' role='group' aria-label='Access Buttons'>
@@ -85,7 +85,7 @@ export default {
               <a href={`/admin/instances/${this.instance.id}/collaborators`} class='btn btn-sm btn-outline-secondary position-relative'>
                 <i class='fa fa-user' /> Collaborators
                 <span class='badge badge-info badge-counter'>
-                  {this.instance.collaborators}
+                  {this.instance.nb_collaborators}
                 </span>
               </a>
               <a href={`/admin/instances/${this.instance.id}/access`} class='btn btn-sm btn-outline-secondary'>

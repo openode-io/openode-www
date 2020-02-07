@@ -8,7 +8,7 @@ export default {
 
   methods: {
     getInstances (poll=false) {
-      axios.get('/data/instances.json')
+      axios.get('/admin/instances.json')
         .then(response => {
           this.instances = response.data
           this.updating = false
@@ -18,7 +18,7 @@ export default {
           }
         })
         .catch(err => {
-          console.log(err)
+          console.error(err)
         })
     },
     

@@ -12,7 +12,6 @@ export default {
       axios.get('/admin/notifications')
         .then(response => {
           this.notifications = response.data.notifications
-          console.log(`this.notifications = `, this.notifications)
           this.loading = false
           this.$emit('updateCount', this.notifications.length)
         })
