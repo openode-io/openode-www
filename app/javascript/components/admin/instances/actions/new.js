@@ -12,8 +12,7 @@ export default {
         domain_type: 'subdomain',
         site_name: '',
         account_type: 'free',
-        location: 'canada',
-        domain: ''
+        location: 'canada'
       },
       plans: [],
       locations: [],
@@ -78,7 +77,6 @@ export default {
       this.form.location = null
       this.form.domain_type = ''
       this.form.site_name = ''
-      this.form.domain = ''
       
       this.show.form = false
       this.show.custom_domain = false
@@ -126,19 +124,8 @@ export default {
     if (this.form.domain_type == 'custom') {
       custom_domain_input = <div>
         <p class='alert alert-info'>
-          Enter all aliases for one given custom domain, one per line. Example:
-          <br /><br />
-          mydomain.com<br />
-          www.mydomain.com<br />
-          blog.mydomain.com
+          Enter your root custom domain below (Site name).
         </p>
-        <b-form-group id='input-group-2' label='Custom Domain:' label-for='input-2'>
-          <b-form-textarea
-            id='input-2'
-            v-model={this.form.domain}
-            placeholder='Your Domain'
-          />
-        </b-form-group>
       </div>
     }
 

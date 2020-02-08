@@ -11,4 +11,39 @@ class AdminInstancesControllerTest < ActionDispatch::IntegrationTest
     assert_equal response.parsed_body.length, 2
     assert_equal response.parsed_body[0]['site_name'], 'mytestt5667'
   end
+
+  test "/admin/instances/plans" do
+    perform_successful_login
+
+    get '/admin/instances/plans'
+
+    assert_response :success
+
+    assert_equal response.parsed_body[0]['id'], 'sandbox'
+  end
+
+  test "/admin/instances/available-locations?type=kubernetes" do
+    perform_successful_login
+
+    get '/admin/instances/available-locations?type=kubernetes'
+
+    assert_response :success
+
+    assert_equal response.parsed_body[0]['str_id'], 'canada'
+  end
+
+  test "POST /admin/instances/create.json" do
+    perform_successful_login
+
+    post '/admin/instances/create.json',
+         params: {
+           instance: {
+             account_type: 'subdomain'
+           }
+         }
+
+    assert_response :success
+
+    assert_equal response.parsed_body['status']['level'], 'success'
+  end
 end

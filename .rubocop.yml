@@ -81,6 +81,12 @@ Metrics/BlockLength:
 
 Metrics/MethodLength:
   Max: 30
+  Exclude:
+    - 'test/**/*.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'test/**/*.rb'
 
 Metrics/ClassLength:
   Max: 500
