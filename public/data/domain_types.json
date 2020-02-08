@@ -1,7 +1,7 @@
 [
   {
-    "text": "opeNode Subdomain",
-    "value": "default"
+    "text": "Subdomain (your-site-name.openode.io)",
+    "value": "subdomain"
   },
   {
     "text": "Custom Domain",

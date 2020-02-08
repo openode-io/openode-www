@@ -5,6 +5,7 @@ export default {
 
   data: function () {
     return {
+
       error: null,
       modalShow: false,
       form: {
@@ -98,9 +99,15 @@ export default {
     },
 
     getPlans () {
-      axios.get(`/data/plans.json`)
+      axios.get(`/admin/instances/plans`)
         .then(response => {
           this.plans = response.data
+            .map(p => {
+              return {
+                text: p.name,
+                value: p.internal_id
+              }
+            })
         })
     }
 

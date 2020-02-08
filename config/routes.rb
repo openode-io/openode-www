@@ -29,7 +29,6 @@ Rails.application.routes.draw do
   post '/users', to: 'users#create'
   get '/users/forgot_password', to: 'users#forgot_password'
   post '/users/forgot_password', to: 'users#process_forgot_password'
-  # post 'users/process_forgot_password'
   get 'users/activate'
 
   get '/reset/:reset_token', to: 'users#verify_reset_token'
@@ -43,6 +42,7 @@ Rails.application.routes.draw do
     get 'billing', to: 'billing#index'
     get 'billing/orders', to: 'billing#orders'
     get 'instances', to: 'instances#index'
+    get 'instances/plans', to: 'instances#plans' 
     get 'api', to: 'api#index'
     get 'support', to: 'support#index'
     get 'account/notifications', to: 'account#notifications'

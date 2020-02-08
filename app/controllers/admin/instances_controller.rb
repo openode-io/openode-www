@@ -8,6 +8,10 @@ class Admin::InstancesController < AdminController
     end
   end
 
+  def plans
+    json(api(:get, '/global/available-plans'))
+  end
+
   def edit
     # -
   end
