@@ -9,10 +9,10 @@ export default {
       error: null,
       modalShow: false,
       form: {
-        domain_type: '',
+        domain_type: 'subdomain',
         site_name: '',
-        plan: '',
-        location: '',
+        account_type: 'free',
+        location: 'canada',
         domain: ''
       },
       plans: [],
@@ -56,7 +56,7 @@ export default {
 
       this.$emit('updateStatus', { status: this.status, processing: this.processing })
 
-      axios.post(`/admin/instances/create.json`,{instance: this.form})
+      axios.post(`/admin/instances/create.json`, { instance: this.form })
         .then(response => {
           this.$emit('getInstances')
 
@@ -74,7 +74,7 @@ export default {
     },
 
     onReset () {
-      this.form.plan = null
+      this.form.account_type = null
       this.form.location = null
       this.form.domain_type = ''
       this.form.site_name = ''
@@ -84,10 +84,16 @@ export default {
       this.show.custom_domain = false
     },
 
-    getLocations () {
-      axios.get(`/data/locations.json`)
+    getLocations (type = 'kubernetes') {
+      axios.get(`/admin/instances/available-locations?type=${type}`)
         .then(response => {
           this.locations = response.data
+            .map(p => {
+              return {
+                text: p.full_name,
+                value: p.str_id
+              }
+            })
         })
     },
 
@@ -166,7 +172,7 @@ export default {
             <b-form-group id='input-group-3' label='Site Name:' label-for='input-3'>
               <b-form-input
                 id='input-3'
-                v-model={this.form.name}
+                v-model={this.form.site_name}
                 required
                 placeholder='Enter Site name'
               />
@@ -184,7 +190,7 @@ export default {
             <b-form-group id='input-group-5' label='Plan:' label-for='input-5'>
               <b-form-select
                 id='input-5'
-                v-model={this.form.plan}
+                v-model={this.form.account_type}
                 options={this.plans}
                 required
               />

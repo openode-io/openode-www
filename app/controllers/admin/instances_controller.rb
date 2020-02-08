@@ -12,6 +12,10 @@ class Admin::InstancesController < AdminController
     json(api(:get, '/global/available-plans'))
   end
 
+  def available_locations
+    json(api(:get, "/global/available-locations?type=#{params['type']}"))
+  end
+
   def edit
     # -
   end
@@ -33,7 +37,7 @@ class Admin::InstancesController < AdminController
   end
 
   def create
-    sleep(5)
+    api(:post, '/instances/create', payload: instance_params)
 
     @status = {
       level: 'success',
@@ -128,5 +132,10 @@ class Admin::InstancesController < AdminController
 
       instance
     end
+  end
+
+  def instance_params
+    params.require(:instance).permit(:account_type, :location,
+                                     :domain_type, :site_name, :domains)
   end
 end

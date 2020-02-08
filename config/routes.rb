@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     get 'billing/orders', to: 'billing#orders'
     get 'instances', to: 'instances#index'
     get 'instances/plans', to: 'instances#plans' 
+    get 'instances/available-locations', to: 'instances#available_locations' 
     get 'api', to: 'api#index'
     get 'support', to: 'support#index'
     get 'account/notifications', to: 'account#notifications'
