@@ -2,6 +2,7 @@
 
 Rack::Attack.throttle("requests by ip", limit: 500, period: 60) do |request|
   Rails.logger.info("Request throttle ip = #{request.ip}")
+  
   request.ip
 end
 
