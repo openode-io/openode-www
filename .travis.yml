@@ -1,8 +1,10 @@
 notifications:
   slack: openodeio:6BDG0odfHQqNmWXoYcDfpV2y
 language: ruby
+
 # before_script:
 # - sudo apt-get install -qq xxxx
+
 script:
 - bundle exec rubocop
 - bundle exec bin/rails test
