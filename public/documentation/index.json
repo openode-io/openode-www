@@ -30,6 +30,10 @@
         "path":"platform/open_source.md"
       },
       {
+        "name":"SSL",
+        "path":"platform/ssl.md"
+      },
+      {
         "name":"Running a Remote Command",
         "path":"platform/exec.md"
       },
@@ -62,6 +66,10 @@
       {
         "name":"Skipping Port Listening Verification",
         "path":"misc/skip_port_verification.md"
+      },
+      {
+        "name":"Samples",
+        "path":"misc/samples.md"
       }
     ]
   }
