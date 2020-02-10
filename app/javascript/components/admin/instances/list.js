@@ -85,7 +85,7 @@ export default {
             <h1 class='h3 m-0 text-gray-800 flex-grow-1'>
               Instances
             </h1>
-            <New />
+            <New onInstancesUpdate={this.getInstances}/>
           </section>
           <section>
             <div class='row'>

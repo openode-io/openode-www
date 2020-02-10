@@ -66,6 +66,7 @@ export default {
 
           this.$refs.newInstanceModal.hide()
           this.onReset()
+          this.$emit('instancesUpdate')
         })
         .catch(err => {
           this.error = err;
