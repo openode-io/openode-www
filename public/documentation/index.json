@@ -30,6 +30,10 @@
         "path":"platform/deploy.md"
       },
       {
+        "name":"Auto Build Templates",
+        "path":"platform/smart_templating.md"
+      },
+      {
         "name":"HTTPS, SSL",
         "path":"platform/ssl.md"
       },
