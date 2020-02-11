@@ -48,7 +48,6 @@ gem 'twitter'
 # Code Highlighting
 gem 'rouge', require: false
 
-gem 'rack', '2.1.2'
 gem 'rack-attack'
 
 # Recaptcha

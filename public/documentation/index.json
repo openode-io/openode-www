@@ -22,15 +22,19 @@
     "path":"platform/index.md",
     "children": [
       {
-        "name":"Overview",
+        "name":"Getting Started",
         "path":"platform/index.md"
       },
       {
-        "name":"Open Source",
-        "path":"platform/open_source.md"
+        "name":"Deploy, sync, restart",
+        "path":"platform/deploy.md"
       },
       {
-        "name":"SSL",
+        "name":"Auto Build Templates",
+        "path":"platform/smart_templating.md"
+      },
+      {
+        "name":"HTTPS, SSL",
         "path":"platform/ssl.md"
       },
       {
@@ -56,6 +60,10 @@
       {
         "name":"CLI",
         "path":"platform/cli.md"
+      },
+      {
+        "name":"Open Source",
+        "path":"platform/open_source.md"
       }
     ]
   },
