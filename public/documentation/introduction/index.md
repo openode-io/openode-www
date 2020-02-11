@@ -11,5 +11,20 @@ any need to manage servers and extensive devops complexities.
 per month.
 - **Collaborate** with your peers on the same projects.
 
-## sdf
+## Installation
 
+For details on the installation instructions, see the 
+[installation doc section](/docs/installation/index.md).
+
+## Platform Features
+
+The platform features and functionalities are described in details under the
+[platform doc section](/docs/platform/index.md).
+
+## FAQ
+
+We maintain a list of the most frequently asked questions [here](/faq).
+
+## Support
+
+Don't hesitate to [contact us](/support) if you have any issue or question.
