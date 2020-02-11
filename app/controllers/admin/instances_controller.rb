@@ -101,6 +101,22 @@ class Admin::InstancesController < AdminController
     end
   end
 
+  def deployments
+    @data = [
+        {
+          status: {
+          level: 'success',
+          message: 'deployed'
+          },        
+          date: 'Feb 8, 2020'
+        }
+      ]
+
+    respond_to do |format|
+      format.json { render json: @data }
+    end    
+  end
+
   private
 
   def status_to_level(status)

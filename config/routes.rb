@@ -60,6 +60,7 @@ Rails.application.routes.draw do
     get 'instances/:id/stats', to: 'instances#stats'
     get 'instances/:id/collaborators', to: 'instances#collaborators'
     get 'instances/:id/logs', to: 'instances#logs'
+    get 'instances/:id/deployments', to: 'instances#deployments'
 
     get 'notifications', to: 'notifications#index'
     post 'notifications/:id/mark_read', to: 'notifications#mark_read'

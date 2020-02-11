@@ -6,6 +6,11 @@ export const InstanceListInstance = {
   component: InstanceList
 }
 
+export const InstanceDeploymentListInstance = {
+  el: '.vue-instance-deployment',
+  component: DeploymentList
+}
+
 export const NotificationButtonInstance = {
   el: '.vue-notifications',
   component: NotificationButton
