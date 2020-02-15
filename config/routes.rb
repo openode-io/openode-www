@@ -73,6 +73,8 @@ Rails.application.routes.draw do
 
     get '/websites', to: 'websites#index' 
 
-    get '/users', to: 'users#index' 
+    get '/users', to: 'users#index'
+    get '/users/:id/custom_order', to: 'users#custom_order'
+    post '/users/:id/custom_order', to: 'users#make_order'
   end
 end

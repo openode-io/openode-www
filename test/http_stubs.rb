@@ -265,6 +265,24 @@ module HttpStubs
         headers: {
           'X-Auth-Token' => logged_in_user_token
         }
+      },
+      {
+        url: 'https://api.openode.io/super_admin/orders',
+        method: :post,
+        with: {
+          body: {
+            "amount" => "34.43", "gateway" => "btc",
+            "payment_status" => "Completed", "reason" => "cool",
+            "user_id" => "83"
+          }
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/super_admin/make_order_success.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
       }
     ]
   end
