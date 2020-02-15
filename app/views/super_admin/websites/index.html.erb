@@ -1,0 +1,46 @@
+<h1>Websites</h1>
+
+<%= form_for :websites_search, { url: super_admin_websites_path, method: :get } do |form| %>
+  <div class="card">
+    <div class="card-body">      
+
+      <div class="form-label-group mb-2">
+        <%= form.label :search, 'Search', class: 'required' %>
+        <%= form.text_field :search, { class: 'form-control', required: true} %>
+      </div>
+
+      <%= form.submit "search!", class: 'btn btn-lg btn-success w-100 mb-3' %>
+
+      <hr />
+
+    </div>
+  </div>
+<% end %>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Site name</th>
+    <th>User ID</th>
+    <th>Plan</th>
+    <th>Status</th>
+    <th>Updated at</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @websites.each do |w| %>
+    <tr>
+      <td><%= w['id'] %></td>
+      <td><%= w['site_name'] %></td>
+      <td><%= w['user_id'] %></td>
+      <td><%= w['account_type'] %></td>
+      <td><%= w['status'] %></td>
+      <td><%= w['updated_at'] %></td>
+      <td>
+        <ul>
+          <li><%= link_to 'Goto', '/admin' %></li>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
+</table>

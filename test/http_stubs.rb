@@ -16,6 +16,16 @@ module HttpStubs
         url: 'https://api.openode.io/account/getToken',
         method: :post,
         with: {
+          body: { 'email' => 'superadmin@openode.io', 'password' => '1234561!' }
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path: 'test/fixtures/http/openode_api/front/get_super_admin_token.json'
+      },
+      {
+        url: 'https://api.openode.io/account/getToken',
+        method: :post,
+        with: {
           body: { 'email' => 'invalid@openode.io', 'password' => '123456' }
         },
         content_type: 'application/json',
@@ -224,6 +234,20 @@ module HttpStubs
         response_status: 200,
         response_path:
           'test/fixtures/http/openode_api/front/me.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
+      },
+      {
+        url: 'https://api.openode.io/super_admin/websites/?search=',
+        method: :get,
+        with: {
+          body: {}
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/super_admin/get_websites.json',
         headers: {
           'X-Auth-Token' => logged_in_user_token
         }

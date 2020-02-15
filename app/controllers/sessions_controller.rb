@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     token = api(:post, '/account/getToken', payload: payload)
 
     if verify_recaptchas('login') && token.present?
-      user = api(:get, '/account/me', token: token)
+      user = api(:get, "/account/me", token: token)
       set_session(token, user)
       redirect_to({ controller: 'admin/instances' }, notice: "Logged in!")
     else
