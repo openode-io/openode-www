@@ -24,11 +24,13 @@
       <i class="fas fa-fw fa-user fa-2x"></i>
       <span>Account</span></a>
   </li>
-  <li class="nav-item <%= active_admin_item_class('account') %>">
-    <a class="nav-link" href="/super_admin/">
-      <i class="fas fa-fw fa-user fa-2x"></i>
-      <span>Super admin</span></a>
-  </li>
+  <% if @current_user['type'] == 'admin' %>
+    <li class="nav-item <%= active_admin_item_class('account') %>">
+      <a class="nav-link" href="/super_admin/">
+        <i class="fas fa-fw fa-user fa-2x"></i>
+        <span>Super admin</span></a>
+    </li>
+  <% end %>
   <li class="nav-item <%= active_admin_item_class('support') %>">
     <a class="nav-link" href="/admin/support">
       <i class="fas fa-fw fa-headset fa-2x"></i>
