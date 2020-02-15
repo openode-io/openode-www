@@ -213,6 +213,20 @@ module HttpStubs
         headers: {
           'X-Auth-Token' => logged_in_user_token
         }
+      },
+      {
+        url: 'https://api.openode.io/account/me',
+        method: :get,
+        with: {
+          body: {}
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/front/me.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
       }
     ]
   end

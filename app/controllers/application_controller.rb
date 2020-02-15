@@ -14,16 +14,25 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if session[:token]
+
       @current_user ||= {
-        token: session[:token]
+        token: session[:token],
+        user_type: session[:user]['type']
       }
+
+      @current_user
     else
       @current_user = nil
     end
   end
 
-  def set_token(token)
+  def super_admin?
+    @current_user && @current_user[:user_type] == "admin"
+  end
+
+  def set_session(token, user)
     session[:token] = token
+    session[:user] = user
   end
 
   def api(method, path = "/", args = {})

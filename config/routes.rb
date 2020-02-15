@@ -68,5 +68,9 @@ Rails.application.routes.draw do
     get 'account/api', to: 'account#account_api'
   end
 
+  namespace :super_admin do
+    get '/', to: 'home#index' 
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

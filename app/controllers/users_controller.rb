@@ -6,8 +6,9 @@ class UsersController < ApplicationController
   def create
     if verify_recaptchas('register')
       response = api(:post, '/account/register', payload: { account: user_params })
+      user = api(:get, '/account/me', token: response['token'])
 
-      set_token(response['token'])
+      set_session(response['token'], user)
 
       redirect_to({ controller: 'admin/instances' }, notice: "Registered successfully!")
     else
@@ -23,8 +24,9 @@ class UsersController < ApplicationController
       :post, '/account/verify-reset-token',
       payload: { reset_token: reset_token }
     )
+    user = api(:get, '/account/me', token: token)
 
-    set_token(result['token'])
+    set_session(result['token'], user)
 
     # TODO: - redirect to change password page
     redirect_to root_url, notice: "Valid reset token!"
