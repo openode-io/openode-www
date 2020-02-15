@@ -1,6 +1,6 @@
-<h1>Websites</h1>
+<h1>Users</h1>
 
-<%= form_for :websites_search, { url: super_admin_websites_path, method: :get } do |form| %>
+<%= form_for :users_search, { url: super_admin_users_path, method: :get } do |form| %>
   <div class="card">
     <div class="card-body">      
 
@@ -20,22 +20,22 @@
 <table>
   <tr>
     <th>ID</th>
-    <th>Site name</th>
-    <th>User ID</th>
-    <th>Plan</th>
-    <th>Status</th>
+    <th>Email</th>
+    <th>Credits</th>
+    <th>Newsletter?</th>
+    <th>Created at</th>
     <th>Updated at</th>
     <th>Actions</th>
   </tr>
 
-  <% @websites.each do |w| %>
+  <% @users.each do |u| %>
     <tr>
-      <td><%= w['id'] %></td>
-      <td><%= w['site_name'] %></td>
-      <td><%= w['user_id'] %></td>
-      <td><%= w['account_type'] %></td>
-      <td><%= w['status'] %></td>
-      <td><%= w['updated_at'] %></td>
+      <td><%= u['id'] %></td>
+      <td><%= u['email'] %></td>
+      <td><%= u['credits'] %></td>
+      <td><%= u['newsletter'] %></td>
+      <td><%= u['created_at'] %></td>
+      <td><%= u['updated_at'] %></td>
       <td>
         <ul>
           <li><%= link_to 'Goto', '/admin' %></li>

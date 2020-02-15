@@ -72,7 +72,7 @@ Rails.application.routes.draw do
     get '/', to: 'home#index' 
 
     get '/websites', to: 'websites#index' 
-  end
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+    get '/users', to: 'users#index' 
+  end
 end
