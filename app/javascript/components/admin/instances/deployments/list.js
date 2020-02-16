@@ -1,6 +1,6 @@
 import axios from 'axios'
 import DeploymentCard from './card'
-import Loader from '../misc/loader'
+import Loader from '../../misc/loader'
 
 export default {
   name: 'DeploymentList',
@@ -10,8 +10,8 @@ export default {
   },
 
   methods: {
-    getDeployments (poll=false) {
-      axios.get(`/admin/instances/${this.instance.id}/deployments.json`)
+    getDeployments () {
+      axios.get(`/data/deployments.json`)
         .then(response => {
           this.deployments = response.data
           this.updating = false
@@ -29,14 +29,14 @@ export default {
 
   data () {
     return { 
-      deploymentss: [],
+      deployments: [],
       updating: false,
-      error: null
+      error: false
     }
   },
 
   mounted () {
-    this.getInstances()
+    this.getDeployments()
   },
 
   render () {
@@ -53,11 +53,6 @@ export default {
       return (
         <div id={`admin-instance-{this.instance.id}-deployments`} onGetDeployments={this.getDeployments}>
           {error_box}
-          <section class='d-flex mb-3'>
-            <h1 class='h3 m-0 text-gray-800 flex-grow-1'>
-              Instance Deployments
-            </h1>
-          </section>
           <section>
             <div class='row'>
               {this.deployments.map(deployment => (

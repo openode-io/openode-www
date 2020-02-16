@@ -21,7 +21,7 @@ class Admin::InstancesController < AdminController
   end
 
   def access
-    # -
+    @instance = { instance: { id: 1 } }.to_json
   end
 
   def collaborators
@@ -102,19 +102,11 @@ class Admin::InstancesController < AdminController
   end
 
   def deployments
-    @data = [
-        {
-          status: {
-          level: 'success',
-          message: 'deployed'
-          },        
-          date: 'Feb 8, 2020'
-        }
-      ]
+    @data = []
 
     respond_to do |format|
       format.json { render json: @data }
-    end    
+    end
   end
 
   private

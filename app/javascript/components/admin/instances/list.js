@@ -7,18 +7,19 @@ export default {
   name: 'InstanceList',
 
   methods: {
-    getInstances (poll=false) {
+    getInstances (poll=false) {      
       axios.get('/admin/instances.json')
         .then(response => {
           this.instances = response.data
           this.updating = false
+          this.loading = false
 
           if (poll) {            
             this.pollInstancesStatus()
           }
         })
         .catch(err => {
-          console.error(err)
+          this.displayAlert({error:err.response.data.error,level:'warning'})
         })
     },
     
@@ -49,13 +50,16 @@ export default {
   data () {
     return { 
       instances: [],
+      loading: false,
       updating: false,
-      error: null,
-      poll_start: null
+      error: false,
+      poll_start: false,
+      alert: false
     }
   },
 
   mounted () {
+    this.loading = true
     this.getInstances()
   },
 
@@ -65,19 +69,21 @@ export default {
 
     if (this.updating){
       updating_box = <div class="row animated fadeIn">
-        <div class="alert alert-yello">
+        <div class="alert alert-yellow">
           <i class="fa fa-spin fa-spinner" /> Updating instances...
         </div>
       </div>
     }
 
-    if (this.error) {
+    if (this.alert) {
       error_box =   <b-alert variant={this.alert.level} show dismissible>
         {this.alert.message}
       </b-alert>
     }
     
-    if (this.instances.length > 0) {
+    if (this.loading){
+      return ( <Loader /> )
+    }else{
       return (
         <div id='admin-instances' onGetInstances={this.getInstances}>
           {error_box}
@@ -96,8 +102,6 @@ export default {
           </section>
         </div>
       )
-    } else {
-      return ( <Loader /> )
     }
   }
 }

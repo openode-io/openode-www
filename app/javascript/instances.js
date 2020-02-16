@@ -1,4 +1,5 @@
 import InstanceList from './components/admin/instances/list'
+import DeploymentList from './components/admin/instances/deployments/list'
 import NotificationButton from './components/admin/notifications/button'
 
 export const InstanceListInstance = {
@@ -7,7 +8,7 @@ export const InstanceListInstance = {
 }
 
 export const InstanceDeploymentListInstance = {
-  el: '.vue-instance-deployment',
+  el: '.vue-instance-deployments',
   component: DeploymentList
 }
 

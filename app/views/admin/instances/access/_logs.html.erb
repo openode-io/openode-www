@@ -1,0 +1,30 @@
+<textarea class="dynamic-terminal rounded mb-2">
+Rendered admin/instances/access/_logs.html.erb (Duration: 5.8ms | Allocations: 87)
+  Rendered admin/instances/access/_spending.html.erb (Duration: 0.9ms | Allocations: 66)
+  Rendered admin/instances/access/_activity_stream.html.erb (Duration: 12.3ms | Allocations: 66)
+  Rendered admin/instances/access.html.erb within layouts/admin (Duration: 54.6ms | Allocations: 1322)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/global/_gtracking.html.erb (Duration: 12.9ms | Allocations: 103)
+  Rendered layouts/admin/_sidebar.html.erb (Duration: 4.0ms | Allocations: 205)
+  Rendered admin/notifications/_notification.html.erb (Duration: 1.5ms | Allocations: 132)
+  Rendered layouts/admin/_notifications.html.erb (Duration: 4.6ms | Allocations: 80)
+  Rendered layouts/admin/_profile.html.erb (Duration: 9.6ms | Allocations: 131)
+  Rendered layouts/admin/_navbar.html.erb (Duration: 27.1ms | Allocations: 1076)
+  Rendered layouts/admin/_footer.html.erb (Duration: 1.9ms | Allocations: 104)
+  Rendered layouts/_admin.html.erb (Duration: 65.9ms | Allocations: 2532)
+Completed 200 OK in 388ms (Views: 221.2ms | ActiveRecord: 0.0ms | Allocations: 10261)
+
+
+Started GET "/admin/instances/1/deployments.json" for ::1 at 2020-02-16 15:49:19 -0300
+Request throttle ip = ::1
+Started GET "/admin/notifications" for ::1 at 2020-02-16 15:49:19 -0300
+   (0.3ms)  SELECT sqlite_version(*)
+Request throttle ip = ::1
+Processing by Admin::InstancesController#deployments as JSON
+  Parameters: {"id"=>"1"}
+Processing by Admin::NotificationsController#index as HTML
+Completed 200 OK in 284ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 6405)
+
+
+Completed 200 OK in 574ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 6298)
+</textarea>
