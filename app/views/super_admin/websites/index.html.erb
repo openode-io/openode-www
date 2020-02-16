@@ -1,21 +1,9 @@
 <h1>Websites</h1>
 
-<%= form_for :websites_search, { url: super_admin_websites_path, method: :get } do |form| %>
-  <div class="card">
-    <div class="card-body">      
-
-      <div class="form-label-group mb-2">
-        <%= form.label :search, 'Search', class: 'required' %>
-        <%= form.text_field :search, { class: 'form-control', required: false } %>
-      </div>
-
-      <%= form.submit "search!", class: 'btn btn-lg btn-success w-100 mb-3' %>
-
-      <hr />
-
-    </div>
-  </div>
-<% end %>
+<%= render 'generic/search',
+  form_id: :websites_search,
+  search_path: super_admin_websites_path
+%>
 
 <table>
   <tr>

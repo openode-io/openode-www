@@ -9,6 +9,12 @@ class AdminController < ApplicationController
     # -
   end
 
+  protected
+
+  def make_lister_selection(list)
+    list.map { |element| [element, element] }
+  end
+
   private
 
   def set_latest_notification

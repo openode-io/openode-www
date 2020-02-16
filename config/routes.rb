@@ -76,5 +76,10 @@ Rails.application.routes.draw do
     get '/users', to: 'users#index'
     get '/users/:id/custom_order', to: 'users#custom_order'
     post '/users/:id/custom_order', to: 'users#make_order'
+
+    get '/notifications', to: 'notifications#index'
+    get '/notifications/new', to: 'notifications#new'
+    post '/notifications', to: 'notifications#create'
+    delete '/notifications/:id', to: 'notifications#destroy'
   end
 end

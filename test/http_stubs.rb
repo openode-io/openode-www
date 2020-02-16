@@ -283,6 +283,48 @@ module HttpStubs
         headers: {
           'X-Auth-Token' => logged_in_user_token
         }
+      },
+      {
+        url: 'https://api.openode.io/notifications/all?search=',
+        method: :get,
+        with: {
+          body: {}
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/super_admin/get_notifications.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
+      },
+      {
+        url: 'https://api.openode.io/notifications/8',
+        method: :delete,
+        with: {
+          body: {}
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/super_admin/delete_notification.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
+      },
+      {
+        url: 'https://api.openode.io/notifications/',
+        method: :post,
+        with: {
+          body: { "notification" => { "level" => "critical" } }
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/super_admin/create_notification.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
       }
     ]
   end
