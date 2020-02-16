@@ -61,6 +61,9 @@ export default {
                 onUpdateNotifications={this.updateNotifications}
               />
             ))}
+            <h5>
+              <a href="/admin/notifications/latest">Latest notifications</a>
+            </h5>
           </div>
       )
     } else {

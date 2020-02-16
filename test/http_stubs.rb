@@ -325,6 +325,34 @@ module HttpStubs
         headers: {
           'X-Auth-Token' => logged_in_user_token
         }
+      },
+      {
+        url: 'https://api.openode.io/notifications/?limit=100',
+        method: :get,
+        with: {
+          body: {}
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/admin/latest_notifications.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
+      },
+      {
+        url: 'https://api.openode.io/notifications/view?all=true',
+        method: :post,
+        with: {
+          body: {}
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/empty_object.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
       }
     ]
   end

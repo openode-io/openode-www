@@ -18,4 +18,15 @@ class AdminNotificationsControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.parsed_body['notifications'][4]['content'],
                     'hello world whelasdf web1'
   end
+
+  test "view all latest notifications" do
+    perform_successful_login
+
+    get '/admin/notifications/latest'
+
+    assert_response :success
+
+    assert_includes response.parsed_body.inspect.to_s, 'Latest Notifications'
+    assert_includes response.parsed_body.inspect.to_s, 'warnningggggggggggg WTF!'
+  end
 end
