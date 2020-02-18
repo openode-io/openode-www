@@ -367,6 +367,34 @@ module HttpStubs
         headers: {
           'X-Auth-Token' => logged_in_user_token
         }
+      },
+      {
+        url: 'https://api.openode.io/super_admin/newsletters/1/send',
+        method: :post,
+        with: {
+          body: {}
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/empty_object.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
+      },
+      {
+        url: 'https://api.openode.io/super_admin/newsletters/',
+        method: :post,
+        with: {
+          body: {}
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/empty_object.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
       }
     ]
   end

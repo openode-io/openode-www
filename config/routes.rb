@@ -84,6 +84,8 @@ Rails.application.routes.draw do
     delete '/notifications/:id', to: 'notifications#destroy'
 
     get '/newsletters', to: 'newsletters#index'
-
+    get '/newsletters/new', to: 'newsletters#new'
+    post '/newsletters', to: 'newsletters#create'
+    post '/newsletters/:id/deliver', to: 'newsletters#deliver'
   end
 end

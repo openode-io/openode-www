@@ -5,7 +5,7 @@
 
 <%= render 'generic/search',
   form_id: :newsletters_search,
-  search_path: super_admin_notifications_path
+  search_path: super_admin_newsletters_path
 %>
 
 <table>
@@ -29,7 +29,7 @@
         <ul>
           <li><%= link_to 'Goto', '/admin' %></li>
           <li>
-            <%= link_to 'Deliver', "/newsletters/#{n['id']}/send",
+            <%= link_to 'Deliver', "/super_admin/newsletters/#{n['id']}/deliver",
                   method: :post,
                   data: { confirm: "Are you sure?" } %>
           </li>
