@@ -82,5 +82,8 @@ Rails.application.routes.draw do
     get '/notifications/new', to: 'notifications#new'
     post '/notifications', to: 'notifications#create'
     delete '/notifications/:id', to: 'notifications#destroy'
+
+    get '/newsletters', to: 'newsletters#index'
+
   end
 end
