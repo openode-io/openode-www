@@ -1,0 +1,42 @@
+<h1>Notifications</h1>
+<h4>
+  <%= link_to '+add', 'notifications/new' %>
+</h4>
+
+<%= render 'generic/search',
+  form_id: :notifications_search,
+  search_path: super_admin_notifications_path
+%>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Type</th>
+    <th>Level</th>
+    <th>Content</th>
+    <th>Website ID</th>
+    <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @notifications.each do |n| %>
+    <tr>
+      <td><%= n['id'] %></td>
+      <td><%= n['type'] %></td>
+      <td><%= n['level'] %></td>
+      <td><%= n['content'] %></td>
+      <td><%= n['website_id'] %></td>
+      <td><%= n['created_at'] %></td>
+      <td>
+        <ul>
+          <li><%= link_to 'Goto', '/admin' %></li>
+          <li>
+            <%= link_to 'Delete', "/super_admin/notifications/#{n['id']}",
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -1,29 +1,20 @@
-class AdminController < ApplicationController
-  before_action :authenticate_user
-  before_action :set_menu
-  before_action :set_latest_notification
-
-  layout 'admin'
+class SuperAdminController < AdminController
+  before_action :ensure_super_admin
 
   def index
     # -
   end
 
-  protected
-
-  def make_lister_selection(list)
-    list.map { |element| [element, element] }
-  end
-
   private
+
+  def ensure_super_admin
+    unless super_admin?
+      redirect_to '/', notice: "Not authorized!"
+    end
+  end
 
   def set_latest_notification
     @notification = nil
-    notifications = api(:get, '/notifications/?limit=1&types=GlobalNotification')
-
-    if notifications['notifications'].present?
-      @notification = notifications['notifications'].first
-    end
   end
 
   def set_menu

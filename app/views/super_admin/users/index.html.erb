@@ -1,0 +1,35 @@
+<h1>Users</h1>
+
+<%= render 'generic/search',
+  form_id: :users_search,
+  search_path: super_admin_users_path
+%>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Credits</th>
+    <th>Newsletter?</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @users.each do |u| %>
+    <tr>
+      <td><%= u['id'] %></td>
+      <td><%= u['email'] %></td>
+      <td><%= u['credits'] %></td>
+      <td><%= u['newsletter'] %></td>
+      <td><%= u['created_at'] %></td>
+      <td><%= u['updated_at'] %></td>
+      <td>
+        <ul>
+          <li><%= link_to 'Goto', '/admin' %></li>
+          <li><%= link_to 'Custom order', "users/#{u['id']}/custom_order" %></li>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
+</table>

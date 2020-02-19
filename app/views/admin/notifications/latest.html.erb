@@ -1,0 +1,21 @@
+<h1>Latest Notifications</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Level</th>
+    <th>Content</th>
+    <th>Website id</th>
+    <th>Created at</th>
+  </tr>
+
+  <% @notifications.each do |notification| %>
+    <tr>
+      <td><%= notification['type'] %></td>
+      <td><%= notification['level'] %></td>
+      <td><%= notification['content'] %></td>
+      <td><%= notification['website_id'] %></td>
+      <td><%= notification['created_at'] %></td>
+    </tr>
+  <% end %>
+</table>

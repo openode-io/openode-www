@@ -56,18 +56,38 @@ Rails.application.routes.draw do
     post 'instances/:id/delete', to: 'instances#delete'
 
     get 'instances/:id/edit', to: 'instances#edit'
-    get 'instances/:id/access', to: 'instances#access'
     get 'instances/:id/stats', to: 'instances#stats'
     get 'instances/:id/collaborators', to: 'instances#collaborators'
     get 'instances/:id/logs', to: 'instances#logs'
     get 'instances/:id/deployments', to: 'instances#deployments'
 
+    get 'instances/:id/access', to: 'instance_access#index'
+
     get 'notifications', to: 'notifications#index'
+    get 'notifications/latest', to: 'notifications#latest'
     post 'notifications/:id/mark_read', to: 'notifications#mark_read'
     post 'notifications/mark_viewed', to: 'notifications#mark_viewed'
 
     get 'account/api', to: 'account#account_api'
   end
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :super_admin do
+    get '/', to: 'home#index' 
+
+    get '/websites', to: 'websites#index' 
+
+    get '/users', to: 'users#index'
+    get '/users/:id/custom_order', to: 'users#custom_order'
+    post '/users/:id/custom_order', to: 'users#make_order'
+
+    get '/notifications', to: 'notifications#index'
+    get '/notifications/new', to: 'notifications#new'
+    post '/notifications', to: 'notifications#create'
+    delete '/notifications/:id', to: 'notifications#destroy'
+
+    get '/newsletters', to: 'newsletters#index'
+    get '/newsletters/new', to: 'newsletters#new'
+    post '/newsletters', to: 'newsletters#create'
+    post '/newsletters/:id/deliver', to: 'newsletters#deliver'
+  end
 end

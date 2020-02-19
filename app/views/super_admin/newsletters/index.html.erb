@@ -1,0 +1,40 @@
+<h1>Newsletters</h1>
+<h4>
+  <%= link_to '+add', 'newsletters/new' %>
+</h4>
+
+<%= render 'generic/search',
+  form_id: :newsletters_search,
+  search_path: super_admin_newsletters_path
+%>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Recipients type</th>
+    <th>Full obj</th>
+    <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @newsletters.each do |n| %>
+    <tr>
+      <td><%= n['id'] %></td>
+      <td><%= n['title'] %></td>
+      <td><%= n['recipients_type'] %></td>
+      <td style="max-width: 400px;"><pre><%= sanitize n.to_s %></pre></td>
+      <td><%= n['created_at'] %></td>
+      <td>
+        <ul>
+          <li><%= link_to 'Goto', '/admin' %></li>
+          <li>
+            <%= link_to 'Deliver', "/super_admin/newsletters/#{n['id']}/deliver",
+                  method: :post,
+                  data: { confirm: "Are you sure?" } %>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
+</table>

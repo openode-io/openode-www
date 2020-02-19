@@ -1,0 +1,34 @@
+<h1>Websites</h1>
+
+<%= render 'generic/search',
+  form_id: :websites_search,
+  search_path: super_admin_websites_path
+%>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Site name</th>
+    <th>User ID</th>
+    <th>Plan</th>
+    <th>Status</th>
+    <th>Updated at</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @websites.each do |w| %>
+    <tr>
+      <td><%= w['id'] %></td>
+      <td><%= w['site_name'] %></td>
+      <td><%= w['user_id'] %></td>
+      <td><%= w['account_type'] %></td>
+      <td><%= w['status'] %></td>
+      <td><%= w['updated_at'] %></td>
+      <td>
+        <ul>
+          <li><%= link_to 'Goto', '/admin' %></li>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
+</table>

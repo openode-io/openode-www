@@ -7,6 +7,14 @@
     <div class="sidebar-brand-text mx-3">opeNode</div>
   </a>
   <hr class="sidebar-divider my-0">
+  <% if @current_user[:user_type] == 'admin' %>
+    <li class="nav-item <%= active_admin_item_class('account') %>">
+      <a class="nav-link" href="/super_admin/">
+        <i class="fas fa-fw fa-user fa-2x"></i>
+        <span>Super admin</span></a>
+    </li>
+  <% end %>
+  
   <li class="nav-item <%= active_admin_item_class('instances') %>">
     <a class="nav-link" href="/admin/instances">
       <i class="fas fa-fw fa-server fa-2x"></i>

@@ -1,0 +1,31 @@
+<h1>Order for user id <%= @user_id %></h1>
+
+<%= form_for :order, { url: "/super_admin/users/#{@user_id}/custom_order" } do |form| %>
+  <div class="card">
+    <div class="card-body">      
+
+      <div class="form-label-group mb-2">
+        <%= form.label :amount, 'Amount', class: 'required' %>
+        <%= form.text_field :amount, { class: 'form-control', required: true } %>
+      </div>
+
+      <div class="form-label-group mb-2">
+        <%= form.label :gateway, 'Gateway', class: 'required' %>
+        <%= form.select :gateway, @gateways, { class: 'form-control', required: true } %>
+      </div>
+
+      <div class="form-label-group mb-2">
+        <%= form.label :reason, 'Reason', class: 'required' %>
+        <%= form.text_field :reason, { class: 'form-control', required: true } %>
+      </div>
+
+      <%= form.hidden_field :user_id, value: @user_id %>
+      <%= form.hidden_field :payment_status, value: 'Completed' %>
+
+      <%= form.submit "create!", class: 'btn btn-lg btn-success w-100 mb-3' %>
+
+      <hr />
+
+    </div>
+  </div>
+<% end %>

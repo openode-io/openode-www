@@ -22,12 +22,15 @@ class ActiveSupport::TestCase
       http_stub[:headers] ||= {}
 
       stub_request(http_stub[:method], http_stub[:url])
-        .with(body: http_stub[:with][:body])
+        .with(
+          body: http_stub[:with][:body]
+          # headers: http_stub[:headers]
+        )
         .to_return(status: http_stub[:response_status],
                    body: IO.read(http_stub[:response_path]),
                    headers: {
                      content_type: http_stub[:content_type]
-                   }.merge(http_stub[:headers]))
+                   })
     end
   end
 
@@ -35,5 +38,9 @@ class ActiveSupport::TestCase
     post "/sessions",
          params: { email: "mymail@openode.io", password: "1234561!" }
   end
-  # Add more helper methods to be used by all tests here...
+
+  def perform_successful_super_admin_login
+    post "/sessions",
+         params: { email: "superadmin@openode.io", password: "1234561!" }
+  end
 end

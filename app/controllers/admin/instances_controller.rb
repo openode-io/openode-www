@@ -1,5 +1,12 @@
 class Admin::InstancesController < AdminController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token,
+                     only: [:index, :create, :deploy, :stop, :delete]
+
+  before_action do
+    if params['id']
+      @instance_id = params['id']
+    end
+  end
 
   def index
     respond_to do |format|
@@ -50,19 +57,6 @@ class Admin::InstancesController < AdminController
   end
 
   def deploy
-    sleep(5)
-
-    @status = {
-      level: 'warning',
-      message: 'queued'
-    }
-
-    respond_to do |format|
-      format.json { render json: { status: @status } }
-    end
-  end
-
-  def restart
     sleep(5)
 
     @status = {
