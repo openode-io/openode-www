@@ -56,10 +56,11 @@ Rails.application.routes.draw do
     post 'instances/:id/delete', to: 'instances#delete'
 
     get 'instances/:id/edit', to: 'instances#edit'
-    get 'instances/:id/access', to: 'instances#access'
     get 'instances/:id/stats', to: 'instances#stats'
     get 'instances/:id/collaborators', to: 'instances#collaborators'
     get 'instances/:id/logs', to: 'instances#logs'
+
+    get 'instances/:id/access', to: 'instance_access#index'
 
     get 'notifications', to: 'notifications#index'
     get 'notifications/latest', to: 'notifications#latest'
