@@ -23,13 +23,14 @@
             role="tabpanel"
             aria-labelledby="v-pills-logs-tab">
             <%= render 'admin/instances/access/logs' %>
-            </div>   
+            </div>
+        <!-- SPENDING CAN BE MOVED TO Billing
         <div class="tab-pane fade"
             id="v-pills-spending"
             role="tabpanel"
             aria-labelledby="v-pills-spending-tab">
             <%= render 'admin/instances/access/spending' %>
-            </div>                     
+            </div>   -->                  
         <div class="tab-pane fade"
             id="v-pills-activity"
             role="tabpanel"
@@ -48,7 +49,7 @@
               href="#v-pills-deployments"
               role="tab"
               aria-controls="v-pills-deployments"
-              aria-selected="true"><i class="fa fa-globe-americas"></i> Deployments</a>
+              aria-selected="true"><i class="fa fa-globe-americas"></i> Deployments - (no need of vuejs, can be just a list from the api)</a>
             <a class="nav-link"
               id="v-pills-console-tab"
               data-toggle="pill"
