@@ -57,7 +57,10 @@ Rails.application.routes.draw do
 
     get 'instances/:id/edit', to: 'instances#edit'
     get 'instances/:id/stats', to: 'instances#stats'
-    get 'instances/:id/collaborators', to: 'instances#collaborators'
+
+    # Collaborators
+    get 'instances/:id/collaborators', to: 'collaborators#index'
+
     get 'instances/:id/logs', to: 'instances#logs'
     get 'instances/:id/deployments', to: 'instances#deployments'
 

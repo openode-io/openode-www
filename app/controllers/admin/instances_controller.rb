@@ -5,6 +5,7 @@ class Admin::InstancesController < AdminController
   before_action do
     if params['id']
       @instance_id = params['id']
+      # @website = api(:get, "")
     end
   end
 
