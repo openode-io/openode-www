@@ -9,5 +9,6 @@ class AdminCollaboratorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_includes response.parsed_body, 'Collaborators'
+    assert_includes response.parsed_body, 'asdf234asdfasdffds@gmaill.com'
   end
 end

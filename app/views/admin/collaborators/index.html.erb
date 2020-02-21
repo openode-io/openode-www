@@ -1,4 +1,33 @@
 <section>
   <h1 class="h3 mb-2 text-gray-800">Collaborators</h1>
 </section>
-<section></section>
+<section>
+
+  <pre>TODO: remove. Permission values, make sure to humanize (locale):
+ 'root' # all permissions
+   'deploy'
+   'dns'
+   'alias'
+   'storage_area'
+   'location'
+   'plan'
+   'config'
+  </pre>
+
+  <table>
+    <tr>
+      <th>User (email)</th>
+      <th>Permissions</th>
+    </tr>
+
+    <% @collaborators.each do |collaborator| %>
+      <tr>
+        <td><%= collaborator['user']['email'] %></td>
+        <td>
+          <%= collaborator['permissions'].inspect %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+</section>
