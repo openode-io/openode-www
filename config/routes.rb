@@ -60,6 +60,9 @@ Rails.application.routes.draw do
 
     # Collaborators
     get 'instances/:id/collaborators', to: 'collaborators#index'
+    get 'instances/:id/collaborators/new', to: 'collaborators#new'
+    post 'instances/:id/collaborators', to: 'collaborators#create'
+
 
     get 'instances/:id/logs', to: 'instances#logs'
     get 'instances/:id/deployments', to: 'instances#deployments'
