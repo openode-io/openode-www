@@ -1,0 +1,24 @@
+<%= form_for :collaborator, {
+    url: "/admin/instances/#{@instance_id}/collaborators/#{@collaborator_instance['id']}" 
+  } do |form| %>
+  <div class="card">
+    <div class="card-body">
+      <div class="form-label-group mb-2">
+        <%= form.label :email, 'Email', class: 'required' %>
+        <%= form.email_field :email, { class: 'form-control', required: true } %>
+      </div>
+
+      <div class="form-label-group mb-2">
+        <%= form.label :permissions, 'Permissions', class: 'required' %>
+        <%= form.select :permissions, @permissions, {
+          class: 'form-control', required: true, include_hidden: false
+        }, { multiple: true } %>
+      </div>
+
+      <%= form.submit "save!", class: 'btn btn-lg btn-success w-100 mb-3' %>
+
+      <hr />
+
+    </div>
+  </div>
+<% end %>
