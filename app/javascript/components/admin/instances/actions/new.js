@@ -149,7 +149,7 @@ export default {
     }
 
     if (this.error) {
-      error_box =   <b-alert variant="warning" show dismissible>
+      error_box = <b-alert variant="warning" show dismissible>
         {this.error}
       </b-alert>
     }

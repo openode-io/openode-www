@@ -64,7 +64,7 @@ Rails.application.routes.draw do
     get 'instances/:id/logs', to: 'instances#logs'
     get 'instances/:id/deployments', to: 'instances#deployments'
 
-    get 'instances/:id/access', to: 'instance_access#index'
+    get 'instances/:id/access', to: 'instances#access'
 
     get 'notifications', to: 'notifications#index'
     get 'notifications/latest', to: 'notifications#latest'

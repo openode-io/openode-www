@@ -2,18 +2,14 @@
   <h1 class="h3 mb-3 text-gray-800">Instance Access</h1>
 </section>
 <section>
-    <span>no need of vue.js here, just api calls will be required</span>
   <div class="row">
-
-
     <div class="col-lg-9">
       <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active"
             id="v-pills-deployments" 
             role="tabpanel"
             aria-labelledby="v-pills-deplyments-tab">
-
-            <div class="vue-instance-deployments" data-props="<%= @instance %>"></div>
+            <%= render 'admin/instances/access/deployments', {deployments: InstanceAccessService.deployments} %>
         </div>
         <div class="tab-pane fade"
             id="v-pills-console"
@@ -26,19 +22,12 @@
             role="tabpanel"
             aria-labelledby="v-pills-logs-tab">
             <%= render 'admin/instances/access/logs' %>
-            </div>
-        <!-- SPENDING CAN BE MOVED TO Billing
-        <div class="tab-pane fade"
-            id="v-pills-spending"
-            role="tabpanel"
-            aria-labelledby="v-pills-spending-tab">
-            <%= render 'admin/instances/access/spending' %>
-            </div>   -->                  
+            </div>              
         <div class="tab-pane fade"
             id="v-pills-activity"
             role="tabpanel"
             aria-labelledby="v-pills-spending-activity">
-            <%= render 'admin/instances/access/activity_stream' %>
+            <%= render 'admin/instances/access/activity_stream', {activities: InstanceAccessService.activity_stream} %>
             </div>              
       </div>  
     </div>
@@ -52,7 +41,7 @@
               href="#v-pills-deployments"
               role="tab"
               aria-controls="v-pills-deployments"
-              aria-selected="true"><i class="fa fa-globe-americas"></i> Deployments - (no need of vuejs, can be just a list from the api)</a>
+              aria-selected="true"><i class="fa fa-globe-americas"></i> Deployments</a>
             <a class="nav-link"
               id="v-pills-console-tab"
               data-toggle="pill"
@@ -66,17 +55,7 @@
               href="#v-pills-logs"
               role="tab"
               aria-controls="v-pills-logs"
-              aria-selected="false"><i class="fa fa-code"></i> Logs</a>   
-
-            <!--
-            <a class="nav-link"
-              id="v-pills-spending-tab"
-              data-toggle="pill"
-              href="#v-pills-spending"
-              role="tab"
-              aria-controls="v-pills-spending"
-              aria-selected="false"><i class="fa fa-credit-card"></i> Spending</a>       
-              -->             
+              aria-selected="false"><i class="fa fa-code"></i> Logs</a>           
             <a class="nav-link"
               id="v-pills-activity-tab"
               data-toggle="pill"
@@ -90,18 +69,3 @@
     </div>    
   </div>
 </section>
-
-<!--<section>
-  <h1 class="h3 mb-2 text-gray-800">Instance Access</h1>
-</section>
-
-<section>
-
-  <p><%= link_to 'Activity stream', "#{instance_access_to(@instance_id)}activity_stream" %></p>
-  <p><%= link_to 'Deployments', "#{instance_access_to(@instance_id)}deployments" %></p>
-  <p><%= link_to 'Logs', "#{instance_access_to(@instance_id)}logs" %></p>
-  <p><%= link_to 'Console', "#{instance_access_to(@instance_id)}console" %></p>
-  <p><%= link_to 'Stats', "#{instance_access_to(@instance_id)}stats" %></p>
-
-</section>
--->

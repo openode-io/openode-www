@@ -65,6 +65,12 @@
   }
 }
 
+.navbar-nav {
+  .fa.badge-counter {
+    right: .56rem !important;
+  }
+}
+
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
@@ -80,4 +86,10 @@ textarea.dynamic-terminal {
   width: 100%;
   min-height: 400px;
   outline: none !important;
+}
+
+#v-pills-console {
+  .terminal {
+    margin: 0 !important;
+  }
 }

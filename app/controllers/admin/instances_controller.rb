@@ -28,7 +28,7 @@ class Admin::InstancesController < AdminController
   end
 
   def access
-    @instance = { instance: { id: 1 } }.to_json
+    # -
   end
 
   def collaborators
