@@ -1,40 +1,61 @@
-<h1>Newsletters</h1>
-<h4>
-  <%= link_to '+add', 'newsletters/new' %>
-</h4>
-
-<%= render 'generic/search',
-  form_id: :newsletters_search,
-  search_path: super_admin_newsletters_path
-%>
-
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Title</th>
-    <th>Recipients type</th>
-    <th>Full obj</th>
-    <th>Created at</th>
-    <th>Actions</th>
-  </tr>
-
-  <% @newsletters.each do |n| %>
-    <tr>
-      <td><%= n['id'] %></td>
-      <td><%= n['title'] %></td>
-      <td><%= n['recipients_type'] %></td>
-      <td style="max-width: 400px;"><pre><%= sanitize n.to_s %></pre></td>
-      <td><%= n['created_at'] %></td>
-      <td>
-        <ul>
-          <li><%= link_to 'Goto', '/admin' %></li>
-          <li>
-            <%= link_to 'Deliver', "/super_admin/newsletters/#{n['id']}/deliver",
-                  method: :post,
-                  data: { confirm: "Are you sure?" } %>
-          </li>
-        </ul>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<section class='d-flex mb-3'>
+  <h1 class='h3 m-0 text-gray-800 flex-grow-1'>
+    Newsletters
+  </h1>
+  <%= link_to '+add', 'newsletters/new', class: 'btn btn-sm btn-outline-dark' %>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <%= render 'generic/search',
+        form_id: :websites_search,
+        search_path: super_admin_newsletters_path
+      %>
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered" id="super-admin-newsletters">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Type</th>
+                  <th scope="co">Content</th>
+                  <th scope="col">Created at</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>              
+              <% @newsletters.each do |n| %>
+              <tr>
+                <td><%= n['id'] %></td>
+                <td><%= n['title'] %></td>
+                <td><%= n['recipients_type'] %></td>
+                <td>
+                  <div class="newsletter-content">
+                    <pre><%= JSON.pretty_generate(n) %></pre>
+                  </div>
+                </td>
+                <td><%= n['created_at'] %></td>
+                <td>
+                  <div class="d-flex">
+                    <%= link_to 'View', '/admin', class: 'flex-fill btn btn-sm btn-outline-dark' %>
+                    <%= link_to 'Deliver', "/super_admin/newsletters/#{n['id']}/deliver",
+                          class: 'flex-fill ml-2 btn btn-sm btn-outline-success',
+                          method: :post,
+                          data: { confirm: "Are you sure?" } %>
+                  </div>
+                </td>
+              </tr>
+              <% end %>     
+              </tbody>
+            </table>           
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <%= render 'super_admin/shared/sidebar' %>
+    </div>    
+  </div>
+</section>

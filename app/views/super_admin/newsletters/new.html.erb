@@ -1,30 +1,39 @@
+
+<section>
+  <h1 class="h3 mb-2 text-gray-800">Add a new newsletter</h1>
+</section>
+<section>
 <%= form_for :newsletter, { url: "/super_admin/newsletters" } do |form| %>
   <div class="card">
     <div class="card-body">
-      <div class="form-label-group mb-2">
-        <%= form.label :title, 'Title', class: 'required' %>
-        <%= form.text_field :title, { class: 'form-control', required: true } %>
-      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+          <div class="form-group mb-2">
+            <div class="form-label-group mb-2">
+              <%= form.label :title, 'Title', class: 'required' %>
+              <%= form.text_field :title, { class: 'form-control', required: true } %>
+            </div>
 
-      <div class="form-label-group mb-2">
-        <%= form.label :recipients_type, 'Recipient Type', class: 'required' %>
-        <%= form.select :recipients_type, @recipients_types, { class: 'form-control', required: true } %>
-      </div>
+            <div class="form-label-group mb-2">
+              <%= form.label :recipients_type, 'Recipient Type', class: 'required' %>
+              <%= form.select :recipients_type, @recipients_types, {}, { class: 'form-control', required: true } %>
+            </div>
 
-      <div class="form-label-group mb-2">
-        <%= form.label :content, 'Content', class: 'required' %>
-        <%= form.text_area :content, cols: 100, rows: 10 %>
-      </div>
+            <div class="form-label-group mb-2">
+              <%= form.label :content, 'Content', class: 'required' %>
+              <%= form.text_area :content, cols: 80, rows: 10 %>
+            </div>
 
-      <div class="form-label-group mb-2">
-        <%= form.label :custom_recipients, 'Custom recipients' %>
-        <%= form.text_area :custom_recipients, cols: 100, rows: 10 %>
-      </div>
+            <div class="form-label-group mb-2">
+              <%= form.label :custom_recipients, 'Custom recipients' %>
+              <%= form.text_area :custom_recipients, cols: 80, rows: 10 %>
+            </div>
 
-      <%= form.submit "create!", class: 'btn btn-lg btn-success w-100 mb-3' %>
-
-      <hr />
-
+            <%= form.submit "create!", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+          </div>
+        </div>
+      </div>    
     </div>
   </div>
 <% end %>
+</section>

@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-body">
+    <div class="nav flex-column nav-pills" aria-orientation="vertical">
+      <a class="nav-link <%= params[:controller].include?('super_admin/websites') ? 'active' : '' %>"
+        href="/super_admin/websites"
+        aria-selected="true"><i class="fa fa-globe-americas"></i> Websites</a>
+      <a class="nav-link <%= params[:controller].include?('super_admin/users') ? 'active' : '' %>"
+        href="/super_admin/users"
+        aria-selected="true"><i class="fa fa-users"></i> Users</a>    
+      <a class="nav-link <%= params[:controller].include?('super_admin/notifications') ? 'active' : '' %>"
+        href="/super_admin/notifications"
+        aria-selected="true"><i class="fa fa-bell"></i> Notifications</a>               
+      <a class="nav-link <%= params[:controller].include?('super_admin/newsletters') ? 'active' : '' %>"
+        href="/super_admin/newsletters"
+        aria-selected="true"><i class="fa fa-code"></i> Newsletters</a>              
+    </div>
+  </div>
+</div>
