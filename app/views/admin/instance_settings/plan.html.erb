@@ -1,0 +1,49 @@
+<section>
+  <h1 class="h3 mb-2 text-gray-800">Plan</h1>
+</section>
+<section>
+<%= form_for :website,
+  { url: "#{instance_settings_to(@instance_id)}plan", method: :patch } do |form| %>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+          <div class="form-group mb-2">
+
+            <div class="form-label-group mb-2">
+              <%= form.label :plan, 'Change your plan', class: 'required' %>
+              <%= form.select :plan, [['plan1', 'plan1 - same as in Add New Instance
+']], {}, { class: 'form-control', required: true } %>
+            </div>
+
+            <hr />
+            <div>IF plan == open source, below are some extra fields to fill:</div>
+            <h3>Open Source</h3>
+            <p>This is a open source project request, please make sure to fill all fields
+            carefully as it will be reviewed, typically within 1 business day. You will receive an email once verified.</p>
+
+            <p>Application status: pending OR approved (will not be visible if not filled)</p>
+
+            <div class="form-label-group mb-2">
+              <%= form.label :open_source_title, 'Project Title' %>
+              <%= form.text_field :open_source_title %>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <%= form.label :open_source_repository, 'Repository (e.g.: github, gitlab, etc.)' %>
+              <%= form.text_field :open_source_repository %>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <%= form.label :open_source_description, 'Project Description' %>
+              <%= form.text_area :open_source_description, cols: 50, rows: 10 %>
+            </div>
+
+            <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+          </div>
+        </div>
+      </div>    
+    </div>
+  </div>
+<% end %>
+</section>
