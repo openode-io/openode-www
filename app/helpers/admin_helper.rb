@@ -10,4 +10,8 @@ module AdminHelper
   def instance_access_to(instance_id)
     "#{instance_to(instance_id)}access/"
   end
+
+  def instance_settings_to(instance_id)
+    "#{instance_to(instance_id)}settings/"
+  end
 end

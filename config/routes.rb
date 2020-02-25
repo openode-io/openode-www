@@ -55,7 +55,11 @@ Rails.application.routes.draw do
     post 'instances/:id/stop', to: 'instances#stop'
     post 'instances/:id/delete', to: 'instances#delete'
 
-    get 'instances/:id/edit', to: 'instances#edit'
+
+    get 'instances/:id/settings', to: 'instance_settings#index'
+    get 'instances/:id/settings/plan', to: 'instance_settings#plan'
+    patch 'instances/:id/settings/plan', to: 'instance_settings#change_plan'
+
     get 'instances/:id/stats', to: 'instances#stats'
 
     # Collaborators
