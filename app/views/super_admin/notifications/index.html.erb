@@ -1,42 +1,59 @@
-<h1>Notifications</h1>
-<h4>
-  <%= link_to '+add', 'notifications/new' %>
-</h4>
-
-<%= render 'generic/search',
-  form_id: :notifications_search,
-  search_path: super_admin_notifications_path
-%>
-
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Type</th>
-    <th>Level</th>
-    <th>Content</th>
-    <th>Website ID</th>
-    <th>Created at</th>
-    <th>Actions</th>
-  </tr>
-
-  <% @notifications.each do |n| %>
-    <tr>
-      <td><%= n['id'] %></td>
-      <td><%= n['type'] %></td>
-      <td><%= n['level'] %></td>
-      <td><%= n['content'] %></td>
-      <td><%= n['website_id'] %></td>
-      <td><%= n['created_at'] %></td>
-      <td>
-        <ul>
-          <li><%= link_to 'Goto', '/admin' %></li>
-          <li>
-            <%= link_to 'Delete', "/super_admin/notifications/#{n['id']}",
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-          </li>
-        </ul>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<section class='d-flex mb-3'>
+  <h1 class='h3 m-0 text-gray-800 flex-grow-1'>
+    Notifications
+  </h1>
+  <%= link_to '+add', 'notifications/new', class: 'btn btn-sm btn-outline-dark' %>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <%= render 'generic/search',
+        form_id: :notifications_search,
+        search_path: super_admin_notifications_path
+      %>
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Level</th>
+                  <th scope="col">Content</th>
+                  <th scope="col">Website ID</th>
+                  <th scope="col">Created at</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>              
+              <% @notifications.each do |n| %>
+              <tr>
+                <td><%= n['id'] %></td>
+                <td><%= n['type'] %></td>
+                <td><%= n['level'] %></td>
+                <td><%= n['content'] %></td>
+                <td><%= n['website_id'] %></td>
+                <td><%= n['created_at'] %></td>
+                <td>
+                  <div class="d-flex">
+                    <%= link_to 'View', '/admin', class: 'flex-fill btn btn-sm btn-outline-dark' %>
+                    <%= link_to 'Delete', "/super_admin/notifications/#{n['id']}",
+                          class: 'flex-fill btn btn-sm btn-outline-critical ml-2',
+                          method: :delete,
+                          data: { confirm: "Are you sure?" } %>
+                  </div>
+                </td>
+              </tr>
+              <% end %>     
+              </tbody>
+            </table>           
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <%= render 'super_admin/shared/sidebar' %>
+    </div>    
+  </div>
+</section>

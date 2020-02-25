@@ -6,13 +6,14 @@ export default {
   data: function () {
     return {
 
-      error: null,
+      error: false,
       modalShow: false,
       form: {
         domain_type: 'subdomain',
         site_name: '',
         account_type: 'free',
-        location: 'canada'
+        location: 'canada',
+
       },
       plans: [],
       locations: [],
@@ -41,6 +42,7 @@ export default {
 
     onSubmit () {
       this.processing = true
+      this.error = false
 
       this.status = {
         message: 'stopping',
@@ -64,11 +66,28 @@ export default {
             disabled: false
           }          
 
+          this.error = false
           this.$refs.newInstanceModal.hide()
           this.onReset()
+          this.$emit('instancesUpdate')
         })
         .catch(err => {
-          this.error = err;
+          if (err.response) {
+            console.log(err.response.data);
+            console.log(err.response.status);
+            console.log(err.response.headers);
+          } else if (error.request) {
+            console.log(error.request);
+          } else {
+            console.log('Error', error.message);
+          }
+
+          this.error = err.response.data.error
+
+          this.button = {
+            text: 'Try Again!',
+            disabled: false
+          }          
         })      
     },
 
@@ -130,7 +149,7 @@ export default {
     }
 
     if (this.error) {
-      error_box =   <b-alert show dismissible>
+      error_box = <b-alert variant="warning" show dismissible>
         {this.error}
       </b-alert>
     }

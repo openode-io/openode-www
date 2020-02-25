@@ -1,0 +1,71 @@
+<section>
+  <h1 class="h3 mb-3 text-gray-800">Instance Access</h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active"
+            id="v-pills-deployments" 
+            role="tabpanel"
+            aria-labelledby="v-pills-deplyments-tab">
+            <%= render 'admin/instances/access/deployments', {deployments: InstanceAccessService.deployments} %>
+        </div>
+        <div class="tab-pane fade"
+            id="v-pills-console"
+            role="tabpanel"
+            aria-labelledby="v-pills-console-tab">
+            <%= render 'admin/instances/access/console' %>
+            </div>
+        <div class="tab-pane fade"
+            id="v-pills-logs"
+            role="tabpanel"
+            aria-labelledby="v-pills-logs-tab">
+            <%= render 'admin/instances/access/logs' %>
+            </div>              
+        <div class="tab-pane fade"
+            id="v-pills-activity"
+            role="tabpanel"
+            aria-labelledby="v-pills-spending-activity">
+            <%= render 'admin/instances/access/activity_stream', {activities: InstanceAccessService.activity_stream} %>
+            </div>              
+      </div>  
+    </div>
+    <div class="col-lg-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active"
+              id="v-pills-deployments-tab"
+              data-toggle="pill"
+              href="#v-pills-deployments"
+              role="tab"
+              aria-controls="v-pills-deployments"
+              aria-selected="true"><i class="fa fa-globe-americas"></i> Deployments</a>
+            <a class="nav-link"
+              id="v-pills-console-tab"
+              data-toggle="pill"
+              href="#v-pills-console"
+              role="tab"
+              aria-controls="v-pills-console"
+              aria-selected="false"><i class="fa fa-terminal"></i> Console</a>
+            <a class="nav-link"
+              id="v-pills-logs-tab"
+              data-toggle="pill"
+              href="#v-pills-logs"
+              role="tab"
+              aria-controls="v-pills-logs"
+              aria-selected="false"><i class="fa fa-code"></i> Logs</a>           
+            <a class="nav-link"
+              id="v-pills-activity-tab"
+              data-toggle="pill"
+              href="#v-pills-activity"
+              role="tab"
+              aria-controls="v-pills-activity"
+              aria-selected="false"><i class="fa fa-list"></i> Activity Stream</a>          
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+</section>

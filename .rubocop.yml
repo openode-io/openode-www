@@ -83,6 +83,7 @@ Metrics/MethodLength:
   Max: 30
   Exclude:
     - 'test/**/*.rb'
+    - app/services/instance_access_service.rb
 
 Metrics/ModuleLength:
   Exclude:

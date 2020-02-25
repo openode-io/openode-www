@@ -95,6 +95,14 @@ class Admin::InstancesController < AdminController
     end
   end
 
+  def deployments
+    @data = []
+
+    respond_to do |format|
+      format.json { render json: @data }
+    end
+  end
+
   private
 
   def status_to_level(status)

@@ -1,4 +1,4 @@
-- name: Sandbox
+- name: Trial
   id: sandbox
   internal_id: free
   title: FREE
@@ -17,7 +17,7 @@
   id: open-source
   internal_id: open_source
   title: FREE
-  subtitle: 
+  subtitle: We support open source projects
   features:
     - Unlimited deploys
     - 100GB Bandwidth / Month

@@ -8,7 +8,7 @@ class SuperAdminNewslettersControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
 
-    assert_includes response.parsed_body.to_s, '<h1>Newsletters</h1>'
+    assert_includes response.parsed_body.to_s, 'Newsletters'
     assert_includes response.parsed_body.to_s, 'hi world.'
   end
 

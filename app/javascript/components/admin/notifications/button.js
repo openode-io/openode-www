@@ -3,6 +3,7 @@ import NotificationList from './list'
 
 export default {
   name: 'NotificationButton',
+
   data () {
     return {
       count: 0
@@ -25,7 +26,7 @@ export default {
           aria-haspopup="true"
           aria-expanded="false">
           <i class="fas fa-bell fa-fw text-light"></i>
-          <span class="badge badge-danger badge-counter">{this.count}</span>
+          <i class={`fa fa-circle text-critical badge-counter ${(this.count > 0) ? 'd-block' : 'd-none'}`}></i>
         </a>
         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
             aria-labelledby="alertsDropdown">

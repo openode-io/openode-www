@@ -1,16 +1,12 @@
 <%= form_for form_id, { url: search_path, method: :get } do |form| %>
-  <div class="card">
+  <div class="card mb-2">
     <div class="card-body">      
-
-      <div class="form-label-group mb-2">
-        <%= form.label :search, 'Search', class: 'required' %>
-        <%= form.text_field :search, { class: 'form-control', required: false } %>
-      </div>
-
-      <%= form.submit "search!", class: 'btn btn-lg btn-success w-100 mb-3' %>
-
-      <hr />
-
+      <div class="input-group mb-0">
+        <%= form.text_field :search, { class: 'form-control', required: false, placeholder: 'Search anything...' } %>
+        <div class="input-group-append">
+          <%= form.submit "Go!", class: 'btn btn-outline-success' %>
+        </div>
+      </div>      
     </div>
   </div>
 <% end %>

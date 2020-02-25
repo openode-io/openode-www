@@ -1,31 +1,37 @@
+<section>
+  <h1 class="h3 mb-2 text-gray-800">Add a new notification</h1>
+</section>
+<section>
 <%= form_for :notification, { url: "/super_admin/notifications" } do |form| %>
   <div class="card">
     <div class="card-body">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+          <div class="form-group mb-2">
+            <div class="form-label-group mb-2">
+              <%= form.label :type, 'Type', class: 'required' %>
+              <%= form.select :type, @types, {}, { class: 'form-control', required: true } %>
+            </div>
 
-      <div class="form-label-group mb-2">
-        <%= form.label :type, 'Type', class: 'required' %>
-        <%= form.select :type, @types, { class: 'form-control', required: true } %>
-      </div>
+            <div class="form-label-group mb-2">
+              <%= form.label :level, 'Level', class: 'required' %>
+              <%= form.select :level, @levels, {}, { class: 'form-control', required: true } %>
+            </div>
 
-      <div class="form-label-group mb-2">
-        <%= form.label :level, 'Level', class: 'required' %>
-        <%= form.select :level, @levels, { class: 'form-control', required: true } %>
-      </div>
+            <div class="form-label-group mb-2">
+              <%= form.label :content, 'Content', class: 'required' %>
+              <%= form.text_field :content, { class: 'form-control', required: true } %>
+            </div>
 
-      <div class="form-label-group mb-2">
-        <%= form.label :content, 'Content', class: 'required' %>
-        <%= form.text_field :content, { class: 'form-control', required: true } %>
-      </div>
+            <div class="form-label-group mb-2">
+              <%= form.label :website_id, 'Website ID', class: 'required' %>
+              <%= form.text_field :website_id, { class: 'form-control', required: false } %>
+            </div>
 
-      <div class="form-label-group mb-2">
-        <%= form.label :website_id, 'Website ID', class: 'required' %>
-        <%= form.text_field :website_id, { class: 'form-control', required: false } %>
-      </div>
-
-      <%= form.submit "create!", class: 'btn btn-lg btn-success w-100 mb-3' %>
-
-      <hr />
-
+            <%= form.submit "create!", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+          </div>
+        </div>
     </div>
   </div>
 <% end %>
+</section>

@@ -4,7 +4,7 @@ module AdminHelper
   end
 
   def instance_to(instance_id)
-    "/admin/instance/#{instance_id}/"
+    "/admin/instances/#{instance_id}/"
   end
 
   def instance_access_to(instance_id)

@@ -1,0 +1,27 @@
+<div id="admin-instance-deployments">
+  <section>
+    <div class='row'>
+      <% deployments.each do |deployment| %>
+        <div class='col-lg-12 col-sm-6 mb-2'>
+          <div class="card card-instance-details">
+            <div class='card-body'>
+              <div class="row">
+                <div class='col-lg-4 col-sm-4'>
+                  <i class="fa fa-globe-americas"></i> <%= deployment.site_name %>
+                </div>
+                <div class='col-lg-6 col-sm-6'>
+                  <span class="badge badge-<%= deployment.status[:level] %>">
+                    <%= deployment.status[:message] %>
+                  </span>
+                </div>
+                <div class='col-lg-2 col-sm-2text-right'>
+                  <i class="fa fa-calendar"></i> <%= deployment.date %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div>

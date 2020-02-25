@@ -64,3 +64,38 @@
     }    
   }
 }
+
+.navbar-nav {
+  .fa.badge-counter {
+    right: .56rem !important;
+  }
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: $success;
+}
+
+textarea.dynamic-terminal {
+  background-color: #000;
+  border: 1px solid #000;
+  color: #00ff00;
+  padding: 8px;
+  font-family: courier new;
+  width: 100%;
+  min-height: 400px;
+  outline: none !important;
+}
+
+#v-pills-console {
+  .terminal {
+    margin: 0 !important;
+  }
+}
+
+#super-admin-newsletters {
+  .newsletter-content {
+    width: 350px;
+  }
+}

@@ -1,35 +1,53 @@
-<h1>Users</h1>
-
-<%= render 'generic/search',
-  form_id: :users_search,
-  search_path: super_admin_users_path
-%>
-
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Email</th>
-    <th>Credits</th>
-    <th>Newsletter?</th>
-    <th>Created at</th>
-    <th>Updated at</th>
-    <th>Actions</th>
-  </tr>
-
-  <% @users.each do |u| %>
-    <tr>
-      <td><%= u['id'] %></td>
-      <td><%= u['email'] %></td>
-      <td><%= u['credits'] %></td>
-      <td><%= u['newsletter'] %></td>
-      <td><%= u['created_at'] %></td>
-      <td><%= u['updated_at'] %></td>
-      <td>
-        <ul>
-          <li><%= link_to 'Goto', '/admin' %></li>
-          <li><%= link_to 'Custom order', "users/#{u['id']}/custom_order" %></li>
-        </ul>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<section>
+  <h1 class="h3 mb-3 text-gray-800">Users</h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <%= render 'generic/search',
+        form_id: :users_search,
+        search_path: super_admin_users_path
+      %>
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Credits</th>
+                  <th scope="col">Newsletter?</th>
+                  <th scope="col">Created at</th>
+                  <th scope="col">Updated at</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>              
+              <% @users.each do |u| %>
+                <tr>
+                  <td><%= u['id'] %></td>
+                  <td><%= u['email'] %></td>
+                  <td><%= u['credits'] %></td>
+                  <td><%= u['newsletter'] %></td>
+                  <td><%= u['created_at'] %></td>
+                  <td><%= u['updated_at'] %></td>
+                  <td>
+                    <div class="d-flex">
+                      <%= link_to 'View', '/admin', class: 'flex-fill btn btn-sm btn-outline-dark ' %>
+                      <%= link_to 'Custom Order', "users/#{u['id']}/custom_order", class: 'flex-fill ml-2 btn btn-sm btn-outline-dark' %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>     
+              </tbody>
+            </table>           
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <%= render 'super_admin/shared/sidebar' %>
+    </div>    
+  </div>
+</section>
