@@ -6,8 +6,6 @@ class SuperAdminHomeControllerTest < ActionDispatch::IntegrationTest
 
     get '/super_admin'
 
-    assert_response :success
-
-    assert_includes response.parsed_body.to_s, 'Welcome to the super admin area'
+    assert_response :found
   end
 end

@@ -4,6 +4,7 @@ class InstanceAccessService
     result = []
     arr = [
       {
+
         id: 1,
         site_name: 'www1.test.com',
         status: {
@@ -29,7 +30,7 @@ class InstanceAccessService
           message: 'failed'
         },
         date: 'Feb. 18, 2020'
-      }            
+      }
     ]
 
     arr.each do |item|
@@ -71,7 +72,7 @@ class InstanceAccessService
           message: 'deployed'
         },
         date: 'Feb. 18, 2020'
-      }                
+      }
     ]
 
     arr.each do |item|
@@ -79,8 +80,8 @@ class InstanceAccessService
     end
 
     result
-  end  
+  end
 
   def self.logs
-  end  
+  end
 end

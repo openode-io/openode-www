@@ -24,6 +24,7 @@ export const mockData = [
 export const taskList = {
   echo: {
     description: 'Echoes input',
+    
     echo(pushToList, input) {
       input = input.split(' ')
       input.splice(0, 1)
