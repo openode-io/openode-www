@@ -7,4 +7,15 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
   def change_plan
   end
+
+  # DNS and aliases
+  def dns_and_aliases
+    @website = get_website
+  end
+
+  def add_alias
+  end
+
+  def remove_alias
+  end
 end

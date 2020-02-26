@@ -59,6 +59,9 @@ Rails.application.routes.draw do
     get 'instances/:id/settings', to: 'instance_settings#index'
     get 'instances/:id/settings/plan', to: 'instance_settings#plan'
     patch 'instances/:id/settings/plan', to: 'instance_settings#change_plan'
+    get 'instances/:id/settings/dns_and_aliases', to: 'instance_settings#dns_and_aliases'
+    post 'instances/:id/settings/aliases', to: 'instance_settings#add_alias'
+    delete 'instances/:id/settings/aliases/:domain', to: 'instance_settings#remove_alias'
 
     get 'instances/:id/stats', to: 'instances#stats'
 

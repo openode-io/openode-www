@@ -132,6 +132,10 @@ class Admin::InstancesController < AdminController
     end
   end
 
+  def get_website
+    @website = api(:get, "/instances/#{@instance_id}/")
+  end
+
   def instance_params
     params.require(:instance).permit(:account_type, :location,
                                      :domain_type, :site_name, :domains)
