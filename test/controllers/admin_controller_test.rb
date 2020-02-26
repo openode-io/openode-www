@@ -67,13 +67,4 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_includes response.parsed_body.to_s, 'API'
   end
-
-  test "get admin account newsletter settings" do
-    perform_successful_login
-
-    get '/admin/api'
-
-    assert_response :success
-    assert_includes response.parsed_body.to_s, 'Newsletter'
-  end
 end
