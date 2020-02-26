@@ -62,6 +62,7 @@ Rails.application.routes.draw do
     get 'instances/:id/settings/dns_and_aliases', to: 'instance_settings#dns_and_aliases'
     post 'instances/:id/settings/aliases', to: 'instance_settings#add_alias'
     delete 'instances/:id/settings/aliases/:domain', to: 'instance_settings#remove_alias'
+    get 'instances/:id/settings/ssl', to: 'instance_settings#ssl'
 
     get 'instances/:id/stats', to: 'instances#stats'
 

@@ -18,4 +18,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
   def remove_alias
   end
+
+  def ssl
+  end
 end
