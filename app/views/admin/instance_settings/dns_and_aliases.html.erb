@@ -1,0 +1,60 @@
+<section>
+  <h1 class="mb-2 text-gray-800">DNS And Aliases for <%= @website['site_name'] %></h1>
+
+  <h2 class="mb-2 text-gray-800">DNS</h2>
+
+  <p>Use the following DNS record</p>
+  <p><b>CNAME Record</b>: acertain.cname.record.domain</p>
+</section>
+
+<section>
+
+  <h2 class="mb-2 text-gray-800">Aliases</h2>
+
+  <button>Add</button>
+
+  <%= form_for :alias,
+    { url: "", method: :patch } do |form| %>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+            <div class="form-group mb-2">
+              <p>Note - Can only be created or deleted, not updated</p>
+
+              <div class="form-label-group mb-2">
+                
+                <%= form.text_field :alias1 %> <span>.<%= @website['site_name'] %></span>
+                <button>Create (should call <%= "POST #{instance_settings_to(@instance_id)}aliases" %>)</button>
+                <button>Delete (should call <%= "DELETE #{instance_settings_to(@instance_id)}aliases/thealias.hostname.com" %>)</button>
+              </div>
+
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+  <% end %>
+
+  <%= form_for :alias,
+    { url: "", method: :patch } do |form| %>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+            <div class="form-group mb-2">
+
+              <div class="form-label-group mb-2">
+                
+                <%= form.text_field :alias1 %> <span>.<%= @website['site_name'] %></span>
+                <button>Save (should call <%= "POST #{instance_settings_to(@instance_id)}aliases" %>)</button>
+                <button>Delete (should call <%= "DELETE #{instance_settings_to(@instance_id)}aliases/thealias.hostname.com" %>)</button>
+              </div>
+
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+  <% end %>
+</section>

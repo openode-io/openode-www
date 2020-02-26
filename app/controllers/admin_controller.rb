@@ -5,10 +5,6 @@ class AdminController < ApplicationController
 
   layout 'admin'
 
-  def index
-    # -
-  end
-
   protected
 
   def make_lister_selection(list)

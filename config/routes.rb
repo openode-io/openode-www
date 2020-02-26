@@ -55,7 +55,18 @@ Rails.application.routes.draw do
     post 'instances/:id/stop', to: 'instances#stop'
     post 'instances/:id/delete', to: 'instances#delete'
 
-    get 'instances/:id/edit', to: 'instances#edit'
+
+    get 'instances/:id/settings', to: 'instance_settings#index'
+    get 'instances/:id/settings/plan', to: 'instance_settings#plan'
+    patch 'instances/:id/settings/plan', to: 'instance_settings#change_plan'
+    get 'instances/:id/settings/dns_and_aliases', to: 'instance_settings#dns_and_aliases'
+    post 'instances/:id/settings/aliases', to: 'instance_settings#add_alias'
+    delete 'instances/:id/settings/aliases/:domain', to: 'instance_settings#remove_alias'
+    get 'instances/:id/settings/ssl', to: 'instance_settings#ssl'
+    get 'instances/:id/settings/scheduler', to: 'instance_settings#scheduler'
+    get 'instances/:id/settings/persistence', to: 'instance_settings#persistence'
+    get 'instances/:id/settings/misc', to: 'instance_settings#misc'
+
     get 'instances/:id/stats', to: 'instances#stats'
 
     # Collaborators

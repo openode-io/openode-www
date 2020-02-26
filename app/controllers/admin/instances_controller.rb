@@ -23,10 +23,6 @@ class Admin::InstancesController < AdminController
     json(api(:get, "/global/available-locations?type=#{params['type']}"))
   end
 
-  def edit
-    # -
-  end
-
   def access
     # -
   end
@@ -138,6 +134,10 @@ class Admin::InstancesController < AdminController
 
       instance
     end
+  end
+
+  def get_website
+    @website = api(:get, "/instances/#{@instance_id}/")
   end
 
   def instance_params

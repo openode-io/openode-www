@@ -1,0 +1,84 @@
+<section>
+  <h1 class="mb-2 text-gray-800">Persistence</h1>
+
+  <p>some description</p>
+</section>
+
+<section>
+
+  <h3>Size</h3>
+
+  <%= form_for :persitence,
+    { url: "", method: :patch } do |form| %>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+            <div class="form-group mb-2">
+              <p>Note - Can only be increased</p>
+
+              <div class="form-label-group mb-2">
+                <%= form.label :amountGb, 'Persistence size (GB)' %>
+                <%= form.number_field :amountGb %>
+                <button>Destroy (with warning)</button>
+              </div>
+
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+  <% end %>
+</section>
+
+<section>
+
+  <h3>Storage Areas (Volumes)</h3>
+
+  <button>Add</button>
+
+  <%= form_for :persistence,
+    { url: "", method: :patch } do |form| %>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+            <div class="form-group mb-2">
+              <p>Note - Can only be created or deleted, not updated. Must be a full path (example: /var/www/yourvolume/)</p>
+
+              <div class="form-label-group mb-2">
+                
+                <%= form.text_field :storage_area1 %>
+                <button>Create (should call <%= "POST #{instance_settings_to(@instance_id)}storage-areas" %>)</button>
+                <button>Delete (should call <%= "DELETE #{instance_settings_to(@instance_id)}storage-areas" %>)</button>
+              </div>
+
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+  <% end %>
+
+  <%= form_for :persistence,
+    { url: "", method: :patch } do |form| %>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+            <div class="form-group mb-2">
+
+              <div class="form-label-group mb-2">
+                
+                <%= form.text_field :storage_area1 %> 
+                <button>Save (should call <%= "POST #{instance_settings_to(@instance_id)}storage-areas" %>)</button>
+                <button>Delete (should call <%= "DELETE #{instance_settings_to(@instance_id)}storage-areas" %>)</button>
+              </div>
+
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+  <% end %>
+</section>
