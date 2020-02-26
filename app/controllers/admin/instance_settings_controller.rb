@@ -24,4 +24,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
   def scheduler
   end
+
+  def persistence
+  end
 end
