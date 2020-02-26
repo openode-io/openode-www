@@ -63,6 +63,7 @@ Rails.application.routes.draw do
     post 'instances/:id/settings/aliases', to: 'instance_settings#add_alias'
     delete 'instances/:id/settings/aliases/:domain', to: 'instance_settings#remove_alias'
     get 'instances/:id/settings/ssl', to: 'instance_settings#ssl'
+    get 'instances/:id/settings/scheduler', to: 'instance_settings#scheduler'
 
     get 'instances/:id/stats', to: 'instances#stats'
 

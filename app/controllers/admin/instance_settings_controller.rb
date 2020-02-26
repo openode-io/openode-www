@@ -21,4 +21,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
   def ssl
   end
+
+  def scheduler
+  end
 end

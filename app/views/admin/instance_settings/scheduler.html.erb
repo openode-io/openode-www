@@ -1,0 +1,41 @@
+<section>
+  <h1 class="h3 mb-2 text-gray-800">Scheduler</h1>
+</section>
+<section>
+<%= form_for :website,
+  { url: "#{instance_settings_to(@instance_id)}scheduler", method: :patch } do |form| %>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+          <div class="form-group mb-2">
+
+<p>
+  The scheduler allows to run recurring jobs withing your running instance.
+  It follows the well known crontab format.
+</p>
+
+            <pre>
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * node /opt/app/example.js
+            </pre>
+
+            <div class="form-label-group mb-2">
+              <%= form.label :crontab, 'Crontab' %>
+              <%= form.text_area :crontab, cols: 50, rows: 10, value: '*  *  *  *  * node /opt/app/example.js' %>
+            </div>
+
+            <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+          </div>
+        </div>
+      </div>    
+    </div>
+  </div>
+<% end %>
+</section>
