@@ -13,4 +13,10 @@ class Admin::AccountController < AdminController
 
   def update_notifications_and_newsletter
   end
+
+  def api_access
+  end
+
+  def regenerate_token
+  end
 end

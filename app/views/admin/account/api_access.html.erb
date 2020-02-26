@@ -1,0 +1,26 @@
+<section>
+  <h1 class="h3 mb-2 text-gray-800">API and CLI Access</h1>
+</section>
+<section>
+  <%= form_for :user, {
+      url: "#",
+      html: { class: 'form-vertical' }
+    } do |form| %>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+            <div class="form-group mb-2">
+              <%= form.label :token, 'Security Token (the content should be ********, cant modify)', class: 'required' %>
+              <%= form.text_field :token, { class: 'form-control', value: '5f583adc1f5397ec7298b6bde9f7b982' } %>
+            </div>
+
+            <button>Hide/Show (the token)</button>
+            <button>Copy to clipboard (will copy the token)</button>
+            <button>Regenerate (will call /admin/account/regenerate_token)</button>
+          </div>
+        </div>    
+      </div>
+    </div>
+  <% end %>
+</section>
