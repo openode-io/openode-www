@@ -65,9 +65,11 @@ Rails.application.routes.draw do
 
 
     get 'instances/:id/logs', to: 'instances#logs'
-    get 'instances/:id/deployments', to: 'instances#deployments'
-
+    
     get 'instances/:id/access', to: 'instances#access'
+    get 'instances/:id/access/deployments', to: 'instances#deployments', as: :instance_access_deployments
+    get 'instances/:id/access/console', to: 'instances#console', as: :instance_access_console
+    get 'instances/:id/access/activity_stream', to: 'instances#activity_stream', as: :instance_access_activity_stream
 
     get 'notifications', to: 'notifications#index'
     get 'notifications/latest', to: 'notifications#latest'

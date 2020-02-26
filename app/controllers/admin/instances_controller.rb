@@ -43,6 +43,18 @@ class Admin::InstancesController < AdminController
     # -
   end
 
+  def deployments
+    # -
+  end
+
+  def console
+    # -
+  end
+  
+  def activity_stream
+    # -
+  end
+
   def create
     api(:post, '/instances/create', payload: instance_params)
 
@@ -92,14 +104,6 @@ class Admin::InstancesController < AdminController
 
     respond_to do |format|
       format.json { render json: { status: @status } }
-    end
-  end
-
-  def deployments
-    @data = []
-
-    respond_to do |format|
-      format.json { render json: @data }
     end
   end
 
