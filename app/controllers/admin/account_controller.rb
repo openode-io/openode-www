@@ -7,11 +7,10 @@ class Admin::AccountController < AdminController
     # -
   end
 
-  def newsletter
+  def notifications_and_newsletter
     # -
   end
 
-  def notifications
-    # -
+  def update_notifications_and_newsletter
   end
 end
