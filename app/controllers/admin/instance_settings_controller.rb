@@ -27,4 +27,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
   def persistence
   end
+
+  def misc
+  end
 end

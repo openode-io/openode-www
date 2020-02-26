@@ -65,6 +65,7 @@ Rails.application.routes.draw do
     get 'instances/:id/settings/ssl', to: 'instance_settings#ssl'
     get 'instances/:id/settings/scheduler', to: 'instance_settings#scheduler'
     get 'instances/:id/settings/persistence', to: 'instance_settings#persistence'
+    get 'instances/:id/settings/misc', to: 'instance_settings#misc'
 
     get 'instances/:id/stats', to: 'instances#stats'
 

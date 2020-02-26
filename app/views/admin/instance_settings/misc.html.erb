@@ -1,0 +1,32 @@
+<section>
+  <h1 class="h3 mb-2 text-gray-800">Misc</h1>
+</section>
+<section>
+<%= form_for :website,
+  { url: "#{instance_settings_to(@instance_id)}misc", method: :patch } do |form| %>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+          <div class="form-group mb-2">
+
+
+
+            <div class="form-label-group mb-2">
+              <%= form.label :max_deployment_duration, 'Maximum deployment duration (seconds) - max = 600 seconds', class: 'required' %>
+              <%= form.number_field :max_deployment_duration %>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <%= form.label :enabled_port_verification, 'Port verification enabled - uncheck this field if you want to skip port verification', class: 'required' %>
+              <%= form.check_box :enabled_port_verification %>
+            </div>
+
+            <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+          </div>
+        </div>
+      </div>    
+    </div>
+  </div>
+<% end %>
+</section>
