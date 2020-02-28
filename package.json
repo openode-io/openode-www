@@ -39,6 +39,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "babel-plugin-transform-react-jsx": "^6.24.1",
     "webpack-dev-server": "^3.9.0"
   }
 }
