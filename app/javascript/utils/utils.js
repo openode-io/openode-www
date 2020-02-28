@@ -1,6 +1,9 @@
 import Typed from 'typed.js'
 import Termynal from './termynal.js'
 
+require('jvectormap')
+require('./jvectormap_world_mill')
+
 document.addEventListener('turbolinks:load', function () {
   const el = document.querySelector('.typed')
 
@@ -144,4 +147,23 @@ document.addEventListener('turbolinks:load', function () {
     }, 1000, 'easeInOutExpo')
     e.preventDefault()
   })
+
+  if ($('#world-map').length > 0){
+    $('#world-map').vectorMap({
+      map: 'world_mill',
+      scaleColors: ['#C8EEFF', '#0071A4'],
+      normalizeFunction: 'polynomial',
+      hoverOpacity: 0.7,
+      hoverColor: false,
+      zoomOnScroll: false,
+      markerStyle: {
+        initial: {
+          fill: '#F8E23B',
+          stroke: '#383f47'
+        }
+      },
+      backgroundColor: '#1a1a1a',
+      markers: JSON.parse($('#world-map').attr('data-locations'))
+    });
+  }
 })
