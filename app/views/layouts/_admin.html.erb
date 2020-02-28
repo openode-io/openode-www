@@ -13,7 +13,13 @@
               <span aria-hidden="true">&times;</span>
             </button>        
           </div>
-        <% end %>      
+        <% end %>
+        <%= render_breadcrumbs :separator => ' / ' %>
+        <% if @tips.present? %> 
+          <div class="alert alert-info">
+            <i class="fa fa-info-circle"></i> <%= @tips %>
+          </div>
+        <% end %>
         <%= yield %>
       </div>
     </div>

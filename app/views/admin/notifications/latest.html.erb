@@ -1,5 +1,5 @@
 <section>
-  <h1 class="h3 mb-2 text-gray-800">Latest Notifications</h1>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Latest Notifications</h1>
 </section>
 <section>
   <div class="row">
@@ -19,11 +19,13 @@
               </thead>
               <tbody>      
               <% @notifications.each do |notification| %>
-                <td><%= notification['type'] %></td>
-                <td><%= notification['level'] %></td>
-                <td><%= notification['content'] %></td>
-                <td><%= notification['website_id'] %></td>
-                <td><%= notification['created_at'] %></td>
+                <tr>
+                  <td><%= notification['type'] %></td>
+                  <td><%= notification['level'] %></td>
+                  <td><%= notification['content'] %></td>
+                  <td><%= notification['website_id'] %></td>
+                  <td><%= notification['created_at'] %></td>
+                </tr>
               <% end %>     
               </tbody>
             </table>           
