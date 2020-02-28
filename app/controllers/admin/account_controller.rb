@@ -7,11 +7,16 @@ class Admin::AccountController < AdminController
     # -
   end
 
-  def newsletter
+  def notifications_and_newsletter
     # -
   end
 
-  def notifications
-    # -
+  def update_notifications_and_newsletter
+  end
+
+  def api_access
+  end
+
+  def regenerate_token
   end
 end

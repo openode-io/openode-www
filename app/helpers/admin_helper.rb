@@ -14,4 +14,8 @@ module AdminHelper
   def instance_settings_to(instance_id)
     "#{instance_to(instance_id)}settings/"
   end
+
+  def account_to
+    "/admin/account/"
+  end
 end
