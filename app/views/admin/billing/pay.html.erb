@@ -1,0 +1,106 @@
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">New Payment</h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="card">
+        <div class="card-body">        
+          <h5>Get more credits NOW!</h5>
+          <div class="mb-3 bd-callout bd-callout-warning">
+            1 credit corresponds to 1 USD cent.<br/>
+            No hidden fees.<br/>
+            No monthly subscription.
+          </div>
+          <p>
+            For each website, credits will be spent depending on the website type whenever it is online.
+            We only bill websites which are up.
+          </p>
+          <h5 class="mt-4"><i class="fab fa-paypal text-primary"></i> Pay with Paypal</h5>
+          <div class="card mt-3 mb-3">
+            <div class="card-body"> 
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <div class="pt-3 pb-3">
+                  <select name="os0" required="required" class="form-control">
+                    <option value="100 Credits">100 Credits $1.00 USD</option>
+                    <option value="200 Credits">200 Credits $2.00 USD</option>
+                    <option value="400 Credits">400 Credits $4.00 USD</option>
+                    <option value="800 Credits">800 Credits $8.00 USD</option>
+                    <option value="2000 Credits">2000 Credits $20.00 USD</option>
+                    <option value="4000 Credits">4000 Credits $40.00 USD</option>
+                    <option value="10000 Credits">10000 Credits $100.00 USD</option>
+                    <option value="20000 Credits">20000 Credits $200.00 USD</option>
+                  </select>
+                </div>
+                <div class="text-center">
+                  <input type="hidden" name="cmd" value="_s-xclick"/>
+                  <input type="hidden" name="hosted_button_id" value="S4X85M37NHP5N"/>
+                  <input type="hidden" name="custom" value="13134"/>
+                  <input type="hidden" name="email" value="info@openode.io"/>
+                  <input type="hidden" name="notify_url" value="https://api.openode.io/order/paypal"/>
+                  <input type="hidden" name="on0" value="Amount of Credits"/>
+                  <input type="hidden" name="currency_code" value="USD"/>
+                  <input type="image"
+                        src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif"
+                        border="0"
+                        name="submit"
+                        alt="PayPal - The safer, easier way to pay online!"
+                        class="mb-3"
+                        style="max-width: 350px; cursor: pointer;">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                </div>
+              </form>              
+            </div>
+          </div>
+          <h4 class="mt-3"><i class="fab fa-bitcoin text-warning"></i> Pay with Crypto</h4> 
+          <div class="card mt-3 mb-3">
+            <div class="card-body">   
+              <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <% @cryptos.each_with_index do |c,i| %>
+                      <a class="nav-link <%= i == 0 ? 'active' : '' %>"
+                        id="v-pills-<%= c %>-tab"
+                        data-toggle="pill"
+                        href="#v-pills-<%= c %>"
+                        role="tab"
+                        aria-controls="v-pills-<%= c %>"
+                        aria-selected="true"><%= c.titleize %></a>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">            
+                  <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active"
+                         id="v-pills-bitcoin"
+                         role="tabpanel"
+                         aria-labelledby="v-pills-bitcoint-tab">
+                      <p><strong>Pay to (Address):</strong> 1Keimw1ojP4peMHEoPgkVZEu7J73t3uiud</p>
+                      <p><strong>Memo:</strong> userid 13134</p>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-ether" role="tabpanel" aria-labelledby="v-pills-ether-tab">
+                      ...
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-ripple" role="tabpanel" aria-labelledby="v-pills-ripple-tab">
+                      ...
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-bitcoin-cash" role="tabpanel" aria-labelledby="v-pills-bitcoin-cash-tab">
+                      ...
+                    </div>
+                  </div>
+                </div>
+              </div>            
+            </div>
+          </div>          
+          <div class="alert alert-info">
+            <i class="fa fa-info-circle"></i> Important notice: This process is manual, once your payment is done please contact us with your wallet address.
+            We usually validate the transaction within few hours up to 1 business day. Thanks!          
+          </div>
+        </div>    
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <%= render 'admin/billing/sidebar' %>
+    </div>    
+  </div>
+</section>

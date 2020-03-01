@@ -3,6 +3,11 @@ import axios from 'axios'
 export default {
   name: 'New',
 
+  props: {
+    buttonText: String,
+    buttonSize: String
+  },
+
   data: function () {
     return {
 
@@ -59,8 +64,6 @@ export default {
 
       axios.post(`/admin/instances/create.json`, { instance: this.form })
         .then(response => {
-          this.$emit('getInstances')
-
           this.button = {
             text: 'Create',
             disabled: false
@@ -72,22 +75,14 @@ export default {
           this.$emit('instancesUpdate')
         })
         .catch(err => {
-          if (err.response) {
-            console.log(err.response.data);
-            console.log(err.response.status);
-            console.log(err.response.headers);
-          } else if (error.request) {
-            console.log(error.request);
-          } else {
-            console.log('Error', error.message);
-          }
-
           this.error = err.response.data.error
 
           this.button = {
             text: 'Try Again!',
             disabled: false
-          }          
+          }        
+          
+          this.$emit('instancesUpdate')
         })      
     },
 
@@ -156,8 +151,8 @@ export default {
 
     return (
       <div>
-        <b-btn on-click={this.showModal} variant='outline-dark' size='sm'>
-          <i class='fa fa-plus' /> Add New
+        <b-btn on-click={this.showModal} variant='outline-dark' size={this.buttonSize}>
+          <i class='fa fa-plus' /> {this.buttonText}
         </b-btn>
         <b-modal ref='newInstanceModal' hide-footer title='Add New Instance'>
 

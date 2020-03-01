@@ -9,6 +9,8 @@ class Admin::InstancesController < AdminController
   end
 
   def index
+    @tips = "This is the instances page, where you can see your instances."
+
     respond_to do |format|
       format.html
       format.json { render json: instances_summary }
@@ -24,6 +26,12 @@ class Admin::InstancesController < AdminController
   end
 
   def access
+    add_breadcrumb "instances",
+                   admin_instances_path,
+                   title: "Instances"
+    add_breadcrumb "Access",
+                   admin_instance_access_path,
+                   title: "Access"
     # -
   end
 
@@ -36,6 +44,37 @@ class Admin::InstancesController < AdminController
   end
 
   def logs
+    # -
+  end
+
+  def deployments
+    add_breadcrumb "Instances",
+                   admin_instances_path,
+                   title: "Instances"
+    add_breadcrumb "Deployments",
+                   admin_instance_access_deployments_path,
+                   title: "Deployments"
+    # -
+  end
+
+  def console
+    add_breadcrumb "Instances",
+                   admin_instances_path,
+                   title: "Instances"
+    add_breadcrumb "Console",
+                   admin_instance_access_console_path,
+                   title: "Console"
+    
+    @website = get_website
+  end
+
+  def activity_stream
+    add_breadcrumb "Instances",
+                   admin_instances_path,
+                   title: "Instances"
+    add_breadcrumb "Activity Stream",
+                   admin_instance_access_activity_stream_path,
+                   title: "Activity Stream"
     # -
   end
 
@@ -88,14 +127,6 @@ class Admin::InstancesController < AdminController
 
     respond_to do |format|
       format.json { render json: { status: @status } }
-    end
-  end
-
-  def deployments
-    @data = []
-
-    respond_to do |format|
-      format.json { render json: @data }
     end
   end
 

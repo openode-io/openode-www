@@ -48,6 +48,9 @@ Rails.application.routes.draw do
 
     get 'billing', to: 'billing#index'
     get 'billing/orders', to: 'billing#orders'
+    get 'billing/spending', to: 'billing#spending'
+    get 'billing/pay', to: 'billing#pay'
+
     get 'instances', to: 'instances#index'
     get 'instances/plans', to: 'instances#plans' 
     get 'instances/available-locations', to: 'instances#available_locations' 
@@ -63,29 +66,32 @@ Rails.application.routes.draw do
     post 'instances/:id/delete', to: 'instances#delete'
 
 
-    get 'instances/:id/settings', to: 'instance_settings#index'
-    get 'instances/:id/settings/plan', to: 'instance_settings#plan'
+    get 'instances/:id/settings', to: 'instance_settings#index', as: :instance_settings
+    get 'instances/:id/settings/plan', to: 'instance_settings#plan', as: :instance_settings_plan
     patch 'instances/:id/settings/plan', to: 'instance_settings#change_plan'
-    get 'instances/:id/settings/dns_and_aliases', to: 'instance_settings#dns_and_aliases'
+    get 'instances/:id/settings/dns_and_aliases', to: 'instance_settings#dns_and_aliases', as: :instance_settings_dns_and_aliases
     post 'instances/:id/settings/aliases', to: 'instance_settings#add_alias'
     delete 'instances/:id/settings/aliases/:domain', to: 'instance_settings#remove_alias'
-    get 'instances/:id/settings/ssl', to: 'instance_settings#ssl'
-    get 'instances/:id/settings/scheduler', to: 'instance_settings#scheduler'
-    get 'instances/:id/settings/persistence', to: 'instance_settings#persistence'
-    get 'instances/:id/settings/misc', to: 'instance_settings#misc'
+    get 'instances/:id/settings/ssl', to: 'instance_settings#ssl', as: :instance_settings_ssl
+    get 'instances/:id/settings/scheduler', to: 'instance_settings#scheduler', as: :instance_settings_scheduler
+    get 'instances/:id/settings/persistence', to: 'instance_settings#persistence', as: :instance_settings_persistence
+    get 'instances/:id/settings/misc', to: 'instance_settings#misc', as: :instance_settings_misc
 
     get 'instances/:id/stats', to: 'instances#stats'
 
     # Collaborators
-    get 'instances/:id/collaborators', to: 'collaborators#index'
-    get 'instances/:id/collaborators/new', to: 'collaborators#new'
+    get 'instances/:id/collaborators', to: 'collaborators#index', as: :instance_collaborators
+    get 'instances/:id/collaborators/new', to: 'collaborators#new', as: :instance_collaborators_new
     post 'instances/:id/collaborators', to: 'collaborators#create'
+    delete 'instances/:id/collaborators/:collaborator_id', to: 'collaborators#delete', as: :instance_collaborator_delete
 
 
     get 'instances/:id/logs', to: 'instances#logs'
-    get 'instances/:id/deployments', to: 'instances#deployments'
-
-    get 'instances/:id/access', to: 'instances#access'
+    
+    get 'instances/:id/access', to: 'instances#access', as: :instance_access
+    get 'instances/:id/access/deployments', to: 'instances#deployments', as: :instance_access_deployments
+    get 'instances/:id/access/console', to: 'instances#console', as: :instance_access_console
+    get 'instances/:id/access/activity_stream', to: 'instances#activity_stream', as: :instance_access_activity_stream
 
     get 'notifications', to: 'notifications#index'
     get 'notifications/latest', to: 'notifications#latest'

@@ -1,10 +1,15 @@
-
-
-<ul>
-  <li><%= link_to 'Change plan', "#{instance_settings_to(@instance_id)}plan" %></li>
-  <li><%= link_to 'DNS and Aliases', "#{instance_settings_to(@instance_id)}dns_and_aliases" %></li>
-  <li><%= link_to 'SSL', "#{instance_settings_to(@instance_id)}ssl" %></li>
-  <li><%= link_to 'Scheduler', "#{instance_settings_to(@instance_id)}scheduler" %></li>
-  <li><%= link_to 'Persistence', "#{instance_settings_to(@instance_id)}persistence" %></li>
-  <li><%= link_to 'Misc', "#{instance_settings_to(@instance_id)}misc" %></li>
-</ul>
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Instance Settings</h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <p>
+        Select an item from the sidebar ->
+      </p>      
+    </div>
+    <div class="col-lg-3">
+      <%= render 'admin/instance_settings/sidebar' %>
+    </div>    
+  </div>
+</section>

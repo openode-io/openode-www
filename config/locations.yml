@@ -1,6 +1,6 @@
 - name: Roubaix 
   description: France  
-  coordinates: [50.6927,3.1778]
+  latLng: [50.6927,3.1778]
   markerOffset: -15
   markerColor: "#2ecc71"
   textColor: "#5D5A6D"
@@ -78,13 +78,13 @@
 #  textColor: "#5D5A6D"
 - name: Montréal
   description: Canada
-  coordinates: [45.508888, -73.561668]
+  latLng: [45.508888, -73.561668]
   markerOffset: 25
   markerColor: "#2ecc71"
   textColor: "#5D5A6D"  
 - name: Kansas City
   description: USA
-  coordinates: [39.0119,-98.4842]
+  latLng: [39.0119,-98.4842]
   markerOffset: 25
   markerColor: "#2ecc71"
   textColor: "#5D5A6D"  

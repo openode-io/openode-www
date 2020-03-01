@@ -12,19 +12,9 @@ function generateTime() {
   return timeString
 }
 
-export const mockData = [
-  { time: generateTime(),
-    type: 'system',
-    label: 'System',
-    message: 'You can use this terminal to run commands or return logs.' },
-    { time: generateTime(), type: 'info', label: 'Info', message: 'Terminal Initializing...' },
-    { time: generateTime(), type: 'success', label: 'Success', message: 'Everything OK!' }
-]
-
 export const taskList = {
   echo: {
-    description: 'Echoes input',
-    
+    description: 'Echoes input',    
     echo(pushToList, input) {
       input = input.split(' ')
       input.splice(0, 1)
@@ -32,25 +22,29 @@ export const taskList = {
         pushToList({ time: generateTime(), label: 'Echo', type: 'success', message: input.join(' ') });
         resolve({ type: 'success', label: '', message: '' })
       })
-      return p
+      return p;
     }
   },
-  defaultTask: {
-    description: 'this is default task.',
-    defaultTask(pushToList) {
-      let i = 0;
-      const p = new Promise(resolve => {
-        const interval = setInterval(() => {
-          mockData[i].time = generateTime()
-          pushToList(mockData[i]);
-          i++
-          if (!mockData[i]) {
-            clearInterval(interval)
-            resolve({ type: 'success', label: 'Success', message: 'Example Over!' })
-          }
-        }, 1000);
+  ls: {
+    description: 'List file on a given directory',
+    ls(pushToList, path="/") {
+      const p = new Promise((resolve, reject) => {
+        pushToList({ type: 'success', label: 'Success', message: path })
+        resolve({ type: 'success', label: '', message: '' })
       })
-      return p
+      
+      return p;
+    }
+  },
+  logs: {
+    description: 'Return logs for a given instance',
+    logs(pushToList, n="10") {
+      const p = new Promise((resolve, reject) => {
+        pushToList({ type: 'info', label: 'Info', message: "Loading logs..." })
+        resolve({ type: 'success', label: 'Success', message: "Latest " + n + " lines..." })
+      })            
+      
+      return p;      
     }
   },
   open: {
@@ -70,6 +64,21 @@ export const taskList = {
         window.open(url, '_blank')
         resolve({ type: 'success', label: 'Done', message: 'Page Opened!' })
       })
+
+      return p;
+    }
+  },
+  defaultTask: {
+    description: 'Welcome to opeNode',
+    defaultTask(pushToList){
+      const p = new Promise((resolve, reject) => {
+        pushToList({ type: 'info', label: 'Info', message: 'Initializing...' })
+
+        setTimeout(function(){
+          resolve({ type: 'success', label: 'Success', message: 'Ready!' })
+        },2000);
+      })            
+      
       return p;
     }
   }
@@ -78,38 +87,9 @@ export const taskList = {
 
 export const commandList = {
   version: {
-    description: 'Return this project version',
+    description: 'Return opeNode API version',
     messages: [
       { message: '1.0.0' }
     ]
-  },
-  contact: {
-    description: 'How to contact author',
-    messages: [
-    { message: 'Website: http://xiaofeixu.cn' },
-    { message: 'Email: xuxiaofei915@gmail.com' },
-    { message: 'Github: https://github.com/dongsuo' },
-    { message: 'WeChat Offical Account: dongsuo' }
-    ] },
-  about: {
-    description: 'About author',
-    messages: [
-    { message: 'My name is xu xiaofei. I\'m a programmer, You can visit my personal website at http://xiaofeixu.cn to learn more about me.' }
-    ]
-  },
-  readme: {
-    description: 'About this project.',
-    messages: [
-    { message: 'This is a component that emulates a command terminal in Vue' }
-    ] },
-  document: {
-    description: 'Document of this project.',
-    messages: [
-      { message: {
-        text: 'Under Construction',
-        list: [
-        { label: 'hello', type: 'error', message: 'this is a test message' }
-        ]
-      } }]
   }
 }

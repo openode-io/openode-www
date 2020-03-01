@@ -1,43 +1,54 @@
-<section>
-  <h1 class="h3 mb-2 text-gray-800">Collaborators</h1>
+<section class="d-flex mb-3 mt-3">
+  <h1 class="h3 text-gray-800 mb-0 flex-grow-1">Collaborators <%= render 'generic/doc_link', doc_link: @doc_link %></h1>
+    <%= link_to '+add', "#{instance_to(@instance_id)}collaborators/new", class: 'btn btn-sm btn-outline-dark' %>
 </section>
 <section>
-
-  <pre>TODO: remove. Permission values, make sure to humanize (locale):
-   'root' # all permissions
-   'deploy'
-   'dns'
-   'alias'
-   'storage_area'
-   'location'
-   'plan'
-   'config'
-  </pre>
-
-  <div>
-    <%= link_to 'Add', "#{instance_to(@instance_id)}collaborators/new" %>
-  </div>
-
-  <table>
-    <tr>
-      <th>User (email)</th>
-      <th>Permissions</th>
-      <th>Actions</th>
-    </tr>
-
-    <% @collaborators.each do |collaborator| %>
-      <tr>
-        <td><%= collaborator['user']['email'] %></td>
-        <td>
-          <%= collaborator['permissions'].inspect %>
-        </td>
-        <td>
-          <ul>
-            <li></li>
-          </ul>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+  <div class="row">
+    <div class="col-lg-12 col-12">
+      <div class="card">
+        <div class="card-body">
+          <pre>TODO: remove. Permission values, make sure to humanize (locale):
+          'root' # all permissions
+          'deploy'
+          'dns'
+          'alias'
+          'storage_area'
+          'location'
+          'plan'
+          'config'
+          </pre>        
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered" id="super-admin-collaborators">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">User (email)</th>
+                  <th scope="col">Permissions</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>      
+              <% @collaborators.each do |collaborator| %>
+                <tr>
+                  <td><%= collaborator['user']['email'] %></td>
+                  <td>
+                    <%= collaborator['permissions'].inspect %>
+                  </td>
+                  <td>
+                    <div class="d-flex">
+                      <%= link_to 'View', '/admin', class: 'flex-fill btn btn-sm btn-outline-dark' %>
+                      <%= link_to 'Delete', admin_instance_collaborator_delete_path(id: @instance_id, collaborator_id: collaborator[:id]),
+                            class: 'flex-fill ml-2 btn btn-sm btn-outline-critical',
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+                  </td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
 
 </section>

@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-body">
+    <div class="nav flex-column nav-pills" aria-orientation="vertical">
+      <a class="nav-link <%= params[:action].include?('deployments') ? 'active' : '' %>"
+        href="<%= admin_instance_access_deployments_path(id:instance_id) %>"
+        aria-selected="true"><i class="fa fa-globe-americas"></i> Deployments</a>
+      <a class="nav-link <%= params[:action].include?('activity_stream') ? 'active' : '' %>"
+        href="<%= admin_instance_access_activity_stream_path(id:instance_id) %>"
+        aria-controls="v-pills-activity"
+        aria-selected="false"><i class="fa fa-list"></i> Activity Stream</a>                
+      <a class="nav-link <%= params[:action].include?('console') ? 'active' : '' %>"
+        href="<%= admin_instance_access_console_path(id:instance_id) %>"
+        aria-controls="v-pills-console"
+        aria-selected="false"><i class="fa fa-terminal"></i> Console</a>        
+    </div>
+  </div>
+</div>
