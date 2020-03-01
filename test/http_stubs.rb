@@ -465,13 +465,13 @@ module HttpStubs
                             'test/fixtures/http/openode_api/admin/get_instance_152.json',
                             logged_in_user_token),
       HttpStubs.default_post('https://api.openode.io/instances/152/set-config',
-                              { "value" => "112", "variable" => "MAX_BUILD_DURATION" },
-                              'test/fixtures/http/openode_api/empty_object.json',
-                              logged_in_user_token),
+                             { "value" => "112", "variable" => "MAX_BUILD_DURATION" },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
       HttpStubs.default_post('https://api.openode.io/instances/152/set-config',
-                              { "value" => "false", "variable" => "SKIP_PORT_CHECK" },
-                              'test/fixtures/http/openode_api/empty_object.json',
-                              logged_in_user_token)
+                             { "value" => "false", "variable" => "SKIP_PORT_CHECK" },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token)
     ]
   end
 end

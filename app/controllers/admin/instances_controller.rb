@@ -5,8 +5,6 @@ class Admin::InstancesController < AdminController
   before_action do
     if params['id']
       @instance_id = params['id']
-      re = api(:get, "/instances/#{@instance_id}")
-      puts "re = #{re.to_json}"
       @website = OpenStruct.new(api(:get, "/instances/#{@instance_id}"))
     end
   end
