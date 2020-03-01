@@ -58,15 +58,23 @@
               <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-2">
                   <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-bitcoin-tab" data-toggle="pill" href="#v-pills-bitcoin" role="tab" aria-controls="v-pills-bitcoin" aria-selected="true">Bitcoin</a>
-                    <a class="nav-link" id="v-pills-ether-tab" data-toggle="pill" href="#v-pills-ether" role="tab" aria-controls="v-pills-ether" aria-selected="false">Ether</a>
-                    <a class="nav-link" id="v-pills-ripple-tab" data-toggle="pill" href="#v-pills-ripple" role="tab" aria-controls="v-pills-ripple" aria-selected="false">Ripple (XRP)</a>
-                    <a class="nav-link" id="v-pills-bitcoin-cash-tab" data-toggle="pill" href="#v-pills-bitcoin-cash" role="tab" aria-controls="v-pills-bitcoin-cash" aria-selected="false">Bitcoin Cash</a>
+                    <% @cryptos.each_with_index do |c,i| %>
+                      <a class="nav-link <%= i == 0 ? 'active' : '' %>"
+                        id="v-pills-<%= c %>-tab"
+                        data-toggle="pill"
+                        href="#v-pills-<%= c %>"
+                        role="tab"
+                        aria-controls="v-pills-<%= c %>"
+                        aria-selected="true"><%= c.titleize %></a>
+                    <% end %>
                   </div>
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-10">            
                   <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-bitcoin" role="tabpanel" aria-labelledby="v-pills-bitcoint-tab">
+                    <div class="tab-pane fade show active"
+                         id="v-pills-bitcoin"
+                         role="tabpanel"
+                         aria-labelledby="v-pills-bitcoint-tab">
                       <p><strong>Pay to (Address):</strong> 1Keimw1ojP4peMHEoPgkVZEu7J73t3uiud</p>
                       <p><strong>Memo:</strong> userid 13134</p>
                     </div>

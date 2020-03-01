@@ -40,5 +40,7 @@ class Admin::BillingController < AdminController
     add_breadcrumb "Billing",
                    admin_billing_path
     add_breadcrumb "New Payment"
+
+    @cryptos = ['bitcoin','ether','ripple','bitcoin-cash']
   end
 end
