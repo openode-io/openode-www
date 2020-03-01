@@ -25,4 +25,10 @@ class Admin::AccountController < AdminController
 
   def regenerate_token
   end
+
+  def profile
+    add_breadcrumb "Account",
+                   admin_account_path
+    add_breadcrumb "Profile"    
+  end
 end
