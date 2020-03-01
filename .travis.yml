@@ -6,6 +6,7 @@ language: ruby
 # - sudo apt-get install -qq xxxx
 
 script:
+- NODE_ENV=test bundle exec rails webpacker:compile
 - bundle exec rubocop
 - bundle exec bin/rails test
 deploy:
