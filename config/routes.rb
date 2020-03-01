@@ -65,7 +65,6 @@ Rails.application.routes.draw do
     post 'instances/:id/stop', to: 'instances#stop'
     post 'instances/:id/delete', to: 'instances#delete'
 
-
     get 'instances/:id/settings', to: 'instance_settings#index', as: :instance_settings
     get 'instances/:id/settings/plan', to: 'instance_settings#plan', as: :instance_settings_plan
     patch 'instances/:id/settings/plan', to: 'instance_settings#change_plan'
@@ -76,6 +75,9 @@ Rails.application.routes.draw do
     get 'instances/:id/settings/scheduler', to: 'instance_settings#scheduler', as: :instance_settings_scheduler
     get 'instances/:id/settings/persistence', to: 'instance_settings#persistence', as: :instance_settings_persistence
     get 'instances/:id/settings/misc', to: 'instance_settings#misc', as: :instance_settings_misc
+    patch 'instances/:id/settings/misc',
+      to: 'instance_settings#update_misc',
+      as: :instance_settings_patch_misc
 
     get 'instances/:id/stats', to: 'instances#stats'
 
@@ -92,6 +94,8 @@ Rails.application.routes.draw do
     get 'instances/:id/access/deployments', to: 'instances#deployments', as: :instance_access_deployments
     get 'instances/:id/access/console', to: 'instances#console', as: :instance_access_console
     get 'instances/:id/access/activity_stream', to: 'instances#activity_stream', as: :instance_access_activity_stream
+
+    get 'instances/:id/credits', to: 'instances#credits', as: :instance_credits
 
     get 'notifications', to: 'notifications#index'
     get 'notifications/latest', to: 'notifications#latest'

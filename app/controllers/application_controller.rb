@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   include Response
   include ExceptionHandler
 
+  def msg(key)
+    I18n.t key
+  end
+
   helper_method :current_user
 
   def authenticate_user

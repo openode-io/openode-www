@@ -84,5 +84,29 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Settings",
                    admin_instance_settings_path
     add_breadcrumb "Misc"
+
+    @website.max_build_duration = @website.configs['MAX_BUILD_DURATION'] || 100
+    @website.skip_port_check = @website.configs['SKIP_PORT_CHECK']
+  end
+
+  def update_misc
+    params_to_update = misc_params
+
+    api(:post, "/instances/#{@instance_id}/set-config", payload: {
+          variable: 'MAX_BUILD_DURATION', value: params_to_update['max_build_duration']
+        })
+
+    api(:post, "/instances/#{@instance_id}/set-config", payload: {
+          variable: 'SKIP_PORT_CHECK',
+          value: ["true", "1", true, 1].include?(params_to_update['skip_port_check'])
+        })
+
+    redirect_to({ action: :misc }, notice: msg('message.modifications_saved'))
+  end
+
+  protected
+
+  def misc_params
+    params.require(:website).permit(:max_build_duration, :skip_port_check)
   end
 end

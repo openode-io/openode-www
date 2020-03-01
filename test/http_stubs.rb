@@ -1,5 +1,53 @@
 
 module HttpStubs
+  def self.default_get(url, response_file, logged_in_user_token)
+    {
+      url: url,
+      method: :get,
+      with: {
+        body: {}
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path: response_file,
+      headers: {
+        'X-Auth-Token' => logged_in_user_token
+      }
+    }
+  end
+
+  def self.default_patch(url, body, response_file, logged_in_user_token)
+    {
+      url: url,
+      method: :patch,
+      with: {
+        body: body
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path: response_file,
+      headers: {
+        'X-Auth-Token' => logged_in_user_token
+      }
+    }
+  end
+
+  def self.default_post(url, body, response_file, logged_in_user_token)
+    {
+      url: url,
+      method: :post,
+      with: {
+        body: body
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path: response_file,
+      headers: {
+        'X-Auth-Token' => logged_in_user_token
+      }
+    }
+  end
+
   def self.all(logged_in_user_token)
     [
       {
@@ -396,20 +444,9 @@ module HttpStubs
           'X-Auth-Token' => logged_in_user_token
         }
       },
-      {
-        url: 'https://api.openode.io/instances/152/collaborators',
-        method: :get,
-        with: {
-          body: {}
-        },
-        content_type: 'application/json',
-        response_status: 200,
-        response_path:
-          'test/fixtures/http/openode_api/admin/get_collaborators.json',
-        headers: {
-          'X-Auth-Token' => logged_in_user_token
-        }
-      },
+      HttpStubs.default_get('https://api.openode.io/instances/152/collaborators',
+                            'test/fixtures/http/openode_api/admin/get_collaborators.json',
+                            logged_in_user_token),
       {
         url: 'https://api.openode.io/instances/152/collaborators',
         method: :post,
@@ -423,7 +460,18 @@ module HttpStubs
         headers: {
           'X-Auth-Token' => logged_in_user_token
         }
-      }
+      },
+      HttpStubs.default_get('https://api.openode.io/instances/152',
+                            'test/fixtures/http/openode_api/admin/get_instance_152.json',
+                            logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/set-config',
+                              { "value" => "112", "variable" => "MAX_BUILD_DURATION" },
+                              'test/fixtures/http/openode_api/empty_object.json',
+                              logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/set-config',
+                              { "value" => "false", "variable" => "SKIP_PORT_CHECK" },
+                              'test/fixtures/http/openode_api/empty_object.json',
+                              logged_in_user_token)
     ]
   end
 end
