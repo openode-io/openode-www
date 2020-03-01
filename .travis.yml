@@ -9,6 +9,7 @@ before_script:
 - node -v
 
 script:
+- RAILS_ENV=test rails assets:precompile
 - bundle exec rubocop
 - bundle exec bin/rails test
 deploy:
