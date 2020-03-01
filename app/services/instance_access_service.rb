@@ -106,6 +106,18 @@ class InstanceAccessService
         date: '2020-02-02',
         credits: 490,
         cost: 120
+      },
+      {
+        id: 16,
+        date: '2020-02-02',
+        credits: 490,
+        cost: 120
+      },
+      {
+        id: 16,
+        date: '2020-02-02',
+        credits: 490,
+        cost: 120
       }
     ]
   end
