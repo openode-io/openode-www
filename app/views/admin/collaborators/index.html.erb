@@ -18,7 +18,7 @@
           'config'
           </pre>        
           <div class="table-responsive">
-            <table class="table table-sm table-bordered" id="super-admin-newsletters">
+            <table class="table table-sm table-bordered" id="super-admin-collaborators">
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">User (email)</th>
@@ -34,9 +34,12 @@
                     <%= collaborator['permissions'].inspect %>
                   </td>
                   <td>
-                    <ul>
-                      <li></li>
-                    </ul>
+                    <div class="d-flex">
+                      <%= link_to 'View', '/admin', class: 'flex-fill btn btn-sm btn-outline-dark' %>
+                      <%= link_to 'Delete', admin_instance_collaborator_delete_path(id: @instance_id, collaborator_id: collaborator[:id]),
+                            class: 'flex-fill ml-2 btn btn-sm btn-outline-critical',
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
                   </td>
                 </tr>
               <% end %>

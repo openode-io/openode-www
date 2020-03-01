@@ -48,6 +48,9 @@ Rails.application.routes.draw do
 
     get 'billing', to: 'billing#index'
     get 'billing/orders', to: 'billing#orders'
+    get 'billing/spending', to: 'billing#spending'
+    get 'billing/pay', to: 'billing#pay'
+
     get 'instances', to: 'instances#index'
     get 'instances/plans', to: 'instances#plans' 
     get 'instances/available-locations', to: 'instances#available_locations' 
@@ -80,6 +83,7 @@ Rails.application.routes.draw do
     get 'instances/:id/collaborators', to: 'collaborators#index', as: :instance_collaborators
     get 'instances/:id/collaborators/new', to: 'collaborators#new', as: :instance_collaborators_new
     post 'instances/:id/collaborators', to: 'collaborators#create'
+    delete 'instances/:id/collaborators/:collaborator_id', to: 'collaborators#delete', as: :instance_collaborator_delete
 
 
     get 'instances/:id/logs', to: 'instances#logs'

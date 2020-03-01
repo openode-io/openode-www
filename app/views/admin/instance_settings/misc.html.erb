@@ -2,31 +2,38 @@
   <h1 class="h3 mb-3 text-gray-800 mt-3">Misc</h1>
 </section>
 <section>
-<%= form_for :website,
-  { url: "#{instance_settings_to(@instance_id)}misc", method: :patch } do |form| %>
-  <div class="card">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-          <div class="form-group mb-2">
+  <div class="row">
+    <div class="col-lg-9">
+      <%= form_for :website,
+        { url: "#{instance_settings_to(@instance_id)}misc", method: :patch } do |form| %>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="form-group mb-2">
+                  <div class="form-label-group mb-2">
+                    <%= form.label :max_deployment_duration, 'Maximum deployment duration (seconds) - max = 600 seconds', class: 'required' %>
+                    <%= form.number_field :max_deployment_duration, class: 'form-control' %>
+                  </div>
 
+                  <div class="form-label-group mb-2">
+                    <p class="alert alert-info">
+                      Uncheck this field if you want to skip port verification <i class="fa fa-arrow-down"></i>
+                    </p>
+                    <%= form.check_box :enabled_port_verification %>
+                    <%= form.label :enabled_port_verification, 'Port verification enabled', class: 'required' %>                    
+                  </div>
 
-
-            <div class="form-label-group mb-2">
-              <%= form.label :max_deployment_duration, 'Maximum deployment duration (seconds) - max = 600 seconds', class: 'required' %>
-              <%= form.number_field :max_deployment_duration %>
-            </div>
-
-            <div class="form-label-group mb-2">
-              <%= form.label :enabled_port_verification, 'Port verification enabled - uncheck this field if you want to skip port verification', class: 'required' %>
-              <%= form.check_box :enabled_port_verification %>
-            </div>
-
-            <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+                  <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+                </div>
+              </div>
+            </div>    
           </div>
         </div>
-      </div>    
+      <% end %>
     </div>
+    <div class="col-lg-3">
+      <%= render 'admin/instance_settings/sidebar' %>
+    </div>    
   </div>
-<% end %>
 </section>

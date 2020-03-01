@@ -1,0 +1,32 @@
+<%= line_chart InstanceAccessService.spending_chart_data,
+                xtitle: "Date",
+                ytitle: "Credits",
+                colors: ['#28a745'] %>
+<div class="table-responsive mt-4">
+  <table class="table table-sm table-bordered" id="super-admin-spending-stats">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Credits</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>      
+    <% InstanceAccessService.spending_costs.each do |s| %>
+      <tr>
+        <td><%= s[:id] %></td>
+        <td>
+          <%= s[:credits] %>
+        </td>
+        <td>
+          <%= s[:cost] %>
+        </td>   
+        <td>
+          <%= s[:date] %>
+        </td>                            
+      </tr>
+    <% end %>
+    </tbody>
+  </table>           
+</div>

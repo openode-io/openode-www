@@ -1,84 +1,98 @@
 <section>
-  <h1 class="mb-2 text-gray-800">Persistence</h1>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Persistence</h1>
 
   <p>some description</p>
 </section>
 
 <section>
+  <div class="row">
+    <div class="col-lg-9">
+    <h4><i class="fa fa-edit"></i> Size</h4>
 
-  <h3>Size</h3>
+    <%= form_for :persitence,
+      { url: "", method: :patch } do |form| %>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+              <div class="form-group mb-2">
+                <p class="alert alert-info">Note: Can only be increased</p>
 
-  <%= form_for :persitence,
-    { url: "", method: :patch } do |form| %>
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-            <div class="form-group mb-2">
-              <p>Note - Can only be increased</p>
+                <div class="form-label-group mb-2">
+                  <%= form.label :amountGb, 'Persistence size (GB)' %>
+                  <%= form.number_field :amountGb, class: 'form-control' %>
+                  
+                  <%= link_to 'Destroy', '/',
+                        class: 'btn btn-outline-critical mt-2',
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } %>
+                </div>
 
-              <div class="form-label-group mb-2">
-                <%= form.label :amountGb, 'Persistence size (GB)' %>
-                <%= form.number_field :amountGb %>
-                <button>Destroy (with warning)</button>
               </div>
-
             </div>
-          </div>
-        </div>    
+          </div>    
+        </div>
       </div>
-    </div>
-  <% end %>
-</section>
+    <% end %> 
 
-<section>
+    <h4 class="mt-4"><i class="fa fa-hdd"></i> Storage Area (Volumes)</h4>
 
-  <h3>Storage Areas (Volumes)</h3>
-
-  <button>Add</button>
-
-  <%= form_for :persistence,
-    { url: "", method: :patch } do |form| %>
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-            <div class="form-group mb-2">
-              <p>Note - Can only be created or deleted, not updated. Must be a full path (example: /var/www/yourvolume/)</p>
-
-              <div class="form-label-group mb-2">
-                
-                <%= form.text_field :storage_area1 %>
-                <button>Create (should call <%= "POST #{instance_settings_to(@instance_id)}storage-areas" %>)</button>
-                <button>Delete (should call <%= "DELETE #{instance_settings_to(@instance_id)}storage-areas" %>)</button>
+    <%= form_for :persistence,
+      { url: "", method: :patch } do |form| %>
+      <div class="card">
+        <div class="card-body">
+          <p class="alert alert-info">Note: Can only be created or deleted, not updated. Must be a full path (example: /var/www/yourvolume/)</p>
+          <h5><i class="fa fa-plus"></i> New Volume</h5>
+          <div class="row">
+            <div class="col-lg-10 col-md-10 col-sm-12 col-12">
+              <div class="form-group mb-2">                                
+                <div class="form-label-group mb-2">                      
+                  <%= form.text_field :storage_area1, placeholder: '/path/to/volume', class: 'form-control' %>
+                </div>
               </div>
-
             </div>
-          </div>
-        </div>    
-      </div>
-    </div>
-  <% end %>
-
-  <%= form_for :persistence,
-    { url: "", method: :patch } do |form| %>
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-            <div class="form-group mb-2">
-
-              <div class="form-label-group mb-2">
-                
-                <%= form.text_field :storage_area1 %> 
-                <button>Save (should call <%= "POST #{instance_settings_to(@instance_id)}storage-areas" %>)</button>
-                <button>Delete (should call <%= "DELETE #{instance_settings_to(@instance_id)}storage-areas" %>)</button>
-              </div>
-
+            <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+            <%= link_to 'Save', '#{instance_settings_to(@instance_id)}storage-areas',
+                  class: 'btn btn-outline-success w-100',
+                  method: :post,
+                  data: { confirm: "Are you sure?" } %>             
             </div>
-          </div>
-        </div>    
+          </div>  
+
+          <hr class="mt-4 mb-4"/>
+
+          <h5><i class="fa fa-list"></i> Volumes List</h5>  
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered" id="super-admin-newsletters">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Path</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>      
+              <% @volumes.each do |volume| %>
+                <tr>
+                  <td><%= volume[:path] %></td>
+                  <td>
+                    <div class="d-flex">
+                      <%= link_to 'Destroy', '/',
+                            class: 'flex-fill ml-2 btn btn-sm btn-outline-critical',
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+                  </td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>           
+          </div>          
+        </div>
       </div>
+    <% end %>
+
     </div>
-  <% end %>
+    <div class="col-lg-3">
+      <%= render 'admin/instance_settings/sidebar' %>
+    </div>    
+  </div>
 </section>

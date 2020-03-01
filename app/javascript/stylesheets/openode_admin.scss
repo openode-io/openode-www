@@ -61,7 +61,12 @@
 
     a.toggle-instance-actions {
       cursor: pointer;
-    }    
+    }
+
+    button.dropdown-item:hover {
+      background: #363A42;
+      color: white;
+    }
   }
 }
 

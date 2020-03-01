@@ -2,19 +2,14 @@
   <h1 class="h3 mb-3 text-gray-800 mt-3">Profile Settings</h1>
 </section>
 <section>
-  <ul>
-    <li>
-      <%= link_to 'Notifications and newsletter',
-                  "#{account_to}notifications_and_newsletter" %>
-    </li>
-    <li>
-      <%= link_to 'API and CLI Access',
-                  "#{account_to}api_access" %>
-    </li>
-
-    <li>
-      <%= link_to 'Profile',
-                  "#{account_to}profile" %>
-    </li>
-  </ul>
+  <div class="row">
+    <div class="col-lg-9">
+      <p>
+        Select an item from the sidebar ->
+      </p>      
+    </div>
+    <div class="col-lg-3">
+      <%= render 'admin/account/sidebar' %>
+    </div>    
+  </div>
 </section>

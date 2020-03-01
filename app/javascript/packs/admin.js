@@ -19,6 +19,9 @@ require('turbolinks').start()
 require('@rails/activestorage').start()
 require('channels')
 
+require("chartkick")
+require("chart.js")
+
 Vue.use(TurbolinksAdapter)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)

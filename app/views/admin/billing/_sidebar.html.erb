@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-body">
+    <div class="nav flex-column nav-pills" aria-orientation="vertical">
+      <a class="nav-link <%= params[:action].include?('spending') ? 'active' : '' %>"
+        href="/admin/billing/spending"
+        aria-selected="true"><i class="fa fa-chart-line"></i> Spending</a>
+      <a class="nav-link <%= params[:action].include?('orders') ? 'active' : '' %>"
+        href="/admin/billing/orders"
+        aria-controls="v-pills-activity"
+        aria-selected="false"><i class="fa fa-file-invoice"></i> Payment History</a>
+      <a class="nav-link <%= params[:action].include?('pay') ? 'active' : '' %>"
+        href="/admin/billing/pay"
+        aria-controls="v-pills-console"
+        aria-selected="false"><i class="fa fa-dollar-sign"></i> Pay</a>      
+    </div>
+  </div>
+</div>

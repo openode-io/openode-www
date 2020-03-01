@@ -18,6 +18,8 @@ class Admin::CollaboratorsController < Admin::InstancesController
     add_breadcrumb "Collaborators",
                    admin_instance_collaborators_path,
                    title: "Collaborators"
+    add_breadcrumb "New",
+                   ''
 
     @collaborator_instance = {}
     @permissions = make_lister_selection(
@@ -30,6 +32,12 @@ class Admin::CollaboratorsController < Admin::InstancesController
         payload: { collaborator: collaborator_params })
 
     redirect_to({ action: :index }, notice: "Created!")
+  end
+
+  def delete
+    api(:delete, "/instances/#{@instance_id}/collaborators/#{params[:collaborator_id]}")
+
+    redirect_to({ action: :index }, notice: "Deleted!")
   end
 
   protected

@@ -2,25 +2,44 @@
   <h1 class="h3 mb-3 text-gray-800 mt-3">API and CLI Access</h1>
 </section>
 <section>
-  <%= form_for :user, {
-      url: "#",
-      html: { class: 'form-vertical' }
-    } do |form| %>
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-            <div class="form-group mb-2">
-              <%= form.label :token, 'Security Token (the content should be ********, cant modify)', class: 'required' %>
-              <%= form.text_field :token, { class: 'form-control', value: '5f583adc1f5397ec7298b6bde9f7b982' } %>
+  <div class="row">
+    <div class="col-lg-9">
+    <%= form_for :user, {
+        url: "#",
+        html: { class: 'form-vertical' }
+      } do |form| %>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="form-group mb-2">
+                <%= form.label :token, 'Security Token', class: 'required' %>                
+                <div class="input-group show_hide_password">             
+                  <%= form.password_field :token, { class: 'form-control', value: '5f583adc1f5397ec7298b6bde9f7b982' } %>
+                  <div class="input-group-append">
+                    <a class="input-group-text password-toggler" href="">
+                      <i class="fa fa-eye-slash password-toggler" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                  <div class="input-group-append">
+                    <a class="input-group-text copy-to-clipboard" href="">
+                      <i class="fa fa-copy" aria-hidden="true"></i>
+                    </a>
+                  </div>                  
+                </div>                
+              </div>
+              <%= link_to 'Regenerate Token', '/admin/account/regenerate_token',
+                    class: 'mt-3 btn btn-outline-success w-100',
+                    method: :post,
+                    data: { confirm: "Are you sure?" } %>
             </div>
-
-            <button>Hide/Show (the token)</button>
-            <button>Copy to clipboard (will copy the token)</button>
-            <button>Regenerate (will call /admin/account/regenerate_token)</button>
-          </div>
-        </div>    
+          </div>    
+        </div>
       </div>
+    <% end %>    
     </div>
-  <% end %>
+    <div class="col-lg-3">
+      <%= render 'admin/account/sidebar' %>
+    </div>    
+  </div>  
 </section>

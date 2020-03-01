@@ -1,60 +1,69 @@
 <section>
-  <h1 class="mb-2 text-gray-800">DNS And Aliases for <%= @website['site_name'] %></h1>
-
-  <h2 class="mb-2 text-gray-800">DNS</h2>
-
-  <p>Use the following DNS record</p>
-  <p><b>A Record</b>: acertain.cname.record.domain</p>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">DNS And Aliases for <%= @website['site_name'] %></h1>
 </section>
 
 <section>
-
-  <h2 class="mb-2 text-gray-800">Aliases</h2>
-
-  <button>Add</button>
-
-  <%= form_for :alias,
-    { url: "", method: :patch } do |form| %>
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-            <div class="form-group mb-2">
-              <p>Note - Can only be created or deleted, not updated</p>
-
-              <div class="form-label-group mb-2">
-                
-                <%= form.text_field :alias1 %> <span>.<%= @website['site_name'] %></span>
-                <button>Create (should call <%= "POST #{instance_settings_to(@instance_id)}aliases" %>)</button>
-                <button>Delete (should call <%= "DELETE #{instance_settings_to(@instance_id)}aliases/thealias.hostname.com" %>)</button>
+  <div class="row">
+    <div class="col-lg-9">
+    <%= form_for :alias,
+      { url: "", method: :patch } do |form| %>
+      <div class="card">
+        <div class="card-body">
+          <div class="mb-3 bd-callout bd-callout-warning">    
+            <h5>Use the following DNS record</h5>
+            <b>A Record</b>: acertain.cname.record.domain
+          </div>        
+          <p class="alert alert-info">Note: Can only be created or deleted, not updated.</p>
+          <h5><i class="fa fa-plus"></i> New Alias</h5>
+          <div class="row">
+            <div class="col-lg-10 col-md-10 col-sm-12 col-12">
+              <div class="form-group mb-2">                                
+                <div class="form-label-group mb-2">                      
+                  <%= form.text_field :alias1, placeholder: 'name.of.alias', class: 'form-control' %>
+                </div>
               </div>
-
             </div>
-          </div>
-        </div>    
-      </div>
-    </div>
-  <% end %>
-
-  <%= form_for :alias,
-    { url: "", method: :patch } do |form| %>
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-            <div class="form-group mb-2">
-
-              <div class="form-label-group mb-2">
-                
-                <%= form.text_field :alias1 %> <span>.<%= @website['site_name'] %></span>
-                <button>Save (should call <%= "POST #{instance_settings_to(@instance_id)}aliases" %>)</button>
-                <button>Delete (should call <%= "DELETE #{instance_settings_to(@instance_id)}aliases/thealias.hostname.com" %>)</button>
-              </div>
-
+            <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+            <%= link_to 'Save', '#{instance_settings_to(@instance_id)}aliases',
+                  class: 'btn btn-outline-success w-100',
+                  method: :post,
+                  data: { confirm: "Are you sure?" } %>             
             </div>
-          </div>
-        </div>    
+          </div>  
+
+          <hr class="mt-4 mb-4"/>
+
+          <h5><i class="fa fa-list"></i> Aliases List</h5>  
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Alias</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>      
+              <% @aliases.each do |a| %>
+                <tr>
+                  <td><%= a %></td>
+                  <td>
+                    <div class="d-flex">
+                      <%= link_to 'Destroy', '#{instance_settings_to(@instance_id)}aliases/#{a}',
+                            class: 'flex-fill ml-2 btn btn-sm btn-outline-critical',
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+                  </td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>           
+          </div>          
+        </div>
       </div>
+    <% end %>
     </div>
-  <% end %>
+    <div class="col-lg-3">
+      <%= render 'admin/instance_settings/sidebar' %>
+    </div>    
+  </div>
 </section>

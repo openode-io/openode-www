@@ -9,6 +9,8 @@ class Admin::InstancesController < AdminController
   end
 
   def index
+    @tips = "This is the instances page, where you can see your instances."
+
     respond_to do |format|
       format.html
       format.json { render json: instances_summary }

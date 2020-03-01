@@ -10,6 +10,8 @@ export default {
     getInstances (poll=false) {      
       axios.get('/admin/instances.json')
         .then(response => {
+          console.log(response.data)
+
           this.instances = response.data
           this.updating = false
           this.loading = false
@@ -84,7 +86,7 @@ export default {
     if (this.loading){
       return ( <Loader /> )
     }else{
-      if (this.instances.lenght == 0){
+      if (this.instances.length == 0){
         return (
           <div id='admin-instances' onGetInstances={this.getInstances}>
             {error_box}

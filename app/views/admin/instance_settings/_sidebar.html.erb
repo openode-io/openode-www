@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-body">
+    <div class="nav flex-column nav-pills" aria-orientation="vertical">
+      <a class="nav-link <%= params[:action].include?('plan') ? 'active' : '' %>"
+        href="<%= "#{instance_settings_to(@instance_id)}plan" %>"
+        aria-selected="true"><i class="fa fa-credit-card"></i> Change Plan</a>
+      <a class="nav-link <%= params[:action].include?('aliases') ? 'active' : '' %>"
+        href="<%= "#{instance_settings_to(@instance_id)}dns_and_aliases" %>"
+        aria-controls="v-pills-activity"
+        aria-selected="false"><i class="fa fa-globe-americas"></i> DNS and Aliases</a>                
+      <a class="nav-link <%= params[:action].include?('ssl') ? 'active' : '' %>"
+        href="<%= "#{instance_settings_to(@instance_id)}ssl" %>"
+        aria-controls="v-pills-console"
+        aria-selected="false"><i class="fa fa-shield-alt"></i> SSL</a>    
+      <a class="nav-link <%= params[:action].include?('scheduler') ? 'active' : '' %>"
+        href="<%= "#{instance_settings_to(@instance_id)}scheduler" %>"
+        aria-controls="v-pills-console"
+        aria-selected="false"><i class="fa fa-clock"></i> Scheduler</a>    
+      <a class="nav-link <%= params[:action].include?('persistence') ? 'active' : '' %>"
+        href="<%= "#{instance_settings_to(@instance_id)}persistence" %>"
+        aria-controls="v-pills-console"
+        aria-selected="false"><i class="fa fa-database"></i> Persistence</a>    
+      <a class="nav-link <%= params[:action].include?('misc') ? 'active' : '' %>"
+        href="<%= "#{instance_settings_to(@instance_id)}misc" %>"
+        aria-controls="v-pills-console"
+        aria-selected="false"><i class="fa fa-server"></i> Misc</a>                              
+    </div>
+  </div>
+</div>

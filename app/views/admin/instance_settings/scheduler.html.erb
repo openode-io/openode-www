@@ -2,20 +2,22 @@
   <h1 class="h3 mb-3 text-gray-800 mt-3">Scheduler</h1>
 </section>
 <section>
-<%= form_for :website,
-  { url: "#{instance_settings_to(@instance_id)}scheduler", method: :patch } do |form| %>
-  <div class="card">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-          <div class="form-group mb-2">
+  <div class="row">
+    <div class="col-lg-9">
+      <%= form_for :website,
+        { url: "#{instance_settings_to(@instance_id)}scheduler", method: :patch } do |form| %>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="form-group mb-2">
 
-<p>
-  The scheduler allows to run recurring jobs withing your running instance.
-  It follows the well known crontab format.
-</p>
+                  <p>
+                    The scheduler allows to run recurring jobs withing your running instance.
+                    It follows the well known crontab format.
+                  </p>
 
-            <pre>
+<pre>
 # Example of job definition:
 # .---------------- minute (0 - 59)
 # |  .------------- hour (0 - 23)
@@ -24,18 +26,23 @@
 # |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
 # |  |  |  |  |
 # *  *  *  *  * node /opt/app/example.js
-            </pre>
+</pre>
 
-            <div class="form-label-group mb-2">
-              <%= form.label :crontab, 'Crontab' %>
-              <%= form.text_area :crontab, cols: 50, rows: 10, value: '*  *  *  *  * node /opt/app/example.js' %>
-            </div>
+                  <div class="form-label-group mb-2">
+                    <%= form.label :crontab, 'Crontab' %>
+                    <%= form.text_area :crontab, cols: 50, rows: 10, value: '*  *  *  *  * node /opt/app/example.js', class: 'form-control' %>
+                  </div>
 
-            <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+                  <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+                </div>
+              </div>
+            </div>    
           </div>
         </div>
-      </div>    
+      <% end %>
     </div>
+    <div class="col-lg-3">
+      <%= render 'admin/instance_settings/sidebar' %>
+    </div>    
   </div>
-<% end %>
 </section>
