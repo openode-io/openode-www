@@ -1,4 +1,32 @@
 <section>
-  <h1 class="h3 mb-2 text-gray-800">Support</h1>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Support</h1>
 </section>
-<section></section>
+<section>
+  <%= form_for :support, {url: support_path, class: 'form-signin'} do |form| %>
+    <div class="card">
+      <div class="card-body">      
+        <div class="form-label-group mb-2">
+          For technical support, you can read our <a href="/docs/introduction/index">docs</a> or send us a message.
+        </div>
+        
+        <hr/>
+
+        <div class="form-label-group mb-2">
+          <%= form.label :email, 'Your email', class: 'required' %>
+          <%= form.text_field :email, { class: 'form-control', required:true} %>
+        </div>
+
+        <div class="form-label-group mb-2">
+          <%= form.label :message, 'How can we help you?', class: 'required' %>
+          <%= form.text_area :message, { class: 'form-control', rows:5, required:true } %>
+        </div>
+
+        <div class="form-label-group mb-3">
+          <%= render_recaptcha('support', @show_recaptcha_v2) %>
+        </div>
+
+        <%= form.submit "Send!", class: 'btn btn-lg btn-success w-100 mb-3' %>
+      </div>
+    </div>
+  <% end %>  
+</section>

@@ -82,6 +82,46 @@ class InstanceAccessService
     result
   end
 
+  def self.spending_chart_data
+    {
+      "2020-02-01": 11,
+      "2020-02-02": 6,
+      "2020-02-03": 23,
+      "2020-02-10": 12,
+      "2020-02-12": 90,
+      "2020-02-18": 4
+    }
+  end
+
+  def self.spending_costs
+    [
+      {
+        id: 12,
+        date: '2020-02-01',
+        credits: 90,
+        cost: 140
+      },
+      {
+        id: 16,
+        date: '2020-02-02',
+        credits: 490,
+        cost: 120
+      },
+      {
+        id: 16,
+        date: '2020-02-02',
+        credits: 490,
+        cost: 120
+      },
+      {
+        id: 16,
+        date: '2020-02-02',
+        credits: 490,
+        cost: 120
+      }
+    ]
+  end
+
   def self.logs
   end
 end

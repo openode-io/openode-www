@@ -1,6 +1,9 @@
 import Typed from 'typed.js'
 import Termynal from './termynal.js'
 
+require('jvectormap')
+require('./jvectormap_world_mill')
+
 document.addEventListener('turbolinks:load', function () {
   const el = document.querySelector('.typed')
 
@@ -69,17 +72,17 @@ document.addEventListener('turbolinks:load', function () {
         })
   }
 
-  $('.show_hide_password a').on('click', function (event) {
+  $('.show_hide_password a.password-toggler').on('click', function (event) {
     event.preventDefault()
 
     if ($(this).parents('.input-group').find('input').attr('type') == 'text') {
       $(this).parents('.input-group').find('input').attr('type', 'password')
-      $(this).parents('.input-group').find('i').addClass('fa-eye-slash')
-      $(this).parents('.input-group').find('i').removeClass('fa-eye')
+      $(this).parents('.input-group').find('i.password-toggler').addClass('fa-eye-slash')
+      $(this).parents('.input-group').find('i.password-toggler').removeClass('fa-eye')
     } else if ($(this).parents('.input-group').find('input').attr('type') == 'password') {
       $(this).parents('.input-group').find('input').attr('type', 'text')
-      $(this).parents('.input-group').find('i').removeClass('fa-eye-slash')
-      $(this).parents('.input-group').find('i').addClass('fa-eye')
+      $(this).parents('.input-group').find('i.password-toggler').removeClass('fa-eye-slash')
+      $(this).parents('.input-group').find('i.password-toggler').addClass('fa-eye')
     }
   })
 
@@ -144,4 +147,59 @@ document.addEventListener('turbolinks:load', function () {
     }, 1000, 'easeInOutExpo')
     e.preventDefault()
   })
+
+  if ($('#world-map').length > 0){
+    $('#world-map').vectorMap({
+      map: 'world_mill',
+      scaleColors: ['#C8EEFF', '#0071A4'],
+      normalizeFunction: 'polynomial',
+      hoverOpacity: 0.7,
+      hoverColor: false,
+      zoomOnScroll: false,
+      markerStyle: {
+        initial: {
+          fill: '#F8E23B',
+          stroke: '#383f47'
+        }
+      },
+      backgroundColor: '#1a1a1a',
+      markers: JSON.parse($('#world-map').attr('data-locations'))
+    });
+  }
+
+  $('#website_plan').on('change', function(e){
+    if($(this).val() == 'open_source'){
+      $('#instance-plan-opensource-field').removeClass('d-none')
+    }else{
+      $('#instance-plan-opensource-field').addClass('d-none')
+    }
+  })
+
+  $('.copy-to-clipboard').on('click', function(e){
+    e.preventDefault();
+
+    copyToClipboard($(this).parent().parent().find('input').val())
+
+    $(this).find('i').addClass('text-success')
+  })
+
+  const copyToClipboard = str => {
+    const el = document.createElement('textarea');  // Create a <textarea> element
+    el.value = str;                                 // Set its value to the string that you want copied
+    el.setAttribute('readonly', '');                // Make it readonly to be tamper-proof
+    el.style.position = 'absolute';                 
+    el.style.left = '-9999px';                      // Move outside the screen to make it invisible
+    document.body.appendChild(el);                  // Append the <textarea> element to the HTML document
+    const selected =            
+      document.getSelection().rangeCount > 0        // Check if there is any content selected previously
+        ? document.getSelection().getRangeAt(0)     // Store selection if found
+        : false;                                    // Mark as false to know no selection existed before
+    el.select();                                    // Select the <textarea> content
+    document.execCommand('copy');                   // Copy - only works as a result of a user action (e.g. click events)
+    document.body.removeChild(el);                  // Remove the <textarea> element
+    if (selected) {                                 // If a selection existed before copying
+      document.getSelection().removeAllRanges();    // Unselect everything on the HTML document
+      document.getSelection().addRange(selected);   // Restore the original selection
+    }
+  };  
 })

@@ -1,6 +1,15 @@
 <section>
-  <h1 class="h3 mb-2 text-gray-800">SSL</h1>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">SSL</h1>
 </section>
 <section>
-  <p>Please refer to <%= link_to 'the documentation', '/docs/platform/ssl.md' %> for further information about SSL configurations.</p>
+  <div class="row">
+    <div class="col-lg-9">
+      <p>
+        Please refer to <%= link_to 'the documentation', '/docs/platform/ssl.md' %> for further information about SSL configurations.
+      </p>   
+    </div>
+    <div class="col-lg-3">
+      <%= render 'admin/instance_settings/sidebar' %>
+    </div>    
+  </div>
 </section>

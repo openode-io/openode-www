@@ -84,24 +84,49 @@ export default {
     if (this.loading){
       return ( <Loader /> )
     }else{
-      return (
-        <div id='admin-instances' onGetInstances={this.getInstances}>
-          {error_box}
-          <section class='d-flex mb-3'>
-            <h1 class='h3 m-0 text-gray-800 flex-grow-1'>
-              Instances
-            </h1>
-            <New onInstancesUpdate={this.getInstances}/>
-          </section>
-          <section>
-            <div class='row'>
-              {this.instances.map(instance => (
-                <InstanceCard instance={instance} key={`ope-instance-${instance.id}`} onDisplayAlert={this.displayAlert} onPollInstancesStatus={this.pollInstancesStatus}/>
-              ))}
-            </div>
-          </section>
-        </div>
-      )
+      if (this.instances.length == 0){
+        return (
+          <div id='admin-instances' onGetInstances={this.getInstances}>
+            {error_box}
+            <section class='d-flex mb-3'>
+              <h1 class='h3 m-0 text-gray-800 flex-grow-1'>
+                Instances
+              </h1>
+            </section>
+            <section>
+              <div class='row'>
+                <div class="col-lg-12">
+                  <div class="text-center mt-3 mb-3">
+                    <img src="/images/undraw_no_data_qbuo.svg" width="250px" />
+                    <div class="mt-4">
+                      <New onInstancesUpdate={this.getInstances} buttonText="Create Your First Instance!" buttonSize="lg"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        )
+      }else{
+        return (
+          <div id='admin-instances' onGetInstances={this.getInstances}>
+            {error_box}
+            <section class='d-flex mb-3'>
+              <h1 class='h3 m-0 text-gray-800 flex-grow-1'>
+                Instances
+              </h1>
+              <New onInstancesUpdate={this.getInstances} buttonText="Add New" buttonSize="sm"/>
+            </section>
+            <section>
+              <div class='row'>
+                {this.instances.map(instance => (
+                  <InstanceCard instance={instance} key={`ope-instance-${instance.id}`} onDisplayAlert={this.displayAlert} onPollInstancesStatus={this.pollInstancesStatus}/>
+                ))}
+              </div>
+            </section>
+          </div>
+        )
+      }
     }
   }
 }

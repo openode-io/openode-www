@@ -6,7 +6,7 @@
 </section>
 <section class="pt-8 pt-md-11 bg-dark">
   <div class="container">    
-    <%= react_component("public/locations/Map", markers: @locations.as_json) %>  
+    <div id="world-map" data-locations="<%= @locations.as_json.to_s.gsub('=>',':') %>"></div>
   </div>
 </section>
 <section class="pt-8 pt-md-11 bg-light border-bottom p-3 p-md-5">

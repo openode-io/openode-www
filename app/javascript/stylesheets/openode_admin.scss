@@ -61,7 +61,12 @@
 
     a.toggle-instance-actions {
       cursor: pointer;
-    }    
+    }
+
+    button.dropdown-item:hover {
+      background: #363A42;
+      color: white;
+    }
   }
 }
 
@@ -98,4 +103,19 @@ textarea.dynamic-terminal {
   .newsletter-content {
     width: 350px;
   }
+}
+
+form {
+  label {
+    &.required:after{
+      color: red;
+      content: " *";
+    }
+  }
+}
+
+.vue-command {
+  background: #111;
+  color: #fff;
+  min-height: 600px;
 }
