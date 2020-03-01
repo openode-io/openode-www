@@ -10,8 +10,6 @@ export default {
     getInstances (poll=false) {      
       axios.get('/admin/instances.json')
         .then(response => {
-          console.log(response.data)
-
           this.instances = response.data
           this.updating = false
           this.loading = false
