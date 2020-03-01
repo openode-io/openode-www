@@ -59,6 +59,14 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Scheduler"
   end
 
+  def update_scheduler
+    api(:patch, "/instances/#{@instance_id}", payload: {
+          website: scheduler_params
+        })
+
+    redirect_to({ action: :scheduler }, notice: msg('message.modifications_saved'))
+  end
+
   def persistence
     add_breadcrumb "Instances",
                    admin_instances_path,
@@ -108,5 +116,9 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
   def misc_params
     params.require(:website).permit(:max_build_duration, :skip_port_check)
+  end
+
+  def scheduler_params
+    params.require(:website).permit(:crontab)
   end
 end

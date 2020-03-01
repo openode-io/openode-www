@@ -24,4 +24,27 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :found
   end
+
+  test "get scheduler page" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/settings/scheduler"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'The scheduler allows'
+  end
+
+  test "update scheduler" do
+    perform_successful_login
+
+    patch "/admin/instances/#{default_instance_id}/settings/scheduler",
+          params: {
+            website: {
+              crontab: "* * * * * ls"
+            }
+          }
+
+    assert_response :found
+  end
 end
