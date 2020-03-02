@@ -10,20 +10,10 @@ class Admin::BillingController < AdminController
                    admin_instances_path
     add_breadcrumb "Billing",
                    admin_billing_path
-    add_breadcrumb "Payment History"
+    add_breadcrumb "Payments History"
 
-    @orders = [
-      {
-        id: 12,
-        amount: "$74.10",
-        date: "Feb 28, 2020"
-      },
-      {
-        id: 8,
-        amount: "$174.35",
-        date: "Feb 20, 2020"
-      }
-    ]
+    @orders = api(:get, '/billing/orders')
+    puts "orders #{@orders.to_json}"
   end
 
   def spending

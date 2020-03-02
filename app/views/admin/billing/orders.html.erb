@@ -1,5 +1,5 @@
 <section>
-  <h1 class="h3 mb-3 text-gray-800 mt-3">Payment History</h1>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Payments History</h1>
 </section>
 <section>
   <div class="row">
@@ -18,12 +18,12 @@
               <tbody>      
               <% @orders.each do |o| %>
                 <tr>
-                  <td><%= o[:id] %></td>
+                  <td><%= o['id'] %></td>
                   <td>
-                    <%= o[:amount] %>
+                    <%= o['amount'] %>
                   </td>
                   <td>
-                    <%= o[:date] %>
+                    <%= o['created_at'] %>
                   </td>                  
                 </tr>
               <% end %>

@@ -475,7 +475,11 @@ module HttpStubs
       HttpStubs.default_patch('https://api.openode.io/instances/152',
                               { "website" => { "crontab" => "* * * * * ls" } },
                               'test/fixtures/http/openode_api/empty_object.json',
-                              logged_in_user_token)
+                              logged_in_user_token),
+      HttpStubs.default_get('https://api.openode.io/billing/orders',
+                            'test/fixtures/http/openode_api/admin/get_orders.json',
+                            logged_in_user_token)
     ]
   end
 end
+
