@@ -13,7 +13,6 @@ class Admin::BillingController < AdminController
     add_breadcrumb "Payments History"
 
     @orders = api(:get, '/billing/orders')
-    puts "orders #{@orders.to_json}"
   end
 
   def spending
