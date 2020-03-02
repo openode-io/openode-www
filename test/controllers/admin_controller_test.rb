@@ -38,7 +38,7 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
     get '/admin/billing/orders'
 
     assert_response :success
-    assert_includes response.parsed_body.to_s, 'Payment History'
+    assert_includes response.parsed_body.to_s, 'Payments History'
   end
 
   test "get admin account profile settings" do
