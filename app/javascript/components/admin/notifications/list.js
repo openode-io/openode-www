@@ -6,12 +6,15 @@ export default {
   name: 'NotificationList',
 
   methods: {
-    getNotifications () {
+    getNotifications (mount_items=false) {
       this.loading = true
 
       axios.get('/admin/notifications')
         .then(response => {
-          this.notifications = response.data.notifications
+          if (mount_items){
+            this.notifications = response.data.notifications
+          }
+          
           this.loading = false
           this.$emit('updateCount', this.notifications.length)
         })
@@ -39,7 +42,7 @@ export default {
   },
 
   mounted () {
-    this.getNotifications()
+    this.getNotifications(false)
   },
 
   render () {

@@ -12,24 +12,28 @@ export default {
   data: () => ({
     current_path: '~',
     commands: {
-      ls: () => {
-        axios.get('/data/command.json')
-        .then(response => {
-          return response.data.msg
-        })
-        .catch(err => {
-          return err.response.data
+      ls: ({ _ }) => {
+        return new Promise(resolve => {
+          axios.get('/data/command.json')
+          .then(response => {            
+            resolve(response.data.msg)
+          })          
+          .catch(err => {
+            resolve(err.response.data);
+          })
         })
       },
 
-      cd: (path) => {
-        axios.get('/data/command.json')
-        .then(response => {
-          return response.data.msg
-        })
-        .catch(err => {
-          return err.response.data
-        })
+      cd: ({ path, _ }) => {
+        return new Promise(resolve => {
+          axios.get('/data/command.json')
+          .then(response => {            
+            resolve(response.data.msg);
+          }) 
+          .catch(err => {
+            resolve(err.response.data);
+          })                   
+        })        
       }      
     }
   }),  

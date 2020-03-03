@@ -35,7 +35,6 @@ export default {
     this.markRead(false)
   },
 
-
   data () {
     return {
       status: this.notification.status,

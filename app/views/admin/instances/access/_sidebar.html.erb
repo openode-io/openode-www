@@ -11,7 +11,8 @@
       <a class="nav-link <%= params[:action].include?('console') ? 'active' : '' %>"
         href="<%= admin_instance_access_console_path(id:instance_id) %>"
         aria-controls="v-pills-console"
-        aria-selected="false"><i class="fa fa-terminal"></i> Console</a>        
+        aria-selected="false"
+        data-turbolinks="false"><i class="fa fa-terminal"></i> Console</a>        
     </div>
   </div>
 </div>
