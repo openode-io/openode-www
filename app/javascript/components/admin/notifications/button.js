@@ -6,17 +6,21 @@ export default {
 
   data () {
     return {
-      count: 0
+      count: 1
     }
   },
 
   methods: {
     updateCount (n) {
-      this.count = n 
+      this.count = n
     },
-    getNotifications() {
-      this.$refs.notificationList.getNotifications()
+    getNotifications(mark_all_read=false) {
+      this.$refs.notificationList.getNotifications(mark_all_read)
     }
+  },
+
+  mounted () {
+    this.getNotifications(false)
   },
 
   render () {
