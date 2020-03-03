@@ -13,6 +13,8 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Settings",
                    admin_instance_settings_path
     add_breadcrumb "Plan"
+
+    @plans = api(:get, '/global/available-plans')
   end
 
   def change_plan
