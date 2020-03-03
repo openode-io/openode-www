@@ -159,14 +159,11 @@ export default {
 
     if (this.form.account_type == 'open_source') {
       custom_plan_input = <div>
-                    <h4><i class="fa fa-code-branch"></i> Open Source Request</h4>
-
+                    <h5><i class="fa fa-code-branch"></i> Open Source Request</h5>
                     <hr/>
-
                     <p>This is a open source project request, please make sure to fill all fields
                     carefully as it will be reviewed, typically within 1 business day.
-                    You will receive an email once verified.</p>                  
-
+                    You will receive an email once verified.</p>
                     <b-form-group id='input-group-open-source-title' label='Project Title:' label-for='input-open-source-title'>
                       <b-form-input
                         id='input-open-source-title'
@@ -174,21 +171,14 @@ export default {
                         placeholder='Enter project name...'
                       />
                     </b-form-group>
-
-                    <div class="form-label-group mb-2">
-                      <%= form.label :open_source_repository, 'Repository (e.g.: github, gitlab, etc.)' %>
-                      <%= form.text_field :open_source_repository, class: "form-control" %>
-                    </div>
-
-                    <b-form-group id='input-group-open-source-repository' label='Repository:' label-for='input-open-source-repository'>
+                    <b-form-group id='input-group-open-source-repository' label='Repository URL(github, gitlab, etc):' label-for='input-open-source-repository'>
                       <b-form-input
                         id='input-open-source-repository'
                         v-model={this.form.open_source_repository}
                         placeholder='Enter project repository...'
                       />
-                    </b-form-group>                
-
-                    <b-form-group id='input-group-open-source-repository' label='Repository:' label-for='input-open-source-repository'>
+                    </b-form-group>
+                    <b-form-group id='input-group-open-source-repository' label='Description:' label-for='input-open-source-description'>
                       <b-form-textarea
                         id='input-open-source-description'
                         v-model={this.form.open_source_description}
