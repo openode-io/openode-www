@@ -1,5 +1,4 @@
 class Admin::BillingController < AdminController
-
   before_action :set_order, only: [:index, :orders]
 
   def index
@@ -48,6 +47,6 @@ class Admin::BillingController < AdminController
         amount: "$174.35",
         date: "Feb 20, 2020"
       }
-    ]    
+    ]
   end
 end
