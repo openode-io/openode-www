@@ -34,13 +34,12 @@ class Admin::CollaboratorsController < Admin::InstancesController
     add_breadcrumb "Collaborators",
                    admin_instance_collaborators_path,
                    title: "Collaborators"
-    add_breadcrumb "Collaborator"        
-    
-    @collaborator_instance
-    
+    add_breadcrumb "Collaborator"
+
+    @collaborator_instance = {}
     @permissions = make_lister_selection(
       %w[root deploy dns alias storage_area location plan config]
-    )     
+    )
   end
 
   def create

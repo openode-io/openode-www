@@ -32,6 +32,6 @@ class Admin::AccountController < AdminController
   def profile
     add_breadcrumb "Account",
                    admin_account_path
-    add_breadcrumb "Profile"    
+    add_breadcrumb "Profile"
   end
 end
