@@ -3,6 +3,9 @@ class Admin::AccountController < AdminController
     add_breadcrumb "Account",
                    admin_account_path
     add_breadcrumb "Profile"
+
+    # If nothing to show on index, then redirect to profile as default page
+    redirect_to admin_account_profile_path
   end
 
   def account_api

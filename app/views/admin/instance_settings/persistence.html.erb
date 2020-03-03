@@ -1,34 +1,39 @@
 <section>
   <h1 class="h3 mb-3 text-gray-800 mt-3">Persistence</h1>
-
-  <p>some description</p>
 </section>
-
+<section>
+  <div class="row"> 
+    <div class="col-lg-12 mb-3">
+      <p>some description</p>
+    </div>  
+  </div>
+</section>
 <section>
   <div class="row">
     <div class="col-lg-9">
-    <h4><i class="fa fa-edit"></i> Size</h4>
 
+    <h4><i class="fa fa-edit"></i> Size</h4>
+    
     <%= form_for :persitence,
       { url: "", method: :patch } do |form| %>
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-lg-9 col-md-9 col-sm-12 col-12">
               <div class="form-group mb-2">
                 <p class="alert alert-info">Note: Can only be increased</p>
 
                 <div class="form-label-group mb-2">
                   <%= form.label :amountGb, 'Persistence size (GB)' %>
-                  <%= form.number_field :amountGb, class: 'form-control' %>
-                  
-                  <%= link_to 'Destroy', '/',
-                        class: 'btn btn-outline-critical mt-2',
-                        method: :delete,
-                        data: { confirm: "Are you sure?" } %>
+                  <%= form.number_field :amountGb, class: 'form-control' %>                
                 </div>
-
               </div>
+            </div>
+            <div class="col-lg-3">
+              <%= link_to 'Destroy', '/',
+                    class: 'btn btn-outline-critical w-100',
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>            
             </div>
           </div>    
         </div>

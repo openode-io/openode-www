@@ -4,7 +4,7 @@
       <a class="nav-link <%= params[:action].include?('spending') ? 'active' : '' %>"
         href="/admin/billing/spending"
         aria-selected="true"><i class="fa fa-chart-line"></i> Spending</a>
-      <a class="nav-link <%= params[:action].include?('orders') ? 'active' : '' %>"
+      <a class="nav-link <%= params[:action].match(/orders|index/) ? 'active' : '' %>"
         href="/admin/billing/orders"
         aria-controls="v-pills-activity"
         aria-selected="false"><i class="fa fa-file-invoice"></i> Payment History</a>

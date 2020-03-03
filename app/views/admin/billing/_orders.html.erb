@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-body">    
+    <div class="table-responsive mb-0">
+      <table class="table table-sm table-bordered" id="super-admin-orders">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>      
+        <% @orders.each do |o| %>
+          <tr>
+            <td><%= o[:id] %></td>
+            <td>
+              <%= number_to_currency(o[:amount].to_f) %>
+            </td>
+            <td>
+              <%= o[:date] %>
+            </td>                  
+          </tr>
+        <% end %>
+        </tbody>
+      </table>           
+    </div>
+  </div>
+</div>      

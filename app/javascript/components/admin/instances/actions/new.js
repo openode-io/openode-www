@@ -18,6 +18,9 @@ export default {
         site_name: '',
         account_type: 'free',
         location: 'canada',
+        open_source_description: '',
+        open_source_repository: '',
+        open_source_title: ''
 
       },
       plans: [],
@@ -143,6 +146,7 @@ export default {
 
   render () {
     let custom_domain_input = null
+    let custom_plan_input = null
     let error_box = null
 
     if (this.form.domain_type == 'custom') {
@@ -152,6 +156,47 @@ export default {
         </p>
       </div>
     }
+
+    if (this.form.account_type == 'open_source') {
+      custom_plan_input = <div>
+                    <h4><i class="fa fa-code-branch"></i> Open Source Request</h4>
+
+                    <hr/>
+
+                    <p>This is a open source project request, please make sure to fill all fields
+                    carefully as it will be reviewed, typically within 1 business day.
+                    You will receive an email once verified.</p>                  
+
+                    <b-form-group id='input-group-open-source-title' label='Project Title:' label-for='input-open-source-title'>
+                      <b-form-input
+                        id='input-open-source-title'
+                        v-model={this.form.open_source_title}
+                        placeholder='Enter project name...'
+                      />
+                    </b-form-group>
+
+                    <div class="form-label-group mb-2">
+                      <%= form.label :open_source_repository, 'Repository (e.g.: github, gitlab, etc.)' %>
+                      <%= form.text_field :open_source_repository, class: "form-control" %>
+                    </div>
+
+                    <b-form-group id='input-group-open-source-repository' label='Repository:' label-for='input-open-source-repository'>
+                      <b-form-input
+                        id='input-open-source-repository'
+                        v-model={this.form.open_source_repository}
+                        placeholder='Enter project repository...'
+                      />
+                    </b-form-group>                
+
+                    <b-form-group id='input-group-open-source-repository' label='Repository:' label-for='input-open-source-repository'>
+                      <b-form-textarea
+                        id='input-open-source-description'
+                        v-model={this.form.open_source_description}
+                        placeholder='Enter project description...'
+                      />
+                    </b-form-group>       
+      </div>
+    }    
 
     if (this.error) {
       error_box = <b-alert variant="warning" show dismissible>
@@ -206,6 +251,8 @@ export default {
                 required
               />
             </b-form-group>
+            
+            {custom_plan_input}
 
             <b-button type='submit' variant='success' block={true} disabled={this.button.disabled}>{this.button.text}</b-button>
           </b-form>

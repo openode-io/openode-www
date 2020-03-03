@@ -13,7 +13,7 @@ export default {
     current_path: '~',
     commands: {
       ls: () => {
-        axios.get('/data/command.json', {path: this.current_path})
+        axios.get('/data/command.json')
         .then(response => {
           return response.data.msg
         })
@@ -25,8 +25,6 @@ export default {
       cd: (path) => {
         axios.get('/data/command.json')
         .then(response => {
-          this.current_path = path
-
           return response.data.msg
         })
         .catch(err => {
@@ -34,7 +32,7 @@ export default {
         })
       }      
     }
-  }),
+  }),  
 
   render() {
     return (
