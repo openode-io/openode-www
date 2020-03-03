@@ -9,7 +9,7 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="form-group mb-2">
                   <div class="form-label-group mb-2">
                     <%= form.label :max_deployment_duration, 'Maximum deployment duration (seconds) - max = 600 seconds', class: 'required' %>
@@ -21,7 +21,7 @@
                       Uncheck this field if you want to skip port verification <i class="fa fa-arrow-down"></i>
                     </p>
                     <%= form.check_box :enabled_port_verification %>
-                    <%= form.label :enabled_port_verification, 'Port verification enabled', class: 'required' %>                    
+                    <%= form.label :enabled_port_verification, 'Port verification enabled' %>                    
                   </div>
 
                   <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>          

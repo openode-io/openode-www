@@ -10,6 +10,11 @@
     </a>
   </div>    
   <ul class="navbar-nav ml-auto">
+    <% if @doc_link.present? %>
+      <li class="nav-item no-arrow mx-1">
+        <%= render 'generic/doc_link', doc_link: @doc_link %>
+      <li class="nav-item no-arrow mx-1">
+    <% end %>
     <li class="nav-item dropdown no-arrow mx-1">
       <%= render 'layouts/admin/notifications', notifications: @notifications %>
     </li>

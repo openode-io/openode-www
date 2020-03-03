@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-body">
     <div class="nav flex-column nav-pills" aria-orientation="vertical">
-      <a class="nav-link <%= params[:action].include?('plan') ? 'active' : '' %>"
+      <a class="nav-link <%= params[:action].match(/plan|index/) ? 'active' : '' %>"
         href="<%= "#{instance_settings_to(@instance_id)}plan" %>"
         aria-selected="true"><i class="fa fa-credit-card"></i> Change Plan</a>
       <a class="nav-link <%= params[:action].include?('aliases') ? 'active' : '' %>"
