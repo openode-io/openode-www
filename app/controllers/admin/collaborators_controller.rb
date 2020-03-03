@@ -27,6 +27,22 @@ class Admin::CollaboratorsController < Admin::InstancesController
     )
   end
 
+  def edit
+    add_breadcrumb "Instances",
+                   admin_instances_path,
+                   title: "Instances"
+    add_breadcrumb "Collaborators",
+                   admin_instance_collaborators_path,
+                   title: "Collaborators"
+    add_breadcrumb "Collaborator"        
+    
+    @collaborator_instance
+    
+    @permissions = make_lister_selection(
+      %w[root deploy dns alias storage_area location plan config]
+    )     
+  end
+
   def create
     api(:post, "/instances/#{@instance_id}/collaborators",
         payload: { collaborator: collaborator_params })

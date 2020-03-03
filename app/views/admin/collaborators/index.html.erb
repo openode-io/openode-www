@@ -36,6 +36,7 @@
                   <td>
                     <div class="d-flex">
                       <%= link_to 'View', '/admin', class: 'flex-fill btn btn-sm btn-outline-dark' %>
+                      <%= link_to 'Edit', admin_instance_collaborator_edit_path(id: @instance_id, collaborator_id: collaborator[:id]), class: 'flex-fill btn btn-sm btn-outline-dark ml-2' %>
                       <%= link_to 'Delete', admin_instance_collaborator_delete_path(id: @instance_id, collaborator_id: collaborator[:id]),
                             class: 'flex-fill ml-2 btn btn-sm btn-outline-critical',
                             method: :delete,

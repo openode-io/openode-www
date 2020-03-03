@@ -8,10 +8,13 @@ export default {
   },
 
   methods: {
-    markRead () {
+    markRead (remove_from_list=false) {
       this.updating = true
-      this.visibility = 'd-sm-none'
-      this.$emit('updateNotifications',this.notification.id)
+
+      if (remove_from_list) {
+        this.visibility = 'd-sm-none'
+        this.$emit('updateNotifications',this.notification.id)
+      }
 
       axios.post(`/admin/notifications/${this.notification.id}/mark_read.json`)
         .then(response => {
@@ -28,6 +31,11 @@ export default {
     }
   },
 
+  mounted () {
+    this.markRead(false)
+  },
+
+
   data () {
     return {
       status: this.notification.status,
@@ -38,7 +46,7 @@ export default {
 
   render () {
     return (
-      <a class={`dropdown-item d-flex align-items-center ${this.visibility}`} href="#" on-click:stop={this.markRead}>
+      <a class={`dropdown-item d-flex align-items-center ${this.visibility}`} href="#" on-click:stop={this.markRead(true)}>
         <div class="mr-3">
           <div class={`icon-circle bg-${this.notification.level}`}>
             <i class={`fas fa-${this.notification.icon} text-white`}></i>
