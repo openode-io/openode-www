@@ -105,7 +105,6 @@ Rails.application.routes.draw do
     get 'notifications', to: 'notifications#index'
     get 'notifications/latest', to: 'notifications#latest'
     post 'notifications/:id/mark_read', to: 'notifications#mark_read'
-    post 'notifications/mark_viewed', to: 'notifications#mark_viewed'
 
     get 'account/api', to: 'account#account_api'
   end

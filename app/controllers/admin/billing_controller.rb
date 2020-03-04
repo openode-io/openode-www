@@ -1,8 +1,6 @@
 class Admin::BillingController < AdminController
   def index
-    add_breadcrumb "Home",
-                   admin_instances_path
-    add_breadcrumb "Billing"
+    redirect_to({ action: :orders })
   end
 
   def orders
@@ -31,6 +29,5 @@ class Admin::BillingController < AdminController
     add_breadcrumb "New Payment"
 
     @cryptos = %w[bitcoin ether ripple bitcoin-cash]
-    
   end
 end

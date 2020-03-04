@@ -12,12 +12,12 @@
         <tbody>      
         <% orders.each do |o| %>
           <tr>
-            <td><%= o[:id] %></td>
+            <td><%= o['id'] %></td>
             <td>
-              <%= number_to_currency(o[:amount].to_f) %>
+              <%= number_to_currency(o['amount'].to_f) %>
             </td>
             <td>
-              <%= o[:date] %>
+              <%= o['date'] %>
             </td>                  
           </tr>
         <% end %>
