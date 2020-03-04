@@ -5,12 +5,11 @@ class Admin::InstancesController < AdminController
   before_action do
     if params['id']
       @instance_id = params['id']
+      @website = OpenStruct.new(api(:get, "/instances/#{@instance_id}"))
     end
   end
 
   def index
-    @tips = "This is the instances page, where you can see your instances."
-
     respond_to do |format|
       format.html
       format.json { render json: instances_summary }
@@ -75,6 +74,10 @@ class Admin::InstancesController < AdminController
     add_breadcrumb "Activity Stream",
                    admin_instance_access_activity_stream_path,
                    title: "Activity Stream"
+    # -
+  end
+
+  def credits
     # -
   end
 

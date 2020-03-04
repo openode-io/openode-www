@@ -60,6 +60,11 @@ export default {
   },
 
   render () {
+    if (this.instance.status.message !== 'offline') {
+      // can deploy only if offline
+      return ''
+    }
+
     return (
       <button type='button' class='dropdown-item' onClick={this.deployInstance} disabled={this.button.disabled}>{this.button.text}</button>
     )

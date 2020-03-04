@@ -48,6 +48,15 @@ Style/GuardClause:
 Style/SymbolArray:
   Enabled: false
 
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashTransformKeys:
+  Enabled: false
+
+Style/HashTransformValues:
+  Enabled: false
+
 Rails/BulkChangeTable:
   Enabled: false
 

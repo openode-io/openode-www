@@ -32,6 +32,16 @@ export default {
   },
 
   render () {
+
+    /* to put back credits
+  <a href={`/admin/instances/${this.instance.id}/credits`} class='btn btn-sm btn-outline-secondary position-relative'>
+                <i class='fa fa-coins' /> Credits
+                <span class='badge badge-info badge-counter'>
+                  {this.instance.credits}
+                </span>
+              </a>
+    */
+    console.log(`instance ${this.instance.status}`)
     return (
       <div class='col-lg-4 col-sm-6 mb-4'>
         <div class={`card card-instance-details border-${this.status.level}`}>
@@ -57,7 +67,9 @@ export default {
                   aria-labelledby={`openode-instance-${this.instance.id}`}
                 >
                   <Deploy instance={this.instance} onUpdateStatus={this.updateStatus} onDisplayAlert={this.displayAlert} />
+
                   <Stop instance={this.instance} onUpdateStatus={this.updateStatus} onDisplayAlert={this.displayAlert} />
+
                   <div class='dropdown-divider' />
                   <Delete instance={this.instance} onUpdateStatus={this.updateStatus} onDisplayAlert={this.displayAlert} />
                 </div>
@@ -91,12 +103,7 @@ export default {
               <a href={`/admin/instances/${this.instance.id}/access`} class='btn btn-sm btn-outline-secondary'>
                 <i class='fa fa-terminal' /> Access
               </a>
-              <a href={`/admin/instances/${this.instance.id}/credits`} class='btn btn-sm btn-outline-secondary position-relative'>
-                <i class='fa fa-coins' /> Credits
-                <span class='badge badge-info badge-counter'>
-                  {this.instance.credits}
-                </span>
-              </a>
+              
             </div>
           </div>
         </div>

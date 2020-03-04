@@ -23,6 +23,9 @@ class AdminController < ApplicationController
   end
 
   def set_menu
+    # to set a tips per action:
+    # @tips = "This is the instances page, where you can see your instances."
+
     @section = 'admin'
     @menu = [
       {
