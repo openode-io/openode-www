@@ -13,6 +13,8 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Settings",
                    admin_instance_settings_path
     add_breadcrumb "Plan"
+
+    @plans = api(:get, '/global/available-plans')
   end
 
   def change_plan
@@ -59,6 +61,14 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Scheduler"
   end
 
+  def update_scheduler
+    api(:patch, "/instances/#{@instance_id}", payload: {
+          website: scheduler_params
+        })
+
+    redirect_to({ action: :scheduler }, notice: msg('message.modifications_saved'))
+  end
+
   def persistence
     add_breadcrumb "Instances",
                    admin_instances_path,
@@ -84,5 +94,33 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Settings",
                    admin_instance_settings_path
     add_breadcrumb "Misc"
+
+    @website.max_build_duration = @website.configs['MAX_BUILD_DURATION'] || 100
+    @website.skip_port_check = @website.configs['SKIP_PORT_CHECK']
+  end
+
+  def update_misc
+    params_to_update = misc_params
+
+    api(:post, "/instances/#{@instance_id}/set-config", payload: {
+          variable: 'MAX_BUILD_DURATION', value: params_to_update['max_build_duration']
+        })
+
+    api(:post, "/instances/#{@instance_id}/set-config", payload: {
+          variable: 'SKIP_PORT_CHECK',
+          value: ["true", "1", true, 1].include?(params_to_update['skip_port_check'])
+        })
+
+    redirect_to({ action: :misc }, notice: msg('message.modifications_saved'))
+  end
+
+  protected
+
+  def misc_params
+    params.require(:website).permit(:max_build_duration, :skip_port_check)
+  end
+
+  def scheduler_params
+    params.require(:website).permit(:crontab)
   end
 end

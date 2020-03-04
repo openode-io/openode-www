@@ -78,16 +78,6 @@ export default {
           this.$emit('instancesUpdate')
         })
         .catch(err => {
-          if (err.response) {
-            console.log(err.response.data);
-            console.log(err.response.status);
-            console.log(err.response.headers);
-          } else if (error.request) {
-            console.log(error.request);
-          } else {
-            console.log('Error', error.message);
-          }
-
           this.error = err.response.data.error
 
           this.button = {

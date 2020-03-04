@@ -30,6 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  message:
+    modifications_saved: 'The modifications have been saved successfully!'
   number:
     human:
       decimal_units:

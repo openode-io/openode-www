@@ -43,4 +43,8 @@ class ActiveSupport::TestCase
     post "/sessions",
          params: { email: "superadmin@openode.io", password: "1234561!" }
   end
+
+  def default_instance_id
+    152
+  end
 end

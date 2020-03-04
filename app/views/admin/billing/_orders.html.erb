@@ -12,12 +12,16 @@
         <tbody>      
         <% orders.each do |o| %>
           <tr>
-            <td><%= o[:id] %></td>
+            <td><%= o['id'] %></td>
             <td>
-              <%= number_to_currency(o[:amount].to_f) %>
+              <%= number_to_currency(o['amount'].to_f) %>
             </td>
             <td>
+<<<<<<< HEAD
               <%= time_ago_in_words(o[:date]) %> ago
+=======
+              <%= o['date'] %>
+>>>>>>> f74595e58338a97c0a24606cab59d2f17e2ec273
             </td>                  
           </tr>
         <% end %>
