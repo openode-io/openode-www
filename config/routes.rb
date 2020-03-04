@@ -100,6 +100,10 @@ Rails.application.routes.draw do
     post 'notifications/mark_viewed', to: 'notifications#mark_viewed'
 
     get 'account/api', to: 'account#account_api'
+
+    get '/commands/ln'
+    get '/commands/ls'
+    get '/commands/cd'    
   end
 
   namespace :super_admin do
@@ -120,9 +124,5 @@ Rails.application.routes.draw do
     get '/newsletters/new', to: 'newsletters#new'
     post '/newsletters', to: 'newsletters#create'
     post '/newsletters/:id/deliver', to: 'newsletters#deliver'
-
-    get '/commands/ln'
-    get '/commands/ls'
-    get '/commands/cd'
   end
 end
