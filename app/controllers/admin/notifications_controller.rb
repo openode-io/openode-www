@@ -1,7 +1,5 @@
 class Admin::NotificationsController < AdminController
-  skip_before_action only: [:index, :mark_read] do
-    verify_authenticity_token
-  end
+  skip_forgery_protection only: [:index, :mark_read]
 
   def index
     notifications = api(:get, '/notifications/?limit=5')
