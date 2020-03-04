@@ -14,7 +14,7 @@ export default {
     commands: {
       ls: ({ _ }) => {
         return new Promise(resolve => {
-          axios.get('/data/command.json')
+          axios.get('/admin/commands/ls', {params: {arguments: "${_.join(' ')}"}})
           .then(response => {            
             resolve(response.data.msg)
           })          
@@ -26,7 +26,7 @@ export default {
 
       cd: ({ path, _ }) => {
         return new Promise(resolve => {
-          axios.get('/data/command.json')
+          axios.get('/admin/commands/cd', {params: {arguments: "${_.join(' ')}"}})
           .then(response => {            
             resolve(response.data.msg);
           }) 
@@ -34,6 +34,22 @@ export default {
             resolve(err.response.data);
           })                   
         })        
+      },
+      
+      df: ({ _ }) => {
+        return new Promise(resolve => {
+          axios.get('/admin/commands/df', {params: {arguments: "${_.join(' ')}"}})
+          .then(response => {
+            resolve(response.data.msg);
+          })
+          .catch(err => {
+            resolve(err.response.data);
+          })                   
+        })        
+      },
+      
+      echo: ({ text }) => {
+        return text
       }      
     }
   }),  
