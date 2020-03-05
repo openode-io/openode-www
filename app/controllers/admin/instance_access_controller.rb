@@ -39,5 +39,5 @@ class Admin::InstanceAccessController < Admin::InstancesController
 
   def cmd
     render json: { msg: "#{params[:cmd]} ran OK." }
-  end  
+  end
 end
