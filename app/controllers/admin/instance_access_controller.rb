@@ -12,8 +12,6 @@ class Admin::InstanceAccessController < Admin::InstancesController
                    title: "Deployments"
     # -
     @deployments = api(:get, "/instances/#{@instance_id}/executions/list/Deployment")
-
-    puts "@deployments #{@deployments.to_json}"
   end
 
   def activity_stream
