@@ -18,4 +18,15 @@ module AdminHelper
   def account_to
     "/admin/account/"
   end
+
+  def deployment_status_to_level(status)
+    case status
+    when 'success'
+      'success'
+    when 'failed'
+      'danger'
+    else
+      ''
+    end
+  end
 end

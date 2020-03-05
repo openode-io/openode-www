@@ -95,6 +95,9 @@ Rails.application.routes.draw do
 
     get 'instances/:id/logs', to: 'instances#logs'
     
+    get 'instances/:id/access/',
+      to: 'instance_access#index',
+      as: :instance_access_index
     get 'instances/:id/access/deployments',
       to: 'instance_access#deployments',
       as: :instance_access_deployments

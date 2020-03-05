@@ -1,5 +1,6 @@
 class Admin::InstanceAccessController < Admin::InstancesController
   def index
+    redirect_to({ action: :deployments })
   end
 
   def deployments
@@ -10,7 +11,9 @@ class Admin::InstanceAccessController < Admin::InstancesController
                    admin_instance_access_deployments_path,
                    title: "Deployments"
     # -
-    @deployments = []
+    @deployments = api(:get, "/instances/#{@instance_id}/executions/list/Deployment")
+
+    puts "@deployments #{@deployments.to_json}"
   end
 
   def activity_stream

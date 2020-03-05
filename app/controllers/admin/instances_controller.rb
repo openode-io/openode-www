@@ -24,16 +24,6 @@ class Admin::InstancesController < AdminController
     json(api(:get, "/global/available-locations?type=#{params['type']}"))
   end
 
-  def access
-    add_breadcrumb "instances",
-                   admin_instances_path,
-                   title: "Instances"
-    add_breadcrumb "Access",
-                   admin_instance_access_path,
-                   title: "Access"
-    # -
-  end
-
   def collaborators
     # -
   end

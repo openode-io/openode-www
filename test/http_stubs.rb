@@ -478,6 +478,9 @@ module HttpStubs
                               logged_in_user_token),
       HttpStubs.default_get('https://api.openode.io/billing/orders',
                             'test/fixtures/http/openode_api/admin/get_orders.json',
+                            logged_in_user_token),
+      HttpStubs.default_get('https://api.openode.io/instances/152/executions/list/Deployment',
+                            'test/fixtures/http/openode_api/admin/get_deployments.json',
                             logged_in_user_token)
     ]
   end
