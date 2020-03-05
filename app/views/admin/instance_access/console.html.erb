@@ -4,7 +4,9 @@
 <section>
   <div class="row">
     <div class="col-lg-9">
-      <%= render 'admin/instances/access/console', instance_id: params[:id] %>
+      <div id="openode-terminal-console" data-instance-id="<%= @website['site_name'] %>">
+        <div class="vue-command" data-props="<%= {instance: {id: @website['site_name']}}.to_json %>">Loading...</div>
+      </div>
     </div>
     <div class="col-lg-3">
       <%= render 'admin/instances/access/sidebar', instance_id: params[:id] %>

@@ -95,10 +95,15 @@ Rails.application.routes.draw do
 
     get 'instances/:id/logs', to: 'instances#logs'
     
-    get 'instances/:id/access', to: 'instances#access', as: :instance_access
-    get 'instances/:id/access/deployments', to: 'instances#deployments', as: :instance_access_deployments
-    get 'instances/:id/access/console', to: 'instances#console', as: :instance_access_console
-    get 'instances/:id/access/activity_stream', to: 'instances#activity_stream', as: :instance_access_activity_stream
+    get 'instances/:id/access/deployments',
+      to: 'instance_access#deployments',
+      as: :instance_access_deployments
+    get 'instances/:id/access/console',
+      to: 'instance_access#console',
+      as: :instance_access_console
+    get 'instances/:id/access/activity_stream',
+      to: 'instance_access#activity_stream',
+      as: :instance_access_activity_stream
 
     get 'instances/:id/credits', to: 'instances#credits', as: :instance_credits
 
