@@ -17,7 +17,7 @@
               <%= number_to_currency(o['amount'].to_f) %>
             </td>
             <td>
-              <%= o['date'] %>
+              <%= time_ago_in_words(o['date']) if o['date'] %> ago
             </td>                  
           </tr>
         <% end %>

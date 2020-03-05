@@ -47,9 +47,7 @@ export default {
     return (
       <a class={`dropdown-item d-flex align-items-center ${this.visibility}`} href="#" on-click:stop={this.markRead(true)}>
         <div class="mr-3">
-          <div class={`icon-circle bg-${this.notification.level}`}>
-            <i class={`fas fa-${this.notification.icon} text-white`}></i>
-          </div>
+        <i class={`fas fa-circle fa-2x text-${this.notification.level}`}></i>
         </div>
         <div>
           <div class="small text-gray-500">{this.notification.date}</div>

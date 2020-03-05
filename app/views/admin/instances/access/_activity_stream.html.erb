@@ -10,7 +10,7 @@
                   <i class="fa fa-clock"></i> <b><%= activity.user %></b> <%= activity.message %>
                 </div>
                 <div class='col-lg-2 col-sm-2text-right'>
-                  <i class="fa fa-calendar"></i> <%= activity.date %>
+                  <i class="fa fa-clock"></i> <%= time_ago_in_words(activity.date) %> ago
                 </div>
               </div>
             </div>

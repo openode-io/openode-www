@@ -107,6 +107,10 @@ Rails.application.routes.draw do
     post 'notifications/:id/mark_read', to: 'notifications#mark_read'
 
     get 'account/api', to: 'account#account_api'
+
+    get '/commands/ln'
+    get '/commands/ls'
+    get '/commands/cd'    
   end
 
   namespace :super_admin do

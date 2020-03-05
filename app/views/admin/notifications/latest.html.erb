@@ -24,7 +24,7 @@
                   <td><%= notification['level'] %></td>
                   <td><%= notification['content'] %></td>
                   <td><%= notification['website_id'] %></td>
-                  <td><%= notification['created_at'] %></td>
+                  <td><%= time_ago_in_words(notification['created_at'])%> ago</td>
                 </tr>
               <% end %>     
               </tbody>
