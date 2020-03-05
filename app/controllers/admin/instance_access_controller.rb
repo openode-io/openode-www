@@ -36,4 +36,8 @@ class Admin::InstanceAccessController < Admin::InstancesController
 
     @website = get_website
   end
+
+  def cmd
+    render json: { msg: "#{params[:cmd]} ran OK." }
+  end  
 end

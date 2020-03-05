@@ -4,8 +4,8 @@
 <section>
   <div class="row">
     <div class="col-lg-9">
-      <div id="openode-terminal-console" data-instance-id="<%= @website['site_name'] %>">
-        <div class="vue-command" data-props="<%= {instance: {id: @website['site_name']}}.to_json %>">Loading...</div>
+      <div id="openode-terminal-console" data-instance-id="<%= @instance_id %>">
+        <div class="vue-command" data-props="<%= {instance: {id: @instance_id, name: @website['site_name']}}.to_json %>">Loading...</div>
       </div>
     </div>
     <div class="col-lg-3">

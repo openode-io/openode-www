@@ -107,6 +107,9 @@ Rails.application.routes.draw do
     get 'instances/:id/access/activity_stream',
       to: 'instance_access#activity_stream',
       as: :instance_access_activity_stream
+    get 'instances/:id/access/cmd',
+      to: 'instance_access#cmd',
+      as: :instance_access_cmd      
 
     get 'instances/:id/credits', to: 'instances#credits', as: :instance_credits
 
@@ -115,10 +118,6 @@ Rails.application.routes.draw do
     post 'notifications/:id/mark_read', to: 'notifications#mark_read'
 
     get 'account/api', to: 'account#account_api'
-
-    get '/commands/ln'
-    get '/commands/ls'
-    get '/commands/cd'    
   end
 
   namespace :super_admin do
