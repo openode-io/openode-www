@@ -487,7 +487,11 @@ module HttpStubs
                             logged_in_user_token),
       HttpStubs.default_get('https://api.openode.io/instances/152/events/150',
                             'test/fixtures/http/openode_api/admin/get_event.json',
-                            logged_in_user_token)
+                            logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/account/regenerate-token',
+                             {},
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token)
     ]
   end
 end

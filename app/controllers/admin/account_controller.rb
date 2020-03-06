@@ -24,9 +24,18 @@ class Admin::AccountController < AdminController
     add_breadcrumb "Account",
                    admin_account_path
     add_breadcrumb "API & CLI"
+
+    @token = session[:token]
   end
 
   def regenerate_token
+    result = api(:post, "/account/regenerate-token")
+
+    token = result['token']
+    user = api(:get, "/account/me", token: token)
+    set_session(token, user)
+
+    redirect_to action: :api_access
   end
 
   def profile
