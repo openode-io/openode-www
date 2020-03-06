@@ -481,6 +481,12 @@ module HttpStubs
                             logged_in_user_token),
       HttpStubs.default_get('https://api.openode.io/instances/152/executions/list/Deployment',
                             'test/fixtures/http/openode_api/admin/get_deployments.json',
+                            logged_in_user_token),
+      HttpStubs.default_get('https://api.openode.io/instances/152/events',
+                            'test/fixtures/http/openode_api/admin/get_act_stream.json',
+                            logged_in_user_token),
+      HttpStubs.default_get('https://api.openode.io/instances/152/events/150',
+                            'test/fixtures/http/openode_api/admin/get_event.json',
                             logged_in_user_token)
     ]
   end
