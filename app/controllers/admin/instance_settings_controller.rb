@@ -1,15 +1,16 @@
 class Admin::InstanceSettingsController < Admin::InstancesController
-  def index
+
+  before_action do
     add_breadcrumb "Instances",
                    admin_instances_path,
                    title: "Instances"
+  end
+
+  def index
     add_breadcrumb "Settings"
   end
 
   def plan
-    add_breadcrumb "Instances",
-                   admin_instances_path,
-                   title: "Instances"
     add_breadcrumb "Settings",
                    admin_instance_settings_path
     add_breadcrumb "Plan"
@@ -22,9 +23,6 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
   # DNS and aliases
   def dns_and_aliases
-    add_breadcrumb "Instances",
-                   admin_instances_path,
-                   title: "Instances"
     add_breadcrumb "Settings",
                    admin_instance_settings_path
     add_breadcrumb "DNS & Aliases"
@@ -44,18 +42,12 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   end
 
   def ssl
-    add_breadcrumb "Instances",
-                   admin_instances_path,
-                   title: "Instances"
     add_breadcrumb "Settings",
                    admin_instance_settings_path
     add_breadcrumb "SSL"
   end
 
   def scheduler
-    add_breadcrumb "Instances",
-                   admin_instances_path,
-                   title: "Instances"
     add_breadcrumb "Settings",
                    admin_instance_settings_path
     add_breadcrumb "Scheduler"
@@ -70,9 +62,6 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   end
 
   def persistence
-    add_breadcrumb "Instances",
-                   admin_instances_path,
-                   title: "Instances"
     add_breadcrumb "Settings",
                    admin_instance_settings_path
     add_breadcrumb "Persistence"
@@ -85,6 +74,12 @@ class Admin::InstanceSettingsController < Admin::InstancesController
         path: '/path/to/volume/2'
       }
     ]
+  end
+
+  def destroy_persistence
+    api(:post, "/instances/#{@instance_id}/destroy-storage")
+
+    redirect_to({ action: :persistence }, notice: msg('message.modifications_saved'))
   end
 
   def misc

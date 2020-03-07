@@ -491,7 +491,12 @@ module HttpStubs
       HttpStubs.default_post('https://api.openode.io/account/regenerate-token',
                              {},
                              'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/destroy-storage',
+                             {},
+                             'test/fixtures/http/openode_api/empty_object.json',
                              logged_in_user_token)
     ]
   end
 end
+

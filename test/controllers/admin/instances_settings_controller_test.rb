@@ -47,4 +47,22 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :found
   end
+
+  test "get persistence" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/settings/persistence"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Storage Area'
+  end
+
+  test "destroy persistence" do
+    perform_successful_login
+
+    delete "/admin/instances/#{default_instance_id}/settings/persistence"
+
+    assert_response :found
+  end
 end

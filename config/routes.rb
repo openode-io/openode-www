@@ -77,7 +77,13 @@ Rails.application.routes.draw do
       as: :instance_settings_scheduler
     patch 'instances/:id/settings/scheduler',
       to: 'instance_settings#update_scheduler'
-    get 'instances/:id/settings/persistence', to: 'instance_settings#persistence', as: :instance_settings_persistence
+
+    # persistence
+    get 'instances/:id/settings/persistence',
+      to: 'instance_settings#persistence',
+      as: :instance_settings_persistence
+    delete 'instances/:id/settings/persistence', to: 'instance_settings#destroy_persistence'
+
     get 'instances/:id/settings/misc', to: 'instance_settings#misc', as: :instance_settings_misc
     patch 'instances/:id/settings/misc',
       to: 'instance_settings#update_misc',

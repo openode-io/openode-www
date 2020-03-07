@@ -17,7 +17,7 @@
       <div class="card">
         <div class="card-header">
           <h4 class="title float-left mb-0"><i class="fa fa-edit"></i> Size</h4>
-          <%= link_to 'Destroy', '/',
+          <%= link_to 'Destroy', "#{instance_settings_to(@instance_id)}persistence",
                 class: 'btn btn-outline-critical float-right',
                 method: :delete,
                 data: { confirm: "Are you sure?" } %>              
@@ -34,7 +34,7 @@
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-12 col-12">
-            <%= link_to 'Save', '#{instance_settings_to(@instance_id)}size',
+            <%= link_to 'Save', "#{instance_settings_to(@instance_id)}size",
                   class: 'btn btn-outline-success w-100',
                   method: :patch,
                   data: { confirm: "Are you sure?" } %>             
