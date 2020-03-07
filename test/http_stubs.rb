@@ -519,7 +519,18 @@ module HttpStubs
                                 }
                               },
                               'test/fixtures/http/openode_api/empty_object.json',
-                              logged_in_user_token)
+                              logged_in_user_token),
+      HttpStubs.default_get('https://api.openode.io/instances/',
+                            'test/fixtures/http/openode_api/admin/get_instances.json',
+                            logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/super_admin/support/contact',
+                             {
+                               "email" => "toto@gmail.com",
+                               "message" => "hello",
+                               "site_name" => "sitename"
+                             },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token)
     ]
   end
 end

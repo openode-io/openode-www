@@ -3,6 +3,7 @@
 </section>
 <section>
   <%= form_for :support, {url: support_path, class: 'form-signin'} do |form| %>
+    <%= form.hidden_field :email, value: @account['email'] %>
     <div class="card">
       <div class="card-body">      
         <div class="form-label-group mb-2">
@@ -11,9 +12,10 @@
         
         <hr/>
 
-        <div class="form-label-group mb-2">
-          <%= form.label :email, 'Your email', class: 'required' %>
-          <%= form.text_field :email, { class: 'form-control', required:true} %>
+        <div class="form-group mb-2">
+          <%= form.label :website, 'Related to website' %>
+          <br />
+          <%= form.select :site_name, @instances_list, {}, { class: 'form-control mb-3' } %>
         </div>
 
         <div class="form-label-group mb-2">
