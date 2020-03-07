@@ -40,8 +40,10 @@ Rails.application.routes.draw do
     get '/', to: 'instances#index' 
 
     get 'account', to: 'account#index'
-    get 'account/notifications_and_newsletter', to: 'account#notifications_and_newsletter'
-    patch 'account/notifications_and_newsletter', to: 'account#update_notifications_and_newsletter'
+    get 'account/notifications_and_newsletter',
+      to: 'account#notifications_and_newsletter'
+    patch 'account/notifications_and_newsletter',
+      to: 'account#update_notifications_and_newsletter'
     get 'account/api_access', to: 'account#api_access'
     post 'account/regenerate_token', to: 'account#regenerate_token'
     get 'account/profile', to: 'account#profile'

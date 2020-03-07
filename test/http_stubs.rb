@@ -510,7 +510,16 @@ module HttpStubs
       HttpStubs.default_post('https://api.openode.io/instances/152/del-storage-area',
                              { "storage_area" => "/home/what" },
                              'test/fixtures/http/openode_api/empty_object.json',
-                             logged_in_user_token)
+                             logged_in_user_token),
+      HttpStubs.default_patch('https://api.openode.io/account/me',
+                              {
+                                "account" => {
+                                  "nb_credits_threshold_notification" => "50",
+                                  "newsletter" => "1"
+                                }
+                              },
+                              'test/fixtures/http/openode_api/empty_object.json',
+                              logged_in_user_token)
     ]
   end
 end
