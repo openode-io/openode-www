@@ -87,6 +87,8 @@ Rails.application.routes.draw do
       to: 'instance_settings#change_size'
     post 'instances/:id/settings/storage_areas',
       to: 'instance_settings#create_storage_area'
+    delete 'instances/:id/settings/storage_areas/:b64volume',
+      to: 'instance_settings#destroy_storage_area'
 
     get 'instances/:id/settings/misc', to: 'instance_settings#misc', as: :instance_settings_misc
     patch 'instances/:id/settings/misc',

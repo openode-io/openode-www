@@ -91,4 +91,13 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :found
   end
+
+  test "destroy storage area" do
+    perform_successful_login
+
+    b64 = "L2hvbWUvd2hhdA=="
+    delete "/admin/instances/#{default_instance_id}/settings/storage_areas/#{b64}"
+
+    assert_response :found
+  end
 end

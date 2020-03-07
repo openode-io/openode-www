@@ -4,7 +4,7 @@
 <section>
   <div class="row"> 
     <div class="col-lg-12 mb-3">
-      <p>some description</p>
+      <p>By default all plans come with a storage which is <b>volatile</b>, that is, if you write to disk, when you redeploy all information is lost. This page allows to create a <b>persistent disk area</b> and link it to one or many storage areas/volumes (paths).</p>
     </div>  
   </div>
 </section>
@@ -51,7 +51,7 @@
           <h4 class="mb-0"><i class="fa fa-hdd"></i> Storage Area (Volumes)</h4>
         </div>
         <div class="card-body">
-          <p class="alert alert-info">Note: Can only be created or deleted, not updated. Must be a full path (example: /var/www/yourvolume/)</p>
+          <p class="alert alert-info">Note: Can only be created or deleted, not updated. Must be a full path (example: /var/www/yourvolume/). <b>Note that all volumes link to the same storage disk currently.</b></p>
           <h5><i class="fa fa-plus"></i> New Volume</h5>
           <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-12 col-12">
@@ -86,7 +86,7 @@
                   <td><%= volume %></td>
                   <td>
                     <div class="d-flex">
-                      <%= link_to 'Destroy', '/',
+                      <%= link_to 'Destroy', "#{instance_settings_to(@instance_id)}storage_areas/#{Base64.encode64(volume)}",
                             class: 'flex-fill ml-2 btn btn-sm btn-outline-critical',
                             method: :delete,
                             data: { confirm: "Are you sure?" } %>

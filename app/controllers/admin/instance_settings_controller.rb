@@ -103,6 +103,15 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     redirect_to({ action: :persistence }, notice: msg('message.modifications_saved'))
   end
 
+  def destroy_storage_area
+    storage_area = Base64.decode64(params[:b64volume])
+
+    api(:post, "/instances/#{@instance_id}/del-storage-area",
+        payload: { storage_area: storage_area })
+
+    redirect_to({ action: :persistence }, notice: msg('message.modifications_saved'))
+  end
+
   def misc
     add_breadcrumb "Instances",
                    admin_instances_path,
