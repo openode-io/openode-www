@@ -1,5 +1,4 @@
 class Admin::InstanceSettingsController < Admin::InstancesController
-
   before_action do
     add_breadcrumb "Instances",
                    admin_instances_path,
