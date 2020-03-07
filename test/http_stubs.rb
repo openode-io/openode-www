@@ -530,7 +530,16 @@ module HttpStubs
                                "site_name" => "sitename"
                              },
                              'test/fixtures/http/openode_api/empty_object.json',
-                             logged_in_user_token)
+                             logged_in_user_token),
+      HttpStubs.default_patch('https://api.openode.io/instances/152/collaborators/7',
+                              {
+                                "collaborator" => {
+                                  "email" => "titi@gmail.com",
+                                  "permissions" => ["root"]
+                                }
+                              },
+                              'test/fixtures/http/openode_api/empty_object.json',
+                              logged_in_user_token)
     ]
   end
 end

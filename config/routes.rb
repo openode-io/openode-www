@@ -102,9 +102,16 @@ Rails.application.routes.draw do
     # Collaborators
     get 'instances/:id/collaborators', to: 'collaborators#index', as: :instance_collaborators
     get 'instances/:id/collaborators/new', to: 'collaborators#new', as: :instance_collaborators_new
-    get 'instances/:id/collaborators/:collaborator_id', to: 'collaborators#edit', as: :instance_collaborator_edit
-    post 'instances/:id/collaborators', to: 'collaborators#create'
-    delete 'instances/:id/collaborators/:collaborator_id', to: 'collaborators#delete', as: :instance_collaborator_delete
+    get 'instances/:id/collaborators/:collaborator_id',
+      to: 'collaborators#edit',
+      as: :instance_collaborator_edit
+    post 'instances/:id/collaborators/:collaborator_id',
+      to: 'collaborators#update'
+    post 'instances/:id/collaborators',
+      to: 'collaborators#create'
+    delete 'instances/:id/collaborators/:collaborator_id',
+      to: 'collaborators#delete',
+      as: :instance_collaborator_delete
 
 
     get 'instances/:id/logs', to: 'instances#logs'
