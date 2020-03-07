@@ -83,6 +83,8 @@ Rails.application.routes.draw do
       to: 'instance_settings#persistence',
       as: :instance_settings_persistence
     delete 'instances/:id/settings/persistence', to: 'instance_settings#destroy_persistence'
+    patch 'instances/:id/settings/change_size',
+      to: 'instance_settings#change_size'
 
     get 'instances/:id/settings/misc', to: 'instance_settings#misc', as: :instance_settings_misc
     patch 'instances/:id/settings/misc',

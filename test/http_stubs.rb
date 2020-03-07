@@ -495,6 +495,13 @@ module HttpStubs
       HttpStubs.default_post('https://api.openode.io/instances/152/destroy-storage',
                              {},
                              'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_get('https://api.openode.io/instances/152/storage',
+                            'test/fixtures/http/openode_api/admin/get_storage.json',
+                            logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/increase-storage',
+                             { "amount_gb" => "1" },
+                             'test/fixtures/http/openode_api/empty_object.json',
                              logged_in_user_token)
     ]
   end

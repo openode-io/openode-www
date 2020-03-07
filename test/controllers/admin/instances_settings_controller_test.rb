@@ -65,4 +65,17 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :found
   end
+
+  test "change size" do
+    perform_successful_login
+
+    patch "/admin/instances/#{default_instance_id}/settings/change_size",
+          params: {
+            persistence: {
+              amount_gb: 3
+            }
+          }
+
+    assert_response :found
+  end
 end
