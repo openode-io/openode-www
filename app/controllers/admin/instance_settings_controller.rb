@@ -96,6 +96,13 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     redirect_to({ action: :persistence }, notice: msg('message.modifications_saved'))
   end
 
+  def create_storage_area
+    api(:post, "/instances/#{@instance_id}/add-storage-area",
+        payload: storage_area_params)
+
+    redirect_to({ action: :persistence }, notice: msg('message.modifications_saved'))
+  end
+
   def misc
     add_breadcrumb "Instances",
                    admin_instances_path,
@@ -135,5 +142,9 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
   def change_size_params
     params.require(:persistence).permit(:amount_gb)
+  end
+
+  def storage_area_params
+    params.require(:persistence).permit(:storage_area)
   end
 end

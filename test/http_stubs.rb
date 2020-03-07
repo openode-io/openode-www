@@ -502,6 +502,10 @@ module HttpStubs
       HttpStubs.default_post('https://api.openode.io/instances/152/increase-storage',
                              { "amount_gb" => "1" },
                              'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/add-storage-area',
+                             { "storage_area" => "/home" },
+                             'test/fixtures/http/openode_api/empty_object.json',
                              logged_in_user_token)
     ]
   end

@@ -45,7 +45,7 @@
       </div>
     <% end %>     
     <%= form_for :persistence,
-      { url: "", method: :patch } do |form| %>
+      { url: "#{instance_settings_to(@instance_id)}storage_areas", method: :post } do |form| %>
       <div class="card mt-4">
         <div class="card-header">
           <h4 class="mb-0"><i class="fa fa-hdd"></i> Storage Area (Volumes)</h4>
@@ -57,14 +57,14 @@
             <div class="col-lg-10 col-md-10 col-sm-12 col-12">
               <div class="form-group mb-2">                                
                 <div class="form-label-group mb-2">                      
-                  <%= form.text_field :storage_area1, placeholder: '/path/to/volume', class: 'form-control' %>
+                  <%= form.text_field :storage_area,
+                    placeholder: '/path/to/volume', class: 'form-control' %>
                 </div>
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-12 col-12">
-            <%= link_to 'Save', '#{instance_settings_to(@instance_id)}storage-areas',
+            <%= form.submit 'Save',
                   class: 'btn btn-outline-success w-100',
-                  method: :post,
                   data: { confirm: "Are you sure?" } %>             
             </div>
           </div>  
@@ -81,9 +81,9 @@
                 </tr>
               </thead>
               <tbody>      
-              <% @volumes.each do |volume| %>
+              <% @storage['storage_areas'].each do |volume| %>
                 <tr>
-                  <td><%= volume[:path] %></td>
+                  <td><%= volume %></td>
                   <td>
                     <div class="d-flex">
                       <%= link_to 'Destroy', '/',

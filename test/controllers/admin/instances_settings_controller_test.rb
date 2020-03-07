@@ -78,4 +78,17 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :found
   end
+
+  test "create storage area" do
+    perform_successful_login
+
+    post "/admin/instances/#{default_instance_id}/settings/storage_areas",
+         params: {
+           persistence: {
+             storage_area: '/home'
+           }
+         }
+
+    assert_response :found
+  end
 end
