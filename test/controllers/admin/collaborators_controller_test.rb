@@ -6,7 +6,7 @@ class AdminCollaboratorsControllerTest < ActionDispatch::IntegrationTest
 
     get '/admin/instances/152/collaborators'
 
-    assert_response :found
+    assert_response :success
   end
 
   test "New Collaborator" do
@@ -27,6 +27,30 @@ class AdminCollaboratorsControllerTest < ActionDispatch::IntegrationTest
            collaborator: {
              email: 'titi@toto.com',
              permissions: ['dns']
+           }
+         }
+
+    assert_response :found
+  end
+
+  test "edit collaborator" do
+    perform_successful_login
+
+    get '/admin/instances/152/collaborators/7'
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Edit Collaborator'
+  end
+
+  test "update collaborator" do
+    perform_successful_login
+
+    post '/admin/instances/152/collaborators/7',
+         params: {
+           collaborator: {
+             email: 'titi@gmail.com',
+             permissions: ['root']
            }
          }
 

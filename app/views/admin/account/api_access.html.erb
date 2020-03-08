@@ -15,7 +15,7 @@
               <div class="form-group mb-2">
                 <%= form.label :token, 'Security Token', class: 'required' %>                
                 <div class="input-group show_hide_password">             
-                  <%= form.password_field :token, { class: 'form-control', value: '5f583adc1f5397ec7298b6bde9f7b982' } %>
+                  <%= form.password_field :token, { class: 'form-control', value: @token } %>
                   <div class="input-group-append">
                     <a class="input-group-text password-toggler" href="">
                       <i class="fa fa-eye-slash password-toggler" aria-hidden="true"></i>

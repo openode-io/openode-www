@@ -1,8 +1,15 @@
 class Admin::CollaboratorsController < Admin::InstancesController
-  def index
+  before_action do
     add_breadcrumb "Instances",
                    admin_instances_path,
                    title: "Instances"
+
+    @permissions = make_lister_selection(
+      %w[root deploy dns alias storage_area location plan config]
+    )
+  end
+
+  def index
     add_breadcrumb "Collaborators",
                    admin_instance_collaborators_path,
                    title: "Collaborators"
@@ -12,34 +19,33 @@ class Admin::CollaboratorsController < Admin::InstancesController
   end
 
   def new
-    add_breadcrumb "Instances",
-                   admin_instances_path,
-                   title: "Instances"
     add_breadcrumb "Collaborators",
                    admin_instance_collaborators_path,
                    title: "Collaborators"
     add_breadcrumb "New",
                    ''
 
-    @collaborator_instance = {}
-    @permissions = make_lister_selection(
-      %w[root deploy dns alias storage_area location plan config]
-    )
+    @collaborator = OpenStruct.new({})
   end
 
   def edit
-    add_breadcrumb "Instances",
-                   admin_instances_path,
-                   title: "Instances"
     add_breadcrumb "Collaborators",
                    admin_instance_collaborators_path,
                    title: "Collaborators"
     add_breadcrumb "Collaborator"
 
-    @collaborator_instance = {}
-    @permissions = make_lister_selection(
-      %w[root deploy dns alias storage_area location plan config]
+    collaborators = api(:get, "/instances/#{@instance_id}/collaborators")
+    @collaborator = OpenStruct.new(
+      collaborators.find { |c| c['id'].to_s == params['collaborator_id'].to_s }
     )
+    @collaborator.email = @collaborator.user['email']
+  end
+
+  def update
+    api(:patch, "/instances/#{@instance_id}/collaborators/#{params['collaborator_id']}",
+        payload: { collaborator: collaborator_params })
+
+    redirect_to({ action: :index }, notice: msg('message.modifications_saved'))
   end
 
   def create

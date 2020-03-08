@@ -1,0 +1,8 @@
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Event - <%= @event.dig('obj', 'title') %></h1>
+</section>
+<section>
+  <textarea class="dynamic-terminal rounded mb-2">
+<%= JSON.pretty_generate @event['obj'] %>
+  </textarea>
+</section>

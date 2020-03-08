@@ -40,8 +40,10 @@ Rails.application.routes.draw do
     get '/', to: 'instances#index' 
 
     get 'account', to: 'account#index'
-    get 'account/notifications_and_newsletter', to: 'account#notifications_and_newsletter'
-    patch 'account/notifications_and_newsletter', to: 'account#update_notifications_and_newsletter'
+    get 'account/notifications_and_newsletter',
+      to: 'account#notifications_and_newsletter'
+    patch 'account/notifications_and_newsletter',
+      to: 'account#update_notifications_and_newsletter'
     get 'account/api_access', to: 'account#api_access'
     post 'account/regenerate_token', to: 'account#regenerate_token'
     get 'account/profile', to: 'account#profile'
@@ -77,7 +79,19 @@ Rails.application.routes.draw do
       as: :instance_settings_scheduler
     patch 'instances/:id/settings/scheduler',
       to: 'instance_settings#update_scheduler'
-    get 'instances/:id/settings/persistence', to: 'instance_settings#persistence', as: :instance_settings_persistence
+
+    # persistence
+    get 'instances/:id/settings/persistence',
+      to: 'instance_settings#persistence',
+      as: :instance_settings_persistence
+    delete 'instances/:id/settings/persistence', to: 'instance_settings#destroy_persistence'
+    patch 'instances/:id/settings/change_size',
+      to: 'instance_settings#change_size'
+    post 'instances/:id/settings/storage_areas',
+      to: 'instance_settings#create_storage_area'
+    delete 'instances/:id/settings/storage_areas/:b64volume',
+      to: 'instance_settings#destroy_storage_area'
+
     get 'instances/:id/settings/misc', to: 'instance_settings#misc', as: :instance_settings_misc
     patch 'instances/:id/settings/misc',
       to: 'instance_settings#update_misc',
@@ -88,9 +102,16 @@ Rails.application.routes.draw do
     # Collaborators
     get 'instances/:id/collaborators', to: 'collaborators#index', as: :instance_collaborators
     get 'instances/:id/collaborators/new', to: 'collaborators#new', as: :instance_collaborators_new
-    get 'instances/:id/collaborators/:collaborator_id', to: 'collaborators#edit', as: :instance_collaborator_edit
-    post 'instances/:id/collaborators', to: 'collaborators#create'
-    delete 'instances/:id/collaborators/:collaborator_id', to: 'collaborators#delete', as: :instance_collaborator_delete
+    get 'instances/:id/collaborators/:collaborator_id',
+      to: 'collaborators#edit',
+      as: :instance_collaborator_edit
+    post 'instances/:id/collaborators/:collaborator_id',
+      to: 'collaborators#update'
+    post 'instances/:id/collaborators',
+      to: 'collaborators#create'
+    delete 'instances/:id/collaborators/:collaborator_id',
+      to: 'collaborators#delete',
+      as: :instance_collaborator_delete
 
 
     get 'instances/:id/logs', to: 'instances#logs'
@@ -107,6 +128,8 @@ Rails.application.routes.draw do
     get 'instances/:id/access/activity_stream',
       to: 'instance_access#activity_stream',
       as: :instance_access_activity_stream
+    get 'instances/:id/access/event/:event_id',
+      to: 'instance_access#event'
     get 'instances/:id/access/cmd',
       to: 'instance_access#cmd',
       as: :instance_access_cmd      

@@ -481,7 +481,65 @@ module HttpStubs
                             logged_in_user_token),
       HttpStubs.default_get('https://api.openode.io/instances/152/executions/list/Deployment',
                             'test/fixtures/http/openode_api/admin/get_deployments.json',
-                            logged_in_user_token)
+                            logged_in_user_token),
+      HttpStubs.default_get('https://api.openode.io/instances/152/events',
+                            'test/fixtures/http/openode_api/admin/get_act_stream.json',
+                            logged_in_user_token),
+      HttpStubs.default_get('https://api.openode.io/instances/152/events/150',
+                            'test/fixtures/http/openode_api/admin/get_event.json',
+                            logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/account/regenerate-token',
+                             {},
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/destroy-storage',
+                             {},
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_get('https://api.openode.io/instances/152/storage',
+                            'test/fixtures/http/openode_api/admin/get_storage.json',
+                            logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/increase-storage',
+                             { "amount_gb" => "1" },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/add-storage-area',
+                             { "storage_area" => "/home" },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/del-storage-area',
+                             { "storage_area" => "/home/what" },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_patch('https://api.openode.io/account/me',
+                              {
+                                "account" => {
+                                  "nb_credits_threshold_notification" => "50",
+                                  "newsletter" => "1"
+                                }
+                              },
+                              'test/fixtures/http/openode_api/empty_object.json',
+                              logged_in_user_token),
+      HttpStubs.default_get('https://api.openode.io/instances/',
+                            'test/fixtures/http/openode_api/admin/get_instances.json',
+                            logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/super_admin/support/contact',
+                             {
+                               "email" => "toto@gmail.com",
+                               "message" => "hello",
+                               "site_name" => "sitename"
+                             },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_patch('https://api.openode.io/instances/152/collaborators/7',
+                              {
+                                "collaborator" => {
+                                  "email" => "titi@gmail.com",
+                                  "permissions" => ["root"]
+                                }
+                              },
+                              'test/fixtures/http/openode_api/empty_object.json',
+                              logged_in_user_token)
     ]
   end
 end
