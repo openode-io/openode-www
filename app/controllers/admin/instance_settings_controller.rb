@@ -37,6 +37,12 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   end
 
   def remove_alias
+    decoded_alias = Base64.decode64(params['domain'])
+
+    api(:post, "/instances/#{@instance_id}/del-alias",
+        payload: { hostname: decoded_alias })
+
+    redirect_to({ action: :dns_and_aliases }, notice: msg('message.modifications_saved'))
   end
 
   def ssl

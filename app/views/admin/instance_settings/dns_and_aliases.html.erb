@@ -53,10 +53,12 @@
                   <td><%= a %></td>
                   <td>
                     <div class="d-flex">
-                      <%= link_to 'Destroy', '#{instance_settings_to(@instance_id)}aliases/#{a}',
+                      <%= link_to 'Destroy',
+                            "#{instance_settings_to(@instance_id)}aliases/#{Base64.encode64(a)}",
                             class: 'flex-fill ml-2 btn btn-sm btn-outline-critical',
                             method: :delete,
                             data: { confirm: "Are you sure?" } %>
+                    </div>
                   </td>
                 </tr>
               <% end %>

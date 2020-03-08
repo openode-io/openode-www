@@ -124,4 +124,12 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :found
   end
+
+  test "delete alias" do
+    perform_successful_login
+
+    delete "/admin/instances/#{default_instance_id}/settings/aliases/d3d3LmlvY2hhaW4uY28="
+
+    assert_response :found
+  end
 end

@@ -80,6 +80,9 @@ Rails.application.routes.draw do
     delete 'instances/:id/settings/aliases/:domain',
       to: 'instance_settings#remove_alias'
 
+    # "/admin/instances/153/settings/aliases/www.iochain.co"
+
+
     get 'instances/:id/settings/ssl', to: 'instance_settings#ssl', as: :instance_settings_ssl
     get 'instances/:id/settings/scheduler',
       to: 'instance_settings#scheduler',
