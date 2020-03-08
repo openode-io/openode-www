@@ -1,35 +1,40 @@
 <section>
-  <h1 class="h3 mb-3 text-gray-800 mt-3">DNS And Aliases for <%= @website['site_name'] %></h1>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">DNS And Aliases</h1>
 </section>
 
 <section>
   <div class="row">
     <div class="col-lg-9">
-    <%= form_for :alias,
-      { url: "", method: :patch } do |form| %>
+    
       <div class="card">
         <div class="card-body">
           <div class="mb-3 bd-callout bd-callout-warning">    
-            <h5>Use the following DNS record</h5>
+            <h5>Use the following <b>DNS records</b></h5>
+            <b>CNAME Record (recommended)</b>: acertain.cname.record.domain<br />
             <b>A Record</b>: acertain.cname.record.domain
-          </div>        
-          <p class="alert alert-info">Note: Can only be created or deleted, not updated.</p>
-          <h5><i class="fa fa-plus"></i> New Alias</h5>
-          <div class="row">
-            <div class="col-lg-10 col-md-10 col-sm-12 col-12">
-              <div class="form-group mb-2">                                
-                <div class="form-label-group mb-2">                      
-                  <%= form.text_field :alias1, placeholder: 'name.of.alias', class: 'form-control' %>
+          </div>
+
+          <hr />
+          <br />
+
+          <%= form_for :alias,
+            { url: "#{instance_settings_to(@instance_id)}aliases", method: :post } do |form| %>
+            <h5><i class="fa fa-plus"></i> New Alias (subdomain)</h5>
+            <div class="row">
+              <div class="col-lg-10 col-md-10 col-sm-12 col-12">
+                <div class="form-group mb-2">                                
+                  <div class="form-label-group mb-2">                      
+                    <%= form.text_field :alias, placeholder: 'name.of.alias', class: 'form-control' %>
+                  </div>
                 </div>
               </div>
+              <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+              <%= form.submit 'Save',
+                    class: 'btn btn-outline-success w-100',
+                    data: { confirm: "Are you sure?" } %>             
+              </div>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-12 col-12">
-            <%= link_to 'Save', '#{instance_settings_to(@instance_id)}aliases',
-                  class: 'btn btn-outline-success w-100',
-                  method: :post,
-                  data: { confirm: "Are you sure?" } %>             
-            </div>
-          </div>  
+          <% end %>
 
           <hr class="mt-4 mb-4"/>
 
@@ -60,7 +65,7 @@
           </div>          
         </div>
       </div>
-    <% end %>
+    
     </div>
     <div class="col-lg-3">
       <%= render 'admin/instance_settings/sidebar' %>

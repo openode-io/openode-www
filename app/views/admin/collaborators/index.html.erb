@@ -21,7 +21,11 @@
                 <tr>
                   <td><%= collaborator['user']['email'] %></td>
                   <td>
-                    <%= collaborator['permissions'].inspect %>
+                    <ul>
+                      <% collaborator['permissions'].each do |perm| %>
+                        <li><%= perm %></li>
+                      <% end %>
+                    </ul>
                   </td>
                   <td>
                     <div class="d-flex">

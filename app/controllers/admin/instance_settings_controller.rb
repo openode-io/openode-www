@@ -26,15 +26,14 @@ class Admin::InstanceSettingsController < Admin::InstancesController
                    admin_instance_settings_path
     add_breadcrumb "DNS & Aliases"
 
-    @website = get_website
-    @aliases = [
-      "alias.1.com",
-      "alias.2.com",
-      "alias.3.com"
-    ]
+    @aliases = (@website.domains || []).reject { |domain| domain == @website.site_name }
   end
 
   def add_alias
+    api(:post, "/instances/#{@instance_id}/add-alias",
+        payload: { hostname: alias_params['alias'] })
+
+    redirect_to({ action: :dns_and_aliases }, notice: msg('message.modifications_saved'))
   end
 
   def remove_alias
@@ -66,14 +65,6 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Persistence"
 
     @storage = api(:get, "/instances/#{@instance_id}/storage")
-    @volumes = [
-      {
-        path: '/path/to/volume/1'
-      },
-      {
-        path: '/path/to/volume/2'
-      }
-    ]
   end
 
   def destroy_persistence
@@ -140,6 +131,10 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   end
 
   protected
+
+  def alias_params
+    params.require(:alias).permit(:alias)
+  end
 
   def misc_params
     params.require(:website).permit(:max_build_duration, :skip_port_check)
