@@ -80,7 +80,7 @@ class Admin::InstancesController < AdminController
   end
 
   def delete
-    sleep(5)
+    api(:delete, "/instances/#{@instance_id}")
 
     @status = {
       level: 'warning',

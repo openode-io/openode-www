@@ -9,6 +9,10 @@ export default {
 
   methods: {
     deleteInstance () {
+      if (!confirm('Are you sure?')) {
+        return
+      }
+
       this.processing = true
 
       this.status = {
@@ -62,7 +66,9 @@ export default {
 
   render () {
     return (
-      <button type='button' class='dropdown-item' onClick={this.deleteInstance} disabled={this.button.disabled}>
+      <button type='button' class='dropdown-item'
+        onClick={this.deleteInstance}
+        disabled={this.button.disabled}>
         <i class={this.button.icon} /> {this.button.text}
       </button>
     )

@@ -46,4 +46,15 @@ class AdminInstancesControllerTest < ActionDispatch::IntegrationTest
 
     assert_equal response.parsed_body['status']['level'], 'success'
   end
+
+  test "POST /admin/instances/delete.json" do
+    perform_successful_login
+
+    post '/admin/instances/152/delete.json',
+         params: {}
+
+    assert_response :success
+
+    assert_equal response.parsed_body['status']['level'], 'warning'
+  end
 end
