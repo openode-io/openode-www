@@ -570,7 +570,11 @@ module HttpStubs
                              logged_in_user_token),
       HttpStubs.default_delete('https://api.openode.io/instances/152',
                                'test/fixtures/http/openode_api/empty_object.json',
-                               logged_in_user_token)
+                               logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/restart',
+                             {},
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
     ]
   end
 end

@@ -54,7 +54,7 @@ class Admin::InstancesController < AdminController
   end
 
   def deploy
-    sleep(5)
+    api(:post, "/instances/#{@instance_id}/restart")
 
     @status = {
       level: 'warning',

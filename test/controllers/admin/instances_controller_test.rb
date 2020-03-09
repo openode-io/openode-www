@@ -57,4 +57,15 @@ class AdminInstancesControllerTest < ActionDispatch::IntegrationTest
 
     assert_equal response.parsed_body['status']['level'], 'warning'
   end
+
+  test "POST /admin/instances/deploy.json" do
+    perform_successful_login
+
+    post '/admin/instances/152/deploy.json',
+         params: {}
+
+    assert_response :success
+
+    assert_equal response.parsed_body['status']['level'], 'warning'
+  end
 end
