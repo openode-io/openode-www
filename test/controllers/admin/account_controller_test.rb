@@ -7,8 +7,6 @@ class AdminAccountControllerTest < ActionDispatch::IntegrationTest
     get '/admin/account/api_access'
 
     assert_response :success
-
-    # assert_includes response.parsed_body, '10'
   end
 
   test "regen token" do
@@ -17,8 +15,6 @@ class AdminAccountControllerTest < ActionDispatch::IntegrationTest
     post '/admin/account/regenerate_token'
 
     assert_response :found
-
-    # assert_includes response.parsed_body, '10'
   end
 
   test "get notifications and newsletter" do
@@ -39,6 +35,22 @@ class AdminAccountControllerTest < ActionDispatch::IntegrationTest
             user: {
               nb_credits_threshold_notification: 50,
               newsletter: 1
+            }
+          }
+
+    assert_response :found
+  end
+
+  test "save profile" do
+    perform_successful_login
+
+    patch '/admin/account/',
+          params: {
+            user: {
+              email: 'asdf@gmail.com',
+              account: {
+                name: 'asdf'
+              }
             }
           }
 

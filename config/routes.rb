@@ -40,6 +40,8 @@ Rails.application.routes.draw do
     get '/', to: 'instances#index' 
 
     get 'account', to: 'account#index'
+    patch 'account', to: 'account#update'
+
     get 'account/notifications_and_newsletter',
       to: 'account#notifications_and_newsletter'
     patch 'account/notifications_and_newsletter',

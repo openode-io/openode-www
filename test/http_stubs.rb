@@ -582,7 +582,18 @@ module HttpStubs
       HttpStubs.default_post('https://api.openode.io/instances/152/stop',
                              {},
                              'test/fixtures/http/openode_api/empty_object.json',
-                             logged_in_user_token)
+                             logged_in_user_token),
+      HttpStubs.default_patch('https://api.openode.io/account/me',
+                              {
+                                "account" => {
+                                  "email" => "asdf@gmail.com",
+                                  "account" => {
+                                    "name" => "asdf"
+                                  }
+                                }
+                              },
+                              'test/fixtures/http/openode_api/empty_object.json',
+                              logged_in_user_token)
     ]
   end
 end
