@@ -18,6 +18,8 @@ class Admin::BillingController < AdminController
 
   def spending
     add_breadcrumb "Spending"
+
+    @spendings = api(:get, "/account/spendings")
   end
 
   def pay

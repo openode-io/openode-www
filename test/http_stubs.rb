@@ -593,7 +593,12 @@ module HttpStubs
                                 }
                               },
                               'test/fixtures/http/openode_api/empty_object.json',
-                              logged_in_user_token)
+                              logged_in_user_token),
+      HttpStubs.default_get(
+        'https://api.openode.io/account/spendings',
+        'test/fixtures/http/openode_api/admin/get_account_spendings.json',
+        logged_in_user_token
+      )
     ]
   end
 end
