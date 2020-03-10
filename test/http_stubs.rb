@@ -582,4 +582,3 @@ module HttpStubs
     ]
   end
 end
-

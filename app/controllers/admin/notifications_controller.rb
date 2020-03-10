@@ -15,7 +15,7 @@ class Admin::NotificationsController < AdminController
 
   def mark_read
     api(:post, "/notifications/view",
-      payload: { notifications: [params['id']] })
+        payload: { notifications: [params['id']] })
 
     render json: { status: 'OK' }
   end
