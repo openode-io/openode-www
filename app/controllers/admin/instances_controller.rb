@@ -67,7 +67,7 @@ class Admin::InstancesController < AdminController
   end
 
   def stop
-    sleep(5)
+    api(:post, "/instances/#{@instance_id}/stop")
 
     @status = {
       level: 'warning',

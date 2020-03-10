@@ -578,6 +578,10 @@ module HttpStubs
       HttpStubs.default_post('https://api.openode.io/notifications/view',
                              { "notifications" => ["155"] },
                              'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/stop',
+                             {},
+                             'test/fixtures/http/openode_api/empty_object.json',
                              logged_in_user_token)
     ]
   end
