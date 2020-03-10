@@ -7,7 +7,7 @@ class Admin::BillingController < AdminController
   end
 
   def index
-    redirect_to({ action: :orders })
+    redirect_to({ action: :pay })
   end
 
   def orders
