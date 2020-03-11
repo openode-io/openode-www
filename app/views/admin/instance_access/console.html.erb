@@ -5,7 +5,12 @@
   <div class="row">
     <div class="col-lg-9">
       <div id="openode-terminal-console" data-instance-id="<%= @instance_id %>">
-        <div class="vue-command" data-props="<%= {instance: {id: @instance_id, name: @website['site_name']}}.to_json %>">Loading...</div>
+        <div id="terminal-container">
+          <output></output>
+          <div id="input-line" class="input-line">
+            <div class="prompt"></div><div><input class="cmdline" autofocus /></div>
+          </div>        
+        </div>
       </div>
     </div>
     <div class="col-lg-3">

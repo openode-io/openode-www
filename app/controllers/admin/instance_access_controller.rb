@@ -38,7 +38,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
                    admin_instance_access_console_path,
                    title: "Console"
 
-    @website = get_website
+    # @website = get_website
   end
 
   def cmd
