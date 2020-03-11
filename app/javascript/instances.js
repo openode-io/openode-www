@@ -17,8 +17,3 @@ export const NotificationButtonInstance = {
   el: '.vue-notifications',
   component: NotificationButton
 }
-
-export const OpenodeTerminalInstance = {
-  el: '.vue-command',
-  component: OpenodeTerminal
-}

@@ -107,7 +107,7 @@ export const Terminal = Terminal || function(cmdLineContainer, outputContainer) 
           return;          
         default:
           if (cmd) {
-            axios.get(cmd_url, { cmd: cmd})
+            axios.get(cmd_url, { params: { cmd: cmd }})
             .then(response => {            
               output(response.data.msg);
             })          
