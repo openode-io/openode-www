@@ -29,4 +29,12 @@ class AdminNotificationsControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.parsed_body.inspect.to_s, 'Latest Notifications'
     assert_includes response.parsed_body.inspect.to_s, 'warnningggggggggggg WTF!'
   end
+
+  test 'mark read for a notification' do
+    perform_successful_login
+
+    post '/admin/notifications/155/mark_read.json'
+
+    assert_response :success
+  end
 end

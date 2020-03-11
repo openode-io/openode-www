@@ -54,7 +54,7 @@ class Admin::InstancesController < AdminController
   end
 
   def deploy
-    sleep(5)
+    api(:post, "/instances/#{@instance_id}/restart")
 
     @status = {
       level: 'warning',
@@ -67,7 +67,7 @@ class Admin::InstancesController < AdminController
   end
 
   def stop
-    sleep(5)
+    api(:post, "/instances/#{@instance_id}/stop")
 
     @status = {
       level: 'warning',
@@ -80,7 +80,7 @@ class Admin::InstancesController < AdminController
   end
 
   def delete
-    sleep(5)
+    api(:delete, "/instances/#{@instance_id}")
 
     @status = {
       level: 'warning',

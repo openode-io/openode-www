@@ -16,6 +16,22 @@ module HttpStubs
     }
   end
 
+  def self.default_delete(url, response_file, logged_in_user_token)
+    {
+      url: url,
+      method: :delete,
+      with: {
+        body: {}
+      },
+      content_type: 'application/json',
+      response_status: 200,
+      response_path: response_file,
+      headers: {
+        'X-Auth-Token' => logged_in_user_token
+      }
+    }
+  end
+
   def self.default_patch(url, body, response_file, logged_in_user_token)
     {
       url: url,
@@ -539,7 +555,50 @@ module HttpStubs
                                 }
                               },
                               'test/fixtures/http/openode_api/empty_object.json',
-                              logged_in_user_token)
+                              logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/add-alias',
+                             {
+                               "hostname" => "asdf.test.com"
+                             },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/del-alias',
+                             {
+                               "hostname" => "www.iochain.co"
+                             },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_delete('https://api.openode.io/instances/152',
+                               'test/fixtures/http/openode_api/empty_object.json',
+                               logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/restart',
+                             {},
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/notifications/view',
+                             { "notifications" => ["155"] },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/stop',
+                             {},
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_patch('https://api.openode.io/account/me',
+                              {
+                                "account" => {
+                                  "email" => "asdf@gmail.com",
+                                  "account" => {
+                                    "name" => "asdf"
+                                  }
+                                }
+                              },
+                              'test/fixtures/http/openode_api/empty_object.json',
+                              logged_in_user_token),
+      HttpStubs.default_get(
+        'https://api.openode.io/account/spendings',
+        'test/fixtures/http/openode_api/admin/get_account_spendings.json',
+        logged_in_user_token
+      )
     ]
   end
 end

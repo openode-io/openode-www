@@ -40,6 +40,8 @@ Rails.application.routes.draw do
     get '/', to: 'instances#index' 
 
     get 'account', to: 'account#index'
+    patch 'account', to: 'account#update'
+
     get 'account/notifications_and_newsletter',
       to: 'account#notifications_and_newsletter'
     patch 'account/notifications_and_newsletter',
@@ -70,9 +72,19 @@ Rails.application.routes.draw do
     get 'instances/:id/settings', to: 'instance_settings#index', as: :instance_settings
     get 'instances/:id/settings/plan', to: 'instance_settings#plan', as: :instance_settings_plan
     patch 'instances/:id/settings/plan', to: 'instance_settings#change_plan'
-    get 'instances/:id/settings/dns_and_aliases', to: 'instance_settings#dns_and_aliases', as: :instance_settings_dns_and_aliases
-    post 'instances/:id/settings/aliases', to: 'instance_settings#add_alias'
-    delete 'instances/:id/settings/aliases/:domain', to: 'instance_settings#remove_alias'
+
+    # dns and alias
+    get 'instances/:id/settings/dns_and_aliases',
+      to: 'instance_settings#dns_and_aliases',
+      as: :instance_settings_dns_and_aliases
+    post 'instances/:id/settings/aliases',
+      to: 'instance_settings#add_alias'
+    delete 'instances/:id/settings/aliases/:domain',
+      to: 'instance_settings#remove_alias'
+
+    # "/admin/instances/153/settings/aliases/www.iochain.co"
+
+
     get 'instances/:id/settings/ssl', to: 'instance_settings#ssl', as: :instance_settings_ssl
     get 'instances/:id/settings/scheduler',
       to: 'instance_settings#scheduler',

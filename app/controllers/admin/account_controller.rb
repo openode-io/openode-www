@@ -5,10 +5,8 @@ class Admin::AccountController < AdminController
   end
 
   def index
-    add_breadcrumb "Profile"
-
     # If nothing to show on index, then redirect to profile as default page
-    redirect_to admin_account_profile_path
+    redirect_to({ action: :api_access })
   end
 
   def account_api
@@ -45,11 +43,29 @@ class Admin::AccountController < AdminController
 
   def profile
     add_breadcrumb "Profile"
+    @user = OpenStruct.new(api(:get, "/account/me"))
+  end
+
+  def update
+    api(:patch, "/account/me", payload: {
+          account: {
+            email: user_params['email'],
+            account: user_params['account']
+          }
+        })
+
+    redirect_to({ action: :index },
+                notice: msg('message.modifications_saved'))
   end
 
   protected
 
   def user_params
-    params.require(:user).permit(:nb_credits_threshold_notification, :newsletter)
+    params.require(:user).permit(
+      :email,
+      :nb_credits_threshold_notification,
+      :newsletter,
+      account: {}
+    )
   end
 end

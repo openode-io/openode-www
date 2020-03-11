@@ -100,4 +100,36 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :found
   end
+
+  # dns and alias
+  test "get dns and alias" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/settings/dns_and_aliases"
+
+    assert_response :success
+    assert_includes response.parsed_body, 'DNS And Aliases'
+    puts response.parsed_body
+  end
+
+  test "create alias" do
+    perform_successful_login
+
+    post "/admin/instances/#{default_instance_id}/settings/aliases",
+         params: {
+           alias: {
+             alias: 'asdf.test.com'
+           }
+         }
+
+    assert_response :found
+  end
+
+  test "delete alias" do
+    perform_successful_login
+
+    delete "/admin/instances/#{default_instance_id}/settings/aliases/d3d3LmlvY2hhaW4uY28="
+
+    assert_response :found
+  end
 end

@@ -80,6 +80,8 @@ Naming/MemoizedInstanceVariableName:
 
 Metrics/AbcSize:
   Max: 20
+  Exclude:
+    - 'test/http_stubs.rb'
 
 Layout/LineLength:
   Max: 90

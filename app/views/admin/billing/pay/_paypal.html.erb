@@ -1,0 +1,36 @@
+<h5 class="mt-4"><i class="fab fa-paypal text-primary"></i> Pay with Paypal</h5>
+<div class="card mt-3 mb-3">
+  <div class="card-body"> 
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <div class="pt-3 pb-3">
+        <select name="os0" required="required" class="form-control">
+          <option value="100 Credits">100 Credits $1.00 USD</option>
+          <option value="200 Credits">200 Credits $2.00 USD</option>
+          <option value="400 Credits">400 Credits $4.00 USD</option>
+          <option value="800 Credits">800 Credits $8.00 USD</option>
+          <option value="2000 Credits">2000 Credits $20.00 USD</option>
+          <option value="4000 Credits">4000 Credits $40.00 USD</option>
+          <option value="10000 Credits">10000 Credits $100.00 USD</option>
+          <option value="20000 Credits">20000 Credits $200.00 USD</option>
+        </select>
+      </div>
+      <div class="text-center">
+        <input type="hidden" name="cmd" value="_s-xclick"/>
+        <input type="hidden" name="hosted_button_id" value="S4X85M37NHP5N"/>
+        <input type="hidden" name="custom" value="13134"/>
+        <input type="hidden" name="email" value="info@openode.io"/>
+        <input type="hidden" name="notify_url" value="https://api.openode.io/order/paypal"/>
+        <input type="hidden" name="on0" value="Amount of Credits"/>
+        <input type="hidden" name="currency_code" value="USD"/>
+        <input type="image"
+              src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif"
+              border="0"
+              name="submit"
+              alt="PayPal - The safer, easier way to pay online!"
+              class="mb-3"
+              style="max-width: 350px; cursor: pointer;">
+              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+      </div>
+    </form>              
+  </div>
+</div>

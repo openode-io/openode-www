@@ -29,4 +29,14 @@ module AdminHelper
       ''
     end
   end
+
+  def spendings_list_to_hash(spendings)
+    result = {}
+
+    spendings.each do |spending|
+      result[spending['date']] = spending['value']
+    end
+
+    result
+  end
 end

@@ -1,4 +1,4 @@
-<%= line_chart InstanceAccessService.spending_chart_data,
+<%= line_chart spendings_list_to_hash(@spendings),
                 xtitle: "Date",
                 ytitle: "Credits",
                 colors: ['#28a745'] %>
@@ -6,24 +6,22 @@
   <table class="table table-sm table-bordered" id="super-admin-spending-stats">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">Credits</th>
         <th scope="col">Cost</th>
         <th scope="col">Date</th>
       </tr>
     </thead>
     <tbody>      
-    <% InstanceAccessService.spending_costs.each do |s| %>
+    <% @spendings.each do |s| %>
       <tr>
-        <td><%= s[:id] %></td>
         <td>
-          <%= s[:credits] %>
+          <%= s['value'] %>
         </td>
         <td>
-          <%= s[:cost] %>
+          <%= number_to_currency(s['value'].to_f / 100.0) %>
         </td>   
         <td>
-          <%= s[:date] %>
+          <%= s['date'] %>
         </td>                            
       </tr>
     <% end %>
