@@ -37,8 +37,6 @@ class Admin::InstanceAccessController < Admin::InstancesController
     add_breadcrumb "Console",
                    admin_instance_access_console_path,
                    title: "Console"
-
-    # @website = get_website
   end
 
   def cmd
