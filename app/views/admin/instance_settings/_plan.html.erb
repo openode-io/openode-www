@@ -8,7 +8,7 @@
 
           <div class="form-label-group mb-2">
             <%= form.label :plan, 'Change your plan', class: 'required' %>
-            <%= form.select :plan, [['Sandbox', 'sandbox'],['Open Source','open_source']],
+            <%= form.select :plan, @plans.map { |p| [p['name'], p['internal_id']] },
             {}, { class: 'form-control', required: true } %>
           </div>
 
