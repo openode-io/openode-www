@@ -132,4 +132,44 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :found
   end
+
+  # plan
+  test "get plan" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/settings/plan"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Change your plan'
+  end
+
+  test "change plan non open source" do
+    perform_successful_login
+
+    patch "/admin/instances/#{default_instance_id}/settings/plan",
+          params: {
+            website: {
+              plan: '50-MB'
+            }
+          }
+
+    assert_response :found
+  end
+
+  test "change plan open source" do
+    perform_successful_login
+
+    patch "/admin/instances/#{default_instance_id}/settings/plan",
+          params: {
+            website: {
+              plan: 'open_source',
+              open_source_title: 'hello',
+              open_source_description: 'desc',
+              open_source_repository: 'http://google.com/'
+            }
+          }
+
+    assert_response :found
+  end
 end

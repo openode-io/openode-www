@@ -21,22 +21,24 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   def change_plan
     new_plan_params = update_plan_params
 
+    if new_plan_params['plan'] == "open_source"
+      api(:patch, "/instances/#{@instance_id}",
+          payload: {
+            website: {
+              open_source: {
+                title: new_plan_params['open_source_title'],
+                description: new_plan_params['open_source_description'],
+                repository_url: new_plan_params['open_source_repository']
+              }
+            }
+
+          })
+    end
+
     if new_plan_params['plan'] != @website.account_type
       api(:post, "/instances/#{@instance_id}/set-plan",
           payload: { plan: new_plan_params['plan'] })
     end
-
-    api(:patch, "/instances/#{@instance_id}",
-        payload: {
-          website: {
-            open_source: {
-              title: new_plan_params['open_source_title'],
-              description: new_plan_params['open_source_description'],
-              repository_url: new_plan_params['open_source_repository']
-            }
-          }
-          
-        })
 
     redirect_to({ action: :plan }, notice: msg('message.modifications_saved'))
   end
