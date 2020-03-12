@@ -15,10 +15,30 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Plan"
 
     @plans = api(:get, '/global/available-plans')
-    puts "plans #{@plans.inspect}"
+    @website.open_source = @website.open_source || {}
   end
 
   def change_plan
+    new_plan_params = update_plan_params
+
+    if new_plan_params['plan'] != @website.account_type
+      api(:post, "/instances/#{@instance_id}/set-plan",
+          payload: { plan: new_plan_params['plan'] })
+    end
+
+    api(:patch, "/instances/#{@instance_id}",
+        payload: {
+          website: {
+            open_source: {
+              title: new_plan_params['open_source_title'],
+              description: new_plan_params['open_source_description'],
+              repository_url: new_plan_params['open_source_repository']
+            }
+          }
+          
+        })
+
+    redirect_to({ action: :plan }, notice: msg('message.modifications_saved'))
   end
 
   # DNS and aliases
@@ -157,5 +177,10 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
   def storage_area_params
     params.require(:persistence).permit(:storage_area)
+  end
+
+  def update_plan_params
+    params.require(:website).permit(:plan, :open_source_title, :open_source_repository,
+                                    :open_source_description)
   end
 end

@@ -9,7 +9,7 @@
           <div class="form-label-group mb-2">
             <%= form.label :plan, 'Change your plan', class: 'required' %>
             <%= form.select :plan, @plans.map { |p| [p['name'], p['internal_id']] },
-            {}, { class: 'form-control', required: true } %>
+            { selected: @website.account_type }, { class: 'form-control', required: true } %>
           </div>
 
           <div id="instance-plan-opensource-field" class="d-none mt-3">
