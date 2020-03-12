@@ -6,7 +6,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   end
 
   def index
-    add_breadcrumb "Settings"
+    redirect_to({ action: :plan })
   end
 
   def plan
@@ -15,6 +15,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Plan"
 
     @plans = api(:get, '/global/available-plans')
+    puts "plans #{@plans.inspect}"
   end
 
   def change_plan
