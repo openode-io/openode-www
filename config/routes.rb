@@ -159,6 +159,8 @@ Rails.application.routes.draw do
     get '/', to: 'home#index' 
 
     get '/websites', to: 'websites#index' 
+    get '/websites/:id/open_source', to: 'websites#open_source'
+    post '/websites/:id/open_source', to: 'websites#update_open_source'
 
     get '/users', to: 'users#index'
     get '/users/:id/custom_order', to: 'users#custom_order'
