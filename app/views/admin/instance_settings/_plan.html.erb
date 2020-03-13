@@ -9,7 +9,7 @@
           <div class="form-label-group mb-2">
             <%= form.label :plan, 'Change your plan', class: 'required' %>
             <%= form.select :plan, @plans.map { |p| [p['name'], p['internal_id']] },
-            {}, { class: 'form-control', required: true } %>
+            { selected: @website.account_type }, { class: 'form-control', required: true } %>
           </div>
 
           <div id="instance-plan-opensource-field" class="<%= open_source_visibility_class(@website) %> mt-3">
@@ -21,27 +21,36 @@
             carefully as it will be reviewed, typically within 1 business day.
             You will receive an email once verified.</p>                  
 
-            <% if @application_status.present? %>
-              <div class="alert alert-<%= @application_status[:level] %>">
-                <%= @application_status.message %>
-              <div>
+            <% if @website.open_source.present? %>
+              <div class="alert %>">
+                <b>Status: <%= @website.open_source['status'] %></b>
+              </div>
             <% end %>
 
             <div class="form-label-group mb-2">
-              <%= form.label :open_source_title, 'Project Title' %>
-              <%= form.text_field :open_source_title, class: "form-control" %>
+              <%= form.label :open_source_title, 'Project Title', class: 'required' %>
+              <%= form.text_field :open_source_title,
+                class: "form-control", value: @website.open_source['title'],
+                required: true %>
             </div>
 
             <div class="form-label-group mb-2">
-              <%= form.label :open_source_repository, 'Repository (e.g.: github, gitlab, etc.)' %>
-              <%= form.text_field :open_source_repository, class: "form-control" %>
+              <%= form.label :open_source_repository,
+                'Repository (e.g.: github, gitlab, etc.)', class: 'required' %>
+              <%= form.url_field :open_source_repository,
+                class: "form-control", value: @website.open_source['repository_url'],
+                required: true %>
             </div>
 
             <div class="form-label-group mb-2">
-              <%= form.label :open_source_description, 'Project Description' %>
+              <%= form.label :open_source_description,
+                'Project Description (Minimum 30 words describing your project)',
+                class: 'required' %>
               <%= form.text_area :open_source_description,
                                   cols: 50,
                                   rows: 10,
+                                  value: @website.open_source['description'],
+                                  required: true,
                                   class: "form-control" %>
             </div>
           </div>

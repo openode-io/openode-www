@@ -598,7 +598,31 @@ module HttpStubs
         'https://api.openode.io/account/spendings',
         'test/fixtures/http/openode_api/admin/get_account_spendings.json',
         logged_in_user_token
-      )
+      ),
+      HttpStubs.default_post('https://api.openode.io/instances/152/set-plan',
+                             {
+                               "plan" => '50-MB'
+                             },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/set-plan',
+                             {
+                               "plan" => 'open_source'
+                             },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_patch('https://api.openode.io/instances/152',
+                              {
+                                "website" => {
+                                  "open_source" => {
+                                    "title" => "hello",
+                                    "description" => "desc",
+                                    "repository_url" => "http://google.com/"
+                                  }
+                                }
+                              },
+                              'test/fixtures/http/openode_api/empty_object.json',
+                              logged_in_user_token)
     ]
   end
 end
