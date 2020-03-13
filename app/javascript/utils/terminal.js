@@ -24,18 +24,20 @@ export const Terminal = Terminal || function(cmdLineContainer, outputContainer) 
   var histpos_ = 0;
   var histtemp_ = 0;
 
-  window.addEventListener('click', function(e) {
-    cmdLine_.focus();
-  }, false);
-
   cmdLine_.addEventListener('click', inputTextClick_, false);
   cmdLine_.addEventListener('keydown', historyHandler_, false);
   cmdLine_.addEventListener('keydown', processNewCommand_, false);
+  cmdLine_.addEventListener('dblclick', inputTextSelect_, false);
 
   //
   function inputTextClick_(e) {
     this.value = this.value;
   }
+
+  //
+  function inputTextSelect_(e) {
+    this.setSelectionRange(0, this.value.length)
+  }  
 
   //
   function historyHandler_(e) {
