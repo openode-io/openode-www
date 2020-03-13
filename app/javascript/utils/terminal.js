@@ -15,7 +15,7 @@ export const Terminal = Terminal || function(cmdLineContainer, outputContainer) 
   const cmd_url = `/admin/instances/${document.querySelector('#openode-terminal-console').getAttribute('data-instance-id')}/access/cmd`
 
   const CMDS_ = [
-    'cat', 'clear', 'clock', 'date', 'echo', 'help', 'uname', 'whoami'
+    'cat', 'clear', 'clock', 'date', 'echo', 'help', 'uname', 'whoami', 'ls', 'df'
   ];
   
   var fs_ = null;
@@ -107,7 +107,7 @@ export const Terminal = Terminal || function(cmdLineContainer, outputContainer) 
           return;          
         default:
           if (cmd) {
-            axios.get(cmd_url, { params: { cmd: cmd }})
+            axios.get(cmd_url, { params: { cmd: `${cmd} ${args.join(' ')}` }})
             .then(response => {            
               output(response.data.msg);
             })          

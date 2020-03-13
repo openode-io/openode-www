@@ -39,4 +39,8 @@ module AdminHelper
 
     result
   end
+
+  def open_source_visibility_class(website)
+    (website.present? && website.account_type == 'open_source') ? 'd-block' : 'd-none'
+  end
 end
