@@ -1,4 +1,6 @@
 class Admin::InstanceAccessController < Admin::InstancesController
+  skip_forgery_protection only: [:cmd]
+
   before_action do
     add_breadcrumb "Instances",
                    admin_instances_path,

@@ -142,7 +142,7 @@ Rails.application.routes.draw do
       as: :instance_access_activity_stream
     get 'instances/:id/access/event/:event_id',
       to: 'instance_access#event'
-    get 'instances/:id/access/cmd',
+    post 'instances/:id/access/cmd',
       to: 'instance_access#cmd',
       as: :instance_access_cmd      
 
