@@ -631,6 +631,12 @@ module HttpStubs
                                }
                              },
                              'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/cmd',
+                             {
+                               "cmd" => "df -h"
+                             },
+                             'test/fixtures/http/openode_api/admin/post_cmd.json',
                              logged_in_user_token)
     ]
   end

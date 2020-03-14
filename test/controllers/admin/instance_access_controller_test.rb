@@ -32,4 +32,27 @@ class AdminInstanceAccessControllerTest < ActionDispatch::IntegrationTest
 
     assert_includes response.parsed_body, 'sync-changes'
   end
+
+  test "get console" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/access/console"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Console'
+  end
+
+  test "exec console" do
+    perform_successful_login
+
+    post "/admin/instances/#{default_instance_id}/access/cmd",
+         params: {
+           cmd: 'df -h'
+         }
+
+    assert_response :success
+
+    assert_includes response.parsed_body.to_s, 'output!'
+  end
 end

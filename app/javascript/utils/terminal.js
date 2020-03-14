@@ -110,8 +110,19 @@ export const Terminal = Terminal || function(cmdLineContainer, outputContainer) 
         default:
           if (cmd) {
             axios.post(cmd_url, { cmd: `${cmd} ${args.join(' ')}` })
-            .then(response => {            
-              output(response.data.msg);
+            .then(response => {
+              const responseMsg = response.data.msg
+              let result = ``
+
+              if (typeof responseMsg === 'object' && responseMsg && responseMsg.stdout) {
+                result += responseMsg.stdout
+              }
+
+              if (typeof responseMsg === 'object' && responseMsg && responseMsg.stderr) {
+                result += `\n\nSTDERR:\n${responseMsg.stderr}`
+              }
+
+              output(result);
             })          
             .catch(err => {
               output(err.response.data);
@@ -147,7 +158,7 @@ export const Terminal = Terminal || function(cmdLineContainer, outputContainer) 
 
   //
   function output(html) {
-    output_.insertAdjacentHTML('beforeEnd', '<p>' + html + '</p>');
+    output_.insertAdjacentHTML('beforeEnd', '<pre style="color: white">' + html + '</pre>');
   }
 
   // Cross-browser impl to get document's height.

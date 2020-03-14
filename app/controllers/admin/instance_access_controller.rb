@@ -42,6 +42,18 @@ class Admin::InstanceAccessController < Admin::InstancesController
   end
 
   def cmd
-    render json: { msg: "#{params[:cmd]} ran OK." }
+    cmd = params[:cmd]
+
+    result = begin
+      api(:post, "/instances/#{@instance_id}/cmd", payload: { cmd: cmd })
+             rescue StandardError => e
+               {
+                 'result' => {
+                   'stdout' => "There was an issue processing the command. #{e}"
+                 }
+               }
+    end
+
+    render json: { msg: result&.dig('result') }
   end
 end
