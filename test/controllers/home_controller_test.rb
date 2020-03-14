@@ -28,7 +28,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_includes response.parsed_body, "<title>Pricing"
-    assert_includes response.parsed_body, "/admin/order/sandbox"
+    assert_includes response.parsed_body, "/admin/billing/pay?"
   end
 
   test "should get about" do
