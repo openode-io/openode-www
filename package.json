@@ -2,12 +2,12 @@
   "name": "openode_www",
   "private": true,
   "dependencies": {
-    "@babel/preset-react": "^7.7.4",
-    "@fortawesome/fontawesome-free": "^5.12.0",
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "^4.2.0",
+    "@babel/preset-react": "^7.8.3",
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@rails/actioncable": "^6.0.2",
+    "@rails/activestorage": "^6.0.2",
+    "@rails/ujs": "^6.0.2",
+    "@rails/webpacker": "^4.2.2",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-preset-jsx": "^1.1.2",
     "axios": "^0.19.2",
@@ -19,16 +19,16 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "bootstrap": "4.4.1",
-    "bootstrap-vue": "^2.3.0",
+    "bootstrap-vue": "^2.7.0",
     "chart.js": "^2.9.3",
     "chartkick": "^3.2.0",
     "jquery": "^3.4.1",
     "jvectormap": "^2.0.4",
     "ora": "^4.0.3",
-    "popper.js": "^1.16.0",
+    "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-simple-maps": "^1.0.0-beta.0",
     "react_ujs": "^2.6.1",
     "startbootstrap-sb-admin-2": "^4.0.7",
@@ -36,13 +36,13 @@
     "typed.js": "^2.0.11",
     "vue": "^2.6.11",
     "vue-command": "^7.3.2",
-    "vue-loader": "^15.8.3",
-    "vue-sidebar-menu": "^4.4.7",
+    "vue-loader": "^15.9.0",
+    "vue-sidebar-menu": "^4.5.3",
     "vue-template-compiler": "^2.6.11",
-    "vue-turbolinks": "^2.0.4"
+    "vue-turbolinks": "^2.1.0"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.10.3"
   }
 }

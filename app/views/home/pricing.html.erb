@@ -26,7 +26,7 @@
             </div>
             <div class="card-footer">
               <% if current_user %>
-                <a href="/admin/order/<%= pricing[:id] %>"
+                <a href="/admin/billing/pay?plan=<%= pricing[:id] %>"
                     class="btn btn-lg btn-block btn-outline-success">
                   Order
                 </a>
