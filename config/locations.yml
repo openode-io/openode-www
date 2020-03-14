@@ -1,9 +1,15 @@
-- name: Roubaix 
-  description: France  
-  latLng: [50.6927,3.1778]
-  markerOffset: -15
+- name: New York
+  description: US, North America
+  latLng: [40.730610,-73.935242]
+  markerOffset: 25
   markerColor: "#2ecc71"
-  textColor: "#5D5A6D"
+  textColor: "#5D5A6D" 
+#- name: Roubaix 
+#  description: France  
+#  latLng: [50.6927,3.1778]
+#  markerOffset: -15
+#  markerColor: "#2ecc71"
+#  textColor: "#5D5A6D"
 #- name: Paris
 #  description: FR, Europe
 #  coordinates: [48.8566,2.3522]
@@ -76,18 +82,7 @@
 #  markerOffset: 25
 #  markerColor: "#2ecc71"
 #  textColor: "#5D5A6D"
-- name: Montréal
-  description: Canada
-  latLng: [45.508888, -73.561668]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
-- name: Kansas City
-  description: USA
-  latLng: [39.0119,-98.4842]
-  markerOffset: 25
-  markerColor: "#2ecc71"
-  textColor: "#5D5A6D"  
+
 #- name: Chicago
 #  description: US, North America
 #  coordinates: [41.8781,-87.6298]
