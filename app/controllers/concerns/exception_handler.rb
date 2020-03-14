@@ -30,7 +30,6 @@ module ExceptionHandler
   end
 
   def standard_error_handle(exception, http_code = 400)
-    # msg = exception.try(:response).try(:message)
     msg = ExceptionHandler.stringify_rest_exception(exception, http_code)
 
     case request.format

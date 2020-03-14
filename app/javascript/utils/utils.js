@@ -1,5 +1,6 @@
 import Typed from 'typed.js'
 import Termynal from './termynal.js'
+import {Terminal} from './terminal.js'
 
 require('jvectormap')
 require('./jvectormap_world_mill')
@@ -202,4 +203,12 @@ document.addEventListener('turbolinks:load', function () {
       document.getSelection().addRange(selected);   // Restore the original selection
     }
   };  
+
+  if($('#terminal-container').length > 0){
+    $('.prompt').html('openode# ');
+
+    var term = new Terminal('#input-line .cmdline', '#terminal-container output');
+    
+    term.init();
+  }
 })

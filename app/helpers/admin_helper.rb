@@ -18,4 +18,29 @@ module AdminHelper
   def account_to
     "/admin/account/"
   end
+
+  def deployment_status_to_level(status)
+    case status
+    when 'success'
+      'success'
+    when 'failed'
+      'danger'
+    else
+      ''
+    end
+  end
+
+  def spendings_list_to_hash(spendings)
+    result = {}
+
+    spendings.each do |spending|
+      result[spending['date']] = spending['value']
+    end
+
+    result
+  end
+
+  def open_source_visibility_class(website)
+    website.present? && website.account_type == 'open_source' ? '' : 'd-none'
+  end
 end

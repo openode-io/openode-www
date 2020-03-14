@@ -13,10 +13,11 @@ export default {
         .then(response => {
           if (mount_items){
             this.notifications = response.data.notifications
+            this.nbUnread = response.data.nb_unviewed
           }
           
           this.loading = false
-          this.$emit('updateCount', response.data.notifications.length)
+          this.$emit('updateCount', response.data.nb_unviewed)
         })
         .catch(err => {
           this.error = err
@@ -27,15 +28,16 @@ export default {
       this.alert.message = data.error
       this.alert.level = 'warning'
     },
-    updateNotifications (id) {      
+    updateNotifications (id) {
       this.notifications = this.notifications.filter(item => item.id !== id)
-      this.$emit('updateCount', this.notifications.length)
+      this.$emit('updateCount', this.nbUnread)
     }
   },
 
   data () {
     return { 
       notifications: [],
+      nbUnread: 0,
       error: null,
       loading: false
     }

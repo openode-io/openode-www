@@ -59,12 +59,15 @@ export default {
   },
 
   render () {
-    if (this.instance.status.message === 'offline') {
+    if (this.instance.status.message !== 'online') {
       return ''
     }
 
     return (
-      <button type='button' class='dropdown-item' onClick={this.stopInstance} disabled={this.button.disabled}>{this.button.text}</button>
+      <button type='button' class='dropdown-item' onClick={this.stopInstance}
+        disabled={this.button.disabled}>
+        {this.button.text}
+      </button>
     )
   }
 }

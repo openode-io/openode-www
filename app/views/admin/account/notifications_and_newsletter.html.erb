@@ -15,11 +15,12 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
               <div class="form-group mb-2">
                 <%= form.label :nb_credits_threshold_notification, 'Low credits notification (number of credits, $1 = 100 credits)', class: 'required' %>
-                <%= form.number_field :nb_credits_threshold_notification, { class: 'form-control', value: 5 } %>
+                <%= form.number_field :nb_credits_threshold_notification, { class: 'form-control', value: @account['nb_credits_threshold_notification'] } %>
               </div>
 
               <div class="form-group mb-2">
-                <%= form.check_box :newsletter %> <%= form.label :newsletter, 'Receive newsletter?', class: 'required' %>
+                <%= form.check_box :newsletter, { checked: @account['newsletter'] == 1 }, 1, 0 %>
+                <%= form.label :newsletter, 'Receive newsletter?', class: 'required' %>
               </div>
 
               <%= form.submit "Save!", class: 'btn btn-lg btn-success w-100 mb-3' %>

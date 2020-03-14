@@ -86,8 +86,8 @@ export default {
                 <i class={`${this.status.icon ? this.status.icon : ''}`} /> {`${this.status.message}`}
               </span>
             </p>
-            <p>Disk Space: {this.instance.plan.storage} MB</p>
-            <p>Memory: {this.instance.plan.ram} MB</p>
+            <p>Disk Space Limit: {this.instance.plan.storage} MB</p>
+            <p>Memory Limit: {this.instance.plan.ram} MB</p>
           </div>
           <div class='card-footer text-muted'>
             <div class='btn-group w-100' role='group' aria-label='Access Buttons'>

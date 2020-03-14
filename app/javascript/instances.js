@@ -1,7 +1,6 @@
 import InstanceList from './components/admin/instances/list'
 import DeploymentList from './components/admin/instances/deployments/list'
 import NotificationButton from './components/admin/notifications/button'
-import OpenodeTerminal from './components/admin/misc/openode_terminal'
 
 export const InstanceListInstance = {
   el: '.vue-instances',
@@ -16,9 +15,4 @@ export const InstanceDeploymentListInstance = {
 export const NotificationButtonInstance = {
   el: '.vue-notifications',
   component: NotificationButton
-}
-
-export const OpenodeTerminalInstance = {
-  el: '.vue-command',
-  component: OpenodeTerminal
 }

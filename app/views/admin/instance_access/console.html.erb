@@ -1,11 +1,16 @@
 <section>
-  <h1 class="h3 mb-3 text-gray-800 mt-3">Console <%= render 'generic/doc_link', doc_link: @doc_link %></h1>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Console</h1>
 </section>
 <section>
   <div class="row">
     <div class="col-lg-9">
-      <div id="openode-terminal-console" data-instance-id="<%= @website['site_name'] %>">
-        <div class="vue-command" data-props="<%= {instance: {id: @website['site_name']}}.to_json %>">Loading...</div>
+      <div id="openode-terminal-console" data-instance-id="<%= @instance_id %>">
+        <div id="terminal-container">
+          <output></output>
+          <div id="input-line" class="input-line">
+            <div class="prompt"></div><div class="w-75"><input class="cmdline" autofocus /></div>
+          </div>        
+        </div>
       </div>
     </div>
     <div class="col-lg-3">

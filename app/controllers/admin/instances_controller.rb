@@ -7,6 +7,8 @@ class Admin::InstancesController < AdminController
       @instance_id = params['id']
       @website = OpenStruct.new(api(:get, "/instances/#{@instance_id}"))
     end
+
+    @doc_link = "/docs/platform/"
   end
 
   def index
@@ -22,16 +24,6 @@ class Admin::InstancesController < AdminController
 
   def available_locations
     json(api(:get, "/global/available-locations?type=#{params['type']}"))
-  end
-
-  def access
-    add_breadcrumb "instances",
-                   admin_instances_path,
-                   title: "Instances"
-    add_breadcrumb "Access",
-                   admin_instance_access_path,
-                   title: "Access"
-    # -
   end
 
   def collaborators
@@ -64,7 +56,7 @@ class Admin::InstancesController < AdminController
   end
 
   def deploy
-    sleep(5)
+    api(:post, "/instances/#{@instance_id}/restart")
 
     @status = {
       level: 'warning',
@@ -77,7 +69,7 @@ class Admin::InstancesController < AdminController
   end
 
   def stop
-    sleep(5)
+    api(:post, "/instances/#{@instance_id}/stop")
 
     @status = {
       level: 'warning',
@@ -90,7 +82,7 @@ class Admin::InstancesController < AdminController
   end
 
   def delete
-    sleep(5)
+    api(:delete, "/instances/#{@instance_id}")
 
     @status = {
       level: 'warning',

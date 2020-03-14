@@ -80,6 +80,6 @@ class HomeController < ApplicationController
   private
 
   def support_params
-    params.require(:support).permit(:email, :message)
+    params.require(:support).permit(:email, :message, :site_name)
   end
 end
