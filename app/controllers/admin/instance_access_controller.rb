@@ -39,6 +39,8 @@ class Admin::InstanceAccessController < Admin::InstancesController
     add_breadcrumb "Console",
                    admin_instance_access_console_path,
                    title: "Console"
+
+    @doc_link = "/docs/platform/exec.md"
   end
 
   def cmd

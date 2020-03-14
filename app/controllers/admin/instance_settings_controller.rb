@@ -72,12 +72,16 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Settings",
                    admin_instance_settings_path
     add_breadcrumb "SSL"
+
+    @doc_link = "/docs/platform/ssl.md"
   end
 
   def scheduler
     add_breadcrumb "Settings",
                    admin_instance_settings_path
     add_breadcrumb "Scheduler"
+
+    @doc_link = "/docs/platform/scheduler_cron_jobs.md"
   end
 
   def update_scheduler
@@ -94,6 +98,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Persistence"
 
     @storage = api(:get, "/instances/#{@instance_id}/storage")
+    @doc_link = "/docs/platform/persistence.md"
   end
 
   def destroy_persistence
@@ -139,6 +144,8 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Settings",
                    admin_instance_settings_path
     add_breadcrumb "Misc"
+
+    @doc_link = "/docs/misc/index.md"
 
     @website.max_build_duration = @website.configs['MAX_BUILD_DURATION'] || 100
     @website.skip_port_check = @website.configs['SKIP_PORT_CHECK']

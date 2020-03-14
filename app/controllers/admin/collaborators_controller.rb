@@ -14,7 +14,6 @@ class Admin::CollaboratorsController < Admin::InstancesController
                    admin_instance_collaborators_path,
                    title: "Collaborators"
 
-    @doc_link = "/"
     @collaborators = api(:get, "/instances/#{@instance_id}/collaborators")
   end
 

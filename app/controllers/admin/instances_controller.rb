@@ -7,6 +7,8 @@ class Admin::InstancesController < AdminController
       @instance_id = params['id']
       @website = OpenStruct.new(api(:get, "/instances/#{@instance_id}"))
     end
+
+    @doc_link = "/docs/platform/"
   end
 
   def index

@@ -29,6 +29,7 @@ class Admin::AccountController < AdminController
     add_breadcrumb "API & CLI"
 
     @token = session[:token]
+    @doc_link = "/docs/platform/cli.md"
   end
 
   def regenerate_token
