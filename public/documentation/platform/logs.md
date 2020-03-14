@@ -11,7 +11,7 @@ Outputs to stdout and will be available.
 
 ## Administration
 
-TODO
+Logs are not yet available via the administration. It will be added as soon as possible.
 
 ## CLI
 

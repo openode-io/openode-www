@@ -11,7 +11,7 @@ The first thing to do is to configure the specific persisted storage size.
 
 #### Administration Dashboard
 
-TODO
+Persistence can be managed via the administration, from the instances list, click on Settings > Persistence.
 
 #### CLI
 
@@ -30,7 +30,7 @@ your persisted data.
 
 #### Administration Dashboard
 
-TODO
+Persistence can be managed via the administration, from the instances list, click on Settings > Persistence.
 
 #### CLI
 
@@ -57,7 +57,7 @@ your existing persisted data. Note that it will also set the storage size to 0 G
 
 #### Administration Dashboard
 
-TODO
+Persistence can be managed via the administration, from the instances list, click on Settings > Persistence.
 
 #### CLI
 

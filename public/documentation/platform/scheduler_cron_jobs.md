@@ -12,7 +12,7 @@ In this example it will run **node job.js** everyday at 5 o'clock.
 
 ## Administration
 
-The scheduler is accessible via the Administration TODO
+The scheduler is accessible via the Administration, in instance Settings > Scheduler.
 
 Note that by default, .openode.cron is written automatically when you set the scheduler via the administration.
 
