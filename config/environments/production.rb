@@ -2,7 +2,7 @@
 
 Rails.application.configure do
 
-  config.API_URL = 'https://apitest.openode.io'
+  config.API_URL = 'https://api.openode.io'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
