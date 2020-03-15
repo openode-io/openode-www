@@ -133,6 +133,8 @@ class Admin::InstancesController < AdminController
 
   def instance_params
     params.require(:instance).permit(:account_type, :location,
-                                     :domain_type, :site_name, :domains)
+                                     :domain_type, :site_name, :domains,
+                                     :open_source_description, :open_source_repository,
+                                     :open_source_title)
   end
 end
