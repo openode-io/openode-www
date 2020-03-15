@@ -3,8 +3,12 @@
     <h1 class="display-4 text-center text-success">Contact Us</h1>
   </div>
 </section>
-<section class="pt-8 pt-md-11 bg-dark p-3 p-md-5">
+<section class="pt-8 pt-md-11 p-3 p-md-5">
   <div class="container">
+    <p>
+      Please make sure to <%= link_to 'login', '/login' %> for support.
+    </p>
+    <!-- bg-dark 
     <%= form_for :support, {url: support_path, class: 'form-signin'} do |form| %>
       <div class="card">
         <div class="card-body">      
@@ -32,6 +36,7 @@
           <%= form.submit "Send!", class: 'btn btn-lg btn-success w-100 mb-3' %>
         </div>
       </div>
-    <% end %>  
+    <% end %> 
+    --> 
   </div>
 </section>
