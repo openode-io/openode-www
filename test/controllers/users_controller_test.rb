@@ -62,4 +62,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
   end
+
+  test "activate" do
+    get '/activate/userid/activationhash'
+
+    assert_response :found
+  end
 end

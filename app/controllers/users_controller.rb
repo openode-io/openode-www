@@ -41,6 +41,13 @@ class UsersController < ApplicationController
     redirect_to action: :forgot_password
   end
 
+  def activate
+    api(:post, "/account/activate/#{params['user_id']}/#{params['activation_token']}")
+
+    flash[:notice] = "Your account activated successfully, please login to get started!"
+    redirect_to '/login'
+  end
+
   private
 
   def user_params

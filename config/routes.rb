@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   post '/users', to: 'users#create'
   get '/users/forgot_password', to: 'users#forgot_password'
   post '/users/forgot_password', to: 'users#process_forgot_password'
-  get 'users/activate'
+  get '/activate/:user_id/:activation_token', to: 'users#activate'
 
   get '/reset/:reset_token', to: 'users#verify_reset_token'
 
