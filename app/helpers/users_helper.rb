@@ -2,6 +2,9 @@ module UsersHelper
   def render_recaptcha(action, show_recaptcha_v2)
     return if Rails.env.test?
 
+    # force captch v2
+    show_recaptcha_v2 = true
+
     if show_recaptcha_v2
       recaptcha_tags(
         site_key: ENV['RECAPTCHA_V2_SITE_KEY']

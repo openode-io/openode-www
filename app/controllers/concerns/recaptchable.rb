@@ -19,7 +19,7 @@ module Recaptchable
         checkbox_success = verify_recaptcha(secret_key: v2_secret_key)
       end
 
-      @show_recaptcha_v2 = !success
+      @show_recaptcha_v2 = true # !success
 
       (success || checkbox_success)
     end
