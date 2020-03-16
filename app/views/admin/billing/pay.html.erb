@@ -1,12 +1,14 @@
 <section>
-  <h1 class="h3 mb-3 text-gray-800 mt-3">New Payment</h1>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Payment</h1>
 </section>
 <section>
   <div class="row">
     <div class="col-lg-9">
       <div class="card">
         <div class="card-body">        
-          <h5>Get more credits NOW!</h5>
+          <h5>Remaining account credits</h5>
+          <h5><%= @user['credits'] %></h5>
+
           <div class="mb-3 bd-callout bd-callout-warning">
             100 credits correspond to 1 US dollar.<br/>
             No hidden fees.<br/>

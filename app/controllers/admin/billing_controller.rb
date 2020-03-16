@@ -23,7 +23,7 @@ class Admin::BillingController < AdminController
   end
 
   def pay
-    add_breadcrumb "New Payment"
+    add_breadcrumb "Payment"
 
     @user = api(:get, "/account/me")
 

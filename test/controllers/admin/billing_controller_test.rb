@@ -21,4 +21,15 @@ class AdminBillingControllerTest < ActionDispatch::IntegrationTest
 
     assert_includes response.parsed_body, '10'
   end
+
+  test "Billing Pay" do
+    perform_successful_login
+
+    get '/admin/billing/pay'
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Remaining account credits'
+    assert_includes response.parsed_body, '10000.15'
+  end
 end
