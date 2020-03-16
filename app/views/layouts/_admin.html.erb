@@ -17,7 +17,7 @@
 
         <% if @tips.present? %> 
           <div class="alert alert-info">
-            <i class="fa fa-info-circle"></i> <%= @tips %>
+            <i class="fa fa-info-circle"></i> <%= @tips.html_safe %>
           </div>
         <% end %>
 
