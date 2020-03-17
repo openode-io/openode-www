@@ -642,7 +642,12 @@ module HttpStubs
                              {
                              },
                              'test/fixtures/http/openode_api/empty_object.json',
-                             logged_in_user_token)
+                             logged_in_user_token),
+      HttpStubs.default_get(
+        'https://api.openode.io/super_admin/websites/152',
+        'test/fixtures/http/openode_api/super_admin/get_website.json',
+        logged_in_user_token
+      )
     ]
   end
 end

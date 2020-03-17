@@ -10,6 +10,10 @@ class SuperAdmin::WebsitesController < SuperAdminController
     @websites = api(:get, "/super_admin/websites/?search=#{search_for}")
   end
 
+  def view
+    @current_website = api(:get, "/super_admin/websites/#{params['id']}")
+  end
+
   def open_source
     @statuses = make_lister_selection(%w[approved rejected pending])
     @open_source = OpenStruct.new(@website.open_source)

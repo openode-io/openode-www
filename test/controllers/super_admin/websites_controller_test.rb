@@ -11,6 +11,15 @@ class SuperAdminWebsitesControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.parsed_body.to_s, 'site129.com'
   end
 
+  test "websites/id" do
+    perform_successful_login
+
+    get '/super_admin/websites/152'
+
+    assert_response :success
+    assert_includes response.parsed_body.to_s, 'elviswongsti'
+  end
+
   test "open source" do
     perform_successful_login
 

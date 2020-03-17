@@ -33,6 +33,10 @@
                   <td><%= w['status'] %></td>
                   <td><%= w['updated_at'] %></td>
                   <td>
+                    <%= link_to 'View',
+                      "/super_admin/websites/#{w['id']}/",
+                      class: 'btn btn-sm btn-outline-dark w-100' %>
+
                     <% if w['account_type'] == 'open_source' %>
                       <%= link_to 'Open Source',
                         "/super_admin/websites/#{w['id']}/open_source",
