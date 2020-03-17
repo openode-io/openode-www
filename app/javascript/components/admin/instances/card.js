@@ -41,7 +41,7 @@ export default {
                 </span>
               </a>
     */
-    console.log(`instance ${this.instance.status}`)
+    
     return (
       <div class='col-lg-4 col-sm-6 mb-4'>
         <div class={`card card-instance-details border-${this.status.level}`}>
