@@ -1,17 +1,53 @@
 # Upgrade
 
-The only required to be regularly upgraded is our CLI.
+The only required piece to be regularly upgraded is our CLI.
 
-## Upgrading the CLI
+## Deprecation dates (instances deployed before March 15 2020)
+
+If you created an instance before March 15, please note the dates below.
+
+* **April 15 2020**: Instances deployed in **Canada** will need to be upgraded.
+* **April 10 2020**: Instances deployed in **France** will need to be upgraded.
+* **April 30 2020**: Instances deployed in **USA** will need to be upgraded.
+
+## Deprecation of \<subdomain\>.us.openode.io and \<subdomain\>.fr.openode.io
+
+On April 30, and 10, respectively, subdomains URLs \<subdomain\>.us.openode.io and \<subdomain\>.fr.openode.io will be deprecated in favor of \<subdomain\>.openode.io.
+
+## Upgrading
+
+**Important note:**
+
+* When you have upgraded, deployed subdomains until **April 15 2020** will
+get http://subdomain.dev.openode.io/ addresses **without HTTPS**. From **April 15 2020**, deployed subdomains will get https://subdomain.openode.io/ addresses **with HTTPS**.
+* Custom domains are not impacted, and so you can deploy right now custom domains and use your SSL certificate.
+
+### 1- Upgrade your CLI
 
 The CLI, which is a regular NPM package, can be upgraded with:
 
     npm i -g openode
 
-## Legacy to v1
+Note that you can skip the following steps if you just destroy your instance, remove Dockerfile, and recreate a new one.
 
-On February 2020 we made a new major version of our deployment system. Therefore, if you
-had instances before February 2020, you have to upgrade them as follows.
+### 2- Stop and Remove the current location
+
+Make sure to first stop your instance:
+
+    openode stop
+
+Then delete the location:
+
+    openode del-location <current location>
+
+If you don't know the location you can use:
+
+    openode locations
+
+### 3- Legacy to v1
+
+On March 2020 we made a new major version of our deployment system. Therefore, if you
+had instances before March 2020, you have to upgrade them as follows.
 
 **First** you have to set the following configuration:
 
@@ -24,7 +60,6 @@ had instances before February 2020, you have to upgrade them as follows.
 Then apply the new template (this will generate a Dockerfile):
 
     openode template
-
 
 
 If you want to manually upgrade your Dockerfile, the only difference is that you need to 
@@ -52,3 +87,4 @@ If we take the new Node.js template:
 
     EXPOSE 80
     CMD sh /boot.sh && npm start
+
