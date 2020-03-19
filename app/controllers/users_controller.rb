@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       :post, '/account/verify-reset-token',
       payload: { reset_token: reset_token }
     )
-    user = api(:get, '/account/me', token: token)
+    user = api(:get, '/account/me', token: result['token'])
 
     set_session(result['token'], user)
 
