@@ -76,6 +76,10 @@
         "path":"misc/skip_port_verification.md"
       },
       {
+        "name":"Set Max Deployment Duration",
+        "path":"misc/max_build_duration.md"
+      },
+      {
         "name":"Samples",
         "path":"misc/samples.md"
       }
