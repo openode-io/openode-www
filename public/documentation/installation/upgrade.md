@@ -32,17 +32,23 @@ Note that you can skip the following steps if you just destroy your instance, re
 
 ### 2- Stop and Remove the current location
 
-Make sure to first stop your instance:
+The following steps should be done:
+
+#### 2.1- Make sure to first stop your instance
 
     openode stop
 
-Then delete the location:
+#### 2.2- Delete the current location
 
     openode del-location <current location>
 
 If you don't know the location you can use:
 
     openode locations
+
+#### 2.3- Add the USA location
+
+    openode add-location usa
 
 ### 3- Legacy to v1
 
