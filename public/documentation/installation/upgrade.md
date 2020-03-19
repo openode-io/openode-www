@@ -8,7 +8,7 @@ If you created an instance before March 15, please note the dates below.
 
 * **April 15 2020**: Instances deployed in **Canada** will need to be upgraded.
 * **April 10 2020**: Instances deployed in **France** will need to be upgraded.
-* **April 30 2020**: Instances deployed in **USA** will need to be upgraded.
+* **March 31 2020**: Instances deployed in **USA** will need to be upgraded.
 
 ## Deprecation of \<subdomain\>.us.openode.io and \<subdomain\>.fr.openode.io
 
