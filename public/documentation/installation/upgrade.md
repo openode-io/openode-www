@@ -12,7 +12,7 @@ If you created an instance before March 15, please note the dates below.
 
 ## Deprecation of \<subdomain\>.us.openode.io and \<subdomain\>.fr.openode.io
 
-On April 30, and 10, respectively, subdomains URLs \<subdomain\>.us.openode.io and \<subdomain\>.fr.openode.io will be deprecated in favor of \<subdomain\>.openode.io.
+On March 31, and April 10, respectively, subdomains URLs \<subdomain\>.us.openode.io and \<subdomain\>.fr.openode.io will be deprecated in favor of \<subdomain\>.openode.io.
 
 ## Upgrading
 

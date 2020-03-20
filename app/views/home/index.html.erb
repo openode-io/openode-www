@@ -197,7 +197,7 @@
                   </a>          
                 <% end %>
                 <p class="text-muted">
-                  <%= project["open_source"]["description"] %>
+                  <%=h truncate(project["open_source"]["description"], length: 50) %>
                 </p>
                 <p>
                   <a class="btn btn-dark" 
