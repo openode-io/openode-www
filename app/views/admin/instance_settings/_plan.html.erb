@@ -30,16 +30,14 @@
             <div class="form-label-group mb-2">
               <%= form.label :open_source_title, 'Project Title', class: 'required' %>
               <%= form.text_field :open_source_title,
-                class: "form-control", value: @website.open_source['title'],
-                required: true %>
+                class: "form-control", value: @website.open_source.dig('title') %>
             </div>
 
             <div class="form-label-group mb-2">
               <%= form.label :open_source_repository,
                 'Repository (e.g.: github, gitlab, etc.)', class: 'required' %>
               <%= form.url_field :open_source_repository,
-                class: "form-control", value: @website.open_source['repository_url'],
-                required: true %>
+                class: "form-control", value: @website.open_source['repository_url'] %>
             </div>
 
             <div class="form-label-group mb-2">
@@ -50,7 +48,6 @@
                                   cols: 50,
                                   rows: 10,
                                   value: @website.open_source['description'],
-                                  required: true,
                                   class: "form-control" %>
             </div>
           </div>
