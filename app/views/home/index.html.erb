@@ -183,23 +183,19 @@
             <% @recent_projects.each do |project| %>
               <div class="col-lg-4">
                 <% if project["open_source"]["logo_src"].present? %>
-                  <a href="/open-source/<%= project["site_name"] %>" class="d-flex h-100">
+                  <a href="/open-source/<%= project["site_name"] %>" class="d-flex">
                     <img class="d-block w-50 m-auto align-self-center"
                         src="<%= project["open_source"]["logo_src"] %>" 
                         alt="<%= project["site_name"] %>">
-                  </a>       
+                  </a> 
                 <% else %>
                   <a href="/open-source/<%= project["site_name"] %>" 
-                    class="d-flex h-100 no-logo-link">
-                    <h3 class="text-<%= project["open_source"]["text_class"] %> w-50 m-auto align-self-center text-center text-decoration-none">
-                      <%= project["open_source"]["name"]&.upcase %>
+                    class="d-flex no-logo-link">
+                    <h3 class="text-dark w-50 align-self-center text-center text-decoration-none mb-3 mt-3 ml-auto mr-auto">
+                      <%= project["open_source"]["title"]&.upcase %>
                     </h3>
                   </a>          
                 <% end %>
-
-                <h4 class="text-gray-200 mb-3 mt-3">
-                  <%= project["open_source"]["name"] %>
-                </h4>
                 <p class="text-muted">
                   <%= project["open_source"]["description"] %>
                 </p>
