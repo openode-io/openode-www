@@ -5,8 +5,10 @@
       <h2 class="text-muted text-left">We offer free hosting to selected open source projects.</h2>
     </div>
   </section>
+
   <%= render 'home/opensource/featured_projects', featured_projects: @featured_projects %>
   <%= render 'home/opensource/opensource_projects', projects: @opensource_projects %>
+  
 <% else %>
   <%= render 'home/opensource/blank' %>
 <% end %>

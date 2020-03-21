@@ -11,18 +11,18 @@
         <% else %>
           <a href="/open-source/<%= project["site_name"] %>" class="d-flex h-100 no-logo-link">
             <h3 class="text-<%= project["open_source"]["text_class"] %> w-50 m-auto align-self-center text-center text-decoration-none">
-              <%= project["open_source"]["name"]&.upcase %>
+              <%= project["open_source"]["title"]&.upcase %>
             </h3>
           </a>          
         <% end %>
     </div>
     <div class="card-body">
       <p class="card-text">
-        <%= project["open_source"]["description"] %>
+        <%=h truncate(project["open_source"]["description"], length: 500) %>
       </p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <a href="<%= project["open_source"]["source_code_url"] %>"
+          <a href="<%= project["open_source"]["repository_url"] %>"
               target="_blank"
               class="btn btn-sm btn-outline-secondary">
           <i class="fab fa-github"></i> View Code</a>
