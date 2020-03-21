@@ -647,6 +647,11 @@ module HttpStubs
         'https://api.openode.io/super_admin/websites/152',
         'test/fixtures/http/openode_api/super_admin/get_website.json',
         logged_in_user_token
+      ),
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/dns',
+        'test/fixtures/http/openode_api/admin/get_dns.json',
+        logged_in_user_token
       )
     ]
   end

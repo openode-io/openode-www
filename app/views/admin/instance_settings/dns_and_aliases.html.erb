@@ -10,8 +10,8 @@
         <div class="card-body">
           <div class="mb-3 bd-callout bd-callout-warning">    
             <h5>Use the following <b>DNS records</b></h5>
-            <b>CNAME Record (recommended)</b>: COMING SOON<br />
-            <b>A Record</b>: COMING SOON
+            <b>CNAME Record (recommended)</b>: <%= @dns['cname'] %><br />
+            <b>A Record</b>: <%= @dns['external_addr'] %>
           </div>
 
           <hr />

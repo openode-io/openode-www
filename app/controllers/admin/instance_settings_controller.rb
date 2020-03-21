@@ -49,6 +49,8 @@ class Admin::InstanceSettingsController < Admin::InstancesController
                    admin_instance_settings_path
     add_breadcrumb "DNS & Aliases"
 
+    @dns = api(:get, "/instances/#{@instance_id}/dns")
+
     @aliases = (@website.domains || []).reject { |domain| domain == @website.site_name }
   end
 

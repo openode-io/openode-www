@@ -109,7 +109,8 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_includes response.parsed_body, 'DNS And Aliases'
-    puts response.parsed_body
+    assert_includes response.parsed_body, 'canada.openode.io'
+    assert_includes response.parsed_body, '127.0.0.2'
   end
 
   test "create alias" do
