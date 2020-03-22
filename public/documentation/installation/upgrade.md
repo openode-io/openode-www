@@ -14,6 +14,12 @@ If you created an instance before March 15, please note the dates below.
 
 On March 31, and April 10, respectively, subdomains URLs \<subdomain\>.us.openode.io and \<subdomain\>.fr.openode.io will be deprecated in favor of \<subdomain\>.openode.io.
 
+## Deprecation of DNS nameservers (ns1.vultr.com, ns2.vultr.com)
+
+When you use the new system, the nameservers ns1/2.vultr.com are no more updated.
+
+You have to use the DNS settings provided at the end of the deployment or in the administration > Instances > Settings > DNS and Aliases.
+
 ## Upgrading
 
 **Important note:**
