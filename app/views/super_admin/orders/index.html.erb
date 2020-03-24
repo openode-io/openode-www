@@ -1,0 +1,54 @@
+<section>
+  <h1 class="h3 mb-3 text-gray-800">Orders</h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <%= render 'generic/search',
+        form_id: :orders_search,
+        search_path: super_admin_orders_path
+      %>
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">user_id</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Created at</th>
+                  <th scope="col">Updated at</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>              
+              <% @orders.each do |o| %>
+                <tr>
+                  <td><%= o['id'] %></td>
+                  <td><%= o['user_id'] %></td>
+                  <td><%= o['email'] %></td>
+                  <td><%= o['amount'] %></td>
+                  <td><%= o['created_at'] %></td>
+                  <td><%= o['updated_at'] %></td>
+                  <td>
+                    <div class="d-flex">
+                      <ul>
+                        
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>     
+              </tbody>
+            </table>           
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <%= render 'super_admin/shared/sidebar' %>
+    </div>    
+  </div>
+</section>

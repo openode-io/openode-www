@@ -155,8 +155,10 @@ Rails.application.routes.draw do
   namespace :super_admin do
     get '/', to: 'home#index' 
 
-    get '/websites', to: 'websites#index' 
-    get '/websites/:id', to: 'websites#view' 
+    get '/orders', to: 'orders#index'
+
+    get '/websites', to: 'websites#index'
+    get '/websites/:id', to: 'websites#view'
     get '/websites/:id/open_source', to: 'websites#open_source'
     post '/websites/:id/open_source', to: 'websites#update_open_source'
 

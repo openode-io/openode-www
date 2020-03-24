@@ -39,6 +39,9 @@
                         <li><%= link_to 'Websites',
                         "/super_admin/websites/?websites_search%5Bsearch%5D=#{u['id']}",
                         class: 'flex-fill btn btn-sm btn-outline-dark ' %></li>
+                        <li><%= link_to 'Orders',
+                        "/super_admin/orders/?orders_search%5Bsearch%5D=#{u['id']}",
+                        class: 'flex-fill btn btn-sm btn-outline-dark ' %></li>
                         <li><%= link_to 'Custom Order', "users/#{u['id']}/custom_order", class: 'flex-fill ml-2 btn btn-sm btn-outline-dark' %></li>
                       </ul>
                     </div>
