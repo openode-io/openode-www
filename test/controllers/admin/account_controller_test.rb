@@ -56,4 +56,18 @@ class AdminAccountControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :found
   end
+
+  test "change password" do
+    perform_successful_login
+
+    patch '/admin/account/password',
+          params: {
+            user: {
+              password: 'Passwddd112',
+              password_confirmation: 'Passwddd112'
+            }
+          }
+
+    assert_response :found
+  end
 end

@@ -657,7 +657,16 @@ module HttpStubs
         'https://api.openode.io/super_admin/orders/?search=',
         'test/fixtures/http/openode_api/super_admin/get_orders.json',
         logged_in_user_token
-      )
+      ),
+      HttpStubs.default_patch('https://api.openode.io/account/me',
+                              {
+                                "account" => {
+                                  "password" => "Passwddd112",
+                                  "password_confirmation" => "Passwddd112"
+                                }
+                              },
+                              'test/fixtures/http/openode_api/empty_object.json',
+                              logged_in_user_token)
     ]
   end
 end

@@ -4,32 +4,60 @@
 <section>
   <div class="row">
     <div class="col-lg-9">
-    <%= form_for :user, {
-        url: '/admin/account',
+      <%= form_for :user, {
+          url: '/admin/account',
+          html: { class: 'form-vertical', method: :patch }
+        } do |form| %>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="form-group mb-2">
+                  <%= form.label :email, 'Email', class: 'required' %>                
+                  <%= form.email_field :email, class: 'form-control' %>
+                </div>
+
+                <%= form.fields_for :account do |account| %>
+                  <div class="form-group mb-2">
+                    <%= account.label :name, 'Name' %>       
+                    <%= account.text_field :name, class: 'form-control',
+                      value: @user.dig(:account, 'name') %>
+                  </div>
+                  <div class="form-group mb-2">
+                    <%= account.label :company, 'Company' %>       
+                    <%= account.text_field :company,
+                      class: 'form-control',
+                      value: @user.dig(:account, 'company') %>
+                  </div>
+                <% end %>
+
+                <%= form.submit 'Save', class: 'mt-3 btn btn-outline-success w-100' %>
+              </div>
+            </div>    
+          </div>
+        </div>
+      <% end %>  
+
+      <%= form_for :user, {
+        url: '/admin/account/password',
         html: { class: 'form-vertical', method: :patch }
       } do |form| %>
       <div class="card">
         <div class="card-body">
           <div class="row">
+
+            <p><b>Change Password</b></p>
+
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
               <div class="form-group mb-2">
-                <%= form.label :email, 'Email', class: 'required' %>                
-                <%= form.email_field :email, class: 'form-control' %>
+                <%= form.label :password, 'Password', class: 'required' %>                
+                <%= form.password_field :password, class: 'form-control' %>
               </div>
 
-              <%= form.fields_for :account do |account| %>
-                <div class="form-group mb-2">
-                  <%= account.label :name, 'Name' %>       
-                  <%= account.text_field :name, class: 'form-control',
-                    value: @user.dig(:account, 'name') %>
-                </div>
-                <div class="form-group mb-2">
-                  <%= account.label :company, 'Company' %>       
-                  <%= account.text_field :company,
-                    class: 'form-control',
-                    value: @user.dig(:account, 'company') %>
-                </div>
-              <% end %>
+              <div class="form-group mb-2">
+                <%= form.label :password_confirmation, 'Password Confirmation', class: 'required' %>                
+                <%= form.password_field :password_confirmation, class: 'form-control' %>
+              </div>
 
               <%= form.submit 'Save', class: 'mt-3 btn btn-outline-success w-100' %>
             </div>
@@ -38,6 +66,7 @@
       </div>
     <% end %>  
     </div>
+
     <div class="col-lg-3">
       <%= render 'admin/account/sidebar' %>
     </div>    

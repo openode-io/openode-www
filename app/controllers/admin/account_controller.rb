@@ -55,7 +55,16 @@ class Admin::AccountController < AdminController
           }
         })
 
-    redirect_to({ action: :index },
+    redirect_to({ action: :profile },
+                notice: msg('message.modifications_saved'))
+  end
+
+  def change_password
+    api(:patch, "/account/me", payload: {
+          account: change_password_params
+        })
+
+    redirect_to({ action: :profile },
                 notice: msg('message.modifications_saved'))
   end
 
@@ -67,6 +76,13 @@ class Admin::AccountController < AdminController
       :nb_credits_threshold_notification,
       :newsletter,
       account: {}
+    )
+  end
+
+  def change_password_params
+    params.require(:user).permit(
+      :password,
+      :password_confirmation
     )
   end
 end
