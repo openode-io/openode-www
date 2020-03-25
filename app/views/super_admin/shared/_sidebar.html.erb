@@ -1,6 +1,9 @@
 <div class="card">
   <div class="card-body">
     <div class="nav flex-column nav-pills" aria-orientation="vertical">
+      <a class="nav-link <%= params[:controller].include?('super_admin/stats') ? 'active' : '' %>"
+        href="/super_admin/stats"
+        aria-selected="true"><i class="fa fa-globe-americas"></i> Stats</a>
       <a class="nav-link <%= params[:controller].include?('super_admin/websites') ? 'active' : '' %>"
         href="/super_admin/websites"
         aria-selected="true"><i class="fa fa-globe-americas"></i> Websites</a>
