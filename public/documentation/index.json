@@ -68,6 +68,16 @@
     ]
   },
   {
+    "name":"Best Practices",
+    "path":"best_practices/index.md",
+    "children": [
+      {
+        "name":"Building and publishing a frontend application",
+        "path":"best_practices/build_frontend.md"
+      }
+    ]
+  },
+  {
     "name":"Misc",
     "path":"misc/index.md",
     "children": [
