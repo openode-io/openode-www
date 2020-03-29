@@ -25,7 +25,9 @@
                   <div class='card-body'>
                     <div class="row">
                       <div class='col-lg-4 col-sm-4'>
-                        <i class="fa fa-globe-americas"></i> <%= deployment['type'] %>
+                        <i class="fa fa-globe-americas"></i> 
+                        <%= link_to deployment['type'],
+                                    admin_instance_access_deployment_path(deployment_id: deployment['id']) %>
                       </div>
                       <div class='col-lg-6 col-sm-6'>
                         <span class="badge badge-<%= deployment_status_to_level(deployment['status']) %>">

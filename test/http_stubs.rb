@@ -671,6 +671,11 @@ module HttpStubs
         'https://api.openode.io/super_admin/stats/spendings',
         'test/fixtures/http/openode_api/super_admin/get_spendings.json',
         logged_in_user_token
+      ),
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/executions/1234',
+        'test/fixtures/http/openode_api/admin/get_deployment.json',
+        logged_in_user_token
       )
     ]
   end

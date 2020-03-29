@@ -13,6 +13,16 @@ class AdminInstanceAccessControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.parsed_body, 'days ago'
   end
 
+  test "get deployment" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/access/deployments/1234"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Verifying allowed to deploy'
+  end
+
   test "get activity_stream" do
     perform_successful_login
 

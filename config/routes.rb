@@ -132,6 +132,9 @@ Rails.application.routes.draw do
     get 'instances/:id/access/deployments',
       to: 'instance_access#deployments',
       as: :instance_access_deployments
+    get 'instances/:id/access/deployments/:deployment_id',
+      to: 'instance_access#deployment',
+      as: :instance_access_deployment
     get 'instances/:id/access/console',
       to: 'instance_access#console',
       as: :instance_access_console

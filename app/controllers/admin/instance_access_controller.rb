@@ -19,6 +19,16 @@ class Admin::InstanceAccessController < Admin::InstancesController
     @deployments = api(:get, "/instances/#{@instance_id}/executions/list/Deployment")
   end
 
+  def deployment
+    add_breadcrumb "Deployments",
+                   admin_instance_access_deployments_path,
+                   title: "Deployments"
+
+    @deployment_id = params[:deployment_id]
+
+    @deployment = api(:get, "/instances/#{@instance_id}/executions/#{@deployment_id}")
+  end
+
   def activity_stream
     add_breadcrumb "Activity Stream",
                    admin_instance_access_activity_stream_path,
