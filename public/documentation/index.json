@@ -74,6 +74,10 @@
       {
         "name":"Building and publishing a frontend application",
         "path":"best_practices/build_frontend.md"
+      },
+      {
+        "name":"Recurrent Status Check",
+        "path":"best_practices/status_check.md"
       }
     ]
   },
