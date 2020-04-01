@@ -44,4 +44,6 @@ It includes [http-server](https://www.npmjs.com/package/http-server) which is a 
 
     CMD [ "http-server", "dist" ]
 
+Note that for **React**, the last line needs to be *CMD [ "http-server", "build" ]*.
+
 We made a [sample project](https://github.com/openode-io/vuejs-hello-world) using this Dockerfile and Vue.js.
