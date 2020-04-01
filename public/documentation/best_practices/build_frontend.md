@@ -4,9 +4,13 @@ This guide is for users who want to build and deploy a frontend application such
 
 ## .openodeignore the build folder
 
-The folder where the frontend files are built should not be sent. You can do so by creating a **.openodeignore** file with the folder name, for example for Vue.js:
+The folder where the frontend files are built should not be sent. You can do so by creating a **.openodeignore** file with the folder name, for example for **Vue.js**:
 
     dist/
+
+For **React**:
+
+    build/
 
 Further, your **.gitignore** should include .openode which contains the openode credentials:
 
@@ -14,7 +18,7 @@ Further, your **.gitignore** should include .openode which contains the openode 
 
 ## Building the frontend application via the Dockerfile
 
-In the following example, we will create a Dockerfile to build a Vue.js application. 
+In the following example, we will create a Dockerfile to build a React/Vue.js application. 
 It includes [http-server](https://www.npmjs.com/package/http-server) which is a convenient way to serve the frontend files, by simply specifying the folder containing the frontend files.
 
     FROM node:12-alpine

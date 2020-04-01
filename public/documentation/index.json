@@ -72,7 +72,7 @@
     "path":"best_practices/index.md",
     "children": [
       {
-        "name":"Building and publishing a frontend application",
+        "name":"Frontend applications (Vue.js, React, Angular)",
         "path":"best_practices/build_frontend.md"
       },
       {
