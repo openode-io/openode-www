@@ -4,9 +4,38 @@
 <section>
   <div class="row">
     <div class="col-lg-9">
-      <p>
-        Please refer to <%= link_to 'the documentation', '/docs/platform/ssl.md' %> for further information about SSL configurations.
-      </p>   
+      <%= form_for :website,
+        { url: "#{instance_settings_to(@instance_id)}ssl", method: :patch } do |form| %>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="form-group mb-2">
+
+                  <p class="alert alert-info">
+                    <b>Important notes</b>: <br />
+                    - Once you change the following fields, you must redeploy (<i>openode deploy</i>) so that your instance use the specified files.<br />
+                    - Certificate files must be within your repository when you deploy. We remove these files on our servers once your deployment is done.
+                  </p>
+
+
+                  <div class="form-label-group mb-2">
+                    <%= form.label :ssl_certificate_path, 'Relative SSL *Certificate Path* (Example: cert/certificate.crt)', class: 'required' %>
+                    <%= form.text_field :ssl_certificate_path, class: 'form-control' %>
+                  </div>
+
+                  <div class="form-label-group mb-2">
+                    <%= form.label :ssl_certificate_key_path, 'Relative SSL *Certificate Key Path* (Example: cert/private.key)', class: 'required' %>
+                    <%= form.text_field :ssl_certificate_key_path, class: 'form-control' %>
+                  </div>
+
+                  <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>
+                </div>
+              </div>
+            </div>    
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="col-lg-3">
       <%= render 'admin/instance_settings/sidebar' %>

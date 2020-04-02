@@ -76,6 +76,25 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "SSL"
 
     @doc_link = "/docs/platform/ssl.md"
+
+    @website.ssl_certificate_path = @website.configs['SSL_CERTIFICATE_PATH']
+    @website.ssl_certificate_key_path = @website.configs['SSL_CERTIFICATE_KEY_PATH']
+  end
+
+  def update_ssl
+    params_to_update = update_ssl_params
+
+    api(:post, "/instances/#{@instance_id}/set-config", payload: {
+          variable: 'SSL_CERTIFICATE_PATH',
+          value: params_to_update['ssl_certificate_path']
+        })
+
+    api(:post, "/instances/#{@instance_id}/set-config", payload: {
+          variable: 'SSL_CERTIFICATE_KEY_PATH',
+          value: params_to_update['ssl_certificate_key_path']
+        })
+
+    redirect_to({ action: :ssl }, notice: msg('message.modifications_saved'))
   end
 
   def scheduler
@@ -193,5 +212,9 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   def update_plan_params
     params.require(:website).permit(:plan, :open_source_title, :open_source_repository,
                                     :open_source_description)
+  end
+
+  def update_ssl_params
+    params.require(:website).permit(:ssl_certificate_path, :ssl_certificate_key_path)
   end
 end

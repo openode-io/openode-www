@@ -25,6 +25,30 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
     assert_response :found
   end
 
+  test "get ssl page" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/settings/ssl"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Certificate Path'
+  end
+
+  test "update ssl" do
+    perform_successful_login
+
+    patch "/admin/instances/#{default_instance_id}/settings/ssl",
+          params: {
+            website: {
+              ssl_certificate_path: "cert/crt.crt",
+              ssl_certificate_key_path: "cert/key.key"
+            }
+          }
+
+    assert_response :found
+  end
+
   test "get scheduler page" do
     perform_successful_login
 
