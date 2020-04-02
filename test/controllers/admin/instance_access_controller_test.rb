@@ -10,7 +10,7 @@ class AdminInstanceAccessControllerTest < ActionDispatch::IntegrationTest
 
     assert_includes response.parsed_body, 'success'
     assert_includes response.parsed_body, 'failed'
-    assert_includes response.parsed_body, 'days ago'
+    assert_includes response.parsed_body, ' ago'
   end
 
   test "get deployment" do
