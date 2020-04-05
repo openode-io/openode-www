@@ -7,6 +7,7 @@ class SuperAdmin::UsersController < SuperAdminController
   def custom_order
     @user_id = params['id']
     @gateways = [
+      %w[credit credit],
       %w[paypal paypal],
       %w[btc btc],
       %w[ether ether],
