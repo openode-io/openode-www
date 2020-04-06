@@ -10,8 +10,11 @@
         <div class="card-body">
           <div class="mb-3 bd-callout bd-callout-warning">    
             <h5>Use the following <b>DNS records</b></h5>
-            <b>CNAME Record (recommended)</b>: <%= @dns['cname'] %><br />
-            <b>A Record</b>: <%= @dns['external_addr'] %>
+            <b>CNAME Record (Recommended)</b>: <%= @dns['cname'] %><br />
+            <b>A Record (NOT Recommended)</b>: <%= @dns['external_addr'] %>
+
+            <p></p>
+            <p><i>A Records can change over time depending on our infrastructure, and so are not recommended. <a href="/docs/platform/dns.md">Doc</a></i></p>
           </div>
 
           <hr />

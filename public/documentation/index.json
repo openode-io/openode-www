@@ -38,6 +38,10 @@
         "path":"platform/ssl.md"
       },
       {
+        "name":"DNS - Custom Domains",
+        "path":"platform/dns.md"
+      },
+      {
         "name":"Running a Remote Command",
         "path":"platform/exec.md"
       },
