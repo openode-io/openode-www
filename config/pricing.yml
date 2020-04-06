@@ -2,10 +2,10 @@
   id: sandbox
   internal_id: free
   title: FREE
-  subtitle: 30-day Free Trial
+  subtitle: 1-day Free Trial
   features:
     - Unlimited deploys
-    - 10GB Bandwidth / Month
+    - 10GB Bandwidth
     - 100MB Memory
     - 1000MB Disk Storage
     - Custom domain or your-subdomain.openode.io
