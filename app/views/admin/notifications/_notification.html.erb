@@ -2,7 +2,7 @@
   <span class="pl-2 d-none d-md-block notification-item">
     <i class="fa fa-circle text-<%= notification['level'] %>"></i>
     <span class="text-light">
-      <%= notification['content'] %>
+      <%= notification['content']&.html_safe %>
     </span>
   </span>
 <% end %>

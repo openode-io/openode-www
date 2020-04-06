@@ -13,7 +13,7 @@ export default {
 
       if (remove_from_list) {
         this.visibility = 'd-sm-none'
-        this.$emit('updateNotifications',this.notification.id)
+        this.$emit('updateNotifications', this.notification.id)
       }
 
       axios.post(`/admin/notifications/${this.notification.id}/mark_read.json`)
@@ -45,13 +45,16 @@ export default {
 
   render () {
     return (
-      <a class={`dropdown-item d-flex align-items-center ${this.visibility}`} href="#" on-click:stop={this.markRead(true)}>
+      <a class={`dropdown-item d-flex align-items-center ${this.visibility}`} href="#" >
         <div class="mr-3">
         <i class={`fas fa-circle fa-2x text-${this.notification.level}`}></i>
         </div>
         <div>
           <div class="small text-gray-500">{this.notification.date}</div>
-          <span class={`font-weight-${(this.notification.status == 'read' ? 'bold' : 'light')}`}>
+          <span 
+            class={`font-weight-${(this.notification.status == 'read' ? 'bold' : 'light')}`}
+            domPropsInnerHTML={this.notification.content}
+            >
             {this.notification.content}
           </span>
         </div>

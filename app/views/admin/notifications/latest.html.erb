@@ -13,7 +13,6 @@
                   <th scope="col">Type</th>
                   <th scope="col">Level</th>
                   <th scope="col">Content</th>
-                  <th scope="col">Website id</th>
                   <th scope="col">Created at</th>
                 </tr>
               </thead>
@@ -22,8 +21,7 @@
                 <tr>
                   <td><%= notification['type'] %></td>
                   <td><%= notification['level'] %></td>
-                  <td><%= notification['content'] %></td>
-                  <td><%= notification['website_id'] %></td>
+                  <td><%= notification['content']&.html_safe %></td>
                   <td><%= time_ago_in_words(notification['created_at'])%> ago</td>
                 </tr>
               <% end %>     
