@@ -40,6 +40,9 @@ export default {
                   {this.instance.credits}
                 </span>
               </a>
+
+    For deploy button
+    <Deploy instance={this.instance} onUpdateStatus={this.updateStatus} onDisplayAlert={this.displayAlert} />
     */
     
     return (
@@ -66,7 +69,7 @@ export default {
                   class='dropdown-menu dropdown-menu-right'
                   aria-labelledby={`openode-instance-${this.instance.id}`}
                 >
-                  <Deploy instance={this.instance} onUpdateStatus={this.updateStatus} onDisplayAlert={this.displayAlert} />
+                  
 
                   <Stop instance={this.instance} onUpdateStatus={this.updateStatus} onDisplayAlert={this.displayAlert} />
 
