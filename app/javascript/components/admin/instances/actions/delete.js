@@ -65,6 +65,10 @@ export default {
   },
 
   render () {
+    if (this.instance.status.message !== 'offline') {
+      return ''
+    }
+
     return (
       <button type='button' class='dropdown-item'
         onClick={this.deleteInstance}
