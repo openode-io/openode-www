@@ -16,7 +16,7 @@ export default {
       form: {
         domain_type: 'subdomain',
         site_name: '',
-        account_type: 'free',
+        account_type: 'second',
         location: 'canada',
         open_source_description: '',
         open_source_repository: '',
