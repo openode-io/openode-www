@@ -17,6 +17,11 @@
                   </div>
 
                   <div class="form-label-group mb-2">
+                    <%= form.label :status_probe_path, 'Status Probe Path (default /)', class: 'required' %>
+                    <%= form.text_field :status_probe_path, class: 'form-control' %>
+                  </div>
+
+                  <div class="form-label-group mb-2">
                     <p class="alert alert-info">
                       <i class="fa fa-arrow-down"></i> Check the following field if you want to skip port verification
                     </p>

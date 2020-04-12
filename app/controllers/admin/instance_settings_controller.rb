@@ -171,6 +171,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     @doc_link = "/docs/misc/index.md"
 
     @website.max_build_duration = @website.configs['MAX_BUILD_DURATION'] || 100
+    @website.status_probe_path = @website.configs['STATUS_PROBE_PATH'] || '/'
     @website.skip_port_check = @website.configs['SKIP_PORT_CHECK']
   end
 
@@ -179,6 +180,10 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
     api(:post, "/instances/#{@instance_id}/set-config", payload: {
           variable: 'MAX_BUILD_DURATION', value: params_to_update['max_build_duration']
+        })
+
+    api(:post, "/instances/#{@instance_id}/set-config", payload: {
+          variable: 'STATUS_PROBE_PATH', value: params_to_update['status_probe_path']
         })
 
     api(:post, "/instances/#{@instance_id}/set-config", payload: {
@@ -196,7 +201,9 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   end
 
   def misc_params
-    params.require(:website).permit(:max_build_duration, :skip_port_check)
+    params.require(:website).permit(:max_build_duration,
+                                    :status_probe_path,
+                                    :skip_port_check)
   end
 
   def scheduler_params
