@@ -172,20 +172,36 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
     @website.max_build_duration = @website.configs['MAX_BUILD_DURATION'] || 100
     @website.status_probe_path = @website.configs['STATUS_PROBE_PATH'] || '/'
-    @website.skip_port_check = @website.configs['SKIP_PORT_CHECK']
+    @website.status_probe_period = @website.configs['STATUS_PROBE_PERIOD'] || 20
+    @website.skip_port_check = @website.configs['SKIP_PORT_CHECK']&.include?('true')
   end
 
   def update_misc
     params_to_update = misc_params
 
-    api(:post, "/instances/#{@instance_id}/set-config", payload: {
-          variable: 'MAX_BUILD_DURATION', value: params_to_update['max_build_duration']
-        })
+    fields = [
+      {
+        param_variable: 'max_build_duration',
+        internal_variable: 'MAX_BUILD_DURATION'
+      },
+      {
+        param_variable: 'status_probe_path',
+        internal_variable: 'STATUS_PROBE_PATH'
+      },
+      {
+        param_variable: 'status_probe_period',
+        internal_variable: 'STATUS_PROBE_PERIOD'
+      }
+    ]
 
-    api(:post, "/instances/#{@instance_id}/set-config", payload: {
-          variable: 'STATUS_PROBE_PATH', value: params_to_update['status_probe_path']
-        })
+    fields.each do |field|
+      api(:post, "/instances/#{@instance_id}/set-config", payload: {
+            variable: field[:internal_variable],
+            value: params_to_update[field[:param_variable]]
+          })
+    end
 
+    # special case with skip port check
     api(:post, "/instances/#{@instance_id}/set-config", payload: {
           variable: 'SKIP_PORT_CHECK',
           value: ["true", "1", true, 1].include?(params_to_update['skip_port_check'])
@@ -203,6 +219,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   def misc_params
     params.require(:website).permit(:max_build_duration,
                                     :status_probe_path,
+                                    :status_probe_period,
                                     :skip_port_check)
   end
 

@@ -22,12 +22,17 @@
                   </div>
 
                   <div class="form-label-group mb-2">
+                    <%= form.label :status_probe_period, 'Status Probe Period (in seconds, min=10, max=60)', class: 'required' %>
+                    <%= form.number_field :status_probe_period, class: 'form-control', min: 10, max: 60 %>
+                  </div>
+
+                  <div class="form-label-group mb-2">
                     <p class="alert alert-info">
                       <i class="fa fa-arrow-down"></i> Check the following field if you want to skip port verification
                     </p>
 
                     <%= form.check_box :skip_port_check %>
-                    <%= form.label :skip_port_check, 'Port verification enabled' %>                    
+                    <%= form.label :skip_port_check, 'Skip Port Verification' %>                    
                   </div>
 
                   <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>          

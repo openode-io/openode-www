@@ -19,7 +19,8 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
             website: {
               max_build_duration: "112",
               skip_port_check: "false",
-              status_probe_path: "/status"
+              status_probe_path: "/status",
+              status_probe_period: "25"
             }
           }
 
