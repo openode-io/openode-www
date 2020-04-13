@@ -42,4 +42,13 @@ document.addEventListener('turbolinks:load', function () {
       })
     })
   })
+
+  // console.log("turobo links load admin...");
+
+  const ads = document.querySelectorAll('.adsbygoogle');
+
+  ads.forEach(function(ad) {
+    // console.log("done for ad..");
+    (window.adsbygoogle || []).push({});
+  });
 })
