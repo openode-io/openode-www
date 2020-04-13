@@ -57,6 +57,14 @@ class AdminAccountControllerTest < ActionDispatch::IntegrationTest
     assert_response :found
   end
 
+  test "delete" do
+    perform_successful_login
+
+    delete '/admin/account/'
+
+    assert_response :found
+  end
+
   test "change password" do
     perform_successful_login
 

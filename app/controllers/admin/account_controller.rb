@@ -59,6 +59,15 @@ class Admin::AccountController < AdminController
                 notice: msg('message.modifications_saved'))
   end
 
+  def destroy
+    api(:delete, "/account/me")
+
+    set_session(nil, nil)
+
+    redirect_to('/',
+                notice: msg('message.modifications_saved'))
+  end
+
   def change_password
     api(:patch, "/account/me", payload: {
           account: change_password_params
