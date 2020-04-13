@@ -42,18 +42,4 @@ document.addEventListener('turbolinks:load', function () {
       })
     })
   })
-
-  if (window.google_prev_ad_slotnames_by_region) {
-    window.google_prev_ad_slotnames_by_region[''] = ''
-  }
-
-  window.google_num_ad_slots = 0
-
-  const ads = document.querySelectorAll('.adsbygoogle');
-
-  ads.forEach(function(ad) {
-    console.log("done for ad..");
-    (window.adsbygoogle || []).push({});
-    // (window.adsbygoogle || []).push({});
-  });
 })
