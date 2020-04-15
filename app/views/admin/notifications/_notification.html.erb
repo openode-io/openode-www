@@ -2,7 +2,8 @@
   <span class="pl-2 d-none d-md-block notification-item">
     <i class="fa fa-circle text-<%= notification['level'] %>"></i>
     <span class="text-light">
-      <%= notification['content']&.html_safe %>
+      <%= notification['content']&.html_safe %> 
+        (<%= time_ago_in_words(notification['created_at']) %> ago)
     </span>
   </span>
 <% end %>
