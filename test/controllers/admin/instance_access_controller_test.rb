@@ -33,6 +33,16 @@ class AdminInstanceAccessControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.parsed_body, 'sync-changes'
   end
 
+  test "get status" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/access/status"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Containers statuses'
+  end
+
   test "get event" do
     perform_successful_login
 

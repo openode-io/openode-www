@@ -37,6 +37,14 @@ class Admin::InstanceAccessController < Admin::InstancesController
     @events = api(:get, "/instances/#{@instance_id}/events")
   end
 
+  def status
+    add_breadcrumb "Status",
+                   admin_instance_access_status_path,
+                   title: "Status and Network"
+
+    @status = api(:get, "/instances/#{@instance_id}/status")
+  end
+
   def event
     add_breadcrumb "Activity Stream",
                    admin_instance_access_activity_stream_path,

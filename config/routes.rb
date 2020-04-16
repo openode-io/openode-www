@@ -147,6 +147,9 @@ Rails.application.routes.draw do
     get 'instances/:id/access/activity_stream',
       to: 'instance_access#activity_stream',
       as: :instance_access_activity_stream
+    get 'instances/:id/access/status',
+      to: 'instance_access#status',
+      as: :instance_access_status
     get 'instances/:id/access/event/:event_id',
       to: 'instance_access#event'
     post 'instances/:id/access/cmd',
