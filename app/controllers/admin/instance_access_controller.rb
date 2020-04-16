@@ -50,7 +50,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
         'date' => s['updated_at'],
         'value' =>
           ((s.dig('obj', 'rcv_bytes') || 0) + (s.dig('obj', 'tx_bytes') || 0)) /
-          (1000 * 1000) # Mb
+            (1000 * 1000) # Mb
       }
     end
   end

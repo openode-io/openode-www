@@ -715,5 +715,3 @@ module HttpStubs
     ]
   end
 end
-
-# 
