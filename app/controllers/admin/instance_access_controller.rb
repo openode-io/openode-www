@@ -43,6 +43,16 @@ class Admin::InstanceAccessController < Admin::InstancesController
                    title: "Status and Network"
 
     @status = api(:get, "/instances/#{@instance_id}/status")
+    raw_network_stats = api(:get, "/instances/#{@instance_id}/stats/network")
+
+    @network_stats = raw_network_stats.map do |s|
+      {
+        'date' => s['updated_at'],
+        'value' =>
+          ((s.dig('obj', 'rcv_bytes') || 0) + (s.dig('obj', 'tx_bytes') || 0)) /
+          (1000 * 1000) # Mb
+      }
+    end
   end
 
   def event

@@ -706,7 +706,14 @@ module HttpStubs
         'https://api.openode.io/instances/152/status',
         'test/fixtures/http/openode_api/empty_object.json',
         logged_in_user_token
+      ),
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/stats/network',
+        'test/fixtures/http/openode_api/admin/stats_network.json',
+        logged_in_user_token
       )
     ]
   end
 end
+
+# 
