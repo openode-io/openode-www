@@ -89,7 +89,10 @@ export default {
                 <i class={`${this.status.icon ? this.status.icon : ''}`} /> {`${this.status.message}`}
               </span>
             </p>
-            <p>Disk Space Limit: {this.instance.plan.storage} MB</p>
+            <p>Image Disk Space: {this.instance.plan.storage} MB</p>
+            <p>
+              Active Persistence: {this.instance.persistence ? this.instance.persistence.extra_storage : 0} GB
+            </p>
             <p>Memory Limit: {this.instance.plan.ram} MB</p>
           </div>
           <div class='card-footer text-muted'>

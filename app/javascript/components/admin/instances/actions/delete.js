@@ -65,7 +65,7 @@ export default {
   },
 
   render () {
-    if (this.instance.status.message !== 'offline') {
+    if (this.instance.active) {
       return ''
     }
 
