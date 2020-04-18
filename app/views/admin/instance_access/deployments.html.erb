@@ -27,10 +27,22 @@
                         <span class="badge badge-<%= deployment_status_to_level(deployment['status']) %>">
                           <%= deployment['status'] %>
                         </span>
+                        
                       </div>
                       <div class='col-lg-2 col-sm-2text-right'>
                         <i class="fa fa-clock"></i>
                         <%= time_ago_in_words(deployment['created_at']) %> ago
+
+                        <% if deployment['status'] == 'success' &&
+                              deployment&.dig('obj', 'image_name_tag') %>
+                          <div>
+                            <%= link_to 'Rollback',
+                                        "#{admin_instance_access_rollback_deployment_path(deployment_id: deployment['id'])}",
+                              class: 'btn btn-sm btn-outline-dark',
+                              method: :post,
+                              data: { confirm: "Are you sure?" } %>
+                          </div>
+                        <% end %>
                       </div>
                     </div>
                   </div>
