@@ -29,6 +29,17 @@ class Admin::InstanceAccessController < Admin::InstancesController
     @deployment = api(:get, "/instances/#{@instance_id}/executions/#{@deployment_id}")
   end
 
+  def rollback
+    @deployment_id = params[:deployment_id]
+
+    api(:post, "/instances/#{@instance_id}/restart?parent_execution_id=#{@deployment_id}")
+
+    redirect_to({
+                  action: :deployments
+                },
+                notice: "The instance will be rollbacked shortly.")
+  end
+
   def activity_stream
     add_breadcrumb "Activity Stream",
                    admin_instance_access_activity_stream_path,

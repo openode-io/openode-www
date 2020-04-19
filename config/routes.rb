@@ -141,6 +141,9 @@ Rails.application.routes.draw do
     get 'instances/:id/access/deployments/:deployment_id',
       to: 'instance_access#deployment',
       as: :instance_access_deployment
+    post 'instances/:id/access/deployments/:deployment_id/rollback',
+      to: 'instance_access#rollback',
+      as: :instance_access_rollback_deployment
     get 'instances/:id/access/console',
       to: 'instance_access#console',
       as: :instance_access_console

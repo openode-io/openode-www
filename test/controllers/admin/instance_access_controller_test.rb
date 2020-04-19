@@ -23,6 +23,15 @@ class AdminInstanceAccessControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.parsed_body, 'Verifying allowed to deploy'
   end
 
+  test "rollback a deployment" do
+    perform_successful_login
+
+    post "/admin/instances/#{default_instance_id}/" \
+          "access/deployments/1234/rollback"
+
+    assert_response :found
+  end
+
   test "get activity_stream" do
     perform_successful_login
 
