@@ -44,7 +44,7 @@ You can also viewed the stored environment variables with:
 
     openode env
 
-*Note that the stored variables overrides the variables in .env files.*
+*Note that the stored variables override the variables in .env files.*
 
 ## Dockerfile ENV
 
