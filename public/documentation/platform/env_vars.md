@@ -30,6 +30,22 @@ If you want to use a dotenv which is different than **.env**, you can specify a 
 
 Example **path** can be for example **.production.env** for a specific production environment file.
 
+## CLI
+
+The CLI can be used to set environment variables. To create or update a variable:
+
+    openode set-env <variable> <value>
+
+To remove an existing variable:
+
+    openode del-env <variable>
+
+You can also viewed the stored environment variables with:
+
+    openode env
+
+*Note that the stored variables overrides the variables in .env files.*
+
 ## Dockerfile ENV
 
 Your Dockerfile can contain ENV commands allowing to set environment variables. To use this method, just add ENV commands in your Dockerfile, for example:
