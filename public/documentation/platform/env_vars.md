@@ -63,7 +63,7 @@ normally not commited/published.
 
 Some variables either from the docker image or from our deployment system are set by default.
 
-You can view all environment variable by typing the following command:
+You can view all environment variables by typing the following command:
 
     openode exec env
 
