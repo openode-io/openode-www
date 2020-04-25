@@ -59,3 +59,14 @@ normally not commited/published.
 
 [More information on ENV in Dockerfile](https://docs.docker.com/engine/reference/builder/#env).
 
+## Default Variables
+
+Some variables either from the docker image or from our deployment system are set by default.
+
+You can view all environment variable by typing the following command:
+
+    openode exec env
+
+Notable default environment variables:
+
+- *MAIN\_SERVICE\_SERVICE\_HOST*: Provides the private IP address. If you have more than one instance, you can communicate directly to a certain website using this private IP over a private network.
