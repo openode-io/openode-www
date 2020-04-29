@@ -4,6 +4,12 @@
   markerOffset: 25
   markerColor: "#2ecc71"
   textColor: "#5D5A6D" 
+- name: Amsterdam
+  description: NL, Europe
+  latLng: [52.37403, 4.88969]
+  markerOffset: 0
+  markerColor: "#2ecc71"
+  textColor: "#5D5A6D" 
 #- name: Roubaix 
 #  description: France  
 #  latLng: [50.6927,3.1778]
@@ -28,12 +34,7 @@
 #  markerOffset: 25
 #  markerColor: "#2ecc71"
 #  textColor: "#5D5A6D"  
-#- name: Amsterdam
-#  description: NL, Europe
-#  coordinates: [52.3667,4.8945]
-#  markerOffset: 25
-#  markerColor: "#2ecc71"
-#  textColor: "#5D5A6D"  
+ 
 #- name: Singapore
 #  description: SG, Asia
 #  coordinates: [1.3521,103.8198]
