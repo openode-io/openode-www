@@ -6,6 +6,8 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="form-group mb-2">
 
+          <p class="alert alert-warning">warning: once you change your plan, if your instance is already online it will be stopped - make sure to redeploy it.</p>
+
           <div class="form-label-group mb-2">
             <%= form.label :plan, 'Change your plan', class: 'required' %>
             <%= form.select :plan, @plans.map { |p| [p['name'], p['internal_id']] },
