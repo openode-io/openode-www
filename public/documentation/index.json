@@ -110,6 +110,10 @@
         "path":"misc/status_probe.md"
       },
       {
+        "name":"List of server IPs",
+        "path":"misc/server_ips.md"
+      },
+      {
         "name":"Samples",
         "path":"misc/samples.md"
       }
