@@ -72,6 +72,10 @@
       {
         "name":"Open Source",
         "path":"platform/open_source.md"
+      },
+      {
+        "name":"Limitations",
+        "path":"platform/limitations.md"
       }
     ]
   },
