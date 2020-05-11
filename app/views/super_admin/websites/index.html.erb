@@ -19,7 +19,8 @@
                   <th scope="col">User ID</th>
                   <th scope="col">Plan</th>
                   <th scope="col">Status</th>
-                  <th scope="col">Updated at</th>
+                  <th scope="col">Locations</th>
+                  <th scope="col">Created at</th>
                   <th scope="col" ></th>
                 </tr>
               </thead>
@@ -31,7 +32,8 @@
                   <td><%= w['user_id'] %></td>
                   <td><%= w['account_type'] %></td>
                   <td><%= w['status'] %></td>
-                  <td><%= w['updated_at'] %></td>
+                  <td><%= w['locations']&.map { |l| l.dig('str_id') } %></td>
+                  <td><%= w['created_at'] %></td>
                   <td>
                     <%= link_to 'View',
                       "/super_admin/websites/#{w['id']}/",
