@@ -9,4 +9,5 @@ Due to an known [issue](https://github.com/kubernetes/kubernetes/issues/66607) w
 *Workarounds:*
 
 - Use two different locations. Requesting to the second location of two hosted sites works seemlessly.
+- The API route [/instances/:id/routes](https://api.openode.io/documentation/1.0/instances/routes.html) can be use to get the proper hosts to use.
 - Use the private IP over HTTP to communicate to the destination instance, see [Environment Variables, MAIN\_SERVICE\_SERVICE\_HOST](/docs/platform/env_vars.md).
