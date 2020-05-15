@@ -8,7 +8,8 @@ module DocsHelper
         o['path'] == doc_path
       end
 
-      "#{document_records.first['name']} | #{section.titleize} | Documentation | opeNode"
+      "#{document_records&.first&.dig('name')} | " \
+      "#{section&.titleize} | Documentation | opeNode"
     else
       "#{section.titleize} | Documentation | opeNode"
     end

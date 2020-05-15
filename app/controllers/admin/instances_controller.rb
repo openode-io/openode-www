@@ -12,10 +12,7 @@ class Admin::InstancesController < AdminController
   end
 
   def index
-    @tips = "For users with instances before March 15 2020: " \
-            "Make sure to upgrade the CLI with npm install -g openode, " \
-            "and also checkout the <a href='/docs/installation/upgrade.md'>" \
-            "upgrade guide</a>."
+    # @tips = ""
 
     respond_to do |format|
       format.html
