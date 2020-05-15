@@ -62,9 +62,11 @@
           <%= form.text_area :message, { class: 'form-control', rows:5, required:true } %>
         </div>
 
+        <!--
         <div class="form-label-group mb-3">
-          <%= render_recaptcha('support', @show_recaptcha_v2) %>
+          <%# render_recaptcha('support', @show_recaptcha_v2) %>
         </div>
+      -->
 
         <%= form.submit "Send!", class: 'btn btn-lg btn-success w-100 mb-3' %>
       </div>
