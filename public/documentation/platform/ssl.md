@@ -18,3 +18,11 @@ and private key certificate path:
 
 We currently provide HTTPS automatically for \*.openode.io. That means if you are using
 a subdomain instance you are getting automatically HTTPS.
+
+# Force Redirect HTTP to HTTPS
+
+By default, if a valid SSL certificate is available, HTTP traffic is redirected to HTTPS.
+This default configuration can be disabled/enabled using the following config - to disable:
+
+    openode set-config REDIR_HTTP_TO_HTTPS false
+
