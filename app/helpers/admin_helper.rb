@@ -30,11 +30,11 @@ module AdminHelper
     end
   end
 
-  def spendings_list_to_hash(spendings)
+  def date_list_to_hash(items)
     result = {}
 
-    spendings.each do |spending|
-      result[spending['date']] = spending['value']
+    items.each do |item|
+      result[item['date']] = item['value']
     end
 
     result

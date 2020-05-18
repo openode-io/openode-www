@@ -6,7 +6,7 @@
     <div class="col-lg-9">
       <div class="card">
         <div class="card-body">    
-          <%= line_chart spendings_list_to_hash(@spendings),
+          <%= line_chart date_list_to_hash(@spendings),
                 xtitle: "Date",
                 ytitle: "Credits",
                 colors: ['#28a745'] %>
@@ -15,7 +15,7 @@
 
       <div class="card">
         <div class="card-body">    
-          <%= line_chart spendings_list_to_hash(@nb_online_stats),
+          <%= line_chart date_list_to_hash(@nb_online_stats),
                 xtitle: "Date",
                 ytitle: "Sites up",
                 colors: ['#28a745'] %>

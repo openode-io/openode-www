@@ -14,7 +14,7 @@
       <p>
         <b>Networking</b>
       </p>
-      <%= line_chart spendings_list_to_hash(@network_stats),
+      <%= line_chart date_list_to_hash(@network_stats),
                 xtitle: "Date",
                 ytitle: "Network Traffic (Mb)",
                 colors: ['#28a745'] %>
