@@ -70,11 +70,6 @@ module.exports = function (api) {
         {
           async: false
         }
-      ],
-      isProductionEnv && [
-        {
-          removeImport: true
-        }
       ]
     ].filter(Boolean)
   }
