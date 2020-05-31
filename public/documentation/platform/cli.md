@@ -73,14 +73,6 @@ If you only need to send new files without deploying, then you can simply run:
 openode sync
 ```
 
-### Sync and Reload
-
-A shortcut to synchronize and reload can be used:
-
-```
-openode sync-n-reload
-```
-
 ### Upgrading Your Plan
 
 In order to upgrade your plan, you first have to look at the possible plans using:
@@ -138,14 +130,6 @@ openode logs [-n nbLines]
 
 * *-n:* (Optional) Returns the N last lines for all log types.
 
-### Stats
-
-You can obtain stats (CPU, RAM, disk, etc.) about your instance:
-
-```
-openode stats
-```
-
 ### Stopping an Instance
 
 ```
@@ -160,7 +144,7 @@ The following command allows to run a command in your running container:
 openode exec [yourCmd]
 ```
 
-For example, if you run openode `cmd "ls -la"`, the list of files will be listed.
+For example, if you run openode `exec "ls -la"`, the list of files will be listed.
 
 ### Clear remote repository
 
