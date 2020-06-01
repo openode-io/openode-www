@@ -39,3 +39,11 @@ If you just need to deploy your instance with no files synchronization, it can b
 done via:
 
     openode restart
+
+## Fast reload
+
+To simply reload your container, the following command can be used:
+
+    openode reload
+
+Note that it must already be online.
