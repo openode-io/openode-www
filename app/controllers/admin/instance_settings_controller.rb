@@ -43,6 +43,31 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     redirect_to({ action: :plan }, notice: msg('message.modifications_saved'))
   end
 
+  def location
+    add_breadcrumb "Setting", admin_instance_settings_path
+    add_breadcrumb "Location"
+
+    @locations = api(:get, "/global/available-locations")
+    @website_location = api(:get, "/instances/#{@instance_id}/locations").first
+  end
+
+  def change_location
+    new_location_str_id = params.dig('website', 'location_str_id')
+
+    # first remove all existing location:
+    existing_locations = api(:get, "/instances/#{@instance_id}/locations")
+
+    existing_locations.each do |existing_location|
+      api(:post, "/instances/#{@instance_id}/remove-location",
+          payload: { location_str_id: existing_location.dig('id') })
+    end
+
+    api(:post, "/instances/#{@instance_id}/add-location",
+        payload: { location_str_id: new_location_str_id })
+
+    redirect_to({ action: :location }, notice: msg('message.modifications_saved'))
+  end
+
   # DNS and aliases
   def dns_and_aliases
     add_breadcrumb "Settings",

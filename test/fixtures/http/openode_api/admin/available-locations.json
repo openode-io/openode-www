@@ -1,1 +1,8 @@
-[{"str_id":"canada","full_name":"Montreal (Canada)","country_fullname":"Canada","cloud_provider":"internal"}]
+[
+  {
+  "str_id":"canada",
+"full_name":"Montreal (Canada)",
+"country_fullname":"Canada",
+"cloud_provider":"internal"
+}
+]

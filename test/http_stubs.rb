@@ -275,6 +275,33 @@ module HttpStubs
         }
       },
       {
+        url: 'https://api.openode.io/global/available-locations',
+        method: :get,
+        with: {
+          body: {}
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/admin/available-locations.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
+      },
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/locations',
+        'test/fixtures/http/openode_api/admin/instance_locations.json',
+        logged_in_user_token
+      ),
+      HttpStubs.default_post('https://api.openode.io/instances/152/remove-location',
+                             { "location_str_id" => "canada" },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/add-location',
+                             { "location_str_id" => "canada" },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      {
         url: 'https://api.openode.io/instances/create',
         method: :post,
         with: {

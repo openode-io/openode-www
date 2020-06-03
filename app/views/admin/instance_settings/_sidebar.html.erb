@@ -5,6 +5,13 @@
         href="<%= "#{instance_settings_to(@instance_id)}plan" %>"
         aria-selected="true"><i class="fa fa-credit-card"></i> Change Plan</a>
 
+      <a class="nav-link <%= params[:action].match(/location/) ? 'active' : '' %>"
+        href="<%= "#{instance_settings_to(@instance_id)}location" %>"
+        aria-selected="true">
+        <i class="fa fa-globe"></i>
+        Location
+      </a>
+
       <% if @website.domain_type == "custom_domain" %>
         <a class="nav-link <%= params[:action].include?('aliases') ? 'active' : '' %>"
           href="<%= "#{instance_settings_to(@instance_id)}dns_and_aliases" %>"

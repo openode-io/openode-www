@@ -199,4 +199,28 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :found
   end
+
+  # location
+  test "get location" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/settings/location"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Change Location'
+  end
+
+  test "change location" do
+    perform_successful_login
+
+    patch "/admin/instances/#{default_instance_id}/settings/location",
+          params: {
+            website: {
+              location_str_id: 'canada'
+            }
+          }
+
+    assert_response :found
+  end
 end

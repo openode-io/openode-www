@@ -1,0 +1,36 @@
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Location</h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <%= form_for :website,
+        { url: "#{instance_settings_to(@instance_id)}location", method: :patch } do |form| %>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="form-group mb-2">
+
+                  <div class="form-label-group mb-2">
+                    <%= form.label :location_str_id, 'Change Location',
+                                                      class: 'required' %>
+                    <%= form.select :location_str_id,
+                                      @locations.map { |l| [l['full_name'], l['str_id']] },
+                                      { selected: @website_location&.dig('id') },
+                                      { class: 'form-control', required: true } %>
+                  </div>
+
+                  <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+                </div>
+              </div>
+            </div>    
+          </div>
+        </div>
+        <% end %>
+    </div>
+    <div class="col-lg-3">
+      <%= render 'admin/instance_settings/sidebar' %>
+    </div>    
+  </div>
+</section>
