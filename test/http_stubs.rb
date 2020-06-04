@@ -758,9 +758,7 @@ module HttpStubs
                              {
                              },
                              'test/fixtures/http/openode_api/empty_object.json',
-                             logged_in_user_token),
+                             logged_in_user_token)
     ]
   end
 end
-
-
