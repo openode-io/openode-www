@@ -71,6 +71,7 @@ export default {
                 >
                   
 
+                  <Deploy instance={this.instance} onUpdateStatus={this.updateStatus} onDisplayAlert={this.displayAlert} />
                   <Stop instance={this.instance} onUpdateStatus={this.updateStatus} onDisplayAlert={this.displayAlert} />
 
                   <div class='dropdown-divider' />

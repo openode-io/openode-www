@@ -747,7 +747,20 @@ module HttpStubs
         'https://api.openode.io/instances/152/stats/network',
         'test/fixtures/http/openode_api/admin/stats_network.json',
         logged_in_user_token
-      )
+      ),
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/executions/list/Deployment/' \
+        '?status=success',
+        'test/fixtures/http/openode_api/admin/latest_deployment_success.json',
+        logged_in_user_token
+      ),
+      HttpStubs.default_post('https://api.openode.io/instances/152/restart?parent_execution_id=1234564',
+                             {
+                             },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
     ]
   end
 end
+
+

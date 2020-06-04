@@ -58,12 +58,26 @@ class Admin::InstancesController < AdminController
   end
 
   def deploy
-    api(:post, "/instances/#{@instance_id}/restart")
+    path_executions = "/instances/#{@instance_id}/executions/list" \
+                      "/Deployment/?status=success"
+    latest_exec = api(:get, path_executions).first
 
     @status = {
       level: 'warning',
       message: 'queued'
     }
+
+    if latest_exec
+      path_restart = "/instances/#{@instance_id}/restart" \
+                      "?parent_execution_id=#{latest_exec['id']}"
+
+      api(:post, path_restart)
+    else
+      @status = {
+        level: 'warning',
+        message: 'No available execution'
+      }
+    end
 
     respond_to do |format|
       format.json { render json: { status: @status } }
