@@ -156,6 +156,9 @@ Rails.application.routes.draw do
     get 'instances/:id/access/status',
       to: 'instance_access#status',
       as: :instance_access_status
+    get 'instances/:id/access/logs',
+      to: 'instance_access#logs',
+      as: :instance_access_logs
     get 'instances/:id/access/event/:event_id',
       to: 'instance_access#event'
     post 'instances/:id/access/cmd',

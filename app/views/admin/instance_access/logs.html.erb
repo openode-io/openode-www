@@ -1,0 +1,19 @@
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Logs</h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <p>
+        
+      </p>
+      <textarea class="dynamic-terminal rounded mb-2">
+<%= JSON.pretty_generate @logs %>
+      </textarea>
+
+    </div>
+    <div class="col-lg-3">
+      <%= render 'admin/instances/access/sidebar', instance_id: params[:id] %>
+    </div> 
+  </div>
+</section>
