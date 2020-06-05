@@ -45,7 +45,9 @@ class Admin::InstanceAccessController < Admin::InstancesController
                    admin_instance_access_logs_path,
                    title: "Logs"
 
-    retrieved_logs = api(:get, "/instances/#{@instance_id}/logs")
+    @nb_lines = params&.dig('logs', 'nb_lines')&.to_i || 100
+
+    retrieved_logs = api(:get, "/instances/#{@instance_id}/logs?nbLines=#{@nb_lines}")
 
     @logs = retrieved_logs&.dig('logs')
   end

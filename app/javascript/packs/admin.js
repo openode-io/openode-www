@@ -39,5 +39,12 @@ document.addEventListener('turbolinks:load', function () {
         render: h => h(instance.component, { props })
       })
     })
+
+    const scrollableItems = document.getElementsByClassName("scroll-down");
+
+    for (const scrollableItem of scrollableItems) {
+     scrollableItem.scrollTop = scrollableItem.scrollHeight; 
+    }
   })
 })
+

@@ -32,6 +32,16 @@ class AdminInstanceAccessControllerTest < ActionDispatch::IntegrationTest
     assert_response :found
   end
 
+  test "get logs" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/access/logs"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'hello logs'
+  end
+
   test "get activity_stream" do
     perform_successful_login
 
