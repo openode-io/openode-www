@@ -7,13 +7,13 @@
       <a class="nav-link <%= params[:action].include?('activity_stream') ? 'active' : '' %>"
         href="<%= admin_instance_access_activity_stream_path(id:instance_id) %>"
         aria-controls="v-pills-activity"
-        aria-selected="false"><i class="fa fa-list"></i> Activity Stream</a>
+        aria-selected="false"><i class="fa fa-history"></i> Activity Stream</a>
 
       <a class="nav-link <%= params[:action].include?('logs') ? 'active' : '' %>"
         href="<%= admin_instance_access_logs_path(id: instance_id) %>"
         aria-controls="v-pills-activity"
         aria-selected="false">
-        <i class="fa fa-list"></i>
+        <i class="fa fa-book"></i>
          Logs
        </a>
 
