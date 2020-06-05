@@ -40,6 +40,18 @@ class Admin::InstanceAccessController < Admin::InstancesController
                 notice: "The instance will be rollbacked shortly.")
   end
 
+  def logs
+    add_breadcrumb "Logs",
+                   admin_instance_access_logs_path,
+                   title: "Logs"
+
+    @nb_lines = params&.dig('logs', 'nb_lines')&.to_i || 100
+
+    retrieved_logs = api(:get, "/instances/#{@instance_id}/logs?nbLines=#{@nb_lines}")
+
+    @logs = retrieved_logs&.dig('logs')
+  end
+
   def activity_stream
     add_breadcrumb "Activity Stream",
                    admin_instance_access_activity_stream_path,

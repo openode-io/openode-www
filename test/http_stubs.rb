@@ -758,7 +758,12 @@ module HttpStubs
                              {
                              },
                              'test/fixtures/http/openode_api/empty_object.json',
-                             logged_in_user_token)
+                             logged_in_user_token),
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/logs?nbLines=100',
+        'test/fixtures/http/openode_api/admin/access_logs.json',
+        logged_in_user_token
+      )
     ]
   end
 end
