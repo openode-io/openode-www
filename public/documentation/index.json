@@ -66,6 +66,10 @@
         "path":"platform/scheduler_cron_jobs.md"
       },
       {
+        "name":"CI/CD",
+        "path":"platform/ci_cd.md"
+      },
+      {
         "name":"CLI",
         "path":"platform/cli.md"
       },
