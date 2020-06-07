@@ -84,6 +84,20 @@
     ]
   },
   {
+    "name":"API",
+    "path":"api/index.md",
+    "children": [
+      {
+        "name":"REST API",
+        "path":"api/rest_api.md"
+      },
+      {
+        "name":"Web Socket API",
+        "path":"api/web_socket.md"
+      }
+    ]
+  },
+  {
     "name":"Best Practices",
     "path":"best_practices/index.md",
     "children": [
