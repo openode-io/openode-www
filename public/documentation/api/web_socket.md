@@ -41,6 +41,13 @@ Where *channelParameters* is:
       deployment_id: "deployment ID"
     }
 
+### WebsiteEvents Channel
+
+    channelParameters = {
+      channel: 'WebsiteEventsChannel',
+      website_id: "website ID"
+    }
+
 ## Receiving messages
 
 To read the messages, you can get them as follows:
