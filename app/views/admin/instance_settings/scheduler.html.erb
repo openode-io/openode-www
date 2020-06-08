@@ -17,6 +17,10 @@
                     It follows the well known crontab format.
                   </p>
 
+                  <p class="alert alert-info">
+                    Note that you need to have <b>RUN echo 'crontab .openode.cron' >> /boot.sh</b> uncommented in your Dockerfile (if you are using a boot script, as example CMD sh /boot.sh && npm start). We generate automatically the .openode.cron file with the field below.
+                  </p>
+
 <pre>
 # Example of job definition:
 # .---------------- minute (0 - 59)
@@ -29,7 +33,7 @@
 </pre>
 
                   <div class="form-label-group mb-2">
-                    <%= form.label :crontab, 'Crontab' %>
+                    <%= form.label :crontab, 'Crontab (.openode.cron)' %>
                     <%= form.text_area :crontab, cols: 50, rows: 10, class: 'form-control' %>
                   </div>
 
