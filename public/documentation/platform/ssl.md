@@ -20,7 +20,7 @@ and private key certificate path:
 
 ## Automatic SSL
 
-You can use HTTPS proxy for automatic SSL, for example using [Cloudflare Free HTTPS](https://www.cloudflare.com/ssl/).
+We do not provide automatic SSL certificates. However you can use an external HTTPS proxy service for automatic SSL, for example using [Cloudflare Free HTTPS](https://www.cloudflare.com/ssl/).
 
 - *Flexible SSL:* In this case, encryption is done between the end-user and Cloudflare. No encryption is done between Cloudflare and opeNode. From a user perspective, HTTPS is transparent, but this solution is less secure as no encryption is done between Cloudflare and opeNode.
 - *Full SSL*: You can use your own certificate, or a self-signed certificate. In this case, encryption will be done between the end-user to Cloudflare through opeNode.
