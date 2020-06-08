@@ -74,6 +74,36 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
     assert_response :found
   end
 
+  test "get env page" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/settings/env"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Environment Variables'
+    assert_includes response.parsed_body, 'TITEST'
+    assert_includes response.parsed_body, 'TOTEST'
+  end
+
+  test "update env page" do
+    perform_successful_login
+
+    patch "/admin/instances/#{default_instance_id}/settings/env",
+          params: {
+            website: {
+              variables: {
+                var1: {
+                  variable: 'var1',
+                  value: 'val1'
+                }
+              }
+            }
+          }
+
+    assert_response :found
+  end
+
   test "get persistence" do
     perform_successful_login
 

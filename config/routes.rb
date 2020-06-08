@@ -99,6 +99,12 @@ Rails.application.routes.draw do
     patch 'instances/:id/settings/scheduler',
       to: 'instance_settings#update_scheduler'
 
+    get 'instances/:id/settings/env',
+      to: 'instance_settings#env',
+      as: :instance_settings_env
+    patch 'instances/:id/settings/env',
+      to: 'instance_settings#update_env'
+
     # persistence
     get 'instances/:id/settings/persistence',
       to: 'instance_settings#persistence',

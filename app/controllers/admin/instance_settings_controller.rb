@@ -140,6 +140,55 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     redirect_to({ action: :scheduler }, notice: msg('message.modifications_saved'))
   end
 
+  def env
+    add_breadcrumb "Settings",
+                   admin_instance_settings_path
+    add_breadcrumb "Environment Variables"
+
+    @doc_link = "/docs/platform/env_vars.md"
+
+    @env = api(:get, "/instances/#{@instance_id}/env_variables")
+  end
+
+  def update_env
+    new_variable = params.dig('website', 'new_variable')
+    new_value = params.dig('website', 'new_value')
+
+    env_hash = (params.dig('website', 'variables') || {})
+               .merge({
+                        new_variable.to_s => {
+                          'variable' => new_variable,
+                          'value' => new_value
+                        }
+                      })
+
+    env = env_hash
+          .keys
+          .filter do |variable|
+            variable && env_hash[variable]&.dig('variable')&.present? &&
+              env_hash[variable]&.dig('value')&.present?
+          end
+          .map do |var|
+      {
+        variable: env_hash[var].dig('variable'),
+        value: env_hash[var].dig('value')
+      }
+    end
+
+    result_env = {}
+
+    env.each do |e|
+      result_env[e[:variable]] = e[:value]
+    end
+
+    payload = result_env == {} ? {} : { variables: result_env }
+
+    api(:put, "/instances/#{@instance_id}/env_variables",
+        payload: payload)
+
+    redirect_to({ action: :env }, notice: msg('message.modifications_saved'))
+  end
+
   def persistence
     add_breadcrumb "Settings",
                    admin_instance_settings_path
