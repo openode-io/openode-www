@@ -79,7 +79,7 @@ Naming/MemoizedInstanceVariableName:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 20
+  Max: 30
   Exclude:
     - 'test/http_stubs.rb'
 

@@ -32,10 +32,10 @@ module HttpStubs
     }
   end
 
-  def self.default_patch(url, body, response_file, logged_in_user_token)
+  def self.default_with_body(method_type, url, body, response_file, logged_in_user_token)
     {
       url: url,
-      method: :patch,
+      method: method_type,
       with: {
         body: body
       },
@@ -48,20 +48,16 @@ module HttpStubs
     }
   end
 
+  def self.default_patch(url, body, response_file, logged_in_user_token)
+    HttpStubs.default_with_body(:patch, url, body, response_file, logged_in_user_token)
+  end
+
   def self.default_post(url, body, response_file, logged_in_user_token)
-    {
-      url: url,
-      method: :post,
-      with: {
-        body: body
-      },
-      content_type: 'application/json',
-      response_status: 200,
-      response_path: response_file,
-      headers: {
-        'X-Auth-Token' => logged_in_user_token
-      }
-    }
+    HttpStubs.default_with_body(:post, url, body, response_file, logged_in_user_token)
+  end
+
+  def self.default_put(url, body, response_file, logged_in_user_token)
+    HttpStubs.default_with_body(:put, url, body, response_file, logged_in_user_token)
   end
 
   def self.all(logged_in_user_token)
@@ -763,7 +759,16 @@ module HttpStubs
         'https://api.openode.io/instances/152/logs?nbLines=100',
         'test/fixtures/http/openode_api/admin/access_logs.json',
         logged_in_user_token
-      )
+      ),
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/env_variables',
+        'test/fixtures/http/openode_api/admin/env_variables.json',
+        logged_in_user_token
+      ),
+      HttpStubs.default_put('https://api.openode.io/instances/152/env_variables',
+                            { 'variables' => { 'var1' => 'val1' } },
+                            'test/fixtures/http/openode_api/empty_object.json',
+                            logged_in_user_token)
     ]
   end
 end
