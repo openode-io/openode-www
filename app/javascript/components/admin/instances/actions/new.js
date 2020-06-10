@@ -154,6 +154,7 @@ export default {
                     <p>This is a open source project request, please make sure to fill all fields
                     carefully as it will be reviewed, typically within 1 business day.
                     You will receive an email once verified.</p>
+                    <p><b>Important: </b> Instances with no activity (deployment) during 1 month will be stopped - this is an effort to avoid having inactive open source websites.</p>
                     <b-form-group id='input-group-open-source-title' label='Project Title:' label-for='input-open-source-title'>
                       <b-form-input
                         id='input-open-source-title'
