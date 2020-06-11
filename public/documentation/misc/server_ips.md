@@ -7,5 +7,5 @@ First you need to get the location *str_id*, which is available here:
 
 Using the proper *str_id* depending where you deployed, you can get the list of IPs here
 
-    https://api.openode.io/global/available-locations/global/available-locations/:str_id/ips
+    https://api.openode.io/global/available-locations/:str_id/ips
 
