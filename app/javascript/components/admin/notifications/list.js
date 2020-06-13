@@ -52,7 +52,7 @@ export default {
       return (
           <div>
             <h6 class="dropdown-header bg-dark border-dark">
-              Alerts Center
+              Notifications Center
             </h6>
             {this.notifications.map(notification => (
               <NotificationItem 
