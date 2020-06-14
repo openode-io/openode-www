@@ -6,6 +6,31 @@ an external database, you will probably need its hostname, user, password, and d
 These values can be passed via environment variables and your application will be able
 to access them.
 
+If you set variables using multiple methods, they will all be merged, with the following order or priority (highest priority first):
+
+- CLI/API or Administration dashboard environment variables.
+- Dotenv environment variables.
+
+## CLI/API
+
+The CLI can be used to set environment variables. To create or update a variable:
+
+    openode set-env <variable> <value>
+
+To remove an existing variable:
+
+    openode del-env <variable>
+
+You can also viewed the stored environment variables with:
+
+    openode env
+
+*Note that the stored variables override the variables in .env files.*
+
+## Administration Dashboard
+
+The CLI/API variables can also be set using the administration, under Settings > Environment Variables.
+
 ## Dotenv (.env)
 
 The dotenv method is used when you provide a .env file in your project root folder.
@@ -30,22 +55,6 @@ If you want to use a dotenv which is different than **.env**, you can specify a 
 
 Example **path** can be for example **.production.env** for a specific production environment file.
 
-## CLI
-
-The CLI can be used to set environment variables. To create or update a variable:
-
-    openode set-env <variable> <value>
-
-To remove an existing variable:
-
-    openode del-env <variable>
-
-You can also viewed the stored environment variables with:
-
-    openode env
-
-*Note that the stored variables override the variables in .env files.*
-
 ## Dockerfile ENV
 
 Your Dockerfile can contain ENV commands allowing to set environment variables. To use this method, just add ENV commands in your Dockerfile, for example:
@@ -59,14 +68,14 @@ normally not commited/published.
 
 [More information on ENV in Dockerfile](https://docs.docker.com/engine/reference/builder/#env).
 
-## Default Variables
-
-Some variables either from the docker image or from our deployment system are set by default.
+## Viewing live environment variables
 
 You can view all environment variables by typing the following command:
 
     openode exec env
 
-Notable default environment variables:
+It allows to view what variables and values are actually deployed.
+
+Note that some variables either from the docker image or from our deployment system are set by default. Notable default environment variables:
 
 - *MAIN\_SERVICE\_SERVICE\_HOST*: Provides the private IP address. If you have more than one instance, you can communicate directly to a certain website using this private IP over a private network.
