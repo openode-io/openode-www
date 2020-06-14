@@ -2,7 +2,14 @@
   <h1 class="h3 mb-3 text-gray-800 mt-3">Alerts</h1>
 </section>
 <section>
+  <p>
+    The following alerts can be send via email when the given event(s) occur.
+    Check the following events which you want to be alerted.
+  </p>
+
   <div class="row">
+
+
     <div class="col-lg-9">
       <%= form_for :website,
         { url: "#{instance_settings_to(@instance_id)}alerts", method: :patch } do |form| %>
