@@ -38,10 +38,16 @@
         href="<%= "#{instance_settings_to(@instance_id)}persistence" %>"
         aria-controls="v-pills-console"
         aria-selected="false"><i class="fa fa-database"></i> Persistence</a>    
+
       <a class="nav-link <%= params[:action].include?('misc') ? 'active' : '' %>"
         href="<%= "#{instance_settings_to(@instance_id)}misc" %>"
         aria-controls="v-pills-console"
         aria-selected="false"><i class="fa fa-server"></i> Misc</a>                              
+
+      <a class="nav-link <%= params[:action].include?('alerts') ? 'active' : '' %>"
+        href="<%= "#{instance_settings_to(@instance_id)}alerts" %>"
+        aria-controls="v-pills-console"
+        aria-selected="false"><i class="fa fa-exclamation"></i> Alerts</a>                              
     </div>
   </div>
 </div>

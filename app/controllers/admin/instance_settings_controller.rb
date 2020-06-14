@@ -284,6 +284,38 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     redirect_to({ action: :misc }, notice: msg('message.modifications_saved'))
   end
 
+  def alerts
+    add_breadcrumb "Instances",
+                   admin_instances_path,
+                   title: "Instances"
+    add_breadcrumb "Settings",
+                   admin_instance_settings_path
+    add_breadcrumb "Alerts"
+
+    @alert_types = api(:get, "/global/type-lists/Website::ALERT_TYPES")
+
+    @alert_types.each do |alert|
+      @website.send("#{alert['id']}=", @website&.alerts&.include?(alert['id']))
+    end
+  end
+
+  def update_alerts
+    alerts = []
+
+    params['website'].each do |k, v|
+      alerts << k if v == '1'
+    end
+
+    api(:patch, "/instances/#{@instance_id}/",
+        payload: {
+          website: {
+            alerts: alerts
+          }
+        })
+
+    redirect_to({ action: :alerts }, notice: msg('message.modifications_saved'))
+  end
+
   protected
 
   def alias_params

@@ -27,6 +27,29 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
     assert_response :found
   end
 
+  test "get alerts page" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/settings/alerts"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Stop lacking credits'
+  end
+
+  test "update alerts" do
+    perform_successful_login
+
+    patch "/admin/instances/#{default_instance_id}/settings/alerts",
+          params: {
+            website: {
+              stop_lacking_credits: '1'
+            }
+          }
+
+    assert_response :found
+  end
+
   test "get ssl page" do
     perform_successful_login
 

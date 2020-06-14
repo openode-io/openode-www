@@ -122,6 +122,12 @@ Rails.application.routes.draw do
       to: 'instance_settings#update_misc',
       as: :instance_settings_patch_misc
 
+    get 'instances/:id/settings/alerts',
+      to: 'instance_settings#alerts', as: :instance_settings_alerts
+    patch 'instances/:id/settings/alerts',
+      to: 'instance_settings#update_alerts',
+      as: :instance_settings_patch_alerts
+
     get 'instances/:id/stats', to: 'instances#stats'
 
     # Collaborators
