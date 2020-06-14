@@ -60,6 +60,28 @@ class Admin::InstanceAccessController < Admin::InstancesController
     @events = api(:get, "/instances/#{@instance_id}/events")
   end
 
+  def exec_top_processes
+    cmd = 'top -b -n1'
+    result = api(:post, "/instances/#{@instance_id}/cmd",
+                 payload: {
+                   cmd: cmd
+                 })
+    result.dig('result', 'stdout')
+          .lines
+          .reject { |line| line.include?(cmd) } [3..-1]
+          .join
+  end
+
+  def exec_memory_usage_megabytes
+    result = api(:post, "/instances/#{@instance_id}/cmd",
+                 payload: {
+                   cmd: 'cat /sys/fs/cgroup/memory/memory.usage_in_bytes'
+                 })
+    result_bytes = result.dig('result', 'stdout').to_i
+
+    result_bytes / (1024.0 * 1024.0)
+  end
+
   def status
     add_breadcrumb "Status",
                    admin_instance_access_status_path,
@@ -67,6 +89,14 @@ class Admin::InstanceAccessController < Admin::InstancesController
 
     @status = api(:get, "/instances/#{@instance_id}/status")
     raw_network_stats = api(:get, "/instances/#{@instance_id}/stats/network")
+
+    @top_result = ""
+    @mem_mb = nil
+
+    if @website.status == 'online'
+      @top_result = exec_top_processes rescue nil
+      @mem_mb = exec_memory_usage_megabytes rescue nil
+    end
 
     @network_stats = raw_network_stats.map do |s|
       {

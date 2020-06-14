@@ -4,20 +4,41 @@
 <section>
   <div class="row">
     <div class="col-lg-9">
-      <p>
-        <b>Containers statuses (updated every 30 minutes)</b>
-      </p>
+
+      <% if @mem_mb.present? %>
+        <h3>
+          Memory Usage (Live):
+        </h3>
+        <h3><%= @mem_mb %> Mb (Megabytes)</h3>
+        <hr />
+      <% end %>
+
+      <% if @top_result.present? %>
+        <h3>
+          Processes Usage (Live):
+        </h3>
+        <textarea class="dynamic-terminal rounded mb-2">
+  <%= @top_result %>
+        </textarea>
+        <hr />
+      <% end %>
+
+      <h3>
+        Containers statuses (updated hourly)
+      </h3>
       <textarea class="dynamic-terminal rounded mb-2">
 <%= JSON.pretty_generate @status %>
       </textarea>
+      <hr />
 
-      <p>
-        <b>Networking</b>
-      </p>
+      <h3>
+        Networking (updated hourly)
+      </h3>
       <%= line_chart date_list_to_hash(@network_stats),
                 xtitle: "Date",
                 ytitle: "Network Traffic (Mb)",
                 colors: ['#28a745'] %>
+      <hr />
     </div>
     <div class="col-lg-3">
       <%= render 'admin/instances/access/sidebar', instance_id: params[:id] %>
