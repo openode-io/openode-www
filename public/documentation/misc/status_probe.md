@@ -1,6 +1,6 @@
 # Status Probe
 
-Our system verifies regularly that your instance is up and running by probing to a certain path (/ by default) every *N* seconds. When it detects that it's no more responding, it will respawn an instance and destroy the old one automatically.
+Our system verifies regularly that your instance is up and running by probing to a certain path (/ by default) every *N* seconds, and on boot to know when the instance is ready. 
 
 ## Administration Dashboard
 
