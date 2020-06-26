@@ -177,7 +177,16 @@ Rails.application.routes.draw do
       to: 'instance_access#event'
     post 'instances/:id/access/cmd',
       to: 'instance_access#cmd',
-      as: :instance_access_cmd      
+      as: :instance_access_cmd   
+    get 'instances/:id/access/snapshots',
+      to: 'instance_access#snapshots',
+      as: :instance_access_snapshots
+    post 'instances/:id/access/snapshots',
+      to: 'instance_access#create_snapshot'
+    get 'instances/:id/access/list-snapshots',
+      to: 'instance_access#list_snapshots'
+    get 'instances/:id/access/snapshots/:snapshot_id',
+      to: 'instance_access#get_snapshot'
 
     get 'instances/:id/credits', to: 'instances#credits', as: :instance_credits
 

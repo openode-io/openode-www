@@ -4,6 +4,12 @@
       <a class="nav-link <%= params[:action].match(/deployments|access/) ? 'active' : '' %>"
         href="<%= admin_instance_access_deployments_path(id:instance_id) %>"
         aria-selected="true"><i class="fa fa-globe-americas"></i> Deployments</a>
+
+      <a class="nav-link <%= params[:action].include?('snapshots') ? 'active' : '' %>"
+        href="<%= admin_instance_access_snapshots_path(id: instance_id) %>"
+        aria-controls="v-pills-activity"
+        aria-selected="false"><i class="fa fa-paw"></i> Snapshots</a>
+
       <a class="nav-link <%= params[:action].include?('activity_stream') ? 'active' : '' %>"
         href="<%= admin_instance_access_activity_stream_path(id:instance_id) %>"
         aria-controls="v-pills-activity"

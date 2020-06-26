@@ -32,6 +32,48 @@ class AdminInstanceAccessControllerTest < ActionDispatch::IntegrationTest
     assert_response :found
   end
 
+  test "get snapshots" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/access/snapshots"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Snapshots'
+  end
+
+  test "create snapshot" do
+    perform_successful_login
+
+    post "/admin/instances/#{default_instance_id}/access/snapshots",
+         params: {
+           website: {
+             path: '/var/www/'
+           }
+         }
+
+    assert_response :found
+  end
+
+  test "list snapshots" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/access/list-snapshots"
+
+    assert_response :success
+    assert_includes response.parsed_body, 'succeed'
+  end
+
+  test "get snapshot" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/access/snapshots/1234"
+
+    assert_response :success
+    assert_includes response.parsed_body, 'succeed'
+    assert_includes response.parsed_body, '1234'
+  end
+
   test "get logs" do
     perform_successful_login
 

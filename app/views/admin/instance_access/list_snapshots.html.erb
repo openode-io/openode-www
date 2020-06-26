@@ -1,0 +1,53 @@
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Latest snapshots</h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <div class='row'>
+        <% @snapshots.each do |snapshot| %>
+          <div class='col-lg-12 col-sm-6 mb-2'>
+              <div class="card card-instance-details">
+                <div class='card-body'>
+                  <div class="row">
+                    <div class='col-lg-4 col-sm-4'>
+                      <i class="fa fa-globe-americas"></i> 
+                      <%= link_to "View details",
+                                  "#{instance_access_to(@instance_id)}snapshots/#{snapshot['id']}" %>
+                    </div>
+                    <div class='col-lg-6 col-sm-6'>
+                      <span class="badge badge-<%= status_to_level(snapshot['status']) %>">
+                        <%= snapshot['status'] %>
+                      </span>
+                      
+                    </div>
+                    <div class='col-lg-2 col-sm-2text-right'>
+                      <i class="fa fa-clock"></i>
+                      <%= time_ago_in_words(snapshot['created_at']) %> ago
+
+                      <% if snapshot['status'] == 'succeed' && !snapshot['expired'] %>
+                        <div>
+                          <%= link_to 'Download', "#{snapshot['url']}",
+                            class: 'btn btn-sm btn-outline-dark' %>
+                        </div>
+                      <% end %>
+
+                      <% if snapshot['expired'] %>
+                        <p><strong>Expired</strong></p>
+                      <% end %>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <%= render 'admin/instances/access/sidebar', instance_id: params[:id] %>
+    </div>
+  </div> 
+</section>
