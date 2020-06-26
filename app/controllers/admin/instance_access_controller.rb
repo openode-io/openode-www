@@ -72,7 +72,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
     redirect_to({
                   action: :list_snapshots
                 },
-                notice: "The instance will be rollbacked shortly.")
+                notice: "The snapshot will be prepared shortly.")
   end
 
   def list_snapshots
