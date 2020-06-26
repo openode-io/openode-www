@@ -20,8 +20,14 @@ module AdminHelper
   end
 
   def deployment_status_to_level(status)
+    status_to_level(status)
+  end
+
+  def status_to_level(status)
     case status
     when 'success'
+      'success'
+    when 'succeed'
       'success'
     when 'failed'
       'danger'

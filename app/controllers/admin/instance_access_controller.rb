@@ -40,6 +40,62 @@ class Admin::InstanceAccessController < Admin::InstancesController
                 notice: "The instance will be rollbacked shortly.")
   end
 
+  def snapshots
+    add_breadcrumb "Snapshots",
+                   admin_instance_access_snapshots_path,
+                   title: "Snapshots"
+
+    workdir = if @website.status == 'online'
+                result = api(:post, "/instances/#{@instance_id}/cmd",
+                             payload: {
+                               cmd: 'pwd'
+                             })
+
+                result.dig('result', 'stdout')&.strip
+    end
+
+    @paths = (workdir ? [{ path: "Workdir (#{workdir})", id: workdir }] : []) +
+             (@website.storage_areas || []).map do |storage_area|
+               {
+                 path: "Storage area (#{storage_area})",
+                 id: storage_area
+               }
+             end
+  end
+
+  def create_snapshot
+    path = params.dig('website', 'path')
+
+    api(:post, "/instances/#{@instance_id}/snapshots",
+        payload: { path: path })
+
+    redirect_to({
+                  action: :list_snapshots
+                },
+                notice: "The instance will be rollbacked shortly.")
+  end
+
+  def list_snapshots
+    add_breadcrumb "Snapshots",
+                   admin_instance_access_snapshots_path,
+                   title: "Snapshots"
+
+    @snapshots = api(:get, "/instances/#{@instance_id}/snapshots")
+                 .map do |snapshot|
+      snapshot['expired'] = DateTime.parse(snapshot['expire_at']) <= DateTime.now
+
+      snapshot
+    end
+  end
+
+  def get_snapshot
+    add_breadcrumb "Snapshots",
+                   admin_instance_access_snapshots_path,
+                   title: "Snapshots"
+
+    @snapshot = api(:get, "/instances/#{@instance_id}/snapshots/#{params['snapshot_id']}")
+  end
+
   def logs
     add_breadcrumb "Logs",
                    admin_instance_access_logs_path,

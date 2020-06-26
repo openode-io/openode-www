@@ -777,7 +777,21 @@ module HttpStubs
       HttpStubs.default_patch('https://api.openode.io/instances/152/',
                               { "website" => { "alerts" => ["stop_lacking_credits"] } },
                               'test/fixtures/http/openode_api/empty_object.json',
-                              logged_in_user_token)
+                              logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/snapshots',
+                             { "path" => "/var/www/" },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/snapshots',
+        'test/fixtures/http/openode_api/admin/get_snapshots.json',
+        logged_in_user_token
+      ),
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/snapshots/1234',
+        'test/fixtures/http/openode_api/admin/get_snapshot.json',
+        logged_in_user_token
+      )
     ]
   end
 end
