@@ -40,10 +40,15 @@ class Admin::InstanceAccessController < Admin::InstancesController
                 notice: "The instance will be rollbacked shortly.")
   end
 
+  def prepare_snapshots_doc_link
+    @doc_link = "/docs/platform/snapshots.md"
+  end
+
   def snapshots
     add_breadcrumb "Snapshots",
                    admin_instance_access_snapshots_path,
                    title: "Snapshots"
+    prepare_snapshots_doc_link
 
     workdir = if @website.status == 'online'
                 result = api(:post, "/instances/#{@instance_id}/cmd",
@@ -79,6 +84,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
     add_breadcrumb "Snapshots",
                    admin_instance_access_snapshots_path,
                    title: "Snapshots"
+    prepare_snapshots_doc_link
 
     @snapshots = api(:get, "/instances/#{@instance_id}/snapshots")
                  .map do |snapshot|

@@ -83,6 +83,9 @@ Metrics/AbcSize:
   Exclude:
     - 'test/http_stubs.rb'
 
+Metrics/CyclomaticComplexity:
+  Max: 30
+
 Layout/LineLength:
   Max: 90
 

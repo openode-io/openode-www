@@ -58,6 +58,10 @@
         "path":"platform/persistence.md"
       },
       {
+        "name":"Snapshots",
+        "path":"platform/snapshots.md"
+      },
+      {
         "name":"Logs",
         "path":"platform/logs.md"
       },
