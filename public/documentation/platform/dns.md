@@ -19,3 +19,14 @@ you will not be impacted.
 We also provide an A Record in case you want to test it with an A Record.
 However, it is worth noting that the provided IP *can* change over time, and so
 it is not recommended.
+
+### ---
+
+## Alias a custom domain to an opeNode subdomain
+
+It is not currently possible to add a custom domain (myexample.com) alias to a subdomain (myexample.openode.io).
+
+You can however set an **Host** header, as follows with curl:
+
+    curl -H "Host: myexample.openode.io" https://myexample.com/
+
