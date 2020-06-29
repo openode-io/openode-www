@@ -22,6 +22,19 @@
         <% end %>
 
         <h1><%= @website&.site_name %></h1>
+        <% if @website_summary.present? %>
+          <div>
+            <span>
+              <strong>
+                <a href="http://<%= @website_summary.dig('hostname') %>">
+                  <%= @website_summary.dig('hostname') %>
+                </a>
+              </strong>
+            </span>
+          </div>
+        <% end %>
+
+        <hr />
 
         <%= render_breadcrumbs :separator => ' / ' %>
 

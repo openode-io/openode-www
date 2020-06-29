@@ -791,6 +791,11 @@ module HttpStubs
         'https://api.openode.io/instances/152/snapshots/1234',
         'test/fixtures/http/openode_api/admin/get_snapshot.json',
         logged_in_user_token
+      ),
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/summary',
+        'test/fixtures/http/openode_api/admin/get_instance_summary.json',
+        logged_in_user_token
       )
     ]
   end

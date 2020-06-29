@@ -51,7 +51,7 @@ export default {
           <div class='card-header'>
             <div class='d-flex'>
               <h5 class='card-title flex-grow-1 m-0'>
-                <a href={this.instance.url} class={`text-${this.status.level}`}>
+                <a target='_blank' href={'http://' + this.instance.hostname} class={`text-${this.status.level}`}>
                   {this.instance.site_name}
                 </a>
               </h5>

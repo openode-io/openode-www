@@ -5,6 +5,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
     add_breadcrumb "Instances",
                    admin_instances_path,
                    title: "Instances"
+    @website_summary = api(:get, "/instances/#{@website.id}/summary")
   end
 
   def index
