@@ -26,6 +26,12 @@
       <h3>
         Containers statuses (updated hourly)
       </h3>
+
+      <% if @website_summary.dig('status') == 'online' &&
+          @website_summary.dig('out_of_memory_detected') %>
+        <p class="text-danger">** Out of memory detected **</p>
+      <% end %>
+
       <textarea class="dynamic-terminal rounded mb-2">
 <%= JSON.pretty_generate @status %>
       </textarea>

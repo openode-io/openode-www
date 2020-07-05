@@ -44,7 +44,15 @@ export default {
     For deploy button
     <Deploy instance={this.instance} onUpdateStatus={this.updateStatus} onDisplayAlert={this.displayAlert} />
     */
-    
+
+    let outOfMemWarning = ''
+
+    if (this.instance.status.message == 'online' && this.instance.out_of_memory_detected) {
+      outOfMemWarning = (
+        <span class="text-danger"> **Out of memory detected**</span>
+      )
+    }
+
     return (
       <div class='col-lg-4 col-sm-6 mb-4'>
         <div class={`card card-instance-details border-${this.status.level}`}>
@@ -89,6 +97,8 @@ export default {
               <span class={`badge badge-${this.status.level}`}>
                 <i class={`${this.status.icon ? this.status.icon : ''}`} /> {`${this.status.message}`}
               </span>
+
+              {outOfMemWarning}
             </p>
             <p>Image Disk Space: {this.instance.plan.storage} MB</p>
             <p>
