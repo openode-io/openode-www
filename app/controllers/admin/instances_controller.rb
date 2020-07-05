@@ -132,7 +132,7 @@ class Admin::InstancesController < AdminController
     api(:get, '/instances/summary')
       .map do |instance|
       orig_status = instance['status']
-      
+
       instance['status'] = {
         'level' => status_to_level(orig_status),
         'message' => status_to_message(orig_status)
