@@ -159,6 +159,8 @@ class Admin::InstanceAccessController < Admin::InstancesController
     if @website.status == 'online'
       @top_result = exec_top_processes rescue nil
       @mem_mb = exec_memory_usage_megabytes rescue nil
+    else
+      @status = []
     end
 
     @network_stats = raw_network_stats.map do |s|
