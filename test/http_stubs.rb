@@ -716,6 +716,11 @@ module HttpStubs
         logged_in_user_token
       ),
       HttpStubs.default_get(
+        'https://api.openode.io/super_admin/stats/system?variable_name=nb_active_users',
+        'test/fixtures/http/openode_api/super_admin/get_nb_online.json',
+        logged_in_user_token
+      ),
+      HttpStubs.default_get(
         'https://api.openode.io/instances/152/executions/1234',
         'test/fixtures/http/openode_api/admin/get_deployment.json',
         logged_in_user_token

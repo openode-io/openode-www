@@ -4,6 +4,16 @@
 <section>
   <div class="row">
     <div class="col-lg-9">
+
+      <div class="card">
+        <div class="card-body">    
+          <%= line_chart date_list_to_hash(@nb_active_users_stats),
+                xtitle: "Date",
+                ytitle: "Active users",
+                colors: ['#28a745'] %>
+        </div>
+      </div> 
+
       <div class="card">
         <div class="card-body">    
           <%= line_chart date_list_to_hash(@spendings),
