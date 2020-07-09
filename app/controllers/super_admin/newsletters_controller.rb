@@ -2,6 +2,11 @@ class SuperAdmin::NewslettersController < SuperAdminController
   def index
     search_for = params.dig(:newsletters_search, :search)
     @newsletters = api(:get, "/super_admin/newsletters/?search=#{search_for}")
+                   .map do |newsletter|
+      newsletter['emails_sent'] = newsletter['emails_sent'].count
+
+      newsletter
+    end
   end
 
   def create
