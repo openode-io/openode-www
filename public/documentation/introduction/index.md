@@ -7,7 +7,7 @@ easier and faster than ever.
 any need to manage servers and extensive devops complexities.
 - No server/Docker/Kubernetes knowledge required. We have an **automatic build template system** which will automatically generate a Dockerfile for you.
 - **Simple pricing**, you pay the plan [price](/pricing) when your instance is up only.
-- Ideal for **side projects up to growing companies**. Our smallest plan start under $1
+- Ideal for **side projects up to growing companies**. Our smallest plan starts under $1
 per month.
 - **Collaborate** with your peers on the same projects.
 
