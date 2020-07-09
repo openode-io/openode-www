@@ -31,7 +31,7 @@
 - name: 50MB Memory
   id: 50-MB
   internal_id: first
-  title: $0.40
+  title: $0.50
   subtitle: per month
   features:
     - Unlimited deploys
@@ -46,7 +46,7 @@
 - name: 100MB Memory
   id: 100-MB
   internal_id: second
-  title: $0.80
+  title: $1.00
   subtitle: per month
   features:
     - Unlimited deploys
@@ -61,7 +61,7 @@
 - name: 200MB Memory
   id: 200-MB
   internal_id: third
-  title: $1.61
+  title: $2.00
   subtitle: per month
   features:
     - Unlimited deploys
@@ -76,7 +76,7 @@
 - name: 500MB Memory
   id: 500-MB
   internal_id: fourth
-  title: $4.02
+  title: $5.00
   subtitle: per month
   features:
     - Unlimited deploys
@@ -91,7 +91,7 @@
 - name: 1GB Memory
   id: 1-GB
   internal_id: fifth
-  title: $8.26
+  title: $10.00
   subtitle: per month
   features:
     - Unlimited deploys
@@ -106,7 +106,7 @@
 - name: 2GB Memory
   id: 2-GB
   internal_id: sixth
-  title: $16.52
+  title: $20.00
   subtitle: per month
   features:
     - Unlimited deploys
@@ -121,7 +121,7 @@
 - name: On Demand
   features:
     #- 'Extra CPUs: $5 / CPU / Month'
-    - 'Extra Storage: $0.13 / 1 GB / Month'
+    - 'Extra Storage: $0.15 / 1 GB / Month'
     - 'Exceeding Bandwidth: $0.015 / GB'
     #- 'Snapshot: $0.05 / GB'
   button: 
