@@ -132,7 +132,7 @@ export const Terminal = Terminal || function(cmdLineContainer, outputContainer) 
           }
       };
 
-      window.scrollTo(0, getDocHeight_());
+      // window.scrollTo(0, getDocHeight_());
       this.value = ''; // Clear/setup line for next input.
     }
   }
@@ -159,6 +159,9 @@ export const Terminal = Terminal || function(cmdLineContainer, outputContainer) 
   //
   function output(html) {
     output_.insertAdjacentHTML('beforeEnd', '<pre style="color: white">' + html + '</pre>');
+    
+    const terminalContainerElement = document.getElementById('terminal-container');
+    terminalContainerElement.scrollTop = terminalContainerElement.scrollHeight;
   }
 
   // Cross-browser impl to get document's height.
