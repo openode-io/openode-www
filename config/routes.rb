@@ -199,6 +199,7 @@ Rails.application.routes.draw do
 
   namespace :super_admin do
     get '/', to: 'home#index' 
+    get '/deployments', to: 'home#deployments' 
 
     get '/stats', to: 'stats#index' 
 
