@@ -47,6 +47,13 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.parsed_body, "<title>News"
   end
 
+  test "templates" do
+    get '/templates'
+
+    assert_response :success
+    assert_includes response.parsed_body, "node-minimal"
+  end
+
   test "should get locations" do
     get '/locations'
 

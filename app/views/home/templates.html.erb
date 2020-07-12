@@ -1,0 +1,43 @@
+<section class="opensource-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto border-bottom">
+  <div class="container cointaier-shrinked">
+    <h1 class="display-4 text-left text-success">Verified Templates</h1>
+    <h2 class="text-muted text-left">
+      The following templates have been verified. Templates provide a way to easily and quickly get a build file (Dockerfile) to be used in our system, which uses it to build your instance. See the <a href="/docs/platform/smart_templating.md">related CLI documentation</a>.
+    </h2>
+  </div>
+</section>
+
+<section class="opensource-list pt-8 pt-md-11 bg-secondary p-3 p-md-5">
+  <div class="container">
+    <div class="row mt-3">
+      
+      <% @templates.each do |template| %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm hvr-grow">
+            <div class="card-header">
+              <a href="/open-source/" class="d-flex h-100 no-logo-link">
+                <h3 class="text- w-50 m-auto align-self-center text-center text-decoration-none">
+                  <%= template.dig(:name) %>
+                </h3>
+              </a>          
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="<%= template.dig(:url_template) %>"
+                      target="_blank"
+                      class="btn btn-sm btn-outline-secondary">
+                  <i class="fab fa-github"></i> View Template Source</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    
+    </div>
+  </div>
+</section>

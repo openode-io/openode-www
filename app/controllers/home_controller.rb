@@ -1,3 +1,5 @@
+require 'rest-client'
+
 class HomeController < ApplicationController
   include Recaptchable
 
@@ -67,8 +69,34 @@ class HomeController < ApplicationController
   def opensource
     @opensource_projects = api(:get, '/open_source_projects/latest') rescue []
 
-    # @featured_projects = @opensource_projects.select { |o| o[:featured] } rescue []
     @featured_projects = []
+  end
+
+  def templates
+    url = "https://api.github.com/repos/openode-io/build-templates/git/trees/master" \
+            "?recursive=true"
+    @templates = JSON.parse(RestClient::Request.execute(method: :get,
+                                                        url: url))
+                     .dig('tree')
+                     .select do |item|
+                   item.dig('path').include?('v1/templates/') &&
+                     item.dig('path').include?('/Dockerfile')
+                 end
+                     .map do |item|
+      orig_path = item.dig('path')
+
+      path = orig_path.gsub('/Dockerfile', '')
+      name = orig_path.gsub('/Dockerfile', '').gsub('v1/templates/', '')
+
+      url_template =
+        "https://github.com/openode-io/build-templates/tree/master/#{path}"
+
+      {
+        path: path,
+        name: name,
+        url_template: url_template
+      }
+    end
   end
 
   def opensource_item

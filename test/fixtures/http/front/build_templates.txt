@@ -1,0 +1,643 @@
+{
+"sha": "4480c96281ef40ce0a10ed9894da11a13871db9d",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/4480c96281ef40ce0a10ed9894da11a13871db9d",
+"tree": [
+{
+"path": ".gitignore",
+"mode": "100644",
+"type": "blob",
+"sha": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+"size": 1,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/8b137891791fe96927ad78e64b0aad7bded08bdc"
+},
+{
+"path": "README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "a1d9217e518016a0c95e781effa44e9046521168",
+"size": 1131,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/a1d9217e518016a0c95e781effa44e9046521168"
+},
+{
+"path": "deprecated-services",
+"mode": "040000",
+"type": "tree",
+"sha": "1944aa9494b2c7409b5ce2b4b84aeaa5c9d127fa",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/1944aa9494b2c7409b5ce2b4b84aeaa5c9d127fa"
+},
+{
+"path": "deprecated-services/mariadb.yml",
+"mode": "100644",
+"type": "blob",
+"sha": "522589f9b8e5f7fb9eee8e7438c5199352d8fca7",
+"size": 175,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/522589f9b8e5f7fb9eee8e7438c5199352d8fca7"
+},
+{
+"path": "deprecated-services/mongodb.yml",
+"mode": "100644",
+"type": "blob",
+"sha": "4ed91c0ad284e4f6377d4ead05590152e07f4848",
+"size": 97,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/4ed91c0ad284e4f6377d4ead05590152e07f4848"
+},
+{
+"path": "deprecated-services/postgresql.yml",
+"mode": "100644",
+"type": "blob",
+"sha": "d64bd334db595fbdb4fe02636c8cef5223727697",
+"size": 180,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/d64bd334db595fbdb4fe02636c8cef5223727697"
+},
+{
+"path": "deprecated-services/redis.yml",
+"mode": "100644",
+"type": "blob",
+"sha": "56255d21d41cdbbc1be09b116aab9b6950e77b15",
+"size": 86,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/56255d21d41cdbbc1be09b116aab9b6950e77b15"
+},
+{
+"path": "deprecated-services/rethinkdb.yml",
+"mode": "100644",
+"type": "blob",
+"sha": "81849f6b6987db42a8483524f482c0b39398155b",
+"size": 175,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/81849f6b6987db42a8483524f482c0b39398155b"
+},
+{
+"path": "deprecated-templates",
+"mode": "040000",
+"type": "tree",
+"sha": "a377615ce44e7e29210d5334aa5f41a222e6d589",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/a377615ce44e7e29210d5334aa5f41a222e6d589"
+},
+{
+"path": "deprecated-templates/clojure",
+"mode": "040000",
+"type": "tree",
+"sha": "465215a74dda4aa77cc4b30b7bcb4a8913748a7d",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/465215a74dda4aa77cc4b30b7bcb4a8913748a7d"
+},
+{
+"path": "deprecated-templates/clojure/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "cb77c48cc91e07748f6e92ea9e56250a32e2e876",
+"size": 402,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/cb77c48cc91e07748f6e92ea9e56250a32e2e876"
+},
+{
+"path": "deprecated-templates/clojure/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "6ae4fd015b6ed97bc3bd17d6e346c6a882779a3e",
+"size": 152,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/6ae4fd015b6ed97bc3bd17d6e346c6a882779a3e"
+},
+{
+"path": "deprecated-templates/crystal-amber",
+"mode": "040000",
+"type": "tree",
+"sha": "87daa3e921af5d9990488d9a78e6c34b5dca4681",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/87daa3e921af5d9990488d9a78e6c34b5dca4681"
+},
+{
+"path": "deprecated-templates/crystal-amber/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "10ee52dc039fca2244a063ff76965645c0056b82",
+"size": 919,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/10ee52dc039fca2244a063ff76965645c0056b82"
+},
+{
+"path": "deprecated-templates/crystal-amber/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "a903f34d8c45e36f561b709eae5999bb1073834f",
+"size": 236,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/a903f34d8c45e36f561b709eae5999bb1073834f"
+},
+{
+"path": "deprecated-templates/dart-minimal",
+"mode": "040000",
+"type": "tree",
+"sha": "b121212beeb3149885fd7dc4033ee1e49e3b46c8",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/b121212beeb3149885fd7dc4033ee1e49e3b46c8"
+},
+{
+"path": "deprecated-templates/dart-minimal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "620b09f7c25fe7849e843ac785dfa16f06e8450c",
+"size": 444,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/620b09f7c25fe7849e843ac785dfa16f06e8450c"
+},
+{
+"path": "deprecated-templates/dart-minimal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "2f19a6ce32e04f7285fd9f6a7dcc6234ce6cb204",
+"size": 83,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/2f19a6ce32e04f7285fd9f6a7dcc6234ce6cb204"
+},
+{
+"path": "deprecated-templates/elixir-phoenix",
+"mode": "040000",
+"type": "tree",
+"sha": "0d4939c47685018fb3dec6474ab1de9509461531",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/0d4939c47685018fb3dec6474ab1de9509461531"
+},
+{
+"path": "deprecated-templates/elixir-phoenix/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "6c2f2baabe555a210e5a181c57afda3b9c239d99",
+"size": 758,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/6c2f2baabe555a210e5a181c57afda3b9c239d99"
+},
+{
+"path": "deprecated-templates/elixir-phoenix/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "0d33e0bcc3f7a3ec8f207796cd8d70edbd22bb0e",
+"size": 358,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/0d33e0bcc3f7a3ec8f207796cd8d70edbd22bb0e"
+},
+{
+"path": "deprecated-templates/java-maven",
+"mode": "040000",
+"type": "tree",
+"sha": "cb94c95716816b8d37d04f7f3e8150a0bc3ce21a",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/cb94c95716816b8d37d04f7f3e8150a0bc3ce21a"
+},
+{
+"path": "deprecated-templates/java-maven/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "659d1bf113b06f67f9807a8b3ab43c7bfb77d6ae",
+"size": 490,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/659d1bf113b06f67f9807a8b3ab43c7bfb77d6ae"
+},
+{
+"path": "deprecated-templates/java-maven/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "fb5a82b23449a9a5d7dc0c5fee2cc60d7f6bd2dc",
+"size": 157,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/fb5a82b23449a9a5d7dc0c5fee2cc60d7f6bd2dc"
+},
+{
+"path": "deprecated-templates/java-minimal",
+"mode": "040000",
+"type": "tree",
+"sha": "a1eb66edeee9561376d953d50e1a942e9ff70ad8",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/a1eb66edeee9561376d953d50e1a942e9ff70ad8"
+},
+{
+"path": "deprecated-templates/java-minimal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "a6a1e092f9d0883342f716db2e57a17c568b68f5",
+"size": 363,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/a6a1e092f9d0883342f716db2e57a17c568b68f5"
+},
+{
+"path": "deprecated-templates/java-minimal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "dbd670c1f7f5f4f2a5216b98a34425119e472b72",
+"size": 231,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/dbd670c1f7f5f4f2a5216b98a34425119e472b72"
+},
+{
+"path": "deprecated-templates/nginx-static",
+"mode": "040000",
+"type": "tree",
+"sha": "fc34066a90b311dc1878744f34a7c8abe252f2e0",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/fc34066a90b311dc1878744f34a7c8abe252f2e0"
+},
+{
+"path": "deprecated-templates/nginx-static/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "9167fc3072b1ec03d90ef3545d3abe8bbae2be7d",
+"size": 262,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/9167fc3072b1ec03d90ef3545d3abe8bbae2be7d"
+},
+{
+"path": "deprecated-templates/nginx-static/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "74f89d10fd2f544d0de4764f4a883a8c33d6a976",
+"size": 68,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/74f89d10fd2f544d0de4764f4a883a8c33d6a976"
+},
+{
+"path": "deprecated-templates/node-extras",
+"mode": "040000",
+"type": "tree",
+"sha": "df271f49d36b6aeb1bac7042e3051d1e47a7438f",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/df271f49d36b6aeb1bac7042e3051d1e47a7438f"
+},
+{
+"path": "deprecated-templates/node-extras/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "03ff600500ee0fcaa8d0f83cba097f3c85475ebc",
+"size": 959,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/03ff600500ee0fcaa8d0f83cba097f3c85475ebc"
+},
+{
+"path": "deprecated-templates/node-extras/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "b156f3a1494b2af048d8e5a26ea26e22d4ef24d6",
+"size": 312,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/b156f3a1494b2af048d8e5a26ea26e22d4ef24d6"
+},
+{
+"path": "deprecated-templates/node-minimal",
+"mode": "040000",
+"type": "tree",
+"sha": "94579218d22e1164cb3d57f1070725cf25f8780d",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/94579218d22e1164cb3d57f1070725cf25f8780d"
+},
+{
+"path": "deprecated-templates/node-minimal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "2db15f33d025ff99f477a990f2bea7667898d228",
+"size": 339,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/2db15f33d025ff99f477a990f2bea7667898d228"
+},
+{
+"path": "deprecated-templates/node-minimal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "37f9011554832966d7d605968ff286bb0e9c94ba",
+"size": 98,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/37f9011554832966d7d605968ff286bb0e9c94ba"
+},
+{
+"path": "deprecated-templates/php-apache-minimal",
+"mode": "040000",
+"type": "tree",
+"sha": "03136f132de945b57780f422ed8e08ab2db71711",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/03136f132de945b57780f422ed8e08ab2db71711"
+},
+{
+"path": "deprecated-templates/php-apache-minimal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "c0b53cb39bd33eaf236e42d65d17c5a34788f0b2",
+"size": 281,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/c0b53cb39bd33eaf236e42d65d17c5a34788f0b2"
+},
+{
+"path": "deprecated-templates/php-apache-minimal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "af74858dede7beed45c52a531037120d9ec11fe0",
+"size": 55,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/af74858dede7beed45c52a531037120d9ec11fe0"
+},
+{
+"path": "deprecated-templates/python-django-minimal",
+"mode": "040000",
+"type": "tree",
+"sha": "79ca674643010b6291aeaabc55879bc696bbc2e5",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/79ca674643010b6291aeaabc55879bc696bbc2e5"
+},
+{
+"path": "deprecated-templates/python-django-minimal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "7cc24fc3ae17fc29a25f749bcfec67904015a884",
+"size": 550,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/7cc24fc3ae17fc29a25f749bcfec67904015a884"
+},
+{
+"path": "deprecated-templates/python-django-minimal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "40b2342c2fe6228182bdb6caa4fd4c8494e6e29f",
+"size": 118,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/40b2342c2fe6228182bdb6caa4fd4c8494e6e29f"
+},
+{
+"path": "deprecated-templates/ruby-on-rails-minimal",
+"mode": "040000",
+"type": "tree",
+"sha": "6f2373872bf8a65fabf211391411e98e0224bdbb",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/6f2373872bf8a65fabf211391411e98e0224bdbb"
+},
+{
+"path": "deprecated-templates/ruby-on-rails-minimal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "4aeef64b73bab0ce5015089e4f54344c86c7a1c9",
+"size": 899,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/4aeef64b73bab0ce5015089e4f54344c86c7a1c9"
+},
+{
+"path": "deprecated-templates/ruby-on-rails-minimal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "4475fcd515504440d854ead0fc508a42d2a127ab",
+"size": 138,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/4475fcd515504440d854ead0fc508a42d2a127ab"
+},
+{
+"path": "deprecated-templates/rust-minimal",
+"mode": "040000",
+"type": "tree",
+"sha": "fc806125878d463e13a2e6fc3c0617c587c45438",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/fc806125878d463e13a2e6fc3c0617c587c45438"
+},
+{
+"path": "deprecated-templates/rust-minimal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "905f318e552d71096880e98bb0c8443b8ef24f9e",
+"size": 431,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/905f318e552d71096880e98bb0c8443b8ef24f9e"
+},
+{
+"path": "deprecated-templates/rust-minimal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "6876f6e6ca24c852aff21358ea5f681891a7d896",
+"size": 343,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/6876f6e6ca24c852aff21358ea5f681891a7d896"
+},
+{
+"path": "deprecated-templates/scala-sbt",
+"mode": "040000",
+"type": "tree",
+"sha": "1810cfad451c5f568d8fa1e088bddcec02e756df",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/1810cfad451c5f568d8fa1e088bddcec02e756df"
+},
+{
+"path": "deprecated-templates/scala-sbt/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "396d8ee11f642efafc7e35fda5cc2c220290d4da",
+"size": 339,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/396d8ee11f642efafc7e35fda5cc2c220290d4da"
+},
+{
+"path": "deprecated-templates/scala-sbt/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "918a77f323fbaa7602da09a407ae70a0778fa4b2",
+"size": 453,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/918a77f323fbaa7602da09a407ae70a0778fa4b2"
+},
+{
+"path": "deprecated-templates/wordpress",
+"mode": "040000",
+"type": "tree",
+"sha": "b7fabb2f02bf1d8a8bf4b90c1ab8b0b489fd11dd",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/b7fabb2f02bf1d8a8bf4b90c1ab8b0b489fd11dd"
+},
+{
+"path": "deprecated-templates/wordpress/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "458a80253a0a96b9a15eb8e77df5555e12b3074a",
+"size": 315,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/458a80253a0a96b9a15eb8e77df5555e12b3074a"
+},
+{
+"path": "deprecated-templates/wordpress/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "8e7edf7cd720de7a2e5d35900c631ef3407c24e0",
+"size": 455,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/8e7edf7cd720de7a2e5d35900c631ef3407c24e0"
+},
+{
+"path": "v1",
+"mode": "040000",
+"type": "tree",
+"sha": "454c1a0b06ce5831e96a1b67a86297d629c51486",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/454c1a0b06ce5831e96a1b67a86297d629c51486"
+},
+{
+"path": "v1/templates",
+"mode": "040000",
+"type": "tree",
+"sha": "16ee6309a8919f02908ee419fbc4be27b9acf585",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/16ee6309a8919f02908ee419fbc4be27b9acf585"
+},
+{
+"path": "v1/templates/deno-minimal",
+"mode": "040000",
+"type": "tree",
+"sha": "31ff4ed7787721fc5e822029d04f70c2d5125d06",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/31ff4ed7787721fc5e822029d04f70c2d5125d06"
+},
+{
+"path": "v1/templates/deno-minimal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "18aa121e7b2f03b93b168f7f00924fd60790439a",
+"size": 188,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/18aa121e7b2f03b93b168f7f00924fd60790439a"
+},
+{
+"path": "v1/templates/deno-minimal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "bd460d795d9a9c9c861afd611a096af1822e8ac9",
+"size": 174,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/bd460d795d9a9c9c861afd611a096af1822e8ac9"
+},
+{
+"path": "v1/templates/dotnet-core",
+"mode": "040000",
+"type": "tree",
+"sha": "023aedb5dda2af7c2b304d0ab6747657ffdc4b01",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/023aedb5dda2af7c2b304d0ab6747657ffdc4b01"
+},
+{
+"path": "v1/templates/dotnet-core/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "0ed226374d62b1a66a199a8dce6a6142adde6d44",
+"size": 522,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/0ed226374d62b1a66a199a8dce6a6142adde6d44"
+},
+{
+"path": "v1/templates/dotnet-core/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "5f0ad883bf5b7e01a5baf5e92f5a5642e118b0b0",
+"size": 48,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/5f0ad883bf5b7e01a5baf5e92f5a5642e118b0b0"
+},
+{
+"path": "v1/templates/nginx-static",
+"mode": "040000",
+"type": "tree",
+"sha": "8802deabaca9a53ce2c94cf6f4165668aebb31a8",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/8802deabaca9a53ce2c94cf6f4165668aebb31a8"
+},
+{
+"path": "v1/templates/nginx-static/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "d3b7db193824824c5dbaad70df16353532b112f9",
+"size": 153,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/d3b7db193824824c5dbaad70df16353532b112f9"
+},
+{
+"path": "v1/templates/nginx-static/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "74f89d10fd2f544d0de4764f4a883a8c33d6a976",
+"size": 68,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/74f89d10fd2f544d0de4764f4a883a8c33d6a976"
+},
+{
+"path": "v1/templates/node-extras",
+"mode": "040000",
+"type": "tree",
+"sha": "8da04a5f76780a327d0f2e377639fe809a1394fb",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/8da04a5f76780a327d0f2e377639fe809a1394fb"
+},
+{
+"path": "v1/templates/node-extras/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "f40b86d4c5455c7cdbaed43e715a743a57c1b649",
+"size": 992,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/f40b86d4c5455c7cdbaed43e715a743a57c1b649"
+},
+{
+"path": "v1/templates/node-extras/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "b156f3a1494b2af048d8e5a26ea26e22d4ef24d6",
+"size": 312,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/b156f3a1494b2af048d8e5a26ea26e22d4ef24d6"
+},
+{
+"path": "v1/templates/node-minimal",
+"mode": "040000",
+"type": "tree",
+"sha": "78f5de09d26e549bb6866075650bf40c6201cf5b",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/78f5de09d26e549bb6866075650bf40c6201cf5b"
+},
+{
+"path": "v1/templates/node-minimal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "fb32af08c54f4cbc605172a1bafc4d31a10654aa",
+"size": 399,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/fb32af08c54f4cbc605172a1bafc4d31a10654aa"
+},
+{
+"path": "v1/templates/node-minimal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "37f9011554832966d7d605968ff286bb0e9c94ba",
+"size": 98,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/37f9011554832966d7d605968ff286bb0e9c94ba"
+},
+{
+"path": "v1/templates/nodered-mininal",
+"mode": "040000",
+"type": "tree",
+"sha": "19825f62370e24fd8dd2a42cc133d919b45e39de",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/19825f62370e24fd8dd2a42cc133d919b45e39de"
+},
+{
+"path": "v1/templates/nodered-mininal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "8e0ba1871a48a720da17f3c28fe3687cfe41e711",
+"size": 109,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/8e0ba1871a48a720da17f3c28fe3687cfe41e711"
+},
+{
+"path": "v1/templates/nodered-mininal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "643e637d98242bd5ad859ded3f50ba92581bc479",
+"size": 582,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/643e637d98242bd5ad859ded3f50ba92581bc479"
+},
+{
+"path": "v1/templates/php-apache-minimal",
+"mode": "040000",
+"type": "tree",
+"sha": "25df8c15d4baf5bdd74f2e9083a4d45720541e54",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/25df8c15d4baf5bdd74f2e9083a4d45720541e54"
+},
+{
+"path": "v1/templates/php-apache-minimal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "02c3a1243629ef7edfcf0ae2c589fb959cb531d0",
+"size": 195,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/02c3a1243629ef7edfcf0ae2c589fb959cb531d0"
+},
+{
+"path": "v1/templates/php-apache-minimal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "af74858dede7beed45c52a531037120d9ec11fe0",
+"size": 55,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/af74858dede7beed45c52a531037120d9ec11fe0"
+},
+{
+"path": "v1/templates/python-django-minimal",
+"mode": "040000",
+"type": "tree",
+"sha": "36eb2d5ddb6cfe751e25c8696ece572bdfc9613b",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/36eb2d5ddb6cfe751e25c8696ece572bdfc9613b"
+},
+{
+"path": "v1/templates/python-django-minimal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "be65fc5194fed862658b8af65968e2a3cb6c3851",
+"size": 509,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/be65fc5194fed862658b8af65968e2a3cb6c3851"
+},
+{
+"path": "v1/templates/python-django-minimal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "a7ba09030e888202646f2902cdcb7b7a0b7f839f",
+"size": 142,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/a7ba09030e888202646f2902cdcb7b7a0b7f839f"
+},
+{
+"path": "v1/templates/ruby-on-rails-minimal",
+"mode": "040000",
+"type": "tree",
+"sha": "5d283e2742b2936f803d78c7941c18e2c6dfe250",
+"url": "https://api.github.com/repos/openode-io/build-templates/git/trees/5d283e2742b2936f803d78c7941c18e2c6dfe250"
+},
+{
+"path": "v1/templates/ruby-on-rails-minimal/Dockerfile",
+"mode": "100644",
+"type": "blob",
+"sha": "b0d3a1309da4362e80d0482551bcaa430d716c26",
+"size": 876,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/b0d3a1309da4362e80d0482551bcaa430d716c26"
+},
+{
+"path": "v1/templates/ruby-on-rails-minimal/README.md",
+"mode": "100644",
+"type": "blob",
+"sha": "4475fcd515504440d854ead0fc508a42d2a127ab",
+"size": 138,
+"url": "https://api.github.com/repos/openode-io/build-templates/git/blobs/4475fcd515504440d854ead0fc508a42d2a127ab"
+}
+],
+"truncated": false
+}

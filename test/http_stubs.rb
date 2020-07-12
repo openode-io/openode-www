@@ -806,6 +806,11 @@ module HttpStubs
         'https://api.openode.io/super_admin/stats/generic_daily_stats?attrib_to_sum=1&entity=Deployment&entity_method=type_dep',
         'test/fixtures/http/openode_api/super_admin/get_deployments.json',
         logged_in_user_token
+      ),
+      HttpStubs.default_get(
+        'https://api.github.com/repos/openode-io/build-templates/git/trees/master?recursive=true',
+        'test/fixtures/http/front/build_templates.txt',
+        logged_in_user_token
       )
     ]
   end
