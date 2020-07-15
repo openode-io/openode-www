@@ -9,7 +9,11 @@
       <div id="admin-instance-deployments">
         <section>
           <% if @deployments == [] %>
-            <div><b>No deployment history available.</b></div>
+            <div>
+              <p><b>No deployment history available.</b></p>
+
+              <p>Get started now with our CLI, see the <a href="/docs/platform/">relevant documentation</a>. Do not hesitate to <a href="/admin/support">contact us!</a></p>
+            </div>
           <% end %>
 
           <div class='row'>
