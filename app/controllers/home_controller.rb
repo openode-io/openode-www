@@ -72,6 +72,9 @@ class HomeController < ApplicationController
     @featured_projects = []
   end
 
+  def kb
+  end
+
   def templates
     url = "https://api.github.com/repos/openode-io/build-templates/git/trees/master" \
             "?recursive=true"

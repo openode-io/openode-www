@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/terms', to: 'home#terms'
   get '/privacy', to: 'home#privacy'
   get '/open-source', to: 'home#opensource'
+  get '/kb', to: 'home#kb'
   get '/templates', to: 'home#templates'
 
   get '/open-source/:slug', constraints: { slug: %r{[^/]+} }, to: 'home#opensource_item'
