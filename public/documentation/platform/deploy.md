@@ -47,3 +47,11 @@ To simply reload your container, the following command can be used:
     openode reload
 
 Note that it must already be online.
+
+## Blue-green deployment
+
+To minimize downtime on deployment, the following option can be activated:
+
+        openode set-config BLUE_GREEN_DEPLOYMENT true
+
+When you deploy, it will first create a new instance, and when it's ready, it will remove the old version of your instance, which will minimize downtime.

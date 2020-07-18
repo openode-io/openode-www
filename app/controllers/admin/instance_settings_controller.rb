@@ -15,11 +15,17 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Plan"
 
     @plans = api(:get, '/global/available-plans')
+    @website.blue_green_deployment = @website.configs['BLUE_GREEN_DEPLOYMENT']
     @website.open_source = @website.open_source || {}
   end
 
   def change_plan
     new_plan_params = update_plan_params
+
+    api(:post, "/instances/#{@instance_id}/set-config", payload: {
+          variable: 'BLUE_GREEN_DEPLOYMENT',
+          value: new_plan_params['blue_green_deployment'] == '1'
+        })
 
     if new_plan_params['plan'] == "open_source"
       api(:patch, "/instances/#{@instance_id}",
@@ -342,7 +348,10 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   end
 
   def update_plan_params
-    params.require(:website).permit(:plan, :open_source_title, :open_source_repository,
+    params.require(:website).permit(:plan,
+                                    :blue_green_deployment,
+                                    :open_source_title,
+                                    :open_source_repository,
                                     :open_source_description)
   end
 

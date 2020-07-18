@@ -123,7 +123,7 @@
     #- 'Extra CPUs: $5 / CPU / Month'
     - 'Extra Storage: $0.15 / 1 GB / Month'
     - 'Exceeding Bandwidth: $0.015 / GB'
-    #- 'Snapshot: $0.05 / GB'
+    - 'Blue-green deployment: +20% of the plan price'
   button: 
     url: /admin/billing
     text: Order

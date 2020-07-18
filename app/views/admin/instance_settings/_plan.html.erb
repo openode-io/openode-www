@@ -14,6 +14,11 @@
             { selected: @website.account_type }, { class: 'form-control', required: true } %>
           </div>
 
+          <div class="form-label-group mb-2">
+            <%= form.check_box :blue_green_deployment %>
+            <%= form.label :blue_green_deployment, 'With blue-green deployment - decrease downtime (Extra cost of 20% your plan price)' %>
+          </div>
+
           <div id="instance-plan-opensource-field" class="<%= open_source_visibility_class(@website) %> mt-3">
             <h4><i class="fa fa-code-branch"></i> Open Source Request</h4>
 
