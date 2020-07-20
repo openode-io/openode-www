@@ -230,7 +230,8 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
     patch "/admin/instances/#{default_instance_id}/settings/plan",
           params: {
             website: {
-              plan: '50-MB'
+              plan: '50-MB',
+              replicas: 2
             }
           }
 

@@ -17,8 +17,12 @@
           <div class="form-label-group mb-2">
             <%= form.label :replicas, 'Replicas' %>
             <%= form.number_field :replicas, {
-              min: 1, max: 5, default: 1, class: 'form-control'
+              min: 1, default: 1, class: 'form-control'
             } %>
+          </div>
+
+          <div class="row">
+            <hr />
           </div>
 
           <div class="form-label-group mb-2">
