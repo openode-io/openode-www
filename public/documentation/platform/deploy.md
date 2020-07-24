@@ -55,3 +55,11 @@ To minimize downtime on deployment, the following option can be activated:
         openode set-config BLUE_GREEN_DEPLOYMENT true
 
 When you deploy, it will first create a new instance, and when it's ready, it will remove the old version of your instance, which will minimize downtime.
+
+## Replicas
+
+You can specify the number of replicas, which will allow to deploy more than 1 instance of your application.
+
+        openode set-config REPLICAS <number>
+
+where **number** is the number of replicas.

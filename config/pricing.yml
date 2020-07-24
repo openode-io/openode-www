@@ -123,6 +123,7 @@
     #- 'Extra CPUs: $5 / CPU / Month'
     - 'Extra Storage: $0.15 / 1 GB / Month'
     - 'Exceeding Bandwidth: $0.015 / GB'
+    - 'Replicas: the plan cost is multiplied by the number of replicas'
     - 'Blue-green deployment: +20% of the plan price'
   button: 
     url: /admin/billing

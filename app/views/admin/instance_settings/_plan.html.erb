@@ -15,7 +15,7 @@
           </div>
 
           <div class="form-label-group mb-2">
-            <%= form.label :replicas, 'Replicas' %>
+            <%= form.label :replicas, 'Replicas - will spawn N instances (the plan price is multiplied by the number of replicas)' %>
             <%= form.number_field :replicas, {
               min: 1, default: 1, class: 'form-control'
             } %>
