@@ -16,6 +16,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
     @plans = api(:get, '/global/available-plans')
     @website.blue_green_deployment = @website.configs['BLUE_GREEN_DEPLOYMENT']
+    @website.replicas = @website.configs['REPLICAS'] || 1
     @website.open_source = @website.open_source || {}
   end
 
@@ -25,6 +26,11 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     api(:post, "/instances/#{@instance_id}/set-config", payload: {
           variable: 'BLUE_GREEN_DEPLOYMENT',
           value: new_plan_params['blue_green_deployment'] == '1'
+        })
+
+    api(:post, "/instances/#{@instance_id}/set-config", payload: {
+          variable: 'REPLICAS',
+          value: new_plan_params['replicas'].to_i
         })
 
     if new_plan_params['plan'] == "open_source"
@@ -350,6 +356,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   def update_plan_params
     params.require(:website).permit(:plan,
                                     :blue_green_deployment,
+                                    :replicas,
                                     :open_source_title,
                                     :open_source_repository,
                                     :open_source_description)

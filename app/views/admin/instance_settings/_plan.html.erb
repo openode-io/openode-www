@@ -15,6 +15,17 @@
           </div>
 
           <div class="form-label-group mb-2">
+            <%= form.label :replicas, 'Replicas' %>
+            <%= form.number_field :replicas, {
+              min: 1, default: 1, class: 'form-control'
+            } %>
+          </div>
+
+          <div class="row">
+            <hr />
+          </div>
+
+          <div class="form-label-group mb-2">
             <%= form.check_box :blue_green_deployment %>
             <%= form.label :blue_green_deployment, 'With blue-green deployment - decrease downtime (20% extra cost of your plan price)' %>
           </div>
