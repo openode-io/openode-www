@@ -108,7 +108,7 @@ export default {
           </div>
           <div class='card-footer text-muted'>
             <div class='btn-group w-100' role='group' aria-label='Access Buttons'>
-              <a href={`/admin/instances/${this.instance.id}/settings`} class='btn btn-sm btn-outline-secondary'>
+              <a href={`/admin/instances/${this.instance.id}/settings/plan`} class='btn btn-sm btn-outline-secondary'>
                 <i class='fa fa-edit' /> Settings
               </a>
               <a href={`/admin/instances/${this.instance.id}/collaborators`} class='btn btn-sm btn-outline-secondary position-relative'>
