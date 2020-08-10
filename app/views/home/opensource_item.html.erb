@@ -14,6 +14,15 @@
     <p class="pt-4 pb-4">
       <%= @opensource_project["open_source"]["description"] %>
     </p>
+
+    <% if @opensource_project['status'] == 'online' %>
+      <p class="pt-4 pb-4">
+        Website: <a href="http://<%= @opensource_project["hostname"] %>/">
+          <%= @opensource_project["hostname"] %>
+        </a>
+      </p>
+    <% end %>
+
     <div class="btn-group">
       <a href="<%= @opensource_project["open_source"]["repository_url"] %>"
           target="_blank"
