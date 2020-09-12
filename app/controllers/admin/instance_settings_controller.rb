@@ -5,6 +5,20 @@ class Admin::InstanceSettingsController < Admin::InstancesController
                    title: "Instances"
   end
 
+  before_action do
+    @addons = api(:get, "/instances/#{@instance_id}/addons")
+              .sort_by { |a| a&.dig('name') }
+              .map { |a| OpenStruct.new(a) }
+  end
+
+  before_action do
+    if params[:addon_id]
+      @addon = OpenStruct.new(
+        api(:get, "/instances/#{@instance_id}/addons/#{params[:addon_id]}")
+      )
+    end
+  end
+
   def index
     redirect_to({ action: :plan })
   end
@@ -332,6 +346,45 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     redirect_to({ action: :alerts }, notice: msg('message.modifications_saved'))
   end
 
+  # addons!
+  def new_addon
+    add_breadcrumb "Settings",
+                   admin_instance_settings_path
+    add_breadcrumb "#{@addon&.name || 'New'} Addon"
+
+    @available_addons = api(:get, "/global/addons")
+  end
+
+  def create_addon
+    result = api(:post, "/instances/#{@instance_id}/addons/",
+                 payload: { 'addon' => create_addon_params })
+
+    redirect_to({ action: :edit_addon, addon_id: result['id'] },
+                notice: msg('message.modifications_saved'))
+  end
+
+  def edit_addon
+    add_breadcrumb "Settings",
+                   admin_instance_settings_path
+    add_breadcrumb "#{@addon.name} Addon"
+
+    @plans = api(:get, '/global/available-plans')
+             .reject { |p| p.dig('internal_id') == 'open_source' }
+  end
+
+  def update_addon
+    api(:patch, "/instances/#{@instance_id}/addons/#{@addon.id}",
+        payload: { 'addon' => update_addon_params })
+
+    redirect_to({ action: :edit_addon }, notice: msg('message.modifications_saved'))
+  end
+
+  def destroy_addon
+    api(:delete, "/instances/#{@instance_id}/addons/#{@addon.id}")
+
+    redirect_to({ action: :index }, notice: msg('message.modifications_saved'))
+  end
+
   protected
 
   def alias_params
@@ -364,6 +417,14 @@ class Admin::InstanceSettingsController < Admin::InstancesController
                                     :open_source_title,
                                     :open_source_repository,
                                     :open_source_description)
+  end
+
+  def create_addon_params
+    params.require(:addon).permit(:addon_id)
+  end
+
+  def update_addon_params
+    params.require(:addon).permit(:account_type, :addon_id, :name, obj: {})
   end
 
   def update_ssl_params

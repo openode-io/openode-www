@@ -277,4 +277,67 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :found
   end
+
+  # addons
+  test "new addon" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/settings/addons/new"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'memcached'
+    assert_includes response.parsed_body, 'redis-caching'
+  end
+
+  test "create addon" do
+    perform_successful_login
+
+    post "/admin/instances/#{default_instance_id}/settings/addons/",
+         params: {
+           addon: {
+             addon_id: 1234
+           }
+         }
+
+    assert_response :found
+  end
+
+  test "edit addon" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/settings/addons/7"
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'memcached2'
+    assert_includes response.parsed_body, '50MB Memory'
+    assert_includes response.parsed_body, '11212'
+  end
+
+  test "update addon" do
+    perform_successful_login
+
+    patch "/admin/instances/#{default_instance_id}/settings/addons/7",
+          params: {
+            addon: {
+              name: 'titi'
+            }
+          }
+
+    assert_response :found
+  end
+
+  test "update addon with newline" do
+    perform_successful_login
+
+    patch "/admin/instances/#{default_instance_id}/settings/addons/7",
+          params: {
+            addon: {
+              name: 'titi\n'
+            }
+          }
+
+    assert_response :found
+  end
 end

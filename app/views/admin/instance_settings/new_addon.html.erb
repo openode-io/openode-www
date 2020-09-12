@@ -1,0 +1,32 @@
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">
+    New Addon
+  </h1>
+</section>
+<section>
+    <%= form_for :addon,
+{ url: "#{instance_settings_to(@instance_id)}addons/", method: :post } do |form| %>
+        <div class="card">
+            <div class="card-header">
+                Don't see the addon you are looking for?<br />
+                Addons are <a href="https://github.com/openode-io/addons">open source</a> and open to pull requests to add new ones.
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="form-group mb-2">
+
+                            <div class="form-label-group mb-2">
+                                <%= form.label :addon_id, 'Addon', class: 'required' %>
+                                <%= form.select :addon_id, @available_addons.map { |p| ["#{p['name']} (#{p['category']})", p['id']] },
+                                { }, { class: 'form-control', required: true } %>
+                            </div>
+
+                            <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</section>

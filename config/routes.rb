@@ -107,6 +107,22 @@ Rails.application.routes.draw do
     patch 'instances/:id/settings/env',
       to: 'instance_settings#update_env'
 
+    # addons
+    get 'instances/:id/settings/addons/new',
+      to: 'instance_settings#new_addon'
+
+    get 'instances/:id/settings/addons/:addon_id',
+      to: 'instance_settings#edit_addon'
+
+    post 'instances/:id/settings/addons/',
+      to: 'instance_settings#create_addon'
+
+    patch 'instances/:id/settings/addons/:addon_id',
+      to: 'instance_settings#update_addon'
+
+    delete 'instances/:id/settings/addons/:addon_id',
+      to: 'instance_settings#destroy_addon'
+
     # persistence
     get 'instances/:id/settings/persistence',
       to: 'instance_settings#persistence',

@@ -832,7 +832,34 @@ module HttpStubs
         'https://api.github.com/repos/openode-io/build-templates/git/trees/master?recursive=true',
         'test/fixtures/http/front/build_templates.txt',
         logged_in_user_token
-      )
+      ),
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/addons',
+        'test/fixtures/http/openode_api/admin/addons.json',
+        logged_in_user_token
+      ),
+      HttpStubs.default_get(
+        'https://api.openode.io/global/addons',
+        'test/fixtures/http/openode_api/available_addons.json',
+        logged_in_user_token
+      ),
+      HttpStubs.default_post('https://api.openode.io/instances/152/addons/',
+                             { "addon" => { "addon_id" => "1234" } },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/addons/7',
+        'test/fixtures/http/openode_api/admin/addon.json',
+        logged_in_user_token
+      ),
+      HttpStubs.default_patch('https://api.openode.io/instances/152/addons/7',
+                              {
+                                "addon" => {
+                                  "name" => "titi"
+                                }
+                              },
+                              'test/fixtures/http/openode_api/empty_object.json',
+                              logged_in_user_token)
     ]
   end
 end

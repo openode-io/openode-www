@@ -51,7 +51,19 @@
       </a>
 
       <hr />
+      <span><strong>ADDONS (<%= @addons.count %>)</strong></span>
+      <hr />
       
+      <% @addons.each do |addon| %>
+        <a class="nav-link <%= params[:addon_id]&.include?(addon.id) ? 'active' : '' %>"
+          href="<%= "#{instance_settings_to(@instance_id)}addons/#{addon.id}" %>"
+          aria-controls="v-pills-console"
+          aria-selected="false"> 
+          <%= addon.name %>
+        </a>
+      <% end %>
+
+      <a class="btn btn-sm btn-outline-dark" href="<%= instance_settings_to(@instance_id) %>addons/new">+add</a>
     </div>
   </div>
 </div>

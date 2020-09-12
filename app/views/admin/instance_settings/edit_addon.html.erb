@@ -1,0 +1,57 @@
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">
+    <%= @addon.name %> 
+
+    <% if @addon.addon.dig('obj', 'logo_filename') %>
+          <img 
+            width="50px"
+            src="<%= @addon.addon.dig('repository_root_file_url') %>/<%= @addon.addon.dig('obj', 'logo_filename') %>" />
+    <% end %>
+  </h1>
+</section>
+<section>
+    <%= form_for :addon,
+{ url: "#{instance_settings_to(@instance_id)}addons/#{@addon&.id}", method: :patch } do |form| %>
+        <div class="card">
+            <div class="card-header">
+                <%= link_to 'Destroy', "#{instance_settings_to(@instance_id)}addons/#{@addon.id}",
+                    class: 'btn btn-outline-critical float-right',
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+                <p>Note that addons costs follow the same prices as regular instances, see <a href="/pricing">pricing</a>.</p>
+            </div>
+
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="form-group mb-2">
+
+                    <%= form.hidden_field :addon_id %>
+
+                    <div class="form-label-group mb-2">
+                        <%= form.label :account_type, 'Addon plan', class: 'required' %>
+                        <%= form.select :account_type, @plans.map { |p| [p['name'], p['internal_id']] },
+                        { selected: @addon.account_type }, { class: 'form-control', required: true } %>
+                    </div>
+
+                    <div class="form-label-group mb-2">
+                        <%= form.label :name, 'Name (internal hostname)' %>
+                        <%= form.text_field :name, { class: 'form-control' } %>
+                    </div>
+
+                    <% @addon.addon&.dig('obj', 'required_fields').each do |field| %>
+                        <div class="form-label-group mb-2">
+                            <%= form.label "obj[#{field}]", field %>
+                            <%= form.text_field "obj[#{field}]", { class: 'form-control', value: @addon.obj.dig(field) } %>
+                        </div>
+                    <% end %>
+
+                    <hr />
+
+                    <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>   
+                </div>
+            </div>
+        </div>
+    <% end %>
+  
+</section>
