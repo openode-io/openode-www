@@ -162,6 +162,21 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     @env = api(:get, "/instances/#{@instance_id}/env_variables")
   end
 
+  def prepare_env_for_update(env_hash)
+    env_hash
+      .keys
+      .filter do |variable|
+      variable && env_hash[variable]&.dig('variable')&.present? &&
+        env_hash[variable]&.dig('value')&.present?
+    end
+      .map do |var|
+      {
+        variable: env_hash[var].dig('variable'),
+        value: env_hash[var].dig('value')
+      }
+    end
+  end
+
   def update_env
     new_variable = params.dig('website', 'new_variable')
     new_value = params.dig('website', 'new_value')
@@ -174,18 +189,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
                         }
                       })
 
-    env = env_hash
-          .keys
-          .filter do |variable|
-            variable && env_hash[variable]&.dig('variable')&.present? &&
-              env_hash[variable]&.dig('value')&.present?
-          end
-          .map do |var|
-      {
-        variable: env_hash[var].dig('variable'),
-        value: env_hash[var].dig('value')
-      }
-    end
+    env = prepare_env_for_update(env_hash)
 
     result_env = {}
 
