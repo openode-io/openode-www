@@ -58,6 +58,10 @@
         "path":"platform/persistence.md"
       },
       {
+        "name":"Addons",
+        "path":"platform/addons.md"
+      },
+      {
         "name":"Snapshots",
         "path":"platform/snapshots.md"
       },
