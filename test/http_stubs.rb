@@ -859,6 +859,14 @@ module HttpStubs
                                 }
                               },
                               'test/fixtures/http/openode_api/empty_object.json',
+                              logged_in_user_token),
+      HttpStubs.default_patch('https://api.openode.io/instances/152/addons/7',
+                              {
+                                "addon" => {
+                                  "name" => "titi\\n"
+                                }
+                              },
+                              'test/fixtures/http/openode_api/empty_object.json',
                               logged_in_user_token)
     ]
   end
