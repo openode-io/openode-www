@@ -193,7 +193,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
     cmd = params[:cmd]
 
     result = begin
-      api(:post, "/instances/#{@instance_id}/cmd", payload: { cmd: cmd })
+      api(:post, "/instances/#{@instance_id}/cmd", payload: { cmd: cmd, app: 'www' })
              rescue StandardError => e
                {
                  'result' => {
