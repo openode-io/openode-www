@@ -693,7 +693,7 @@ module HttpStubs
                              logged_in_user_token),
       HttpStubs.default_post('https://api.openode.io/instances/152/cmd',
                              {
-                               "cmd" => "df -h"
+                               "cmd" => "df -h", "app" => "www"
                              },
                              'test/fixtures/http/openode_api/admin/post_cmd.json',
                              logged_in_user_token),
