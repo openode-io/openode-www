@@ -54,7 +54,8 @@ class Admin::InstanceAccessController < Admin::InstancesController
     workdir = if @website.status == 'online'
                 result = api(:post, "/instances/#{@instance_id}/cmd",
                              payload: {
-                               cmd: 'pwd'
+                               cmd: 'pwd',
+                               app: 'www'
                              })
 
                 result.dig('result', 'stdout')&.strip
