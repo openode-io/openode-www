@@ -102,8 +102,6 @@ class AdminInstanceAccessControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_includes response.parsed_body, 'Containers statuses'
-    assert_includes response.parsed_body, '2020-04-15'
-    assert_includes response.parsed_body, '1.26'
   end
 
   test "get event" do

@@ -1,1 +1,0 @@
-[{"id":1104,"ref_id":170,"obj":{"previous_network_metrics":[{"interface":"eth0","rcv_bytes":1246637.0,"tx_bytes":15719.0}],"rcv_bytes":1246637.0,"tx_bytes":15719.0},"created_at":"2020-04-15T18:19:39.654Z","updated_at":"2020-04-15T18:23:12.871Z","type":"WebsiteBandwidthDailyStat"}]

@@ -766,11 +766,6 @@ module HttpStubs
         logged_in_user_token
       ),
       HttpStubs.default_get(
-        'https://api.openode.io/instances/152/stats/network',
-        'test/fixtures/http/openode_api/admin/stats_network.json',
-        logged_in_user_token
-      ),
-      HttpStubs.default_get(
         'https://api.openode.io/instances/152/executions/list/Deployment/' \
         '?status=success',
         'test/fixtures/http/openode_api/admin/latest_deployment_success.json',
