@@ -26,7 +26,7 @@
       <a class="nav-link <%= params[:action].include?('status') ? 'active' : '' %>"
         href="<%= admin_instance_access_status_path(id:instance_id) %>"
         aria-controls="v-pills-activity"
-        aria-selected="false"><i class="fa fa-list"></i> Status and Network</a>                
+        aria-selected="false"><i class="fa fa-list"></i> Status</a>                
       <% if @website.status == 'online' %>
         <a class="nav-link <%= params[:action].include?('console') ? 'active' : '' %>"
           href="<%= admin_instance_access_console_path(id:instance_id) %>"

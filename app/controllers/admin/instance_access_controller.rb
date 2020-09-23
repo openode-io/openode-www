@@ -128,7 +128,8 @@ class Admin::InstanceAccessController < Admin::InstancesController
     cmd = 'top -b -n1'
     result = api(:post, "/instances/#{@instance_id}/cmd",
                  payload: {
-                   cmd: cmd
+                   cmd: cmd,
+                   app: 'www'
                  })
     result.dig('result', 'stdout')
           .lines
@@ -139,7 +140,8 @@ class Admin::InstanceAccessController < Admin::InstancesController
   def exec_memory_usage_megabytes
     result = api(:post, "/instances/#{@instance_id}/cmd",
                  payload: {
-                   cmd: 'cat /sys/fs/cgroup/memory/memory.usage_in_bytes'
+                   cmd: 'cat /sys/fs/cgroup/memory/memory.usage_in_bytes',
+                   app: 'www'
                  })
     result_bytes = result.dig('result', 'stdout').to_i
 
@@ -149,7 +151,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
   def status
     add_breadcrumb "Status",
                    admin_instance_access_status_path,
-                   title: "Status and Network"
+                   title: "Status"
 
     @status = api(:get, "/instances/#{@instance_id}/status")
 
