@@ -75,7 +75,7 @@ class Admin::InstancesController < AdminController
     else
       @status = {
         level: 'warning',
-        message: 'No available execution'
+        message: "No latest image available. Use the CLI to deploy your instance."
       }
     end
 

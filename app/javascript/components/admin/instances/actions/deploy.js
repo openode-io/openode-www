@@ -30,7 +30,7 @@ export default {
           this.processing = false
 
           this.button = {
-            text: 'Deploy',
+            text: 'Deploy Latest',
             disabled: false
           }
 
@@ -38,7 +38,7 @@ export default {
         })
         .catch(err => {          
           this.button = {
-            text: 'Deploy',
+            text: 'Deploy Latest',
             disabled: false
           }
 
@@ -50,7 +50,7 @@ export default {
   data () {
     return {
       button: {
-        text: 'Deploy',
+        text: 'Deploy Latest',
         disabled: false
       },
       status: this.instance.status,
