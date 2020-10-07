@@ -19,6 +19,10 @@
                     method: :delete,
                     data: { confirm: "Are you sure?" } %>
                 <p>Note that addons costs follow the same prices as regular instances, see <a href="/pricing">pricing</a>.</p>
+
+                <hr />
+
+                <pre><%= @readme %></pre>
             </div>
 
           <div class="card-body">
@@ -46,7 +50,25 @@
                         </div>
                     <% end %>
 
+                    <% if @addon.addon&.dig('obj', 'requires_persistence') %>
+                        <div class="form-label-group mb-2">
+                            <%= form.label "storage_gb", "Storage (GB)" %>
+                            <%= form.number_field "storage_gb", { class: 'form-control', value: @addon.storage_gb } %>
+                        </div>
+                    <% end %>
+
                     <hr />
+
+                    <% unless [nil, 0].include?(@addon.addon&.dig('obj', 'required_env_variables')&.count) %>
+                        <p>ENV Variables</p>
+
+                        <% @addon.addon&.dig('obj', 'required_env_variables').each do |field| %>
+                            <div class="form-label-group mb-2">
+                                <%= form.label "obj[env][#{field}]", field %>
+                                <%= form.text_field "obj[env][#{field}]", { class: 'form-control', value: @addon.obj.dig('env', field) } %>
+                            </div>
+                        <% end %>
+                    <% end %>
 
                     <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>   
                 </div>

@@ -368,6 +368,11 @@ class Admin::InstanceSettingsController < Admin::InstancesController
                    admin_instance_settings_path
     add_breadcrumb "#{@addon.name} Addon"
 
+    readme_file = @addon.addon.dig('obj', 'documentation_filename')
+    url_readme = "#{@addon.addon.dig('repository_root_file_url')}/#{readme_file}"
+    
+    @readme = RestClient::Request.execute(method: :get, url: url_readme)
+
     @plans = api(:get, '/global/available-plans')
              .reject { |p| p.dig('internal_id') == 'open_source' }
   end
@@ -424,7 +429,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   end
 
   def update_addon_params
-    params.require(:addon).permit(:account_type, :addon_id, :name, obj: {})
+    params.require(:addon).permit(:account_type, :addon_id, :name, :storage_gb, obj: {})
   end
 
   def update_ssl_params
