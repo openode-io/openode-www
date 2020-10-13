@@ -1,5 +1,5 @@
 <section>
-  <h1 class="h3 mb-3 text-gray-800 mt-3">Make a snapshot</h1>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Make a snapshot for <%= @app %></h1>
 </section>
 <section>
   <div class="row">
@@ -10,6 +10,18 @@
           <div class="card-body">
             <div>
               <%= link_to "Snapshots History", "#{instance_access_to(@instance_id)}list-snapshots" %>
+              <hr />
+
+              <p><b>Click on the instance to make a snapshot for:</b></p>
+
+              <ul>
+                <li><%= link_to "www (main instance)", "#{instance_access_to(@instance_id)}snapshots?app=www" %> <%= "[selected]" if @app == "www" %></li>
+
+                <% @addons.each do |addon| %>
+                  <li><%= link_to "Addon #{addon["name"]}", "#{instance_access_to(@instance_id)}snapshots?app=#{addon["name"]}" %> <%= "[selected]" if @app == addon["name"] %></li>
+                <% end %>
+              </ul>
+
               <hr />
             </div>
             <div class="row">
@@ -23,6 +35,8 @@
                                       @paths.map { |l| [l[:path], l[:id]] },
                                       {  },
                                       { class: 'form-control', required: true } %>
+
+                    <%= form.hidden_field :app, :value => @app %>
                   </div>
 
                   <%= form.submit "Make a snapshot", class: 'btn btn-lg btn-success w-100 mb-3' %>          
