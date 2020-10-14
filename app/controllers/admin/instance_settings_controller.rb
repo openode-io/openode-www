@@ -370,7 +370,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
     readme_file = @addon.addon.dig('obj', 'documentation_filename')
     url_readme = "#{@addon.addon.dig('repository_root_file_url')}/#{readme_file}"
-    
+
     @readme = RestClient::Request.execute(method: :get, url: url_readme)
 
     @plans = api(:get, '/global/available-plans')

@@ -66,7 +66,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
     end
   end
 
-  def snapshot_paths_for_www(website, app)
+  def snapshot_paths_for_www(website, _app)
     workdir = if website.status == 'online'
                 result = api(:post, "/instances/#{website.id}/cmd",
                              payload: {
@@ -77,22 +77,22 @@ class Admin::InstanceAccessController < Admin::InstancesController
                 result.dig('result', 'stdout')&.strip
     end
 
-    return (workdir ? [{ path: "Workdir (#{workdir})", id: workdir }] : []) +
-             (website.storage_areas || []).map do |storage_area|
-               {
-                 path: "Storage area (#{storage_area})",
-                 id: storage_area
-               }
-             end
+    (workdir ? [{ path: "Workdir (#{workdir})", id: workdir }] : []) +
+      (website.storage_areas || []).map do |storage_area|
+        {
+          path: "Storage area (#{storage_area})",
+          id: storage_area
+        }
+      end
   end
 
-  def snapshot_paths_for_addon(website, app)
-    addon = @addons.find { |addon| addon['name'] == app }
+  def snapshot_paths_for_addon(_website, app)
+    addon = @addons.find { |a| a['name'] == app }
 
     requires_persistence = addon.dig('addon', 'obj', 'requires_persistence')
     persistent_path = addon.dig('obj', 'persistent_path')
 
-    requires_persistence ? [{path: persistent_path, id: persistent_path }] : []
+    requires_persistence ? [{ path: persistent_path, id: persistent_path }] : []
   end
 
   def create_snapshot
