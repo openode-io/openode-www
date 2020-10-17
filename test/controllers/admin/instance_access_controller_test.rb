@@ -48,7 +48,8 @@ class AdminInstanceAccessControllerTest < ActionDispatch::IntegrationTest
     post "/admin/instances/#{default_instance_id}/access/snapshots",
          params: {
            website: {
-             path: '/var/www/'
+             path: '/var/www/',
+             app: 'www'
            }
          }
 

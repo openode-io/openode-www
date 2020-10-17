@@ -51,8 +51,24 @@ class Admin::InstanceAccessController < Admin::InstancesController
                    title: "Snapshots"
     prepare_snapshots_doc_link
 
-    workdir = if @website.status == 'online'
-                result = api(:post, "/instances/#{@instance_id}/cmd",
+    @app = params[:app] || "www"
+
+    @addons = api(:get, "/instances/#{@instance_id}/addons/")
+
+    @paths = snapshot_paths_for(@website, @app)
+  end
+
+  def snapshot_paths_for(website, app)
+    if app == "www"
+      snapshot_paths_for_www(website, app)
+    else
+      snapshot_paths_for_addon(website, app)
+    end
+  end
+
+  def snapshot_paths_for_www(website, _app)
+    workdir = if website.status == 'online'
+                result = api(:post, "/instances/#{website.id}/cmd",
                              payload: {
                                cmd: 'pwd',
                                app: 'www'
@@ -61,20 +77,30 @@ class Admin::InstanceAccessController < Admin::InstancesController
                 result.dig('result', 'stdout')&.strip
     end
 
-    @paths = (workdir ? [{ path: "Workdir (#{workdir})", id: workdir }] : []) +
-             (@website.storage_areas || []).map do |storage_area|
-               {
-                 path: "Storage area (#{storage_area})",
-                 id: storage_area
-               }
-             end
+    (workdir ? [{ path: "Workdir (#{workdir})", id: workdir }] : []) +
+      (website.storage_areas || []).map do |storage_area|
+        {
+          path: "Storage area (#{storage_area})",
+          id: storage_area
+        }
+      end
+  end
+
+  def snapshot_paths_for_addon(_website, app)
+    addon = @addons.find { |a| a['name'] == app }
+
+    requires_persistence = addon.dig('addon', 'obj', 'requires_persistence')
+    persistent_path = addon.dig('obj', 'persistent_path')
+
+    requires_persistence ? [{ path: persistent_path, id: persistent_path }] : []
   end
 
   def create_snapshot
     path = params.dig('website', 'path')
+    app = params.dig('website', 'app')
 
     api(:post, "/instances/#{@instance_id}/snapshots",
-        payload: { path: path })
+        payload: { path: path, app: app })
 
     redirect_to({
                   action: :list_snapshots

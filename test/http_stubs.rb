@@ -800,7 +800,7 @@ module HttpStubs
                               'test/fixtures/http/openode_api/empty_object.json',
                               logged_in_user_token),
       HttpStubs.default_post('https://api.openode.io/instances/152/snapshots',
-                             { "path" => "/var/www/" },
+                             { "path" => "/var/www/", "app" => "www" },
                              'test/fixtures/http/openode_api/empty_object.json',
                              logged_in_user_token),
       HttpStubs.default_get(
@@ -862,7 +862,17 @@ module HttpStubs
                                 }
                               },
                               'test/fixtures/http/openode_api/empty_object.json',
-                              logged_in_user_token)
+                              logged_in_user_token),
+      HttpStubs.default_get(
+        'https://raw.githubusercontent.com/openode-io/addons/master/caching/memcached/README.md',
+        'test/fixtures/http/empty.txt',
+        logged_in_user_token
+      ),
+      HttpStubs.default_get(
+        'https://api.openode.io/instances/152/addons/',
+        'test/fixtures/http/empty-array.json',
+        logged_in_user_token
+      )
     ]
   end
 end
