@@ -53,7 +53,9 @@
                     <% if @addon.addon&.dig('obj', 'requires_persistence') %>
                         <div class="form-label-group mb-2">
                             <%= form.label "storage_gb", "Storage (GB)" %>
-                            <%= form.number_field "storage_gb", { class: 'form-control', value: @addon.storage_gb } %>
+                            <%= form.number_field "storage_gb", {
+                              class: 'form-control', value: (@addon.storage_gb == 0 ? 1 : @addon.storage_gb)
+                            } %>
                         </div>
                     <% end %>
 
@@ -63,12 +65,20 @@
                         <p>ENV Variables</p>
 
                         <% @addon.addon&.dig('obj', 'required_env_variables').each do |field| %>
-                            <div class="form-label-group mb-2">
-                                <%= form.label "obj[env][#{field}]", field %>
-                                <%= form.text_field "obj[env][#{field}]", { class: 'form-control', value: @addon.obj.dig('env', field) } %>
+                          <div class="form-label-group mb-2">
+                            <%= form.label "obj[env][#{field}]", field %>
+                            <div class="input-group show_hide_password">
+                                <%= form.password_field "obj[env][#{field}]", { class: 'form-control', value: @addon.obj.dig('env', field) } %>
+
+                                <div class="input-group-append">
+                                  <a class="input-group-text password-toggler" href="">
+                                    <i class="fa password-toggler fa-eye-slash" aria-hidden="true"></i>
+                                  </a>
+                                </div>
                             </div>
+                          </div>
                         <% end %>
-                    <% end %>
+                      <% end %>
 
                     <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>   
                 </div>
