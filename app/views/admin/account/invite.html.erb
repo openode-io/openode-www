@@ -1,0 +1,55 @@
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Invite a Friend</h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <p>
+      Invite a friend and earn 100 free credits! Please note that credits will be added
+      to your account when the invited friend activate its account. Free credits are limited to 1 invite per user. You can however invite more than 1 friend, but you can receive maximally 100 credits.
+
+      </p>      
+      <%= form_for :invite, {
+          url: '/admin/invite',
+          html: { class: 'form-vertical', method: :post }
+        } do |form| %>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="form-group mb-2">
+                  <%= form.label :email, 'Email', class: 'required' %>                
+                  <%= form.email_field :email, class: 'form-control' %>
+                </div>
+
+                <%= form.submit 'Send Invite!', class: 'mt-3 btn btn-outline-success w-100' %>
+              </div>
+            </div>    
+          </div>
+        </div>
+      <% end %>  
+
+      <hr />
+
+
+      <div class="table-responsive mb-0">
+        <table class="table table-sm table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Email</th>
+              <th scope="col">Status Invite</th>
+            </tr>
+          </thead>
+          <tbody>      
+          <% @friend_invites.each do |invite| %>
+            <tr>
+              <td><%= invite['email'] %></td>
+              <td><%= invite['status'] %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>           
+      </div>
+    </div>
+  </div>
+</section>

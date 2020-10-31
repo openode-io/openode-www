@@ -85,7 +85,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
     existing_locations.each do |existing_location|
       api(:post, "/instances/#{@instance_id}/remove-location",
-          payload: { location_str_id: existing_location.dig('id') })
+          payload: { location_str_id: existing_location['id'] })
     end
 
     api(:post, "/instances/#{@instance_id}/add-location",
@@ -185,8 +185,8 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     end
       .map do |var|
       {
-        variable: env_hash[var].dig('variable'),
-        value: env_hash[var].dig('value')
+        variable: env_hash[var]['variable'],
+        value: env_hash[var]['value']
       }
     end
   end
@@ -369,12 +369,12 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "#{@addon.name} Addon"
 
     readme_file = @addon.addon.dig('obj', 'documentation_filename')
-    url_readme = "#{@addon.addon.dig('repository_root_file_url')}/#{readme_file}"
+    url_readme = "#{@addon.addon['repository_root_file_url']}/#{readme_file}"
 
     @readme = RestClient::Request.execute(method: :get, url: url_readme)
 
     @plans = api(:get, '/global/available-plans')
-             .reject { |p| p.dig('internal_id') == 'open_source' }
+             .reject { |p| p['internal_id'] == 'open_source' }
   end
 
   def update_addon

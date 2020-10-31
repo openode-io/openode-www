@@ -8,7 +8,7 @@ class Admin::NotificationsController < AdminController
   end
 
   def latest
-    @notifications = api(:get, '/notifications/?limit=100').dig("notifications") || []
+    @notifications = api(:get, '/notifications/?limit=100')["notifications"] || []
 
     api(:post, '/notifications/view?all=true')
   end

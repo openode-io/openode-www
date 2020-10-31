@@ -872,7 +872,18 @@ module HttpStubs
         'https://api.openode.io/instances/152/addons/',
         'test/fixtures/http/empty-array.json',
         logged_in_user_token
-      )
+      ),
+      HttpStubs.default_get(
+        'https://api.openode.io/account/friend-invites',
+        'test/fixtures/http/empty-array.json',
+        logged_in_user_token
+      ),
+      HttpStubs.default_post('https://api.openode.io/account/invite-friend',
+                             {
+                               "email" => "test@toto.com"
+                             },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token)
     ]
   end
 end
