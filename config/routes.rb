@@ -64,6 +64,8 @@ Rails.application.routes.draw do
     get 'instances/available-locations', to: 'instances#available_locations' 
     get 'api', to: 'api#index'
     get 'support', to: 'support#index'
+    get 'invite', to: 'account#invite'
+    post 'invite', to: 'account#send_invite'
     get 'account/notifications', to: 'account#notifications'
     get 'account/newsletter', to: 'account#newsletter'
 

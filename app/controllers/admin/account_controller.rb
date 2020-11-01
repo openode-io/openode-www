@@ -77,6 +77,23 @@ class Admin::AccountController < AdminController
                 notice: msg('message.modifications_saved'))
   end
 
+  def invite
+    add_breadcrumb "Invite"
+
+    @friend_invites = api(:get, "/account/friend-invites")
+  end
+
+  def send_invite
+    email = invite_friend_params[:email]
+
+    api(:post, "/account/invite-friend", payload: {
+          email: email
+        })
+
+    redirect_to({ action: :invite },
+                notice: msg('message.modifications_saved'))
+  end
+
   protected
 
   def user_params
@@ -93,5 +110,9 @@ class Admin::AccountController < AdminController
       :password,
       :password_confirmation
     )
+  end
+
+  def invite_friend_params
+    params.require(:invite).permit(:email)
   end
 end

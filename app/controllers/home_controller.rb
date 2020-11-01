@@ -79,14 +79,13 @@ class HomeController < ApplicationController
     url = "https://api.github.com/repos/openode-io/build-templates/git/trees/master" \
             "?recursive=true"
     @templates = JSON.parse(RestClient::Request.execute(method: :get,
-                                                        url: url))
-                     .dig('tree')
+                                                        url: url))['tree']
                      .select do |item|
-                   item.dig('path').include?('v1/templates/') &&
-                     item.dig('path').include?('/Dockerfile')
+                   item['path'].include?('v1/templates/') &&
+                     item['path'].include?('/Dockerfile')
                  end
                      .map do |item|
-      orig_path = item.dig('path')
+      orig_path = item['path']
 
       path = orig_path.gsub('/Dockerfile', '')
       name = orig_path.gsub('/Dockerfile', '').gsub('v1/templates/', '')

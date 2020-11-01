@@ -1,25 +1,23 @@
 require 'test_helper'
 
 class AdminAccountControllerTest < ActionDispatch::IntegrationTest
-  test "api access" do
+  setup do
     perform_successful_login
+  end
 
+  test "api access" do
     get '/admin/account/api_access'
 
     assert_response :success
   end
 
   test "regen token" do
-    perform_successful_login
-
     post '/admin/account/regenerate_token'
 
     assert_response :found
   end
 
   test "get notifications and newsletter" do
-    perform_successful_login
-
     get '/admin/account/notifications_and_newsletter'
 
     assert_response :success
@@ -28,8 +26,6 @@ class AdminAccountControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "change notifications and newsletter" do
-    perform_successful_login
-
     patch '/admin/account/notifications_and_newsletter',
           params: {
             user: {
@@ -42,8 +38,6 @@ class AdminAccountControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "save profile" do
-    perform_successful_login
-
     patch '/admin/account/',
           params: {
             user: {
@@ -58,16 +52,12 @@ class AdminAccountControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "delete" do
-    perform_successful_login
-
     delete '/admin/account/'
 
     assert_response :found
   end
 
   test "change password" do
-    perform_successful_login
-
     patch '/admin/account/password',
           params: {
             user: {
@@ -75,6 +65,25 @@ class AdminAccountControllerTest < ActionDispatch::IntegrationTest
               password_confirmation: 'Passwddd112'
             }
           }
+
+    assert_response :found
+  end
+
+  test "get invite" do
+    get '/admin/invite'
+
+    assert_response :success
+
+    assert_includes response.parsed_body, 'Invite a Friend'
+  end
+
+  test "send invite" do
+    post '/admin/invite',
+         params: {
+           invite: {
+             email: "test@toto.com"
+           }
+         }
 
     assert_response :found
   end
