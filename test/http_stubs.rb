@@ -880,7 +880,8 @@ module HttpStubs
       ),
       HttpStubs.default_post('https://api.openode.io/account/invite-friend',
                              {
-                               "email" => "test@toto.com"
+                               "email" => "test@toto.com",
+                               "created_by_ip" => "127.0.0.1"
                              },
                              'test/fixtures/http/openode_api/empty_object.json',
                              logged_in_user_token)

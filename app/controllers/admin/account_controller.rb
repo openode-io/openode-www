@@ -85,9 +85,11 @@ class Admin::AccountController < AdminController
 
   def send_invite
     email = invite_friend_params[:email]
+    created_by_ip = request.remote_ip
 
     api(:post, "/account/invite-friend", payload: {
-          email: email
+          email: email,
+          created_by_ip: created_by_ip
         })
 
     redirect_to({ action: :invite },
