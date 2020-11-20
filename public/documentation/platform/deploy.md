@@ -5,9 +5,15 @@ First, just go to your project directory in command line:
 
     cd [your project directory]
 
-And then just type:
+And then just type to deploy using the files in the current directory:
 
     openode deploy
+
+You can also deploy using a git repository url:
+
+    openode deploy https://yourgitrepository/
+
+For example using a github repository.
 
 Under the hood, *openode deploy* is in fact doing the following commands:
 
