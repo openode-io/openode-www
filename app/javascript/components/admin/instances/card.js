@@ -118,7 +118,7 @@ export default {
                 </span>
               </a>
               <a href={`/admin/instances/${this.instance.id}/access`} class='btn btn-sm btn-outline-secondary'>
-                <i class='fa fa-terminal' /> Access
+                <i class='fa fa-terminal' /> Access/Deploy
               </a>
               
             </div>

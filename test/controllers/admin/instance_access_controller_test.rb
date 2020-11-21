@@ -75,6 +75,28 @@ class AdminInstanceAccessControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.parsed_body, '1234'
   end
 
+  test "deploy" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/access/deploy"
+
+    assert_response :success
+    assert_includes response.parsed_body, 'You can deploy'
+  end
+
+  test "do deploy" do
+    perform_successful_login
+
+    post "/admin/instances/#{default_instance_id}/access/deploy",
+         params: {
+           website: {
+             repository_url: 'https://google.com'
+           }
+         }
+
+    assert_response :found
+  end
+
   test "get logs" do
     perform_successful_login
 

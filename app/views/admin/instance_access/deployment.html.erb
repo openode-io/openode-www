@@ -2,6 +2,7 @@
   <h1 class="h3 mb-3 text-gray-800 mt-3">Deployment, <%= time_ago_in_words @deployment['created_at'] %> ago</h1>
 </section>
 <section>
+  <h3>Status: <%= @deployment.dig('status') %></h3>
   <textarea class="dynamic-terminal rounded mb-2">
 <%= JSON.pretty_generate @deployment['events'] %>
   </textarea>

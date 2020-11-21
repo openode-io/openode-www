@@ -1,0 +1,65 @@
+
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Deploy</h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <%= form_for :website,
+        { url: "#{instance_access_to(@instance_id)}deploy", method: :post } do |form| %>
+        <div class="card">
+          <div class="card-body">
+              <p>You can deploy with our CLI or using your existing git repository.</p>
+              <hr />
+
+              <pre>openode deploy</pre>
+            <div class="row">
+              <div class="col-sm" style="border-right: 1px dashed #333;">
+                <h2>CLI</h2>
+                <p>Our CLI requires npm, see the
+                  <a href="/docs/installation/index.md#doc-installation">installation instructions</a>.
+                </p>
+
+                <code>npm install -g openode</code>
+
+                <p></p>
+                <p>
+                First, just go to your project directory in command line:
+                </p>
+
+                <code>cd [your project directory]</code>
+                    
+                <p></p>
+                <p>
+                And then just type to deploy using the files in the current directory:
+                </p>
+
+                <code>openode deploy</code>
+              </div>
+              <div class="col-sm">
+                <h2>git</h2>
+                <div class="form-group mb-2">
+                  <p>The repository will be cloned and deployed. Note: if your repository does not contain a Dockerfile, our system will generate one automatically.</p>
+
+                  <div class="form-label-group mb-2">
+                    <%= form.label :repository_url, 'Repository URL', class: 'required' %>
+                    <%= form.text_field :repository_url,
+                      placeholder: "https://github.com/myaccount/myproject.git",
+                      value: @website_summary.dig('repository_url'),
+                      class: 'form-control' %>
+                  </div>
+
+                  <%= form.submit "deploy", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+                </div>
+              </div>
+            </div>    
+          </div>
+        </div>
+        <% end %>
+    </div>
+
+    <div class="col-lg-3">
+      <%= render 'admin/instances/access/sidebar', instance_id: params[:id] %>
+    </div>
+  </div> 
+</section>

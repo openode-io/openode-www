@@ -1,6 +1,10 @@
 <div class="card">
   <div class="card-body">
     <div class="nav flex-column nav-pills" aria-orientation="vertical">
+      <a class="nav-link <%= params[:action] == "deploy" ? 'active' : '' %>"
+        href="<%= admin_instance_access_deploy_path(id:instance_id) %>"
+        aria-selected="true"><i class="fa fa-server"></i> Deploy</a>
+
       <a class="nav-link <%= params[:action].match(/deployments|access/) ? 'active' : '' %>"
         href="<%= admin_instance_access_deployments_path(id:instance_id) %>"
         aria-selected="true"><i class="fa fa-globe-americas"></i> Deployments</a>

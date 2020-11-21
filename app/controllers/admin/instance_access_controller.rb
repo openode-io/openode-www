@@ -6,10 +6,11 @@ class Admin::InstanceAccessController < Admin::InstancesController
                    admin_instances_path,
                    title: "Instances"
     @website_summary = api(:get, "/instances/#{@website.id}/summary")
+    puts @website_summary.inspect
   end
 
   def index
-    redirect_to({ action: :deployments })
+    redirect_to({ action: :deploy })
   end
 
   def deployments
@@ -128,6 +129,28 @@ class Admin::InstanceAccessController < Admin::InstancesController
                    title: "Snapshots"
 
     @snapshot = api(:get, "/instances/#{@instance_id}/snapshots/#{params['snapshot_id']}")
+  end
+
+  def deploy
+    add_breadcrumb "Deploy",
+                   admin_instance_access_deploy_path,
+                   title: "Deploy"
+    @doc_link = "/docs/platform/deploy.md"
+  end
+
+  def do_deploy
+    repository_url  = params.dig('website', 'repository_url')
+
+    api(:post, "/instances/#{@instance_id}/scm-clone",
+        payload: { repository_url: repository_url })
+
+    result = api(:post, "/instances/#{@instance_id}/restart", { with_repository_url: repository_url })
+
+    redirect_to({
+                  action: :deployment,
+                  deployment_id: result.dig('deploymentId')
+                },
+                notice: "Deployment in progress...")
   end
 
   def logs

@@ -884,6 +884,12 @@ module HttpStubs
                                "created_by_ip" => "127.0.0.1"
                              },
                              'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/scm-clone',
+                             {
+                               "repository_url" => "https://google.com"
+                             },
+                             'test/fixtures/http/openode_api/empty_object.json',
                              logged_in_user_token)
     ]
   end

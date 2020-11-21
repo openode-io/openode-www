@@ -207,6 +207,11 @@ Rails.application.routes.draw do
       to: 'instance_access#list_snapshots'
     get 'instances/:id/access/snapshots/:snapshot_id',
       to: 'instance_access#get_snapshot'
+    get 'instances/:id/access/deploy',
+      to: 'instance_access#deploy',
+      as: :instance_access_deploy
+    post 'instances/:id/access/deploy',
+      to: 'instance_access#do_deploy'
 
     get 'instances/:id/credits', to: 'instances#credits', as: :instance_credits
 
