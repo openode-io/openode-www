@@ -12,10 +12,16 @@ class Admin::InstancesController < AdminController
   end
 
   def index
-    # @tips = ""
-
     respond_to do |format|
-      format.html
+      format.html do
+        my_instances_summary = instances_summary
+
+        if my_instances_summary.count == 1 && !my_instances_summary.first['last_deployment_id']
+          first_instance = my_instances_summary.first
+          @tips = "<a href=\"/admin/instances/#{first_instance['id']}/access\">" \
+                  "Deploy your instance >></a>"
+        end
+      end
       format.json { render json: instances_summary }
     end
   end

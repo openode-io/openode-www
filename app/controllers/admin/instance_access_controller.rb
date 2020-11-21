@@ -6,7 +6,6 @@ class Admin::InstanceAccessController < Admin::InstancesController
                    admin_instances_path,
                    title: "Instances"
     @website_summary = api(:get, "/instances/#{@website.id}/summary")
-    puts @website_summary.inspect
   end
 
   def index
@@ -139,7 +138,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
   end
 
   def do_deploy
-    repository_url  = params.dig('website', 'repository_url')
+    repository_url = params.dig('website', 'repository_url')
 
     api(:post, "/instances/#{@instance_id}/scm-clone",
         payload: { repository_url: repository_url })
@@ -148,7 +147,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
 
     redirect_to({
                   action: :deployment,
-                  deployment_id: result.dig('deploymentId')
+                  deployment_id: result['deploymentId']
                 },
                 notice: "Deployment in progress...")
   end
