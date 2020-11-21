@@ -143,7 +143,8 @@ class Admin::InstanceAccessController < Admin::InstancesController
     api(:post, "/instances/#{@instance_id}/scm-clone",
         payload: { repository_url: repository_url })
 
-    result = api(:post, "/instances/#{@instance_id}/restart", { with_repository_url: repository_url })
+    result = api(:post, "/instances/#{@instance_id}/restart",
+                 { repository_url: repository_url })
 
     redirect_to({
                   action: :deployment,

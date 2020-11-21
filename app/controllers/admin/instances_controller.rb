@@ -16,7 +16,8 @@ class Admin::InstancesController < AdminController
       format.html do
         my_instances_summary = instances_summary
 
-        if my_instances_summary.count == 1 && !my_instances_summary.first['last_deployment_id']
+        if my_instances_summary.count == 1 &&
+           !my_instances_summary.first['last_deployment_id']
           first_instance = my_instances_summary.first
           @tips = "<a href=\"/admin/instances/#{first_instance['id']}/access\">" \
                   "Deploy your instance >></a>"
