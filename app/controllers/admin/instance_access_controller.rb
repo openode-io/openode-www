@@ -144,7 +144,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
         payload: { repository_url: repository_url })
 
     result = api(:post, "/instances/#{@instance_id}/restart",
-                 { repository_url: repository_url })
+                 payload: { repository_url: repository_url })
 
     redirect_to({
                   action: :deployment,
