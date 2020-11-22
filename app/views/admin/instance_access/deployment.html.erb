@@ -2,8 +2,35 @@
   <h1 class="h3 mb-3 text-gray-800 mt-3">Deployment, <%= time_ago_in_words @deployment['created_at'] %> ago</h1>
 </section>
 <section>
-  <h3>Status: <%= @deployment.dig('status') %></h3>
-  <textarea class="dynamic-terminal rounded mb-2">
+  <% if @deployment.dig('status') == "success" %>
+    <h3>Status: <%= @deployment.dig('status') %></h3>
+  <% end %>
+
+  <textarea id="currentDeployment" 
+            class="dynamic-terminal rounded mb-2 <%= @deployment.dig('status') == "success" ? "" : "ws-stream" %>"
+            data-stream-token="<%= @current_user[:token] %>"
+            data-stream-parameters='{"channel": "DeploymentsChannel", "deployment_id": <%= @deployment['id'] %>}'
+            >
 <%= JSON.pretty_generate @deployment['events'] %>
   </textarea>
 </section>
+
+<script>
+  function consumeDeploymentsChannel(data) {
+    const deploymentArea = document.getElementById("currentDeployment")
+    let currentDeploymentValue = []
+
+    try {
+      currentDeploymentValue = JSON.parse(deploymentArea.value)
+    } catch(err) {
+    }
+
+    if (!currentDeploymentValue) {
+      currentDeploymentValue = []
+    }
+
+    currentDeploymentValue.push(data)
+    deploymentArea.value = JSON.stringify(currentDeploymentValue, null, 4)
+    deploymentArea.scrollTop = deploymentArea.scrollHeight
+  }
+</script>

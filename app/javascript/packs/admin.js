@@ -25,6 +25,9 @@ Vue.use(TurbolinksAdapter)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
+import { createConsumer } from '@rails/actioncable'
+let activeConsumers = []
+
 document.addEventListener('turbolinks:load', function () {
   /* Vue Settings */
   Object.keys(instances).forEach((instanceName) => {
@@ -44,6 +47,26 @@ document.addEventListener('turbolinks:load', function () {
 
     for (const scrollableItem of scrollableItems) {
      scrollableItem.scrollTop = scrollableItem.scrollHeight; 
+    }
+
+    const streamedElements = document.getElementsByClassName("ws-stream");
+
+    for (const streamedElement of streamedElements) {
+      const token = streamedElement.getAttribute('data-stream-token')
+      const params = JSON.parse(streamedElement.getAttribute('data-stream-parameters'))
+
+      if (!activeConsumers.includes(JSON.stringify(params))) {
+        const webSocketConsumer = createConsumer(`wss://api.openode.io/streams?token=${token}`)
+
+        webSocketConsumer.subscriptions.create(params, {
+          received(data) {
+            // specific to deployment, if more consumer, refactor!
+            consumeDeploymentsChannel(data)
+          }
+        })
+
+        activeConsumers.push(JSON.stringify(params))
+      }
     }
   })
 })
