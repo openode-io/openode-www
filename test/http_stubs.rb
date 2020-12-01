@@ -890,7 +890,12 @@ module HttpStubs
                                "repository_url" => "https://google.com"
                              },
                              'test/fixtures/http/openode_api/empty_object.json',
-                             logged_in_user_token)
+                             logged_in_user_token),
+      HttpStubs.default_get(
+        'https://registry.hub.docker.com/v1/repositories/memcached:alpine/tags',
+        'test/fixtures/http/empty-array.json',
+        logged_in_user_token
+      )
     ]
   end
 end

@@ -373,6 +373,14 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
     @readme = RestClient::Request.execute(method: :get, url: url_readme)
 
+    docker_url_tags =
+      "https://registry.hub.docker.com/v1/repositories" \
+      "/#{@addon.addon.dig('obj', 'image')}/tags"
+    all_tags = JSON.parse(
+      RestClient::Request.execute(method: :get, url: docker_url_tags).to_s
+    )
+    @tags = all_tags.map { |tag| tag['name'] }
+
     @plans = api(:get, '/global/available-plans')
              .reject { |p| p['internal_id'] == 'open_source' }
   end

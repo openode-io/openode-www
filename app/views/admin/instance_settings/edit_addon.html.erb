@@ -39,6 +39,12 @@
                     </div>
 
                     <div class="form-label-group mb-2">
+                        <%= form.label "obj[tag]", 'Version (Image tag)', class: 'required' %>
+                        <%= form.select "obj[tag]", @tags.map { |tag| [tag, tag] },
+                        { selected: @addon.dig('obj', 'tag') }, { class: 'form-control', required: true } %>
+                    </div>
+
+                    <div class="form-label-group mb-2">
                         <%= form.label :name, 'Name (internal hostname)' %>
                         <%= form.text_field :name, { class: 'form-control' } %>
                     </div>
