@@ -40,13 +40,29 @@
                 <div class="form-group mb-2">
                   <p>The repository will be cloned and deployed. Note: if your repository does not contain a Dockerfile, our system will generate one automatically.</p>
 
-                  <div class="form-label-group mb-2">
-                    <%= form.label :repository_url, 'Repository URL', class: 'required' %>
-                    <%= form.text_field :repository_url,
-                      placeholder: "https://github.com/myaccount/myproject.git",
-                      value: @website_summary.dig('repository_url'),
-                      class: 'form-control' %>
-                  </div>
+
+                  <% if @website_summary.dig('repository_url') %>
+                    <%= form.label :repotory_url, 'Repository URL', class: 'required' %>
+                    <div class="input-group show_hide_password">   
+                      <%= form.password_field :repository_url,
+                                          value: @website_summary.dig('repository_url'),
+                                          class: 'form-control' %>
+                      <div class="input-group-append">
+                        <a class="input-group-text password-toggler" href="">
+                          <i class="fa password-toggler fa-eye-slash" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                    </div>
+                      <br />
+                  <% else %>
+                    <div class="form-label-group mb-2">
+                      <%= form.label :repository_url, 'Repository URL', class: 'required' %>
+                      <%= form.text_field :repository_url,
+                        placeholder: "https://github.com/myaccount/myproject.git",
+                        value: @website_summary.dig('repository_url'),
+                        class: 'form-control' %>
+                    </div>
+                  <% end %>
 
                   <%= form.submit "deploy", class: 'btn btn-lg btn-success w-100 mb-3' %>          
 
