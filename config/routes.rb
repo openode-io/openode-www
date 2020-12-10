@@ -77,6 +77,9 @@ Rails.application.routes.draw do
 
     get 'instances/:id/settings', to: 'instance_settings#index', as: :instance_settings
     get 'instances/:id/settings/plan', to: 'instance_settings#plan', as: :instance_settings_plan
+    get 'instances/:id/settings/address', to: 'instance_settings#address',
+                                          as: :instance_settings_address
+    patch 'instances/:id/settings/address', to: 'instance_settings#change_address'
     patch 'instances/:id/settings/plan', to: 'instance_settings#change_plan'
     get 'instances/:id/settings/location', to: 'instance_settings#location',
                                             as: :instance_settings_location

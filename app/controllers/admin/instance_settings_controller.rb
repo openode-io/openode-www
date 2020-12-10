@@ -69,6 +69,22 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     redirect_to({ action: :plan }, notice: msg('message.modifications_saved'))
   end
 
+  def address
+    add_breadcrumb "Settings",
+                   admin_instance_settings_path
+    add_breadcrumb "Address"
+  end
+
+  def change_address
+    addr_params = update_address_params
+
+    api(:patch, "/instances/#{@instance_id}/", payload: {
+          website: addr_params
+        })
+
+    redirect_to({ action: :address }, notice: msg('message.modifications_saved'))
+  end
+
   def location
     add_breadcrumb "Setting", admin_instance_settings_path
     add_breadcrumb "Location"
@@ -430,6 +446,10 @@ class Admin::InstanceSettingsController < Admin::InstancesController
                                     :open_source_title,
                                     :open_source_repository,
                                     :open_source_description)
+  end
+
+  def update_address_params
+    params.require(:website).permit(:site_name)
   end
 
   def create_addon_params

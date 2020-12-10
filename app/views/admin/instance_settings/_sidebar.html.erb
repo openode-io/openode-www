@@ -5,6 +5,10 @@
         href="<%= "#{instance_settings_to(@instance_id)}plan" %>"
         aria-selected="true"><i class="fa fa-credit-card"></i> Change Plan</a>
 
+      <a class="nav-link <%= params[:action].match(/address/) ? 'active' : '' %>"
+        href="<%= "#{instance_settings_to(@instance_id)}address" %>"
+        aria-selected="true"><i class="fa fa-id-card"></i> Address - subdomain/custom domain</a>
+
       <a class="nav-link <%= params[:action].match(/location/) ? 'active' : '' %>"
         href="<%= "#{instance_settings_to(@instance_id)}location" %>"
         aria-selected="true">

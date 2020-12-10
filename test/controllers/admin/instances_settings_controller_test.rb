@@ -238,6 +238,28 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
     assert_response :found
   end
 
+  # address
+  test "get address" do
+    perform_successful_login
+
+    get "/admin/instances/#{default_instance_id}/settings/address"
+
+    assert_response :success
+  end
+
+  test "change address" do
+    perform_successful_login
+
+    patch "/admin/instances/#{default_instance_id}/settings/address",
+          params: {
+            website: {
+              site_name: "asdf"
+            }
+          }
+
+    assert_response :found
+  end
+
   test "change plan open source" do
     perform_successful_login
 

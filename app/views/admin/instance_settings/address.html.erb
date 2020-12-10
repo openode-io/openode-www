@@ -1,0 +1,46 @@
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Edit Address (subdomain or custom domain)</h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+
+      <p>
+        Edit below your site address. Fill in depending on the type of address you need:
+      </p>
+
+      <ul>
+        <li><strong>Subdomain:</strong> yoursitename.openode.io. In this case, just enter <strong>yoursitename</strong>.</li>
+        <li><strong>Custom domain:</strong> yoursitename.com. Enter your base domain name.</li>
+      </ul>
+
+      <p>
+        <i>Important note: if you change the address, a deployment is required to take effects.</i>
+      </p>
+
+      <%= form_for :website,
+        { url: "#{instance_settings_to(@instance_id)}address", method: :patch } do |form| %>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="form-group mb-2">
+
+                  <div class="form-label-group mb-2">
+                    <%= form.label :site_name, 'Subdomain name or custom domain', class: 'required' %>
+                    <%= form.text_field :site_name, class: 'form-control', placeholder: "subdomain-name or your-custom-domain.com" %>
+                  </div>
+
+                  <%= form.submit "Save", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+                </div>
+              </div>
+            </div>    
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-lg-3">
+      <%= render 'admin/instance_settings/sidebar' %>
+    </div>    
+  </div>
+</section>
