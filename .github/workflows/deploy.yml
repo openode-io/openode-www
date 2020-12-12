@@ -12,15 +12,15 @@ on:
     branches:
     - master
 
-      #on:
-  #  workflow_run:
-    #    workflows: ["Tests"]
-    #    branches: [master]
-    #    types:
-#      - completed
+on:
+  workflow_run:
+    workflows: ["Tests"]
+    branches: [master]
+    types:
+      - completed
 
 jobs:
-  test:
+  deploy:
 
     runs-on: ubuntu-latest
 
