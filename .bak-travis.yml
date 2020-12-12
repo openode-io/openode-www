@@ -1,0 +1,19 @@
+notifications:
+  slack: openodeio:6BDG0odfHQqNmWXoYcDfpV2y
+language: ruby
+
+before_install:
+- nvm install 12
+
+before_script:
+- node -v
+
+script:
+- RAILS_ENV=test bin/rails assets:precompile
+- bundle exec rubocop
+- bundle exec bin/rails test
+deploy:
+  provider: script
+  script: env bash scripts/deploy.sh
+  on:
+    branch: master
