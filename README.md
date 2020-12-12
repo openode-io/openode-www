@@ -1,6 +1,7 @@
 # README
 
 [![Tests Actions Status](https://github.com/openode-io/openode-www/workflows/Test/badge.svg)](https://github.com/openode-io/openode-www/actions)
+[![Deploy Actions Status](https://github.com/openode-io/openode-www/workflows/Deploy/badge.svg)](https://github.com/openode-io/openode-www/actions)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

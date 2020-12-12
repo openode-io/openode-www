@@ -8,11 +8,9 @@
 name: Deploy
 
 on:
-  workflow_run:
-    workflows: ["Tests"]
-    branches: [master]
-    types:
-      - completed
+  push:
+    branches:
+      - master
 
 jobs:
   deploy:
@@ -22,7 +20,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: test
+    - name: deploy!
       run: |
-        ls -la
+        export SERVER_PK_KEY="${{ secrets.SERVER_PK_KEY }}"
+        export NODE_BIN_PATH="${{ secrets.NODE_BIN_PATH }}"
+        export RUBY_BIN_PATH="${{ secrets.RUBY_BIN_PATH }}"
+        export SERVER_USER="${{ secrets.SERVER_USER }}"
+        export SERVER_HOST="${{ secrets.SERVER_HOST }}"
+        export PROJECT_PATH="${{ secrets.PROJECT_PATH }}"
+        export RAILS_ENV="${{ secrets.RAILS_ENV }}"
+        sh scripts/deploy.sh
 
