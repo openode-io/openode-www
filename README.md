@@ -1,7 +1,6 @@
 # README
 
-
-[![Build status](https://travis-ci.org/openode-io/openode-www.svg?branch=master)](https://travis-ci.org/openode-io/openode-www)
+[![Tests Actions Status](https://github.com/openode-io/openode-www/workflows/test/badge.svg)](https://github.com/openode-io/openode-www/actions)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
