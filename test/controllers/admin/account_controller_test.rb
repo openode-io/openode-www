@@ -17,8 +17,8 @@ class AdminAccountControllerTest < ActionDispatch::IntegrationTest
     assert_response :found
   end
 
-  test "get notifications and newsletter" do
-    get '/admin/account/notifications_and_newsletter'
+  test "get notifications" do
+    get '/admin/account/notifications'
 
     assert_response :success
 

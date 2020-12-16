@@ -44,10 +44,10 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
   test "get admin account notification settings" do
     perform_successful_login
 
-    get '/admin/account/notifications_and_newsletter'
+    get '/admin/account/notifications'
 
     assert_response :success
-    assert_includes response.parsed_body.to_s, 'Notifications and Newsletter'
+    assert_includes response.parsed_body.to_s, 'Notifications'
   end
 
   test "get admin account API settings" do
