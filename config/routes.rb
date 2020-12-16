@@ -46,8 +46,8 @@ Rails.application.routes.draw do
     patch 'account/password', to: 'account#change_password'
     delete 'account', to: 'account#destroy'
 
-    get 'account/notifications_and_newsletter',
-      to: 'account#notifications_and_newsletter'
+    get 'account/notifications',
+      to: 'account#notifications'
     patch 'account/notifications_and_newsletter',
       to: 'account#update_notifications_and_newsletter'
     get 'account/api_access', to: 'account#api_access'

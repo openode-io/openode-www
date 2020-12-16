@@ -12,8 +12,8 @@ class Admin::AccountController < AdminController
   def account_api
   end
 
-  def notifications_and_newsletter
-    add_breadcrumb "Notifications & Newsletter"
+  def notifications
+    add_breadcrumb "Notifications"
 
     @account = api(:get, "/account/me")
   end
@@ -21,7 +21,7 @@ class Admin::AccountController < AdminController
   def update_notifications_and_newsletter
     api(:patch, "/account/me", payload: { account: user_params })
 
-    redirect_to({ action: :notifications_and_newsletter },
+    redirect_to({ action: :notifications },
                 notice: msg('message.modifications_saved'))
   end
 

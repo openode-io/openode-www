@@ -18,10 +18,12 @@
                 <%= form.number_field :nb_credits_threshold_notification, { class: 'form-control', value: @account['nb_credits_threshold_notification'] } %>
               </div>
 
+              <!--
               <div class="form-group mb-2">
                 <%= form.check_box :newsletter, { checked: @account['newsletter'] == 1 }, 1, 0 %>
                 <%= form.label :newsletter, 'Receive newsletter?', class: 'required' %>
               </div>
+              -->
 
               <%= form.submit "Save!", class: 'btn btn-lg btn-success w-100 mb-3' %>
             </div>
