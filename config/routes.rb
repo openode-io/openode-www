@@ -37,6 +37,9 @@ Rails.application.routes.draw do
 
   get 'docs/:section/', to: 'docs#view'
   get 'docs/:section/:document', to: 'docs#view'
+
+  get 'addons/:section/', to: 'docs#addons'
+  get 'addons/:section/:document', to: 'docs#addons'
   
   namespace :admin do
     get '/', to: 'instances#index' 

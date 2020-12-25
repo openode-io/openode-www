@@ -10,3 +10,7 @@ Addons can be added or removed via the administration, under Settings. Once crea
 
 Addons definitions are fully open source and specifications are available in this repository: [https://github.com/openode-io/addons](https://github.com/openode-io/addons)
 Users can contribute, add new addons as well as change existing ones.
+
+## Addons listing
+
+[This page](/addons/caching/index) contains a listing of our available addons.

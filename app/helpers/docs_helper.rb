@@ -1,29 +1,11 @@
 module DocsHelper
   def doc_title(section, document)
     if document.downcase != 'index'
-
-      doc_path = "#{section}/#{document}.md"
-
-      document_records = doc_section_item(section).select do |o|
-        o['path'] == doc_path
-      end
-
-      "#{document_records&.first&.dig('name')} | " \
+      "#{document&.titleize} | " \
       "#{section&.titleize} | Documentation | opeNode"
     else
       "#{section.titleize} | Documentation | opeNode"
     end
-  end
-
-  def doc_section_item(section)
-    docs_path = Rails.root.join("public/documentation/index.json").to_s
-    docs_menu = JSON.parse(File.open(docs_path).read)
-
-    section_items = docs_menu.select do |o|
-      o['name'].downcase == section.titleize.downcase
-    end
-
-    section_items.first['children']
   end
 
   def item_underscore(item)
@@ -31,7 +13,12 @@ module DocsHelper
   end
 
   def collapsed_item_class(section, item)
-    section.titleize.downcase == item[:name].downcase ? 'show' : ''
+    if section.titleize.downcase == item[:name].downcase ||
+       section.downcase == item[:name].downcase
+      'show'
+    else
+      ''
+    end
   end
 
   def active_item_class(section, item, document = '', subitem = '')
@@ -40,7 +27,8 @@ module DocsHelper
       section_item_match = section.titleize.downcase == item[:name].downcase
       result = subitem_path_match && section_item_match ? 'text-success' : ''
     else
-      section_item_match = section.titleize.downcase == item[:name].downcase
+      section_item_match = section.titleize.downcase == item[:name].downcase ||
+                           section.downcase == item[:name].downcase
       result = section_item_match ? 'text-success' : 'text-white'
     end
 
