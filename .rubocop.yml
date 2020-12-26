@@ -82,7 +82,7 @@ Metrics/PerceivedComplexity:
   Max: 15
 
 Metrics/AbcSize:
-  Max: 30
+  Max: 100
   Exclude:
     - 'test/http_stubs.rb'
 
@@ -97,7 +97,7 @@ Metrics/BlockLength:
     - 'test/**/*.rb'
 
 Metrics/MethodLength:
-  Max: 30
+  Max: 50
   Exclude:
     - 'test/**/*.rb'
     - app/services/instance_access_service.rb

@@ -2,7 +2,7 @@
   <% if item[:children].present? %>
     <a 
       class="hvr-forward nav-link collapsed text-truncate <%= active_item_class(section,item) %>" 
-      href="/docs/<%=item[:path]%>#doc-<%= item_underscore(item) %>" 
+      href="/<%= @root_section %>/<%=item[:path] %>#doc-<%= item_underscore(item) %>" 
       data-target="#doc-<%= item_underscore(item) %>">
       <span><%= item[:name]  %></span>
     </a>
@@ -15,7 +15,7 @@
           <li class="nav-item">
             <a 
               class="nav-link py-1 p-0 text-white <%= active_item_class(section,item,document,subitem) %>"
-              href="<%= "/docs/#{subitem[:path]}" %>">
+              href="<%= "/#{@root_section}/#{subitem[:path]}" %>">
               <span><%= subitem[:name] %></span>
             </a>
           </li>
@@ -25,8 +25,8 @@
   <% else %>
     <a 
       class="hvr-forward nav-link text-truncate text-white <%= active_item_class(section,item) %>"
-      href="/docs/<%= item[:path] %>">
-      <span><%= item[:name] %></span>
+      href="/<%= @root_section %>/<%= item[:path] %>">
+      <span><%= item[:name] %> </span>
     </a>
   <% end %>
 </li> 
