@@ -186,15 +186,10 @@ class Admin::InstanceAccessController < Admin::InstancesController
           .join
   end
 
-  def exec_memory_usage_megabytes
-    result = api(:post, "/instances/#{@instance_id}/cmd",
-                 payload: {
-                   cmd: 'cat /sys/fs/cgroup/memory/memory.usage_in_bytes',
-                   app: 'www'
-                 })
-    result_bytes = result.dig('result', 'stdout').to_i
+  def get_stats
+    result = api(:get, "/instances/#{@instance_id}/stats")
 
-    result_bytes / (1024.0 * 1024.0)
+    result['top']
   end
 
   def status
@@ -205,11 +200,11 @@ class Admin::InstanceAccessController < Admin::InstancesController
     @status = api(:get, "/instances/#{@instance_id}/status")
 
     @top_result = ""
-    @mem_mb = nil
+    @stats = nil
 
     if @website.status == 'online'
       @top_result = exec_top_processes rescue nil
-      @mem_mb = exec_memory_usage_megabytes rescue nil
+      @stats = get_stats
     else
       @status = []
     end
