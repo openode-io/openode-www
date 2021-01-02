@@ -29,7 +29,7 @@ class AdminBillingControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
 
-    assert_includes response.parsed_body, 'Remaining account credits'
+    assert_includes response.parsed_body, 'account credits'
     assert_includes response.parsed_body, '10000.15'
   end
 end

@@ -6,7 +6,7 @@ class Admin::AccountController < AdminController
 
   def index
     # If nothing to show on index, then redirect to profile as default page
-    redirect_to({ action: :api_access })
+    redirect_to(action: :api_access)
   end
 
   def account_api
