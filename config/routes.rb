@@ -61,6 +61,7 @@ Rails.application.routes.draw do
     get 'billing/orders', to: 'billing#orders'
     get 'billing/spending', to: 'billing#spending'
     get 'billing/pay', to: 'billing#pay'
+    get 'billing/subscription', to: 'billing#subscription'
 
     get 'instances', to: 'instances#index'
     get 'instances/plans', to: 'instances#plans' 

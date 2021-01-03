@@ -9,7 +9,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
   end
 
   def index
-    redirect_to({ action: :deploy })
+    redirect_to(action: :deploy)
   end
 
   def deployments
@@ -231,12 +231,12 @@ class Admin::InstanceAccessController < Admin::InstancesController
 
     result = begin
       api(:post, "/instances/#{@instance_id}/cmd", payload: { cmd: cmd, app: 'www' })
-    rescue StandardError => e
-      {
-        'result' => {
-          'stdout' => "There was an issue processing the command. #{e}"
-        }
-      }
+             rescue StandardError => e
+               {
+                 'result' => {
+                   'stdout' => "There was an issue processing the command. #{e}"
+                 }
+               }
     end
 
     render json: { msg: result&.dig('result') }

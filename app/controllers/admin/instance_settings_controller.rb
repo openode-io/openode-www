@@ -20,7 +20,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   end
 
   def index
-    redirect_to({ action: :plan })
+    redirect_to(action: :plan)
   end
 
   def plan
@@ -212,12 +212,12 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     new_value = params.dig('website', 'new_value')
 
     env_hash = (params.dig('website', 'variables') || {})
-               .merge({
-                        new_variable.to_s => {
-                          'variable' => new_variable,
-                          'value' => new_value
-                        }
-                      })
+               .merge(
+                 new_variable.to_s => {
+                   'variable' => new_variable,
+                   'value' => new_value
+                 }
+               )
 
     env = prepare_env_for_update(env_hash)
 

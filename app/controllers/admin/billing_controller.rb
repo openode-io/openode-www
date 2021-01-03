@@ -7,7 +7,7 @@ class Admin::BillingController < AdminController
   end
 
   def index
-    redirect_to({ action: :pay })
+    redirect_to(action: :pay)
   end
 
   def orders
@@ -22,8 +22,14 @@ class Admin::BillingController < AdminController
     @spendings = api(:get, "/account/spendings")
   end
 
+  def subscription
+    add_breadcrumb "Subscription"
+
+    @user = api(:get, "/account/me")
+  end
+
   def pay
-    add_breadcrumb "Payment"
+    add_breadcrumb "On Demand Payment"
 
     @user = api(:get, "/account/me")
 
