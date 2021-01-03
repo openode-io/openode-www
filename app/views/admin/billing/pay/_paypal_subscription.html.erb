@@ -1,4 +1,5 @@
 
+
 <div id="paypal-button-container"></div>
 <script src="https://www.paypal.com/sdk/js?client-id=ASk4oY83EB4t54wqobQO-Tp9xeKIRWLmZkBLJRdwQ0FjPsA-5nFo6mAUfMgpZJzdFPLb5XTan-sDyUVw&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script>
@@ -12,7 +13,8 @@
       createSubscription: function(data, actions) {
         return actions.subscription.create({
           'plan_id': 'P-06891910C04126317L7YRCQQ',
-          'quantity': '1'
+          'quantity': '1',
+          'custom_id': '<%= @user["id"] %>'
         });
       },
       onApprove: function(data, actions) {
@@ -20,3 +22,4 @@
       }
   }).render('#paypal-button-container');
 </script>
+
