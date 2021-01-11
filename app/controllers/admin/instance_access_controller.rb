@@ -231,12 +231,12 @@ class Admin::InstanceAccessController < Admin::InstancesController
 
     result = begin
       api(:post, "/instances/#{@instance_id}/cmd", payload: { cmd: cmd, app: 'www' })
-             rescue StandardError => e
-               {
-                 'result' => {
-                   'stdout' => "There was an issue processing the command. #{e}"
-                 }
-               }
+    rescue StandardError => e
+      {
+        'result' => {
+          'stdout' => "There was an issue processing the command. #{e}"
+        }
+      }
     end
 
     render json: { msg: result&.dig('result') }

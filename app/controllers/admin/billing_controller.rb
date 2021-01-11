@@ -26,6 +26,16 @@ class Admin::BillingController < AdminController
     add_breadcrumb "Subscription"
 
     @user = api(:get, "/account/me")
+    @subscriptions = api(:get, "/account/subscriptions")
+  end
+
+  def cancel_subscription
+    subscription_id = params[:id]
+    api(:post, "/account/subscriptions/#{subscription_id}/cancel")
+
+    notice = "The subscription has been canceled, it will be updated momentarily."
+    redirect_to({ action: :subscription },
+                notice: notice)
   end
 
   def pay

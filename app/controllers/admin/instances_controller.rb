@@ -28,7 +28,17 @@ class Admin::InstancesController < AdminController
   end
 
   def plans
-    json(api(:get, '/global/available-plans'))
+    user = OpenStruct.new(api(:get, "/account/me"))
+
+    plans = api(:get, '/global/available-plans').select do |plan|
+      if plan['internal_id'] == "auto"
+        user.has_active_subscription
+      else
+        true
+      end
+    end
+
+    json(plans)
   end
 
   def available_locations

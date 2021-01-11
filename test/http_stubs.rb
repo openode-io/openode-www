@@ -257,6 +257,20 @@ module HttpStubs
         }
       },
       {
+        url: 'https://api.openode.io/instances/152/plans',
+        method: :get,
+        with: {
+          body: {}
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/admin/available-plans.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
+      },
+      {
         url: 'https://api.openode.io/global/available-locations?type=kubernetes',
         method: :get,
         with: {

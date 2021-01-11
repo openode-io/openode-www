@@ -62,6 +62,7 @@ Rails.application.routes.draw do
     get 'billing/spending', to: 'billing#spending'
     get 'billing/pay', to: 'billing#pay'
     get 'billing/subscription', to: 'billing#subscription'
+    delete 'billing/subscriptions/:id/cancel', to: 'billing#cancel_subscription'
 
     get 'instances', to: 'instances#index'
     get 'instances/plans', to: 'instances#plans' 
