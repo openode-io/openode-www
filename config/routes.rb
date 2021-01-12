@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   root :to => 'home#index'
 
   get '/', to: 'home#index'
+  get '/on-demand-pricing', to: 'home#on_demand_pricing'
   get '/pricing', to: 'home#pricing'
-  get '/pricing-private-cloud', to: 'home#private_cloud_pricing'
   get '/about', to: 'home#about'
   get '/news', to: 'home#news'
   get '/locations', to: 'home#locations'
