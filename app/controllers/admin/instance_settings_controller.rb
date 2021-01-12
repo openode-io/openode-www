@@ -28,7 +28,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
                    admin_instance_settings_path
     add_breadcrumb "Plan"
 
-    @plans = api(:get, '/global/available-plans')
+    @plans = api(:get, "/instances/#{@website.id}/plans")
     @website.blue_green_deployment = @website.configs['BLUE_GREEN_DEPLOYMENT']
     @website.replicas = @website.configs['REPLICAS'] || 1
     @website.open_source = @website.open_source || {}
@@ -398,7 +398,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     @tags = all_tags.map { |tag| tag['name'] }
 
     @plans = api(:get, '/global/available-plans')
-             .reject { |p| p['internal_id'] == 'open_source' }
+             .reject { |p| %w[open-source auto].include?(p['internal_id']) }
   end
 
   def update_addon

@@ -147,6 +147,10 @@ export default {
       </div>
     }
 
+    if (this.plans.some(p => p.value === "auto")) {
+      this.form.account_type = "auto"
+    }
+
     if (this.form.account_type == 'open_source') {
       custom_plan_input = <div>
                     <h5><i class="fa fa-code-branch"></i> Open Source Request</h5>

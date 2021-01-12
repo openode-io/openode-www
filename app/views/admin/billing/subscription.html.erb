@@ -10,6 +10,47 @@
 
           <%= render "admin/billing/pay/paypal_subscription" %>
 
+          <p>
+            <hr />
+          </p>
+  
+          <% if @subscriptions.count.positive? %>
+            <h2>Current Subscriptions:</h2>
+
+            <div class="table-responsive">
+              <table class="table table-sm table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Paypal Subscription ID</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>              
+                  <% @subscriptions.each do |subscription| %>
+                    <tr>
+                      <td><%= subscription['subscription_id'] %></td>
+                      <td><%= subscription['quantity'] %></td>
+                      <td><%= subscription['active'] ? "Active" : "Inactive" %></td>
+                      <td>
+                        <% if subscription['active'] %>
+                          <a class="btn btn-outline-critical "
+                             data-confirm="Are you sure?"
+                             rel="nofollow"
+                             data-method="delete"
+                             href="/admin/billing/subscriptions/<%= subscription['id'] %>/cancel">
+                            Cancel
+                          </a>
+                        <% end %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <% end %>
+
         </div>    
       </div>
     </div>
