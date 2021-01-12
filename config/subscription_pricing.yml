@@ -21,7 +21,7 @@
   features:
     - Unlimited deploys
     - Unlimited Bandwidth
-    - Unlimited Memory
+    - Auto Memory Allocation
     - 1GB Persistent Disk Storage
     - + 1GB Image (Non Persistent) Disk Storage
     - Blue-Green deployment included

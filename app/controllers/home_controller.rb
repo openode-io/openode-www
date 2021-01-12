@@ -18,7 +18,8 @@ class HomeController < ApplicationController
 
   def pricing
     @pricing_plans ||=
-      YAML.load_file(Rails.root.join("config/subscription_pricing.yml")).map(&:deep_symbolize_keys)
+      YAML.load_file(Rails.root.join("config/subscription_pricing.yml"))
+          .map(&:deep_symbolize_keys)
   end
 
   def on_demand_pricing

@@ -29,6 +29,7 @@ import { createConsumer } from '@rails/actioncable'
 let activeConsumers = []
 
 document.addEventListener('turbolinks:load', function () {
+
   /* Vue Settings */
   Object.keys(instances).forEach((instanceName) => {
     const instance = instances[instanceName]
@@ -68,6 +69,7 @@ document.addEventListener('turbolinks:load', function () {
         activeConsumers.push(JSON.stringify(params))
       }
     }
+
   })
 })
 
