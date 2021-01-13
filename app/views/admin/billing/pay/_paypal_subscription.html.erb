@@ -1,6 +1,6 @@
 
 <h2>Subscribe</h2>
-<p>Subscribe for a monthly recurring plan by specifying the number of instances you need.</p>
+<p>Subscribe for a monthly recurring plan by specifying the number of instances you need. See the <a href="/pricing">subscription pricing details.</a></p>
 <p>See the <a href="/pricing">pricing page</a> for further details.</p>
 
 <div class="form-label-group mb-2">
@@ -13,24 +13,24 @@
 <div id="paypal-button-container" style="text-align: center;"></div>
 <script src="https://www.paypal.com/sdk/js?client-id=ASk4oY83EB4t54wqobQO-Tp9xeKIRWLmZkBLJRdwQ0FjPsA-5nFo6mAUfMgpZJzdFPLb5XTan-sDyUVw&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script>
-  paypal.Buttons({
-      style: {
-          shape: 'rect',
-          color: 'gold',
-          layout: 'vertical',
-          label: 'subscribe'
-      },
-      createSubscription: function(data, actions) {
-        const quantity = document.getElementById("sub_quantity").value;
-        return actions.subscription.create({
-          'plan_id': 'P-06891910C04126317L7YRCQQ',
-          'quantity': `${quantity}`,
-          'custom_id': '<%= @user["id"] %>'
-        });
-      },
-      onApprove: function(data, actions) {
-        // alert(data.subscriptionID);
-      }
-  }).render('#paypal-button-container');
+paypal.Buttons({
+    style: {
+        shape: 'rect',
+        color: 'gold',
+        layout: 'vertical',
+        label: 'subscribe'
+    },
+    createSubscription: function(data, actions) {
+      const quantity = document.getElementById("sub_quantity").value;
+      return actions.subscription.create({
+        'plan_id': 'P-06891910C04126317L7YRCQQ',
+        'quantity': `${quantity}`,
+        'custom_id': '<%= @user["id"] %>'
+      });
+    },
+    onApprove: function(data, actions) {
+      // alert(data.subscriptionID);
+    }
+}).render('#paypal-button-container');
 </script>
 

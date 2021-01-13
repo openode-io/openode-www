@@ -1,0 +1,33 @@
+- name: Open Source
+  id: open-source
+  internal_id: open_source
+  title: FREE
+  subtitle: We support open source projects
+  features:
+    - Unlimited deploys
+    - 100GB Bandwidth / Month
+    - 100MB Memory
+    - 1000MB Image (Non Persistent) Disk Storage
+    - Custom domain or your-subdomain.openode.io
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: Pro Subscription
+  id: auto
+  internal_id: auto
+  title: $7.50
+  subtitle: per instance / month
+  features:
+    - Unlimited deploys
+    - Unlimited Bandwidth
+    - Auto Memory Allocation
+    - 1GB Persistent Disk Storage
+    - + 1GB Image (Non Persistent) Disk Storage
+    - Blue-Green deployment included
+    - Custom domain or your-subdomain.openode.io
+  button: 
+    url: /admin/billing
+    text: Order
+
+                        

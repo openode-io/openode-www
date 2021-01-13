@@ -6,7 +6,7 @@ easier and faster than ever.
 - **Deploy and get online** with any of your favorite language in few seconds/minutes without
 any need to manage servers and extensive devops complexities.
 - No server/Docker/Kubernetes knowledge required. We have an **automatic build template system** which will automatically generate a Dockerfile for you.
-- **Simple pricing**, you pay the plan [price](/pricing) when your instance is up only.
+- **Simple pricing**, see the subscription [pricing](/pricing) and [on demand pricing](/on-demand-pricing).
 - Ideal for **side projects up to growing companies**. Our smallest plan starts under $1
 per month.
 - **Collaborate** with your peers on the same projects.

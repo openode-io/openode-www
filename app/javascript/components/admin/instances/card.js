@@ -104,7 +104,7 @@ export default {
             <p>
               Active Persistence: {this.instance.persistence ? this.instance.persistence.extra_storage : 0} GB
             </p>
-            <p>Memory Limit: {this.instance.plan.ram} MB</p>
+            <p>Memory Limit: {this.instance.plan.name === "Auto" ? "No" : `${this.instance.plan.ram} MB`}</p>
           </div>
           <div class='card-footer text-muted'>
             <div class='btn-group w-100' role='group' aria-label='Access Buttons'>
