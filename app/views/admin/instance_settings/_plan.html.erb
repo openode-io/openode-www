@@ -6,7 +6,14 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="form-group mb-2">
 
-          <p class="alert alert-info">Notice: once you change your plan, it will be reloaded automatically.</p>
+        <p class="alert alert-info">
+        Notices: <br />
+        - once you change your plan, it will be reloaded automatically.<br />
+        <% if @has_auto_plan %>
+          - For using a subscription on this website, make sure to select the <strong>Auto</strong> plan.<br />
+        <% end %>
+        </p>
+
 
           <div class="form-label-group mb-2">
             <%= form.label :plan, 'Change your plan', class: 'required' %>

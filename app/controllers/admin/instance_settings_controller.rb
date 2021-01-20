@@ -29,6 +29,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Plan"
 
     @plans = api(:get, "/instances/#{@website.id}/plans")
+    @has_auto_plan = @plans.any? { |p| p['internal_id'] == "auto" }
     @website.blue_green_deployment = @website.configs['BLUE_GREEN_DEPLOYMENT']
     @website.replicas = @website.configs['REPLICAS'] || 1
     @website.open_source = @website.open_source || {}
