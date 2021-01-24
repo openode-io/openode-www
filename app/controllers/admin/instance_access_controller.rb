@@ -186,12 +186,6 @@ class Admin::InstanceAccessController < Admin::InstancesController
           .join
   end
 
-  def get_stats
-    result = api(:get, "/instances/#{@instance_id}/stats")
-
-    result['top']
-  end
-
   def status
     add_breadcrumb "Status",
                    admin_instance_access_status_path,
@@ -200,14 +194,61 @@ class Admin::InstanceAccessController < Admin::InstancesController
     @status = api(:get, "/instances/#{@instance_id}/status")
 
     @top_result = ""
-    @stats = nil
 
     if @website.status == 'online'
       @top_result = exec_top_processes rescue nil
-      @stats = get_stats
     else
       @status = []
     end
+  end
+
+  def get_service_stat(service_name, stat_name, stat)
+    stat.map do |s|
+      cur_s = s['obj'].find { |service_s| service_s['service'] == service_name }
+
+      if cur_s
+        {
+          "value" => cur_s[stat_name],
+          "date" => s['created_at']
+        }
+      else
+        {}
+      end
+    end
+  end
+
+  def resources_usage
+    add_breadcrumb "Status",
+                   admin_instance_access_resources_usage_path,
+                   title: "Resources Usage"
+
+    stat = api(:get, "/instances/#{@instance_id}/stats/mem_cpu")
+    @services = []
+
+    if stat.count.positive?
+      @service_names = stat.first['obj'].map { |s| s['service'] }
+
+      @services = @service_names.map do |service_name|
+        stat_cpu = get_service_stat(service_name, "cpu", stat)
+                   .map do |s|
+          if s['value']
+            s['value'] *= 100.0
+          end
+
+          s
+        end
+
+        stat_memory = get_service_stat(service_name, "memory", stat)
+
+        {
+          name: service_name,
+          stat_cpu: stat_cpu,
+          stat_memory: stat_memory
+        }
+      end
+    end
+
+    @stats_cpu = []
   end
 
   def event

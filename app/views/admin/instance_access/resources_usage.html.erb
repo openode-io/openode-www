@@ -1,0 +1,39 @@
+
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">Resources Usage</h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <% @services.each do |service| %>
+        <h3><%= service[:name] %></h3>
+
+        <div class="card">
+          <div class="card-body">    
+            <%= line_chart date_list_to_hash(service[:stat_cpu]),
+                  xtitle: "Date",
+                  ytitle: "CPU %",
+                  colors: ['#28a745'] %>
+          </div>
+        </div>   
+
+        <div class="card">
+          <div class="card-body">    
+            <%= line_chart date_list_to_hash(service[:stat_memory]),
+                  xtitle: "Date",
+                  ytitle: "Memory (Mi)",
+                  colors: ['#28a745'] %>
+          </div>
+        </div>   
+
+        <p><hr /></p>
+      <% end %>
+
+    </div>
+
+    <div class="col-lg-3">
+      <%= render 'admin/instances/access/sidebar', instance_id: params[:id] %>
+    </div>
+  </div>
+</section>
+
