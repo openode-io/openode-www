@@ -24,6 +24,7 @@
                     <th scope="col">Paypal Subscription ID</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Expiration Date</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -33,6 +34,7 @@
                       <td><%= subscription['subscription_id'] %></td>
                       <td><%= subscription['quantity'] %></td>
                       <td><%= subscription['active'] ? "Active" : "Inactive" %></td>
+                      <td><%= subscription['expires_at'] ? Date.parse(subscription['expires_at']) : "" %></td>
                       <td>
                         <% if subscription['active'] %>
                           <a class="btn btn-outline-critical "
