@@ -147,10 +147,6 @@ export default {
       </div>
     }
 
-    if (this.plans.some(p => p.value === "auto")) {
-      this.form.account_type = "auto"
-    }
-
     if (this.form.account_type == 'open_source') {
       custom_plan_input = <div>
                     <h5><i class="fa fa-code-branch"></i> Open Source Request</h5>
@@ -159,6 +155,7 @@ export default {
                     carefully as it will be reviewed, typically within 1 business day.
                     You will receive an email once verified.</p>
                     <p><b>Important: </b> Instances with no activity (deployment) during 1 month will be stopped - this is an effort to avoid having inactive open source websites.</p>
+                    <p>Do <b>not</b> publish online the <i>.openode</i> file as it contains your account credentials.</p>
                     <b-form-group id='input-group-open-source-title' label='Project Title:' label-for='input-open-source-title'>
                       <b-form-input
                         id='input-open-source-title'
