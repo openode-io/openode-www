@@ -56,6 +56,23 @@
                         </div>
                     <% end %>
 
+                    <% (@addon.dig('obj', 'ports') || []).each_with_index do |field, index| %>
+                        <div class="form-label-group mb-2">
+                          <%= form.label "obj[ports][][exposed_port]", "Exposed port (of target port #{field['target_port']})" %>
+                          <%= form.text_field "obj[ports][][exposed_port]",
+                            { class: 'form-control', value: field['exposed_port'] || field['target_port'] } %>
+                          <%= form.hidden_field "obj[ports][][target_port]", { value: field['target_port'] }  %>
+                          <%= form.hidden_field "obj[ports][][protocol]", { value: field['protocol'] }  %>
+                        </div>
+
+                        <div class="form-label-group mb-2">
+                          <%= form.label "obj[ports][][http_endpoint]",
+                            "HTTP endpoint (to target port #{field['target_port']}, optional)" %>
+                          <%= form.text_field "obj[ports][][http_endpoint]",
+                            { class: 'form-control', value: field['http_endpoint'], placeholder: 'Example: /my-endpoint' } %>
+                        </div>
+                    <% end %>
+
                     <% if @addon.addon&.dig('obj', 'requires_persistence') %>
                         <div class="form-label-group mb-2">
                             <%= form.label "storage_gb", "Storage (GB)" %>
@@ -67,10 +84,10 @@
 
                     <hr />
 
-                    <% unless [nil, 0].include?(@addon.addon&.dig('obj', 'required_env_variables')&.count) %>
+                    <% unless [nil, 0].include?(@addon.addon&.dig('obj', 'env_variables')&.keys&.count) %>
                         <p>ENV Variables</p>
 
-                        <% @addon.addon&.dig('obj', 'required_env_variables').each do |field| %>
+                        <% (@addon.addon&.dig('obj', 'env_variables')&.keys || []).each do |field| %>
                           <div class="form-label-group mb-2">
                             <%= form.label "obj[env][#{field}]", field %>
                             <div class="input-group show_hide_password">
