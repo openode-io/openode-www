@@ -91,7 +91,9 @@
                           <div class="form-label-group mb-2">
                             <%= form.label "obj[env][#{field}]", field %>
                             <div class="input-group show_hide_password">
-                                <%= form.password_field "obj[env][#{field}]", { class: 'form-control', value: @addon.obj.dig('env', field) } %>
+                              <%= form.password_field "obj[env][#{field}]", {
+                                class: 'form-control',
+                                value: @addon.obj.dig('env', field) || @addon.addon&.dig('obj', 'env_variables')&.dig(field) } %>
 
                                 <div class="input-group-append">
                                   <a class="input-group-text password-toggler" href="">
