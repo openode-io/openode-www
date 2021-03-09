@@ -22,6 +22,18 @@ class AdminController < ApplicationController
     end
   end
 
+  def retrieve_docker_tags(image_name)
+    docker_url_tags =
+      "https://registry.hub.docker.com/v1/repositories" \
+      "/#{image_name}/tags"
+
+    all_tags = JSON.parse(
+      RestClient::Request.execute(method: :get, url: docker_url_tags).to_s
+    )
+
+    all_tags.map { |tag| tag['name'] }
+  end
+
   def set_menu
     # to set a tips per action:
     # @tips = "This is the instances page, where you can see your instances."

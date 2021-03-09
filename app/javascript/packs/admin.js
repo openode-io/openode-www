@@ -58,7 +58,6 @@ document.addEventListener('turbolinks:load', function () {
 
       if (!activeConsumers.includes(JSON.stringify(params))) {
         const webSocketConsumer = createConsumer(`wss://api.openode.io/streams?token=${token}`)
-
         webSocketConsumer.subscriptions.create(params, {
           received(data) {
             // specific to deployment, if more consumer, refactor!
@@ -69,7 +68,6 @@ document.addEventListener('turbolinks:load', function () {
         activeConsumers.push(JSON.stringify(params))
       }
     }
-
   })
 })
 
