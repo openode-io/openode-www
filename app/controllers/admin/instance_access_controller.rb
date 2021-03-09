@@ -153,6 +153,51 @@ class Admin::InstanceAccessController < Admin::InstancesController
                 notice: "Deployment in progress...")
   end
 
+  def one_click_app
+    add_breadcrumb "Deploy One Click App",
+                   admin_instance_access_deploy_path,
+                   title: "Deploy"
+    @doc_link = "/docs/platform/deploy.md"
+    @one_click_apps = api(:get, "/global/type-lists/OneClickApps")
+  end
+
+  def create_one_click_app
+    app_id = params['website']['one_click_app_id']
+
+    api(:post,
+        "/instances/#{@instance_id}/prepare-one-click-app",
+        payload: { one_click_app_id: app_id })
+
+    redirect_to({
+                  action: :configure_one_click_app
+                },
+                notice: "Initialized One Click App")
+  end
+
+  def configure_one_click_app
+    add_breadcrumb "Deploy",
+                   admin_instance_access_deploy_path,
+                   title: "Deploy"
+    @doc_link = "/docs/platform/deploy.md"
+
+    @versions = retrieve_docker_tags("nodered/node-red")
+  end
+
+  def update_one_click_app
+    api(:patch,
+        "/instances/#{@instance_id}/one-click-app",
+        payload: { attributes: params[:website][:one_click_app] })
+
+    app_id = @website.one_click_app['id']
+    result = api(:post, "/instances/#{@instance_id}/restart?template=#{app_id}")
+
+    redirect_to({
+                  action: :deployment,
+                  deployment_id: result['deploymentId']
+                },
+                notice: "Deployment in progress...")
+  end
+
   def logs
     add_breadcrumb "Logs",
                    admin_instance_access_logs_path,
@@ -272,12 +317,12 @@ class Admin::InstanceAccessController < Admin::InstancesController
 
     result = begin
       api(:post, "/instances/#{@instance_id}/cmd", payload: { cmd: cmd, app: 'www' })
-    rescue StandardError => e
-      {
-        'result' => {
-          'stdout' => "There was an issue processing the command. #{e}"
-        }
-      }
+             rescue StandardError => e
+               {
+                 'result' => {
+                   'stdout' => "There was an issue processing the command. #{e}"
+                 }
+               }
     end
 
     render json: { msg: result&.dig('result') }
