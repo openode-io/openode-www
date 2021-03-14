@@ -92,6 +92,20 @@
     ]
   },
   {
+    "name":"App Services",
+    "path":"app_services/index.md",
+    "children": [
+      {
+        "name":"About App Services",
+        "path":"app_services/index.md"
+      },
+      {
+        "name":"Node-RED",
+        "path":"app_services/nodered.md"
+      }
+    ]
+  },
+  {
     "name":"API",
     "path":"api/index.md",
     "children": [
