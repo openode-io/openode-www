@@ -180,7 +180,14 @@ class Admin::InstanceAccessController < Admin::InstancesController
                    title: "Deploy"
     @doc_link = "/docs/platform/deploy.md"
 
-    @versions = retrieve_docker_tags("nodered/node-red")
+    app_id = @website.one_click_app['id']
+
+    all_apps = api(:get, "/global/type-lists/OneClickApps")
+
+    app = all_apps.find { |a| a["id"].to_s == app_id.to_s }
+    @app_name = app['config']['name']
+
+    @versions = retrieve_docker_tags(app['config']['image'])
     @version = @website.one_click_app&.dig('version') || "latest"
   end
 
