@@ -81,7 +81,7 @@ class AdminInstanceAccessControllerTest < ActionDispatch::IntegrationTest
     get "/admin/instances/#{default_instance_id}/access/deploy"
 
     assert_response :success
-    assert_includes response.parsed_body, 'You can deploy'
+    assert_includes response.parsed_body, 'We have several ways to deploy'
   end
 
   test "do deploy" do
