@@ -70,6 +70,7 @@ export default {
                     data-toggle='dropdown'
                     aria-haspopup='true'
                     aria-expanded='false'
+                    style='color: black'
                 >
                   <i class='fa fa-cog' />
                 </a>

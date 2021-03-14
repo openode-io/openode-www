@@ -9,8 +9,18 @@
         { url: "#{instance_access_to(@instance_id)}deploy", method: :post } do |form| %>
         <div class="card">
           <div class="card-body">
-              <p>You can deploy with our CLI or using your existing git repository.</p>
-              <hr />
+            <p>We have several ways to deploy: 
+            CLI or using your existing git repository.</p>
+            <ul>
+              <li>Command Line Interface (CLI).</li>
+              <li>Using a git repository.</li>
+              <li>Or deploy an existing 
+                <a class="btn btn-sm btn-outline-dark" href="<%= "#{instance_access_to(@instance_id)}one-click-app" %>">
+                  One-Click App >>
+                </a>
+              </li>
+            </ul>
+            <hr />
 
             <div class="row">
               <div class="col-sm" style="border-right: 1px dashed #333;">

@@ -1,0 +1,39 @@
+<section>
+  <h1 class="h3 mb-3 text-gray-800 mt-3">
+    
+  </h1>
+</section>
+<section>
+  <div class="row">
+    <div class="col-lg-9">
+      <%= form_for :website,
+        { url: "#{instance_access_to(@instance_id)}update-one-click-app", method: :patch } do |form| %>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="form-group mb-2">
+
+                  <div class="form-label-group mb-2">
+                    <%= form.label :version, 'App Version', class: 'required' %>
+                    <%= form.select "one_click_app[version]",
+                                      @versions.map { |l| [l, l] },
+                                      { selected: @version },
+                                      { class: 'form-control', required: true } %>
+                  </div>
+
+                  <%= form.submit "Deploy", class: 'btn btn-lg btn-success w-100 mb-3' %>          
+                </div>
+              </div>
+            </div>    
+          </div>
+        </div>
+        <% end %>
+    </div>
+
+    <div class="col-lg-3">
+      <%= render 'admin/instances/access/sidebar', instance_id: params[:id] %>
+    </div>
+  </div> 
+</section>
+

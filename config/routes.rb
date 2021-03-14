@@ -218,6 +218,15 @@ Rails.application.routes.draw do
       to: 'instance_access#list_snapshots'
     get 'instances/:id/access/snapshots/:snapshot_id',
       to: 'instance_access#get_snapshot'
+    get 'instances/:id/access/one-click-app',
+      to: 'instance_access#one_click_app',
+      as: :instance_access_one_click_app
+    post 'instances/:id/access/one-click-app',
+      to: 'instance_access#create_one_click_app'
+    get 'instances/:id/access/configure-one-click-app',
+      to: 'instance_access#configure_one_click_app'
+    patch 'instances/:id/access/update-one-click-app',
+      to: 'instance_access#update_one_click_app'
     get 'instances/:id/access/deploy',
       to: 'instance_access#deploy',
       as: :instance_access_deploy
