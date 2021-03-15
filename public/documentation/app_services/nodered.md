@@ -1,4 +1,7 @@
-# Node-RED
+
+
+![alt text](https://raw.githubusercontent.com/openode-io/build-templates/master/v1/templates/nodered/logo.png)
+
 
 Node-RED is a programming tool for combining together APIs, devices, and online services in interesting and new ways. 
 
