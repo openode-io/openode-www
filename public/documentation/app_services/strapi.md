@@ -8,7 +8,7 @@ Strapi is the leading open-source headless CMS. It’s 100% Javascript, fully cu
 
 ## Setup
 
-Make sure to follow the strapi CLI documentation, https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/installation/cli.html
+Make sure to follow the strapi CLI documentation, [https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/installation/cli.html](https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/installation/cli.html)
 
 For example:
 
