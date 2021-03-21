@@ -102,6 +102,10 @@
       {
         "name":"Node-RED",
         "path":"app_services/nodered.md"
+      },
+      {
+        "name":"Strapi",
+        "path":"app_services/strapi.md"
       }
     ]
   },
