@@ -170,8 +170,6 @@ class Admin::InstanceAccessController < Admin::InstancesController
         "/instances/#{@instance_id}/prepare-one-click-app",
         payload: { one_click_app_id: app_id })
 
-    
-
     redirect_to({
                   action: :configure_one_click_app
                 },
