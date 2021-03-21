@@ -164,6 +164,8 @@ class Admin::InstanceAccessController < Admin::InstancesController
   def create_one_click_app
     app_id = params['website']['one_click_app_id']
 
+    raise "No selected app" unless app_id
+
     api(:post,
         "/instances/#{@instance_id}/prepare-one-click-app",
         payload: { one_click_app_id: app_id })
