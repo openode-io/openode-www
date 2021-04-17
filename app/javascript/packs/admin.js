@@ -18,8 +18,7 @@ require('@rails/ujs').start()
 require('turbolinks').start()
 require('@rails/activestorage').start()
 
-require("chartkick")
-require("chart.js")
+require("chartkick/chart.js")
 
 Vue.use(TurbolinksAdapter)
 Vue.use(BootstrapVue)
