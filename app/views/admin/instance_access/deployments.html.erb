@@ -1,60 +1,53 @@
 <section>
-  <h1 class="h3 mb-3 text-gray-800 mt-3">
-    Deployments
-  </h1>
+  <h3 class="mb-3 text-gray-800 mt-3">Deployments</h1>
 </section>
 <section>
   <div class="row">
     <div class="col-lg-9">
       <div id="admin-instance-deployments">
-        <section>
-          <% if @deployments == [] %>
-            <div>
-              <p><b>No deployment history available.</b></p>
+        <% if @deployments == [] %>
+          <div>
+            <p><b>No deployment history available.</b></p>
 
-              <p>Get started now with our CLI, see the <a href="/docs/platform/">relevant documentation</a>. Do not hesitate to <a href="/admin/support">contact us!</a></p>
-            </div>
-          <% end %>
+            <p>Get started now with our CLI, see the <a href="/docs/platform/">relevant documentation</a>. Do not hesitate to <a href="/admin/support">contact us!</a></p>
+          </div>
+        <% end %>
 
-          <div class='row'>
-            <% @deployments.each do |deployment| %>
-              <div class='col-lg-12 col-sm-6 mb-2'>
-                <div class="card card-instance-details">
-                  <div class='card-body'>
-                    <div class="row">
-                      <div class='col-lg-4 col-sm-4'>
-                        <i class="fa fa-globe-americas"></i> 
-                        <%= link_to deployment['type'],
-                                    admin_instance_access_deployment_path(deployment_id: deployment['id']) %>
-                      </div>
-                      <div class='col-lg-6 col-sm-6'>
-                        <span class="badge badge-<%= deployment_status_to_level(deployment['status']) %>">
-                          <%= deployment['status'] %>
+        <div class="row">
+          <% @deployments.each do |deployment| %>
+            <div class="col-lg-12 col-sm-6 mb-2">
+              <div class="card card-instance-details">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <i class="fa fa-globe-americas"></i> 
+                      <%= link_to deployment['type'],
+                                  admin_instance_access_deployment_path(deployment_id: deployment['id']) %><br>
+                      <span class="badge badge-<%= deployment_status_to_level(deployment['status']) %>">
+                        <%= deployment['status'] %>
+                      </span>
+                      <% if deployment['status'] == 'success' &&
+                            deployment&.dig('obj', 'image_name_tag') %>
+                        <span>
+                          <%= link_to 'Rollback',
+                                      "#{admin_instance_access_rollback_deployment_path(deployment_id: deployment['id'])}",
+                            class: 'btn btn-sm btn-outline-dark',
+                            method: :post,
+                            data: { confirm: "Are you sure?" } %>
                         </span>
-                        
-                      </div>
-                      <div class='col-lg-2 col-sm-2text-right'>
-                        <i class="fa fa-clock"></i>
-                        <%= time_ago_in_words(deployment['created_at']) %> ago
-
-                        <% if deployment['status'] == 'success' &&
-                              deployment&.dig('obj', 'image_name_tag') %>
-                          <div>
-                            <%= link_to 'Rollback',
-                                        "#{admin_instance_access_rollback_deployment_path(deployment_id: deployment['id'])}",
-                              class: 'btn btn-sm btn-outline-dark',
-                              method: :post,
-                              data: { confirm: "Are you sure?" } %>
-                          </div>
-                        <% end %>
-                      </div>
+                      <% end %>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <i class="fa fa-clock"></i>
+                      <%= time_ago_in_words(deployment['created_at']) %> ago<br>
+                      <%= deployment.created_at %>
                     </div>
                   </div>
                 </div>
               </div>
-            <% end %>
-          </div>
-        </section>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="col-lg-3">

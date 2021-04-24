@@ -1,22 +1,22 @@
 <div id="admin-instance-activity-stream">
-  <section>
-    <div class='row'>
-      <% activities.each do |activity| %>
-        <div class='col-lg-12 col-sm-6 mb-2'>
-          <div class="card card-instance-details">
-            <div class='card-body'>
-              <div class="row">
-                <div class='col-lg-10 col-sm-10'>
-                  <i class="fa fa-clock"></i> <b><%= activity.user %></b> <%= activity.message %>
-                </div>
-                <div class='col-lg-2 col-sm-2text-right'>
-                  <i class="fa fa-clock"></i> <%= time_ago_in_words(activity.date) %> ago
-                </div>
+  <div class="row">
+    <% activities.each do |activity| %>
+      <div class="col-lg-12 col-sm-6 mb-2">
+        <div class="card card-instance-details">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <i class="fa fa-clock"></i> <b><%= activity.user %></b> <%= activity.message %>
+              </div>
+              <div class="col-sm-6 text-right">
+                <i class="fa fa-clock"></i>
+                <%= time_ago_in_words(activity.date) %> ago<br>
+                <%= activity.created_at %>
               </div>
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
-  </section>
+      </div>
+    <% end %>
+  </div>
 </div>
