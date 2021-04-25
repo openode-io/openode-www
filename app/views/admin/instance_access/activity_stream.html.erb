@@ -9,12 +9,14 @@
           <% @events.each do |event| %>
             <div class="col-lg-12 col-sm-6 mb-2">
               <div class="card card-instance-details">
-                <div class="card-body">
+                <div class="card-body" style="<%= event_style(event.dig('obj', 'title')) %>">
                   <div class="row">
-                    <div class="col-sm-6">
-                      <i class="fa fa-clock"></i>
+                    <div class="col-sm-6" >
+                      <!--<i class="fa fa-clock"></i>-->
                       <!--TODO - <b><%= event['user'] %></b>-->
-                      <%= link_to event.dig('obj', 'title'), action: :event, event_id: event['id'] %>
+                      <b>
+                        <%= link_to event.dig('obj', 'title'), action: :event, event_id: event['id'] %>
+                      </b>
                     </div>
                     <div class="col-sm-6 text-right">
                       <i class="fa fa-clock"></i>

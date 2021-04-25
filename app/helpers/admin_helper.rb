@@ -49,4 +49,19 @@ module AdminHelper
   def open_source_visibility_class(website)
     website.present? && website.account_type == 'open_source' ? '' : 'd-none'
   end
+
+  def event_style(title)
+    color = "#e5f7ff"
+
+    danger_titles = [
+      "instance-stop", "Destroy storage",
+      "remove-storage-area", "delete-addon"
+    ]
+    warn_titles = ["instance-restart", "instance-reload"]
+
+    color = "#ffe5e5" if danger_titles.include?(title)
+    color = "#fdfdcf" if warn_titles.include?(title)
+
+    "background-color: #{color}"
+  end
 end
