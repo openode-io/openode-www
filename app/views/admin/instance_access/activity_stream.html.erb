@@ -21,7 +21,7 @@
                     <div class="col-sm-6 text-right">
                       <i class="fa fa-clock"></i>
                       <%= time_ago_in_words(event['created_at']) %> ago<br>
-                      <%= event['created_at'] %>
+                      <%= format_string_date event['created_at'] %>
                     </div>
                   </div>
                 </div>

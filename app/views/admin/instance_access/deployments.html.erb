@@ -40,7 +40,7 @@
                     <div class="col-sm-6 text-right">
                       <i class="fa fa-clock"></i>
                       <%= time_ago_in_words(deployment['created_at']) %> ago<br>
-                      <%= deployment['created_at'] %>
+                      <%= format_string_date deployment['created_at'] %>
                     </div>
                   </div>
                 </div>
