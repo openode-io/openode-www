@@ -46,6 +46,18 @@ module AdminHelper
     result
   end
 
+  def format_string_date(datetime_s)
+    if datetime_s
+      d = DateTime.parse(datetime_s)
+
+      d.strftime("%Y-%m-%d %H:%M:%S %Z")
+    else
+      ""
+    end
+  rescue e
+    ""
+  end
+
   def open_source_visibility_class(website)
     website.present? && website.account_type == 'open_source' ? '' : 'd-none'
   end
@@ -57,7 +69,7 @@ module AdminHelper
       "instance-stop", "Destroy storage",
       "remove-storage-area", "delete-addon"
     ]
-    warn_titles = ["instance-restart", "instance-reload"]
+    warn_titles = %w[instance-restart instance-reload]
 
     color = "#ffe5e5" if danger_titles.include?(title)
     color = "#fdfdcf" if warn_titles.include?(title)
