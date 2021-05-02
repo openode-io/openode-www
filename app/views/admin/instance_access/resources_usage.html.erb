@@ -29,6 +29,12 @@
         <p><hr /></p>
       <% end %>
 
+      <% if @services.count.zero? %>
+        <p>
+          <b>No statistic is available at this time. Statistics are collected for live instances.</b>
+        </p>
+      <% end %>
+
     </div>
 
     <div class="col-lg-3">
