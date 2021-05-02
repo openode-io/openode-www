@@ -270,7 +270,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
         {}
       end
     end
-    .select do |s|
+        .select do |s|
       s && s["date"].present? && s["value"].present?
     end
   end
