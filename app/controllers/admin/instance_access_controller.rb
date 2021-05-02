@@ -270,6 +270,9 @@ class Admin::InstanceAccessController < Admin::InstancesController
         {}
       end
     end
+    .select do |s|
+      s && s["date"].present? && s["value"].present?
+    end
   end
 
   def resources_usage
