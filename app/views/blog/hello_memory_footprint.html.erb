@@ -1,0 +1,87 @@
+<section class="terms-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+  <div class="container cointaier-shrinked">
+    <h1 class="display-4 text-left text-success">Web server hello world memory footprint comparison</h1>
+    <p class="lead text-left"></p>
+  </div>
+</section>
+<section class="pt-8 pt-md-11 bg-dark p-3 p-md-5">
+  
+    <div class="container text-white">
+
+    <p>
+      We compared some major web server technologies for a simple HTTP server responding with
+      the traditional hello world page, and measured the memory footprint of the application for few minutes, and then 
+      recorded the memory usage.
+    </p>
+
+    <p>See below the collected results with the web servers being used and its memory usage. 
+    We recorded statistics on a Kubernetes cluster under similar conditions.
+    </p>
+
+    <div class="table-responsive mb-0">
+      <table class="table table-sm table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Server Technology</th>
+            <th>Memory Usage (MiB)</th>
+          </tr>
+        </thead>
+        <tbody style="background-color: #ffffff">
+          <tr>
+            <td>rust 1.52/iron 0.61</td>
+            <td>3 MiB</td>
+          </tr>
+          <tr>
+            <td>Crystal/standard HTTP lib</td>
+            <td>3 MiB</td>
+          </tr>
+          <tr>
+            <td>NGINX 1.20/static HTML</td>
+            <td>6 MiB</td>
+          </tr>
+          <tr>
+            <td>Deno 1.9.2/standard HTTP lib</td>
+            <td>8 MiB</td>
+          </tr>
+          <tr>
+            <td>PHP 8.0.6/Apache</td>
+            <td>12 MiB</td>
+          </tr>
+          <tr>
+            <td>Node.js 14/standard HTTP lib</td>
+            <td>18 MiB</td>
+          </tr>
+          <tr>
+            <td>Node.js 14/express 4.17.1</td>
+            <td>21 MiB</td>
+          </tr>
+          <tr>
+            <td>Golang 3.13/standard HTTP lib</td>
+            <td>22 MiB</td>
+          </tr>
+          <tr>
+            <td>Elixir 1.9.4/cowboy 2.8</td>
+            <td>52 MiB</td>
+          </tr>
+          <tr>
+            <td>Python Django 3.2.2</td>
+            <td>61 MiB</td>
+          </tr>
+          <tr>
+            <td>Ruby on rails 6.1.3.2</td>
+            <td>92 MiB</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The web servers using the smallest amount of memory were using as low as 3 MiB of RAM.
+    It is worth noting that some web servers cannot really be compared as they provide more or less features and
+    are used for a variety of different scenarios.
+    This list is just to illustrate the minimum memory footprint of a web server using different technologies.
+    <br />
+    <br />
+    May 8, 2021
+    </p>
+  </div>
+</section>

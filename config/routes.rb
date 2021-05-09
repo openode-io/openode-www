@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/templates', to: 'home#templates'
 
   get '/open-source/:slug', constraints: { slug: %r{[^/]+} }, to: 'home#opensource_item'
+  get '/blog/:name', to: 'blog#post'
 
   resources :sessions, only: [:new, :create, :destroy]
 
