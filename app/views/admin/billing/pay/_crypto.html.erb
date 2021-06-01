@@ -24,9 +24,11 @@
                  aria-labelledby="v-pills-<%= crypto[:id] %>-tab">
               <p><strong>Pay to (Address):</strong> <%= crypto[:addr] %></p>
               <p><strong>Memo:</strong> userid <%= @user['id'] %></p>
+              <!--
               <p><strong>QR Code:</strong> <br />
                 <%= image_tag "/images/crypto_wallets/#{crypto[:id]}.png", width: '125' %>
               </p>
+              -->
             </div>
           <% end %>
 
