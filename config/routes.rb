@@ -117,6 +117,8 @@ Rails.application.routes.draw do
       as: :instance_settings_env
     patch 'instances/:id/settings/env',
       to: 'instance_settings#update_env'
+    delete 'instances/:id/settings/env/:variable_name',
+      to: 'instance_settings#delete_env'
 
     # addons
     get 'instances/:id/settings/addons/new',

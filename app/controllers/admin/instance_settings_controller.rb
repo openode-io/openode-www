@@ -230,8 +230,18 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
     payload = result_env == {} ? {} : { variables: result_env }
 
-    api(:put, "/instances/#{@instance_id}/env_variables",
+    api(:post, "/instances/#{@instance_id}/env_variables",
         payload: payload)
+
+    redirect_to({ action: :env }, notice: msg('message.modifications_saved'))
+  end
+
+  def delete_env
+    puts "hello"
+    variable_name = params["variable_name"]
+    puts "var name #{variable_name}"
+
+    api(:delete, "/instances/#{@instance_id}/env_variables/#{variable_name}")
 
     redirect_to({ action: :env }, notice: msg('message.modifications_saved'))
   end
