@@ -800,10 +800,10 @@ module HttpStubs
         'test/fixtures/http/openode_api/admin/env_variables.json',
         logged_in_user_token
       ),
-      HttpStubs.default_put('https://api.openode.io/instances/152/env_variables',
-                            { 'variables' => { 'var1' => 'val1' } },
-                            'test/fixtures/http/openode_api/empty_object.json',
-                            logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/env_variables',
+                             { 'variables' => { 'var1' => 'val1' } },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
       HttpStubs.default_get(
         'https://api.openode.io/global/type-lists/Website::ALERT_TYPES',
         'test/fixtures/http/openode_api/front/global_type_lists_alerts.json',

@@ -237,9 +237,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   end
 
   def delete_env
-    puts "hello"
     variable_name = params["variable_name"]
-    puts "var name #{variable_name}"
 
     api(:delete, "/instances/#{@instance_id}/env_variables/#{variable_name}")
 
