@@ -55,7 +55,11 @@ class Admin::InstanceAccessController < Admin::InstancesController
 
     @addons = api(:get, "/instances/#{@instance_id}/addons/")
 
-    @paths = snapshot_paths_for(@website, @app)
+    @paths = if @website.version != "v3"
+               snapshot_paths_for(@website, @app)
+             else
+               []
+    end
   end
 
   def snapshot_paths_for(website, app)
