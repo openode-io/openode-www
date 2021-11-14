@@ -28,11 +28,6 @@
           aria-selected="false"><i class="fa fa-shield-alt"></i> SSL</a>
       <% end %>
 
-      <a class="nav-link <%= params[:action].include?('scheduler') ? 'active' : '' %>"
-        href="<%= "#{instance_settings_to(@instance_id)}scheduler" %>"
-        aria-controls="v-pills-console"
-        aria-selected="false"><i class="fa fa-clock"></i> Scheduler</a>    
-
       <a class="nav-link <%= params[:action].include?('env') ? 'active' : '' %>"
         href="<%= "#{instance_settings_to(@instance_id)}env" %>"
         aria-controls="v-pills-console"
