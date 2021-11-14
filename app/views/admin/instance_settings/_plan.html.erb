@@ -21,18 +21,6 @@
             { selected: @website.account_type }, { class: 'form-control', required: true } %>
           </div>
 
-          <div class="form-label-group mb-2">
-            <%= form.label :replicas, 'Replicas - will spawn N instances (the plan price is multiplied by the number of replicas)' %>
-            <%= form.number_field :replicas, {
-              min: 1, default: 1, class: 'form-control'
-            } %>
-          </div>
-
-          <div class="form-label-group mb-2">
-            <%= form.check_box :blue_green_deployment %>
-            <%= form.label :blue_green_deployment, 'With blue-green deployment - decrease downtime (20% extra cost of your plan price)' %>
-          </div>
-
           <div id="instance-plan-opensource-field" class="<%= open_source_visibility_class(@website) %> mt-3">
             <h4><i class="fa fa-code-branch"></i> Open Source Request</h4>
 

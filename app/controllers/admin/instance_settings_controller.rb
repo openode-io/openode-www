@@ -38,16 +38,6 @@ class Admin::InstanceSettingsController < Admin::InstancesController
   def change_plan
     new_plan_params = update_plan_params
 
-    api(:post, "/instances/#{@instance_id}/set-config", payload: {
-          variable: 'BLUE_GREEN_DEPLOYMENT',
-          value: new_plan_params['blue_green_deployment'] == '1'
-        })
-
-    api(:post, "/instances/#{@instance_id}/set-config", payload: {
-          variable: 'REPLICAS',
-          value: new_plan_params['replicas'].to_i
-        })
-
     if new_plan_params['plan'] == "open_source"
       api(:patch, "/instances/#{@instance_id}",
           payload: {
