@@ -38,10 +38,12 @@
         aria-controls="v-pills-console"
         aria-selected="false"><i class="fa fa-cogs"></i> Environment Variables</a>    
 
-      <a class="nav-link <%= params[:action].include?('persistence') ? 'active' : '' %>"
-        href="<%= "#{instance_settings_to(@instance_id)}persistence" %>"
-        aria-controls="v-pills-console"
-        aria-selected="false"><i class="fa fa-database"></i> Persistence</a>    
+      <% unless @website.version == "v3" %>
+        <a class="nav-link <%= params[:action].include?('persistence') ? 'active' : '' %>"
+          href="<%= "#{instance_settings_to(@instance_id)}persistence" %>"
+          aria-controls="v-pills-console"
+          aria-selected="false"><i class="fa fa-database"></i> Persistence</a>
+      <% end %>
 
       <a class="nav-link <%= params[:action].include?('misc') ? 'active' : '' %>"
         href="<%= "#{instance_settings_to(@instance_id)}misc" %>"
@@ -55,19 +57,22 @@
       </a>
 
       <hr />
-      <span><strong>ADDONS (<%= @addons.count %>)</strong></span>
-      <hr />
-      
-      <% @addons.each do |addon| %>
-        <a class="nav-link <%= params[:addon_id]&.include?(addon.id) ? 'active' : '' %>"
-          href="<%= "#{instance_settings_to(@instance_id)}addons/#{addon.id}" %>"
-          aria-controls="v-pills-console"
-          aria-selected="false"> 
-          <%= addon.name %>
-        </a>
-      <% end %>
 
-      <a class="btn btn-sm btn-outline-dark" href="<%= instance_settings_to(@instance_id) %>addons/new">+add</a>
+      <% unless @website.version == "v3" %>
+        <span><strong>ADDONS (<%= @addons.count %>)</strong></span>
+        <hr />
+        
+        <% @addons.each do |addon| %>
+          <a class="nav-link <%= params[:addon_id]&.include?(addon.id) ? 'active' : '' %>"
+            href="<%= "#{instance_settings_to(@instance_id)}addons/#{addon.id}" %>"
+            aria-controls="v-pills-console"
+            aria-selected="false"> 
+            <%= addon.name %>
+          </a>
+        <% end %>
+
+        <a class="btn btn-sm btn-outline-dark" href="<%= instance_settings_to(@instance_id) %>addons/new">+add</a>
+      <% end %>
     </div>
   </div>
 </div>
