@@ -70,10 +70,6 @@
         "path":"platform/logs.md"
       },
       {
-        "name":"Scheduler / Cron Jobs",
-        "path":"platform/scheduler_cron_jobs.md"
-      },
-      {
         "name":"CI/CD",
         "path":"platform/ci_cd.md"
       },
