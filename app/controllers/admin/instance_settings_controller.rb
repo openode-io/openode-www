@@ -80,7 +80,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     add_breadcrumb "Setting", admin_instance_settings_path
     add_breadcrumb "Location"
 
-    @locations = api(:get, "/global/available-locations")
+    @locations = api(:get, "/global/available-locations?type=#{@website.type}")
     @website_location = api(:get, "/instances/#{@instance_id}/locations").first
   end
 
