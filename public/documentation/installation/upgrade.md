@@ -11,4 +11,4 @@ The CLI, which is a regular NPM package, can be upgraded with:
 
 ## Legacy
 
-On March 15 2020, we did a major upgrade, see the [upgrade note](/docs/installation/legacy_upgrade.md).
+From January 2021, we are launching opeNode v3, see the [upgrade note](/docs/installation/legacy_upgrade.md).
