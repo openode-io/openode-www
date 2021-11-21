@@ -33,10 +33,8 @@ class Admin::InstancesController < AdminController
     plans = api(:get, '/global/available-plans').select do |plan|
       if plan['internal_id'] == "auto"
         user.has_active_subscription
-      elsif plan['type'] == "gcloud"
-        false
       else
-        true
+        plan['type'] != "gcloud"
       end
     end
 
