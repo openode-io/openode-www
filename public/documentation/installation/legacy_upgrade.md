@@ -22,7 +22,7 @@ We will stop providing the following services:
 
 As we are moving into a serverless architecture, web socket can still work, but a key-value
 caching system (redis, memcached, etc.) or database needs to be used to synchronize properly with connected clients.
-We will provide a sample example soon. https://redis.com/ provides a free tier plan which can be used for that purpose.
+We will provide a sample example soon. [https://redis.com/](https://redis.com/) provides a free tier plan which can be used for that purpose.
 
 ## Upgrading
 
