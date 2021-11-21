@@ -18,7 +18,7 @@ We will stop providing the following services:
 - Addons
 - Persistence. Users are recommended to use external storage services, such as a Database, remote file systems, etc.
 
-## Notes for web socket websites
+## Notes for websites using web socket
 
 As we are moving into a serverless architecture, web socket can still work, but a key-value
 caching system (redis, memcached, etc.) or database needs to be used to synchronize properly with connected clients.
