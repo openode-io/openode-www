@@ -1,0 +1,54 @@
+<section class="pricing-header bg-light px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+  <div class="container cointaier-shrinked">
+    <h1 class="display-4 text-left text-success">On Demand Plans</h1>
+    <h2 class="text-muted text-left">Get started now on opeNode!</h2>
+    <p class="lead text-left">We provide a free sandbox to get started and you will not have to enter your credit card information.<br/>We accept both Paypal and Cryptocurrency (Bitcoin, Bitcoin Cash, etc.) payments.</p>
+
+    <h2>All plans come with all opeNode features.</h2>
+
+    <p>Note that the prices below are monthly for convenience. We in fact calculate on an <b>hourly basis</b>. Only hours where your instances are online are actually counted. For example, if you have an instance online during two weeks, you can divide the prices below by two.</p>
+  </div>
+</section>
+<section class="pt-8 pt-md-11 bg-dark p-3 p-md-5">
+  <div class="container">    
+    <div class="card-deck mb-3 text-center">
+      <div class="row">
+      <% @pricing_plans.each do |pricing| %>
+        <div class="col-sm-12 col-12 col-md-3 col-lg-3 mb-5">
+          <div class="card border-success shadow-sm ml-0 mr-0 h-100 hvr-grow">
+            <div class="card-header bg-success text-white">
+              <h4 class="my-0 font-weight-normal"><%= pricing[:name] %></h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"><%= pricing[:title] %></h1>
+              <h3><small class="text-muted"><%= pricing[:subtitle] %></small></h3>
+              <ul class="list-unstyled mt-3 mb-4">
+                <% pricing[:features].each do |feature|  %>
+                  <li class="text-center mb-2 mt-2 pt-2 pb-3 border-bottom"><%= feature %></li>
+                <% end %>
+              </ul>            
+            </div>
+            <div class="card-footer">
+              <% if current_user %>
+                <a href="/admin/billing/pay?plan=<%= pricing[:id] %>"
+                    class="btn btn-lg btn-block btn-outline-success">
+                  Order
+                </a>
+              <% else %>
+                <a href="/users/register"
+                    class="btn btn-lg btn-block btn-outline-success">
+                  Sign Up
+                </a>
+              <% end %>
+              
+            </div>
+          </div>
+        </div>
+      <% end %> 
+      </div>
+    </div>      
+  </div>
+</section>
+<%= render 'home/sections/features_header' %>
+<%= render 'home/sections/features_list' %>
+<section class="border-bottom"></section>

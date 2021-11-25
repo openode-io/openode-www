@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get '/', to: 'home#index'
   get '/on-demand-pricing', to: 'home#on_demand_pricing'
+  get '/on-demand-pricing-v3', to: 'home#on_demand_pricing_v3'
   get '/pricing', to: 'home#pricing'
   get '/about', to: 'home#about'
   get '/news', to: 'home#news'
