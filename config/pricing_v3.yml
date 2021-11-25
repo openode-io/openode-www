@@ -1,0 +1,101 @@
+- name: Trial
+  id: sandbox
+  internal_id: free
+  title: FREE
+  subtitle: 1-month Free Trial
+  features:
+    - Unlimited deploys
+    - 10GB Bandwidth
+    - 128MB Memory
+    - 1000MB Disk Storage
+    - Custom domain or your-subdomain.openode.dev
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: Open Source
+  id: open-source
+  internal_id: open_source
+  title: FREE
+  subtitle: We support open source projects
+  features:
+    - Unlimited deploys
+    - 128MB Memory
+    - 1000MB Disk Storage
+    - Custom domain or your-subdomain.openode.dev
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: 128MB Memory
+  id: 128-MB
+  internal_id: second
+  title: $0.75
+  subtitle: per month
+  features:
+    - Unlimited deploys
+    - 128MB Memory
+    - 1000MB Disk Storage
+    - Custom domain or your-subdomain.openode.dev
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: 256MB Memory
+  id: 256-MB
+  internal_id: third
+  title: $1.50
+  subtitle: per month
+  features:
+    - Unlimited deploys
+    - 200MB Memory
+    - 1000MB Disk Storage
+    - Custom domain or your-subdomain.openode.dev
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: 512MB Memory
+  id: 512-MB
+  internal_id: fourth
+  title: $3.00
+  subtitle: per month
+  features:
+    - Unlimited deploys
+    - 512MB Memory
+    - 1000MB Disk Storage
+    - Custom domain or your-subdomain.openode.dev
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: 1GB Memory
+  id: 1-GB
+  internal_id: fifth
+  title: $7.50
+  subtitle: per month
+  features:
+    - Unlimited deploys
+    - 1024MB Memory
+    - 1000MB Disk Storage
+    - Custom domain or your-subdomain.openode.dev
+  button: 
+    url: /admin/billing
+    text: Order
+
+- name: 2GB Memory
+  id: 2-GB
+  internal_id: sixth
+  title: $15.00
+  subtitle: per month
+  features:
+    - Unlimited deploys
+    - 2048MB Memory
+    - 1000MB Disk Storage
+    - Custom domain or your-subdomain.openode.dev
+  button: 
+    url: /admin/billing
+    text: Order
+
+
+                        
