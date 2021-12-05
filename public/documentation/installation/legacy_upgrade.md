@@ -17,7 +17,7 @@ Please note the following breaking changes:
 
 - Addons. Addons will no more be supported.
 - Persistence. Users are recommended to use external storage services, such as a Database, remote file systems, etc.
-- SKIP_PORT_CHECK configuration. Instances must be listening to the port specified by the environment variable *PORT*, defaulted to port 80.
+- `SKIP_PORT_CHECK` configuration. Instances must be listening to the port specified by the environment variable *PORT*, defaulted to port 80.
 
 ## Notes for websites using web socket
 
