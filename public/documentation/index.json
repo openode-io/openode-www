@@ -54,14 +54,6 @@
         "path":"platform/env_vars.md"
       },
       {
-        "name":"Persistence (storage)",
-        "path":"platform/persistence.md"
-      },
-      {
-        "name":"Addons",
-        "path":"platform/addons.md"
-      },
-      {
         "name":"Snapshots",
         "path":"platform/snapshots.md"
       },
