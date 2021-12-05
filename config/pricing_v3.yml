@@ -97,5 +97,19 @@
     url: /admin/billing
     text: Order
 
+- name: Pro Subscription
+  id: auto
+  internal_id: auto
+  title: $7.50
+  subtitle: per month
+  features:
+    - Unlimited deploys
+    - Max 2048MB Memory
+    - 1000MB Disk Storage
+    - Custom domain or your-subdomain.openode.dev
+  button: 
+    url: /admin/billing
+    text: Order
+
 
                         
