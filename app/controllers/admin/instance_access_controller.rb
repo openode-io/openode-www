@@ -254,9 +254,7 @@ class Admin::InstanceAccessController < Admin::InstancesController
 
     @top_result = ""
 
-    if @website.status == 'online'
-      @top_result = exec_top_processes rescue nil
-    else
+    if @website.status != 'online'
       @status = []
     end
   end
