@@ -30,11 +30,11 @@ class Admin::InstancesController < AdminController
   def plans
     user = OpenStruct.new(api(:get, "/account/me"))
 
-    plans = api(:get, '/global/available-plans').select do |plan|
+    plans = api(:get, '/global/available-plans/gcloud_run').select do |plan|
       if plan['internal_id'] == "auto"
         user.has_active_subscription
       else
-        plan['type'] != "gcloud"
+        true
       end
     end
 
@@ -62,7 +62,7 @@ class Admin::InstancesController < AdminController
   end
 
   def create
-    api(:post, '/instances/create', payload: instance_params)
+    api(:post, '/instances/create', payload: instance_params.merge(openode_version: "v3"))
 
     @status = {
       level: 'success',

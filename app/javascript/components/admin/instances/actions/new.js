@@ -16,8 +16,8 @@ export default {
       form: {
         domain_type: 'subdomain',
         site_name: '',
-        account_type: 'second',
-        location: 'canada',
+        account_type: 'grun-128',
+        location: 'us-central-1',
         open_source_description: '',
         open_source_repository: '',
         open_source_title: ''
@@ -99,7 +99,7 @@ export default {
       this.show.custom_domain = false
     },
 
-    getLocations (type = 'kubernetes') {
+    getLocations (type = 'gcloud_run') {
       axios.get(`/admin/instances/available-locations?type=${type}`)
         .then(response => {
           this.locations = response.data

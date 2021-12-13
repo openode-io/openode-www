@@ -257,6 +257,20 @@ module HttpStubs
         }
       },
       {
+        url: 'https://api.openode.io/global/available-plans/gcloud_run',
+        method: :get,
+        with: {
+          body: {}
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path:
+          'test/fixtures/http/openode_api/admin/available-plans.json',
+        headers: {
+          'X-Auth-Token' => logged_in_user_token
+        }
+      },
+      {
         url: 'https://api.openode.io/instances/152/plans',
         method: :get,
         with: {
@@ -315,7 +329,7 @@ module HttpStubs
         url: 'https://api.openode.io/instances/create',
         method: :post,
         with: {
-          body: { "account_type" => "subdomain" }
+          body: { "account_type" => "subdomain", "openode_version" => "v3" }
         },
         content_type: 'application/json',
         response_status: 200,
