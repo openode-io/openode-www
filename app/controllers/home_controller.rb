@@ -18,18 +18,11 @@ class HomeController < ApplicationController
 
   def pricing
     @pricing_plans ||=
-      YAML.load_file(Rails.root.join("config/subscription_pricing.yml"))
-          .map(&:deep_symbolize_keys)
+      YAML.load_file(Rails.root.join("config/pricing_v3.yml")).map(&:deep_symbolize_keys)
   end
 
   def on_demand_pricing
-    @pricing_plans ||=
-      YAML.load_file(Rails.root.join("config/pricing.yml")).map(&:deep_symbolize_keys)
-  end
-
-  def on_demand_pricing_v3
-    @pricing_plans ||=
-      YAML.load_file(Rails.root.join("config/pricing_v3.yml")).map(&:deep_symbolize_keys)
+    redirect_to action: :pricing
   end
 
   def private_cloud_pricing
