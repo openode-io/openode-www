@@ -100,11 +100,11 @@ class Admin::InstanceAccessController < Admin::InstancesController
   end
 
   def create_snapshot
-    path = params.dig('website', 'path')
-    app = params.dig('website', 'app')
+    path = params&.dig('website', 'path')
+    app = params&.dig('website', 'app')
 
     api(:post, "/instances/#{@instance_id}/snapshots",
-        payload: { path: path, app: app })
+        payload: { path: path || "/", app: app || "www" })
 
     redirect_to({
                   action: :list_snapshots
