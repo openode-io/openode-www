@@ -10,5 +10,5 @@ The snapshot feature is available in the administration, under Access > Snapshot
 
 The following command can be used to create a snapshot:
 
-    openode create-snapshot <path>
+    openode create-snapshot
 

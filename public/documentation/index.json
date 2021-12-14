@@ -46,10 +46,6 @@
         "path":"platform/dns.md"
       },
       {
-        "name":"Running a Remote Command",
-        "path":"platform/exec.md"
-      },
-      {
         "name":"Environment Variables",
         "path":"platform/env_vars.md"
       },
@@ -72,10 +68,6 @@
       {
         "name":"Open Source",
         "path":"platform/open_source.md"
-      },
-      {
-        "name":"Limitations",
-        "path":"platform/limitations.md"
       }
     ]
   },
@@ -130,10 +122,6 @@
     "path":"misc/index.md",
     "children": [
       {
-        "name":"Skipping Port Listening Verification",
-        "path":"misc/skip_port_verification.md"
-      },
-      {
         "name":"Set Max Deployment Duration",
         "path":"misc/max_build_duration.md"
       },
@@ -144,10 +132,6 @@
       {
         "name":"Status Probe",
         "path":"misc/status_probe.md"
-      },
-      {
-        "name":"List of server IPs",
-        "path":"misc/server_ips.md"
       },
       {
         "name":"Samples",

@@ -25,9 +25,9 @@ We do not provide automatic SSL certificates. However you can use an external HT
 - *Flexible SSL:* In this case, encryption is done between the end-user and Cloudflare. No encryption is done between Cloudflare and opeNode. From a user perspective, HTTPS is transparent, but this solution is less secure as no encryption is done between Cloudflare and opeNode.
 - *Full SSL*: You can use your own certificate, or a self-signed certificate. In this case, encryption will be done between the end-user to Cloudflare through opeNode.
 
-# Subdomains (yoursite.openode.io)
+# Subdomains (yoursite.openode.dev)
 
-We currently provide HTTPS automatically for \*.openode.io. That means if you are using
+We currently provide HTTPS automatically for \*.openode.dev. That means if you are using
 a subdomain instance you are getting automatically HTTPS.
 
 # Force Redirect HTTP to HTTPS
