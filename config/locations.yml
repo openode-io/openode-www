@@ -1,12 +1,12 @@
-- name: New York
-  description: US, North America
-  latLng: [40.730610,-73.935242]
+- name: Iowa
+  description: USA, North America
+  latLng: [42.032974,-93.581543]
   markerOffset: 25
   markerColor: "#2ecc71"
   textColor: "#5D5A6D" 
-- name: Amsterdam
-  description: NL, Europe
-  latLng: [52.37403, 4.88969]
+- name: Belgium
+  description: Europe
+  latLng: [51.260197, 4.402771]
   markerOffset: 0
   markerColor: "#2ecc71"
   textColor: "#5D5A6D" 

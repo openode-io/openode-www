@@ -40,10 +40,4 @@ USER root
 COPY settings.js /config/settings.js
 ```
 
-The last line with *COPY settings.js* is only required if you want to use your own settings.js configurations file. If you want to copy the settings.js file, make sure to run the following command when your instance is deployed:
-
-        openode exec "cp /config/settings.js /data/settings"
-        openode deploy
-
-
-Also make sure to allocate a storage area */data* for persistent storage. 
+The last line with *COPY settings.js* is only required if you want to use your own settings.js configurations file.
