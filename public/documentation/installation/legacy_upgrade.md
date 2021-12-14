@@ -83,3 +83,10 @@ And then change be changed with:
 Then deploy your instance:
 
     openode deploy
+
+#### DNS update (custom domains)
+
+Also make sure to update to the new DNS settings provided by the CLI or the administration dashboard:
+
+- CNAME for us-central-1: us_central_1.openode.io
+- CNAME for eu-west-1: eu_west_1.openode.io
