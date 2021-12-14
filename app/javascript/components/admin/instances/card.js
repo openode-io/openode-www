@@ -62,6 +62,10 @@ export default {
                 <a target='_blank' href={'http://' + this.instance.hostname} class={`text-${this.status.level}`}>
                   {this.instance.site_name}
                 </a>
+
+                {
+                  (this.instance.version == 'v3') ? '' : <b><a style="color: black" href="https://www.openode.io/docs/installation/legacy_upgrade.md">&nbsp;(migration required!)</a></b>
+                }
               </h5>
               <div class='dropdown'>
                 <a
