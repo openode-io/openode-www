@@ -48,7 +48,7 @@
   subtitle: per month
   features:
     - Unlimited deploys
-    - 200MB Memory
+    - 256MB Memory
     - 1000MB Disk Storage
     - Custom domain or your-subdomain.openode.dev
   button: 
@@ -72,7 +72,7 @@
 - name: 1GB Memory
   id: 1-GB
   internal_id: fifth
-  title: $7.50
+  title: $6.00
   subtitle: per month
   features:
     - Unlimited deploys
@@ -86,7 +86,7 @@
 - name: 2GB Memory
   id: 2-GB
   internal_id: sixth
-  title: $15.00
+  title: $12.00
   subtitle: per month
   features:
     - Unlimited deploys
