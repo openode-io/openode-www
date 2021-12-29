@@ -9,7 +9,13 @@ to access them.
 If you set variables using multiple methods, they will all be merged, with the following order or priority (highest priority first):
 
 - CLI/API or Administration dashboard environment variables.
-- Dotenv environment variables.
+- Dockerfile environment variables.
+
+If your application is Node.js based, you will be able to access environment variables
+via [process.env](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_env)
+and you will be able to retrieve *variable1, variable2* via *process.env.variable1 and
+process.env.variable2*. Pretty much all programming language allows to access environment
+variables in a convenient manner.
 
 ## CLI/API
 
@@ -30,22 +36,6 @@ You can also viewed the stored environment variables with:
 ## Administration Dashboard
 
 The CLI/API variables can also be set using the administration, under Settings > Environment Variables.
-
-## Dotenv (.env)
-
-The dotenv method is used when you provide a .env file in your project root folder.
-The format of .env is simple and efficient, here is an exemple .env file:
-
-    variable1=value1
-    variable2=value2
-
-This file defines 2 variables (variable1, variable2) associated to specific values.
-
-If your application is Node.js based, you will be able to access environment variables
-via [process.env](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_env)
-and you will be able to retrieve *variable1, variable2* via *process.env.variable1 and
-process.env.variable2*. Pretty much all programming language allows to access environment
-variables in a convenient manner.
 
 ### Custom dotenv filepath
 
