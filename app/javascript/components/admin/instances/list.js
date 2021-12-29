@@ -7,9 +7,9 @@ export default {
   name: 'InstanceList',
 
   methods: {
-    getInstances (poll=false) {      
-      axios.get('/admin/instances.json')
-        .then(response => {          
+    getInstances (poll=false) {
+      axios.get(`/admin/instances.json?user_id=${window.globalUserId}`)
+        .then(response => {
           this.instances = response.data
           this.updating = false
           this.loading = false

@@ -229,7 +229,7 @@ module HttpStubs
         }
       },
       {
-        url: 'https://api.openode.io/instances/summary',
+        url: 'https://api.openode.io/instances/summary?user_id=',
         method: :get,
         with: {
           body: {}
