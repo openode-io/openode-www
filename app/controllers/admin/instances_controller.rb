@@ -146,7 +146,9 @@ class Admin::InstancesController < AdminController
   end
 
   def instances_summary
-    api(:get, '/instances/summary')
+    user_id = params["user_id"]
+
+    api(:get, "/instances/summary?user_id=#{user_id}")
       .map do |instance|
       orig_status = instance['status']
 
