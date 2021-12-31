@@ -22,9 +22,10 @@ Please note the following breaking changes:
 
 ## Notes for websites using web socket
 
-As we are moving into a serverless architecture, web socket can still work, but a key-value
-caching system (redis, memcached, etc.) or database needs to be used to synchronize properly with connected clients.
-See [an example with socket.io and redis](https://github.com/openode-io/openode-socketio-redis). [https://redis.com/](https://redis.com/) provides a free tier plan which can be used for that purpose.
+To use web sockets, you will need to change the following configuration:
+
+- **Change the execution layer to kubernetes.** To do it, run the following command: `openode set-config EXECUTION_LAYER kubernetes`.
+
 
 ## Upgrading
 
