@@ -66,6 +66,10 @@
         "path":"platform/cli.md"
       },
       {
+        "name":"Web Socket",
+        "path":"platform/web_socket.md"
+      },
+      {
         "name":"Open Source",
         "path":"platform/open_source.md"
       }
