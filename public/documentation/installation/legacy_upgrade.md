@@ -18,7 +18,7 @@ Please note the following breaking changes:
 - Addons. Addons will no more be supported.
 - Persistence. Users are recommended to use external storage services, such as a Database, remote file systems, etc. If you need to replace sqlite, note that most of your SQL queries will work if you use a database such as PostgreSQL, MySQL, etc. [PostgreSQL provider with a free plan](https://www.elephantsql.com/plans.html).
 - `SKIP_PORT_CHECK` configuration. Instances must be listening to the HTTP port specified by the environment variable *PORT*, defaulted to port 80.
-- .env file: Environment variables can not more be set using .env file. [See the environment variables documentation](https://www.openode.io/docs/platform/env_vars.md).
+- .env file: Environment variables can no more be set using .env file. [See the environment variables documentation](https://www.openode.io/docs/platform/env_vars.md).
 
 ## Notes for websites using web socket
 
