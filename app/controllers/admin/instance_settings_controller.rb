@@ -33,10 +33,15 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     @website.blue_green_deployment = @website.configs['BLUE_GREEN_DEPLOYMENT']
     @website.replicas = @website.configs['REPLICAS'] || 1
     @website.open_source = @website.open_source || {}
+
+    current_exec_layer = @website.configs&.dig("EXECUTION_LAYER")
+    @website.long_connections = current_exec_layer == "kubernetes" ? "1" : "0"
   end
 
   def change_plan
     new_plan_params = update_plan_params
+    current_exec_layer = @website.configs&.dig("EXECUTION_LAYER")
+    existing_long_connections = current_exec_layer == "kubernetes" ? "1" : "0"
 
     if new_plan_params['plan'] == "open_source"
       api(:patch, "/instances/#{@instance_id}",
@@ -55,6 +60,17 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     if new_plan_params['plan'] != @website.account_type
       api(:post, "/instances/#{@instance_id}/set-plan",
           payload: { plan: new_plan_params['plan'] })
+    end
+
+    # change of execution_layer based on long_connections
+    if new_plan_params['long_connections'] != existing_long_connections
+      plan_params = new_plan_params
+      exec_layer = plan_params['long_connections'] == "1" ? "kubernetes" : "gcloud_run"
+
+      api(:post, "/instances/#{@instance_id}/set-config", payload: {
+            variable: 'EXECUTION_LAYER',
+            value: exec_layer
+          })
     end
 
     redirect_to({ action: :plan }, notice: msg('message.modifications_saved'))
@@ -440,6 +456,7 @@ class Admin::InstanceSettingsController < Admin::InstancesController
 
   def update_plan_params
     params.require(:website).permit(:plan,
+                                    :long_connections,
                                     :blue_green_deployment,
                                     :replicas,
                                     :open_source_title,

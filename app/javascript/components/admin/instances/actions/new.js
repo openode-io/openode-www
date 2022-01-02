@@ -233,6 +233,13 @@ export default {
                 required
               />
             </b-form-group>
+
+            <b-form-group id='input-group-6' label='Requires long connections (Web Socket):' label-for='input-6'>
+              <b-form-checkbox
+                id='input-6'
+                v-model={this.form.long_connections}
+              />
+            </b-form-group>
             
             {custom_plan_input}
 

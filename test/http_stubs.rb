@@ -536,6 +536,10 @@ module HttpStubs
                              'test/fixtures/http/openode_api/empty_object.json',
                              logged_in_user_token),
       HttpStubs.default_post('https://api.openode.io/instances/152/set-config',
+                             { "value" => "gcloud_run", "variable" => "EXECUTION_LAYER" },
+                             'test/fixtures/http/openode_api/empty_object.json',
+                             logged_in_user_token),
+      HttpStubs.default_post('https://api.openode.io/instances/152/set-config',
                              {
                                "value" => "false",
                                "variable" => "BLUE_GREEN_DEPLOYMENT"

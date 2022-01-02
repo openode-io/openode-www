@@ -62,7 +62,18 @@ class Admin::InstancesController < AdminController
   end
 
   def create
-    api(:post, '/instances/create', payload: instance_params.merge(openode_version: "v3"))
+    long_connections = instance_params[:long_connections]
+    instance_params.delete(:long_connections)
+    result = api(:post, '/instances/create',
+                 payload: instance_params.merge(openode_version: "v3"))
+
+    if long_connections
+      website_id = result["id"]
+      api(:post, "/instances/#{website_id}/set-config", payload: {
+            variable: 'EXECUTION_LAYER',
+            value: "kubernetes"
+          })
+    end
 
     @status = {
       level: 'success',
@@ -170,6 +181,7 @@ class Admin::InstancesController < AdminController
   def instance_params
     params.require(:instance).permit(:account_type, :location,
                                      :domain_type, :site_name, :domains,
+                                     :long_connections,
                                      :open_source_description, :open_source_repository,
                                      :open_source_title)
   end
