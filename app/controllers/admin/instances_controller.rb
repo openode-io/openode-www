@@ -64,14 +64,15 @@ class Admin::InstancesController < AdminController
   def create
     long_connections = instance_params[:long_connections]
     instance_params.delete(:long_connections)
-    result = api(:post, '/instances/create', payload: instance_params.merge(openode_version: "v3"))
+    result = api(:post, '/instances/create',
+                 payload: instance_params.merge(openode_version: "v3"))
 
     if long_connections
-      website_id = result.dig("id")
+      website_id = result["id"]
       api(:post, "/instances/#{website_id}/set-config", payload: {
-          variable: 'EXECUTION_LAYER',
-          value: "kubernetes"
-        })
+            variable: 'EXECUTION_LAYER',
+            value: "kubernetes"
+          })
     end
 
     @status = {
