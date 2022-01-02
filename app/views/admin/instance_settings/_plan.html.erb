@@ -7,9 +7,9 @@
         <div class="form-group mb-2">
 
         <p class="alert alert-info">
-        Notices: <br />
-        - once you change your plan, it will be reloaded automatically.<br />
+        
         <% if @has_auto_plan %>
+        Notice: <br />
           - For using a subscription on this website, make sure to select the <strong>Auto</strong> plan.<br />
         <% end %>
         </p>
@@ -19,6 +19,11 @@
             <%= form.label :plan, 'Change your plan', class: 'required' %>
             <%= form.select :plan, @plans.map { |p| [p['name'], p['internal_id']] },
             { selected: @website.account_type }, { class: 'form-control', required: true } %>
+          </div>
+
+          <div class="form-label-group mb-2">
+            <%= form.label :long_connections, 'Requires long connections (Web socket)' %>
+            <%= form.check_box :long_connections %>
           </div>
 
           <div id="instance-plan-opensource-field" class="<%= open_source_visibility_class(@website) %> mt-3">
