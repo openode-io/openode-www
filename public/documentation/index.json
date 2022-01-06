@@ -50,6 +50,10 @@
         "path":"platform/env_vars.md"
       },
       {
+        "name":"External services, persistence",
+        "path":"platform/external_services.md"
+      },
+      {
         "name":"Snapshots",
         "path":"platform/snapshots.md"
       },
