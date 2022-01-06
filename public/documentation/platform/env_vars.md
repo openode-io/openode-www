@@ -37,14 +37,6 @@ You can also viewed the stored environment variables with:
 
 The CLI/API variables can also be set using the administration, under Settings > Environment Variables.
 
-### Custom dotenv filepath
-
-If you want to use a dotenv which is different than **.env**, you can specify a filepath:
-
-    openode set-config DOTENV_FILEPATH <path>
-
-Example **path** can be for example **.production.env** for a specific production environment file.
-
 ## Dockerfile ENV
 
 Your Dockerfile can contain ENV commands allowing to set environment variables. To use this method, just add ENV commands in your Dockerfile, for example:
