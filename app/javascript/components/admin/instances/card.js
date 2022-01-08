@@ -105,10 +105,7 @@ export default {
 
               {outOfMemWarning}
             </p>
-            <p>Image Disk Space: {this.instance.plan.storage} MB</p>
-            <p>
-              Active Persistence: {this.instance.persistence ? this.instance.persistence.extra_storage : 0} GB
-            </p>
+            <p>Image Disk Limit: {this.instance.plan.storage} MB</p>
             <p>Memory Limit: {this.instance.plan.name === "Auto" ? "No" : `${this.instance.plan.ram} MB`}</p>
           </div>
           <div class='card-footer text-muted'>
