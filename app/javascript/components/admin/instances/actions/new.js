@@ -234,7 +234,7 @@ export default {
               />
             </b-form-group>
 
-            <b-form-group id='input-group-6' label='Requires long connections (Web Socket):' label-for='input-6'>
+            <b-form-group id='input-group-6' label='Requires long connections (Web Socket, bots):' label-for='input-6'>
               <b-form-checkbox
                 id='input-6'
                 v-model={this.form.long_connections}
