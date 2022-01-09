@@ -134,6 +134,10 @@
         "path":"misc/max_build_duration.md"
       },
       {
+        "name":"Skipping port verification",
+        "path":"misc/skip_port_check.md"
+      },
+      {
         "name":"Reuse image of another website",
         "path":"misc/reference_website_image.md"
       },

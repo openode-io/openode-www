@@ -54,18 +54,9 @@ To simply reload your container, the following command can be used:
 
 Note that it must already be online.
 
-## Blue-green deployment
+## Skip port check
 
-To minimize downtime on deployment, the following option can be activated:
+If you do not need an HTTP server (e.g.: for bots), you can skip the port verification at boot time:
 
-        openode set-config BLUE_GREEN_DEPLOYMENT true
+        openode set-config SKIP_PORT_CHECK true
 
-When you deploy, it will first create a new instance, and when it's ready, it will remove the old version of your instance, which will minimize downtime.
-
-## Replicas
-
-You can specify the number of replicas, which will allow to deploy more than 1 instance of your application.
-
-        openode set-config REPLICAS <number>
-
-where **number** is the number of replicas.
