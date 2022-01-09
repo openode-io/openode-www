@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
 
     JSON.parse(RestClient::Request.execute(method: method,
                                            url: url,
-                                           timeout: 10,
+                                           timeout: 60,
                                            payload: payload,
                                            headers: headers))
   end
