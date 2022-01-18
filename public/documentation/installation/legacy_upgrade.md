@@ -5,7 +5,7 @@
 If you created an instance before December 2021, please note the dates below.
 
 * **December 1 2021**: Open source instances must migrate to v3.
-* **March 1 2022**: All instances must be migrated to v3.
+* **February 1 2022**: All instances must be migrated to v3.
 
 ## Deprecation of \<subdomain\>.openode.io and \<subdomain\>.eu.openode.io
 
