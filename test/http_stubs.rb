@@ -547,20 +547,6 @@ module HttpStubs
                              'test/fixtures/http/openode_api/empty_object.json',
                              logged_in_user_token),
       HttpStubs.default_post('https://api.openode.io/instances/152/set-config',
-                             {
-                               "value" => "2",
-                               "variable" => "REPLICAS"
-                             },
-                             'test/fixtures/http/openode_api/empty_object.json',
-                             logged_in_user_token),
-      HttpStubs.default_post('https://api.openode.io/instances/152/set-config',
-                             {
-                               "value" => "0",
-                               "variable" => "REPLICAS"
-                             },
-                             'test/fixtures/http/openode_api/empty_object.json',
-                             logged_in_user_token),
-      HttpStubs.default_post('https://api.openode.io/instances/152/set-config',
                              { "value" => "/status", "variable" => "STATUS_PROBE_PATH" },
                              'test/fixtures/http/openode_api/empty_object.json',
                              logged_in_user_token),
