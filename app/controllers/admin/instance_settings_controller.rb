@@ -31,7 +31,6 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     @plans = api(:get, "/instances/#{@website.id}/plans")
     @has_auto_plan = @plans.any? { |p| p['internal_id'] == "auto" }
     @website.blue_green_deployment = @website.configs['BLUE_GREEN_DEPLOYMENT']
-    @website.replicas = @website.configs['REPLICAS'] || 1
     @website.open_source = @website.open_source || {}
 
     current_exec_layer = @website.configs&.dig("EXECUTION_LAYER")
@@ -458,7 +457,6 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     params.require(:website).permit(:plan,
                                     :long_connections,
                                     :blue_green_deployment,
-                                    :replicas,
                                     :open_source_title,
                                     :open_source_repository,
                                     :open_source_description)
