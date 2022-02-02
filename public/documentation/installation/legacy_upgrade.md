@@ -92,3 +92,10 @@ Also make sure to update to the new DNS settings provided by the CLI or the admi
 
 - CNAME for us-central-1: `us_central_1.openode.io`
 - CNAME for eu-west-1: `eu_west_1.openode.io`
+
+#### SSL
+
+Subdomain (instance.openode.dev) gets automatic SSL. If you have a custom domain, you can either provide your own certificate, or use a service like Cloudflare with
+"Full Mode" enabled.
+
+[See the SSL documentation for more details.](/docs/platform/ssl.md)
