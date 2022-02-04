@@ -5,7 +5,7 @@ class Admin::CollaboratorsController < Admin::InstancesController
                    title: "Instances"
 
     @permissions = make_lister_selection(
-      %w[root deploy alias storage_area location plan config]
+      %w[root deploy alias location plan config]
     )
   end
 
