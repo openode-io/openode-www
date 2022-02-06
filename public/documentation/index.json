@@ -74,6 +74,10 @@
         "path":"platform/web_socket.md"
       },
       {
+        "name":"Cron tasks",
+        "path":"platform/cron.md"
+      },
+      {
         "name":"Open Source",
         "path":"platform/open_source.md"
       }
