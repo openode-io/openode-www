@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
 
   def new
     # -
+    populate_already_auth_checked
   end
 
   def create
@@ -10,7 +11,9 @@ class SessionsController < ApplicationController
 
     token = api(:post, '/account/getToken', payload: payload)
 
-    if verify_recaptchas('login') && token.present?
+    already_captcha = populate_already_auth_checked
+
+    if (already_captcha || verify_recaptchas('login')) && token.present?
       user = api(:get, "/account/me", token: token)
       set_session(token, user)
       redirect_to({ controller: 'admin/instances' }, notice: "Logged in!")
@@ -23,5 +26,14 @@ class SessionsController < ApplicationController
     set_session(nil, nil)
 
     redirect_to root_url, notice: "Logged out!"
+  end
+
+  private
+
+  def populate_already_auth_checked
+    result = api(:post, "/global/recently-auth", payload: { ip: request.remote_ip })
+    @already_auth_checked = result["result"]
+
+    @already_auth_checked
   end
 end

@@ -73,6 +73,16 @@ module HttpStubs
         response_path: 'test/fixtures/http/openode_api/front/get_token_exists.json'
       },
       {
+        url: 'https://api.openode.io/global/recently-auth',
+        method: :post,
+        with: {
+          body: { 'ip' => '127.0.0.1' }
+        },
+        content_type: 'application/json',
+        response_status: 200,
+        response_path: 'test/fixtures/http/openode_api/front/recently-auth.json'
+      },
+      {
         url: 'https://api.openode.io/account/getToken',
         method: :post,
         with: {

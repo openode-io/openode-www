@@ -17,9 +17,11 @@
             <%= render 'layouts/public/password_field', name: 'password', label: 'Password' %>
           </div>
 
-          <div class="form-label-group mb-3">
-            <%= render_recaptcha('login', @show_recaptcha_v2) %>
-          </div>
+          <% unless @already_auth_checked %>
+            <div class="form-label-group mb-3">
+              <%= render_recaptcha('login', @show_recaptcha_v2) %>
+            </div>
+          <% end %>
 
           <%= submit_tag "Login", class: 'btn btn-lg btn-success w-100 mb-3' %>
 
