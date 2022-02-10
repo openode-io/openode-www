@@ -63,6 +63,8 @@ Rails.application.routes.draw do
     get 'billing/orders', to: 'billing#orders'
     get 'billing/spending', to: 'billing#spending'
     get 'billing/pay', to: 'billing#pay'
+    get 'billing/paypal', to: 'billing#paypal'
+    get 'billing/crypto', to: 'billing#crypto'
     get 'billing/subscription', to: 'billing#subscription'
     delete 'billing/subscriptions/:id/cancel', to: 'billing#cancel_subscription'
 

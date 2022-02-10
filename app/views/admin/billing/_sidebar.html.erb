@@ -1,16 +1,17 @@
 <div class="card">
   <div class="card-body">
     <div class="nav flex-column nav-pills" aria-orientation="vertical">
-      <a class="nav-link <%= params[:action].include?('subscription') ? 'active' : '' %>"
-        href="/admin/billing/subscription"
-        aria-controls="v-pills-console"
-        aria-selected="false" data-turbolinks="false" ><i class="fa fa-dollar-sign"></i> Subscription</a>      
 
-      <a class="nav-link <%= params[:action].include?('pay') ? 'active' : '' %>"
+      <a class="nav-link <%= params[:action].match(/pay|paypal|crypto/) ? 'active' : '' %>"
         href="/admin/billing/pay"
         aria-controls="v-pills-console"
         aria-selected="false"><i class="fa fa-dollar-sign"></i> On Demand Payment</a>      
-        
+      
+      <a class="nav-link <%= params[:action].include?('subscription') ? 'active' : '' %>"
+        href="/admin/billing/subscription"
+        aria-controls="v-pills-console"
+        aria-selected="false" data-turbolinks="false" ><i class="fa fa-dollar-sign"></i> Subscription</a>  
+
       <a class="nav-link <%= params[:action].match(/orders|index/) ? 'active' : '' %>"
         href="/admin/billing/orders"
         aria-controls="v-pills-activity"

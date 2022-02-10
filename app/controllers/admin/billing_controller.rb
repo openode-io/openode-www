@@ -6,8 +6,10 @@ class Admin::BillingController < AdminController
                    admin_billing_path
   end
 
+  before_action :prepare_pay, only: [:pay, :paypal, :crypto]
+
   def index
-    redirect_to(action: :subscription)
+    redirect_to(action: :pay)
   end
 
   def orders
@@ -39,10 +41,12 @@ class Admin::BillingController < AdminController
   end
 
   def pay
-    add_breadcrumb "On Demand Payment"
+  end
 
-    @user = api(:get, "/account/me")
+  def paypal
+  end
 
+  def crypto
     @cryptos = [
       {
         id: 'bitcoin',
@@ -69,5 +73,13 @@ class Admin::BillingController < AdminController
         addr: '0x79d2d008b495915cc2c334ba7d5c4143a52a9161'
       }
     ]
+  end
+
+  private
+
+  def prepare_pay
+    add_breadcrumb "On Demand Payment"
+
+    @user = api(:get, "/account/me")
   end
 end
