@@ -50,10 +50,11 @@ class Admin::BillingController < AdminController
     @cryptos = [
       {
         id: 'bitcoin',
-        addr: '35MHiUfGB1ZGAPi4ejdcuuhMqXUxv2tpK7'
+        addr: '35MHiUfGB1ZGAPi4ejdcuuhMqXUxv2tpK7',
+        qr_path: '/images/billing/crypto/qr_bitcoin.png'
       },
       {
-        id: 'crypto.com (CRO)',
+        id: 'cro',
         addr: 'cro1w2kvwrzp23aq54n3amwav4yy4a9ahq2kz2wtmj',
         memo: '851070363'
       }

@@ -23,7 +23,17 @@
                  role="tabpanel"
                  aria-labelledby="v-pills-<%= crypto[:id] %>-tab">
               <p><strong>Pay to (Address):</strong> <%= crypto[:addr] %></p>
-              <p><strong>Memo:</strong> userid <%= @user['id'] %></p>
+
+              <% if crypto[:memo] %>
+                <p><strong>Memo:</strong> <%= crypto[:memo] %></p>
+              <% end %>
+
+              <% if crypto[:qr_path] %>
+                <p>
+                  Scan the following QR Code:<br />
+                  <img src="<%= crypto[:qr_path] %>" />
+                </p>
+              <% end %>
               <!--
               <p><strong>QR Code:</strong> <br />
                 <%= image_tag "/images/crypto_wallets/#{crypto[:id]}.png", width: '125' %>
@@ -45,6 +55,21 @@
             stellar
           </div>
         -->
+
+        <div>
+          hello
+
+          <%= form_for :support, {url: support_path, class: 'form-signin'} do |form| %>
+            <%= form.hidden_field :user_id, value: @user["id"] %>
+
+            <div class="form-label-group mb-2">
+              <%= form.label :amount, 'Please specify the amount sent in USD', class: 'required' %>
+              <%= form.text_field :message, { class: 'form-control', rows:5, required:true } %>
+            </div>
+
+            <%= form.submit "Request payment sent", class: 'btn btn-lg btn-success w-100 mb-3' %>
+
+          <% end %> 
         </div>
       </div>
     </div>            
