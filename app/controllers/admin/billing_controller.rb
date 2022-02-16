@@ -50,27 +50,12 @@ class Admin::BillingController < AdminController
     @cryptos = [
       {
         id: 'bitcoin',
-        addr: '3HW6gpLrgr2ypGi5Rj37pZQrkd3ZJfgBZY'
+        addr: '35MHiUfGB1ZGAPi4ejdcuuhMqXUxv2tpK7'
       },
       {
-        id: 'ether',
-        addr: '0x79d2d008b495915cc2c334ba7d5c4143a52a9161'
-      },
-      {
-        id: 'litecoin',
-        addr: 'MV1rA12f6w8LSkxpGBnmhYmL28MWXvrQU8'
-      },
-      {
-        id: 'chainlink',
-        addr: '0x79d2d008b495915cc2c334ba7d5c4143a52a9161'
-      },
-      {
-        id: 'pax-gold',
-        addr: '0x79d2d008b495915cc2c334ba7d5c4143a52a9161'
-      },
-      {
-        id: 'tether',
-        addr: '0x79d2d008b495915cc2c334ba7d5c4143a52a9161'
+        id: 'crypto.com (CRO)',
+        addr: 'cro1w2kvwrzp23aq54n3amwav4yy4a9ahq2kz2wtmj',
+        memo: '851070363'
       }
     ]
   end
