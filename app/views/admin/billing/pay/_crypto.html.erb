@@ -1,6 +1,9 @@
 
+<!--
 <div class="card mt-3 mb-3">
-  <div class="card-body">   
+  <div class="card-body"> 
+-->
+
     <div class="row">
       <div class="col-lg-2 col-md-2 col-sm-2">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -22,6 +25,16 @@
                  id="v-pills-<%= crypto[:id] %>"
                  role="tabpanel"
                  aria-labelledby="v-pills-<%= crypto[:id] %>-tab">
+
+              <% if crypto[:logo_path] %>
+                <p>
+                  <a href="https://www.crypto.com/">
+                    <img src="<%= crypto[:logo_path] %>" style="height: 3.2vw;" /><br />
+                    Cronos (CRO) is the native token of the Cronos Chain and Crypto.org Chain.
+                  </a>
+                </p>
+              <% end %>
+
               <p><strong>Pay to (Address):</strong> <%= crypto[:addr] %></p>
 
               <% if crypto[:memo] %>
@@ -34,12 +47,25 @@
                   <img src="<%= crypto[:qr_path] %>" />
                 </p>
               <% end %>
-              <!--
-              <p><strong>QR Code:</strong> <br />
-                <%= image_tag "/images/crypto_wallets/#{crypto[:id]}.png", width: '125' %>
-              </p>
-              -->
+
+              <div>
+
+                <%= form_for :crypto, {url: "/admin/billing/crypto/request_payment", class: 'form-signin'} do |form| %>
+                  <%= form.hidden_field :user_id, value: @user["id"] %>
+                  <%= form.hidden_field :token, value: crypto[:id] %>
+
+                  <div class="form-label-group mb-2">
+                    <%= form.label :amount, 'Please specify the amount sent in USD', class: 'required' %>
+                    <%= form.number_field :amount, { class: 'form-control', rows: 5, required: true, value: 0, step: 0.01 } %>
+                  </div>
+
+                  <%= form.submit "Request A Payment", class: 'btn btn-lg btn-success w-100 mb-3' %>
+
+                <% end %> 
+              </div>
             </div>
+
+
           <% end %>
 
           <!--
@@ -56,26 +82,15 @@
           </div>
         -->
 
-        <div>
-          hello
-
-          <%= form_for :support, {url: support_path, class: 'form-signin'} do |form| %>
-            <%= form.hidden_field :user_id, value: @user["id"] %>
-
-            <div class="form-label-group mb-2">
-              <%= form.label :amount, 'Please specify the amount sent in USD', class: 'required' %>
-              <%= form.text_field :message, { class: 'form-control', rows:5, required:true } %>
-            </div>
-
-            <%= form.submit "Request payment sent", class: 'btn btn-lg btn-success w-100 mb-3' %>
-
-          <% end %> 
-        </div>
       </div>
     </div>            
   </div>
+
+<!--
 </div>          
+-->
+
 <div class="alert alert-info">
-  <i class="fa fa-info-circle"></i> Important notice: The crypto payment process is manual, once your payment is done please contact us with your wallet address.
+  <i class="fa fa-info-circle"></i> Important notice: Once your payment is done, make sure to click Request A Payment.
   We usually validate the transaction within few hours up to 1 business day. Thanks!          
 </div>

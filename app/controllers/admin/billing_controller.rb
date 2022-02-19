@@ -56,9 +56,24 @@ class Admin::BillingController < AdminController
       {
         id: 'cro',
         addr: 'cro1w2kvwrzp23aq54n3amwav4yy4a9ahq2kz2wtmj',
-        memo: '851070363'
+        memo: '851070363',
+        logo_path: '/images/billing/crypto/cro.svg'
       }
     ]
+  end
+
+
+  def request_crypto_payment
+    api(:post,
+      "/billing/request_payment",
+      payload: {
+        token: params["crypto"]["token"],
+        amount: params["crypto"]["amount"]
+      }
+    )
+
+    redirect_to({ action: :pay },
+                notice: "Thanks for your payment! It will be processed shortly.")
   end
 
   private
