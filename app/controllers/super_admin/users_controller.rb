@@ -10,6 +10,7 @@ class SuperAdmin::UsersController < SuperAdminController
       %w[credit credit],
       %w[paypal paypal],
       %w[btc btc],
+      %w[cro cro],
       %w[ether ether],
       %w[bch bch],
       %w[stellar stellar]

@@ -6,6 +6,7 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Amount</th>
+            <th scope="col">Gateway/details</th>
             <th scope="col">Date</th>
           </tr>
         </thead>
@@ -15,6 +16,9 @@
             <td><%= o['id'] %></td>
             <td>
               <%= number_to_currency(o['amount'].to_f) %>
+            </td>
+            <td>
+              <%= o['gateway'] %>
             </td>
             <td>
               <%= time_ago_in_words(o['created_at']) if o['created_at'] %> ago

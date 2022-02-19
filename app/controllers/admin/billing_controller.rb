@@ -6,8 +6,10 @@ class Admin::BillingController < AdminController
                    admin_billing_path
   end
 
+  before_action :prepare_pay, only: [:pay, :paypal, :crypto]
+
   def index
-    redirect_to(action: :subscription)
+    redirect_to(action: :pay)
   end
 
   def orders
@@ -39,35 +41,44 @@ class Admin::BillingController < AdminController
   end
 
   def pay
-    add_breadcrumb "On Demand Payment"
+  end
 
-    @user = api(:get, "/account/me")
+  def paypal
+  end
 
+  def crypto
     @cryptos = [
       {
         id: 'bitcoin',
-        addr: '3HW6gpLrgr2ypGi5Rj37pZQrkd3ZJfgBZY'
+        addr: '35MHiUfGB1ZGAPi4ejdcuuhMqXUxv2tpK7',
+        qr_path: '/images/billing/crypto/qr_bitcoin.png'
       },
       {
-        id: 'ether',
-        addr: '0x79d2d008b495915cc2c334ba7d5c4143a52a9161'
-      },
-      {
-        id: 'litecoin',
-        addr: 'MV1rA12f6w8LSkxpGBnmhYmL28MWXvrQU8'
-      },
-      {
-        id: 'chainlink',
-        addr: '0x79d2d008b495915cc2c334ba7d5c4143a52a9161'
-      },
-      {
-        id: 'pax-gold',
-        addr: '0x79d2d008b495915cc2c334ba7d5c4143a52a9161'
-      },
-      {
-        id: 'tether',
-        addr: '0x79d2d008b495915cc2c334ba7d5c4143a52a9161'
+        id: 'cro',
+        addr: 'cro1w2kvwrzp23aq54n3amwav4yy4a9ahq2kz2wtmj',
+        memo: '851070363',
+        logo_path: '/images/billing/crypto/cro.svg'
       }
     ]
+  end
+
+  def request_crypto_payment
+    api(:post,
+        "/billing/request_payment",
+        payload: {
+          token: params["crypto"]["token"],
+          amount: params["crypto"]["amount"]
+        })
+
+    redirect_to({ action: :pay },
+                notice: "Thanks for your payment! It will be processed shortly.")
+  end
+
+  private
+
+  def prepare_pay
+    add_breadcrumb "On Demand Payment"
+
+    @user = api(:get, "/account/me")
   end
 end

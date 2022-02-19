@@ -13,17 +13,43 @@
           <div class="mb-3 bd-callout bd-callout-warning">
             100 credits correspond to 1 US dollar.
           </div>
+
+          
+
           <p>
             See the <a href="/on-demand-pricing">on demand pricing</a>.
             For each website, credits will be spent depending on the website type whenever it is online.
             We only bill websites which are up.
           </p>
 
-          <%= render "admin/billing/pay/paypal" %>
-          <p>
-            <hr />
-          </p>
-          <%= render "admin/billing/pay/crypto" %>
+          <div class="row"><br /><hr /></div>
+
+          <div class="row">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-3 text-center">
+              <a href="/admin/billing/paypal">
+                <img src="/images/billing/paypal.svg" style="height: 3.2vw;" />
+                <br />
+                Paypal/Credit Card
+              </a>
+            </div>
+
+            <div class="col-lg-3 text-center">
+              <a href="/admin/billing/crypto">
+                <img src="/images/billing/bitcoin.svg" style="height: 3.2vw;" />
+                <br />
+                Cryptocurrencies
+
+                <br /><br />
+
+              </a>
+              
+              <small>Get 5% reward when you pay with crypto!</small>
+            </div>
+            <div class="col-lg-3">
+            </div>
+          </div>
 
         </div>    
       </div>
