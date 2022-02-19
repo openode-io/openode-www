@@ -62,15 +62,13 @@ class Admin::BillingController < AdminController
     ]
   end
 
-
   def request_crypto_payment
     api(:post,
-      "/billing/request_payment",
-      payload: {
-        token: params["crypto"]["token"],
-        amount: params["crypto"]["amount"]
-      }
-    )
+        "/billing/request_payment",
+        payload: {
+          token: params["crypto"]["token"],
+          amount: params["crypto"]["amount"]
+        })
 
     redirect_to({ action: :pay },
                 notice: "Thanks for your payment! It will be processed shortly.")
