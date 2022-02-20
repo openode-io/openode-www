@@ -127,59 +127,6 @@ class AdminInstanceSettingsControllerTest < ActionDispatch::IntegrationTest
     assert_response :found
   end
 
-  test "get persistence" do
-    perform_successful_login
-
-    get "/admin/instances/#{default_instance_id}/settings/persistence"
-
-    assert_response :success
-
-    assert_includes response.parsed_body, 'Storage Area'
-  end
-
-  test "destroy persistence" do
-    perform_successful_login
-
-    delete "/admin/instances/#{default_instance_id}/settings/persistence"
-
-    assert_response :found
-  end
-
-  test "change size" do
-    perform_successful_login
-
-    patch "/admin/instances/#{default_instance_id}/settings/change_size",
-          params: {
-            persistence: {
-              amount_gb: 3
-            }
-          }
-
-    assert_response :found
-  end
-
-  test "create storage area" do
-    perform_successful_login
-
-    post "/admin/instances/#{default_instance_id}/settings/storage_areas",
-         params: {
-           persistence: {
-             storage_area: '/home'
-           }
-         }
-
-    assert_response :found
-  end
-
-  test "destroy storage area" do
-    perform_successful_login
-
-    b64 = "L2hvbWUvd2hhdA=="
-    delete "/admin/instances/#{default_instance_id}/settings/storage_areas/#{b64}"
-
-    assert_response :found
-  end
-
   # dns and alias
   test "get dns and alias" do
     perform_successful_login
