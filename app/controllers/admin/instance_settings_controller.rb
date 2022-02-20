@@ -249,51 +249,6 @@ class Admin::InstanceSettingsController < Admin::InstancesController
     redirect_to({ action: :env }, notice: msg('message.modifications_saved'))
   end
 
-  def persistence
-    add_breadcrumb "Settings",
-                   admin_instance_settings_path
-    add_breadcrumb "Persistence"
-
-    @storage = api(:get, "/instances/#{@instance_id}/storage")
-    @doc_link = "/docs/platform/persistence.md"
-  end
-
-  def destroy_persistence
-    api(:post, "/instances/#{@instance_id}/destroy-storage")
-
-    redirect_to({ action: :persistence }, notice: msg('message.modifications_saved'))
-  end
-
-  def change_size
-    storage = api(:get, "/instances/#{@instance_id}/storage")
-
-    existing_size = storage['extra_storage']&.to_i
-    new_size = change_size_params['amount_gb']&.to_i
-
-    change_size = new_size - existing_size
-
-    api(:post, "/instances/#{@instance_id}/increase-storage",
-        payload: { amount_gb: change_size })
-
-    redirect_to({ action: :persistence }, notice: msg('message.modifications_saved'))
-  end
-
-  def create_storage_area
-    api(:post, "/instances/#{@instance_id}/add-storage-area",
-        payload: storage_area_params)
-
-    redirect_to({ action: :persistence }, notice: msg('message.modifications_saved'))
-  end
-
-  def destroy_storage_area
-    storage_area = Base64.decode64(params[:b64volume])
-
-    api(:post, "/instances/#{@instance_id}/del-storage-area",
-        payload: { storage_area: storage_area })
-
-    redirect_to({ action: :persistence }, notice: msg('message.modifications_saved'))
-  end
-
   def misc
     add_breadcrumb "Instances",
                    admin_instances_path,
